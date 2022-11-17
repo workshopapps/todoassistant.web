@@ -166,8 +166,8 @@ p {
     .section__two_wrapper {
       .float_icon_1 {
         transform: scale(0.4);
-        top: 50%;
-        left: 0%;
+        top: 60%;
+        left: 3%;
       }
 
       .float_icon_2 {
@@ -192,7 +192,7 @@ p {
       .section__two_subtitle {
         font-size: 1.25rem;
         line-height: 140%;
-        margin-bottom: 7.9rem
+        margin-bottom: 7.9rem;
       }
     }
   }
@@ -227,31 +227,45 @@ p {
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-}
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
   .section__two {
     .section__two_wrapper {
       .float_icon_1 {
-        transform: scale(1);
-        top: 21%;
-        left: 5%;
-        p {
-          display: block;
-        }
+        left: 2%;
       }
 
       .float_icon_2 {
-        transform: translate(-50%, -50%) scale(1);
+        // top: 130%;
       }
 
       .float_icon_3 {
-        top: 67%;
-        left: 85%;
-        transform: scale(1);
-        p {
-          display: block;
+      }
+    }
+  }
+
+  // XX-Large devices (larger desktops, 1400px and up)
+  @media (min-width: 1400px) {
+    .section__two {
+      .section__two_wrapper {
+        .float_icon_1 {
+          transform: scale(1);
+          top: 21%;
+          left: 5%;
+          p {
+            display: block;
+          }
+        }
+
+        .float_icon_2 {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        .float_icon_3 {
+          top: 67%;
+          left: 85%;
+          transform: scale(1);
+          p {
+            display: block;
+          }
         }
       }
     }

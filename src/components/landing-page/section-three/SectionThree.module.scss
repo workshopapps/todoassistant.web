@@ -64,7 +64,7 @@ p {
   .section__three {
     .section__three_howitworks {
       @include container;
-      flex: 1;
+      // flex: 1;
       header {
         margin: 4.25rem 0;
         .section__three_title {
@@ -78,7 +78,6 @@ p {
     }
 
     .section__three_img_wrapper {
-      flex: 1;
       img {
         @include img_fluid;
       }
@@ -95,12 +94,10 @@ p {
     .section__three_howitworks {
       header {
         margin: 0;
-        // padding-right: 8rem;
       }
     }
     .section__three_img_wrapper {
-      flex: 1;
-      transform: scale(1);
+      // flex: 1;
       img {
         @include img_fluid;
       }
@@ -126,7 +123,6 @@ p {
 
 // XX-Large devices (larger desktops, 1400px and up)
 @media screen and (min-width: 1400px) {
-
   .section__three {
     flex-direction: row;
     align-items: center;
@@ -145,12 +141,20 @@ p {
       }
 
       .section__three_img_wrapper {
-        display: none;
-        flex: 1;
-        // transform: scale(0.5);
         img {
           @include img_fluid;
         }
+      }
+    }
+  }
+}
+// XXX-Large devices (larger desktops, 1700px and up)
+@media screen and (min-width: 1700px) {
+  .section__three {
+    .section__three_img_wrapper {
+      flex: initial;
+      img {
+        @include img_fluid;
       }
     }
   }

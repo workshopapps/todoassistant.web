@@ -210,7 +210,10 @@ p {
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: 770px) {
+  .hero {
+    height: fit-content;
+  }
 }
 
 // X-Large devices (large desktops, 1200px and up)
