@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.card h4 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 160%;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.flex {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.flex :nth-child(1) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #714dd9;
+  padding-right: 16px;
+  border-right: 1px solid #714dd9;
+}
+
+.flex :nth-child(2) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.card :nth-child(3) {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #000000;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  background: #714dd9;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 160%;
+  color: #fafafa;
+}
