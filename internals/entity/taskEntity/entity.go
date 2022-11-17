@@ -25,3 +25,12 @@ type CreateTaskRes struct {
 	StartTime   string `json:"start_time"`
 	EndTime     string `json:"end_time"`
 }
+
+// response for searched task
+type SearchTaskRes struct {
+	TaskId      string `json:"task_id"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	StartTime   string `json:"start_time"`
+	EndTime     string `json:"end_time"`
+}

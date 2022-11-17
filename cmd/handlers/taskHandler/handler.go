@@ -16,6 +16,10 @@ func NewTaskHandler(srv taskService.TaskService) *taskHandler {
 	return &taskHandler{srv: srv}
 }
 
+func SearchTaskHandler(srv taskService.TaskService) *taskHandler {
+	return &taskHandler{srv: srv}
+}
+
 func (t *taskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "application/json")
 	var req taskEntity.CreateTaskReq
@@ -37,4 +41,10 @@ func (t *taskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(task)
 
+}
+
+// handle search function
+func (t *taskHandler) SearchTask (w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("This route returns all tasks in B %s"))
 }
