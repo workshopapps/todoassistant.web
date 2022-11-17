@@ -1,12 +1,16 @@
-import React from 'react'
-// import Client from '../layout/client/Client'
-// import Download from '../layout/download/Download'
-// import Gift from '../layout/gift/Gift'
+import React from "react";
+import Hero from "../components/landing-page/hero-section/Hero";
+import SectionThree from "../components/landing-page/section-three/SectionThree";
+import SectionTwo from "../components/landing-page/section-two/SectionTwo";
 
 const LandingPage = () => {
   return (
-    <div>Landing page</div>
-  )
-}
+    <main>
+      <Hero />
+      <SectionTwo />
+      <SectionThree />
+    </main>
+  );
+};
 
-export default LandingPage
+export default LandingPage;
