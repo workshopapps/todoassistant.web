@@ -21,7 +21,7 @@ const Footer = () => {
         <Link to="">Career</Link>
         <Link to="">Privacy</Link>
       </div>
-      <div>
+      <div className={styles.footer_socials}>
         <img src={facebook} alt="logo" />
         <img src={twitter} alt="logo" />
         <img src={instagram} alt="logo" />
