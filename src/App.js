@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Contact from './pages/Contact';
@@ -10,7 +10,7 @@ import Footer from './layout/Footer';
 
 function App() {
   return (
-    <div className='App'>
+    <div >
       <Header />
       <Routes>
         <Route path='/' element={<LandingPage />} />
