@@ -1,3 +1,5 @@
+import React from "react";
+import JobOpening from "../layout/JobOpening";
 import CareerHero from '../layout/CareerHero';
 import styles from './Career.module.scss'
 
