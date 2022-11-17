@@ -3,10 +3,7 @@ import AboutUsHeader from '../components/AboutUs/AboutUsHeader';
 import Testimonal from '../components/AboutUs/Testimonal';
 const AboutUs = () => {
   return (
-    <>
-      <AboutUsHeader/>
-      <Testimonal/>
-    </>
+    
   );
 };
 
