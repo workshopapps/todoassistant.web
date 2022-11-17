@@ -35,6 +35,51 @@ p {
   color: $blackText;
 }
 
+.hero__icon1 {
+  position: absolute;
+  top: 36%;
+  z-index: -1;
+  left: 1%;
+
+  @media (min-width: 1200px) {
+    top: 17%;
+    left: 5%;
+  }
+}
+.hero__icon2 {
+  position: absolute;
+  top: 60%;
+  left: 1%;
+  z-index: -1;
+
+  @media (min-width: 1200px) {
+    top: 38%;
+    left: 8%;
+  }
+}
+.hero__icon3 {
+  position: absolute;
+  top: 60%;
+  left: 82%;
+  z-index: -1;
+
+  @media (min-width: 1200px) {
+    top: 27%;
+    left: 90%;
+  }
+}
+.hero__icon4 {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  z-index: -1;
+
+  @media (min-width: 1200px) {
+    top: 0;
+    left: 90%;
+  }
+}
+
 .hero {
   position: relative;
   height: 100vh;

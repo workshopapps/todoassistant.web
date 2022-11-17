@@ -6,6 +6,26 @@ const Hero = () => {
     <header className={style.hero}>
       <div className={style.hero__bg_img}></div>
       <section className={style.container}>
+        <img
+          className={style.hero__icon1}
+          src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-1_b7dn1l.svg"
+          alt="icon"
+        />
+        <img
+          className={style.hero__icon2}
+          src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-2_zwxiad.svg"
+          alt="icon"
+        />
+        <img
+          className={style.hero__icon3}
+          src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-3_vettso.svg"
+          alt="icon"
+        />
+        <img
+          className={style.hero__icon4}
+          src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector_rd7eki.svg"
+          alt="icon"
+        />
         <article className={style.hero__text_section}>
           <div>
             <h1 className={style.hero__title}>
