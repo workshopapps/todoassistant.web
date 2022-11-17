@@ -40,7 +40,7 @@ p {
     flex: 1;
 
     header {
-      margin: 4.25rem 0;
+      margin: 4.25rem 1.25rem;
       .section__three_title {
         font-size: 1.56rem;
         margin-bottom: 1rem;
@@ -126,7 +126,7 @@ p {
 
 // XX-Large devices (larger desktops, 1400px and up)
 @media screen and (min-width: 1400px) {
- 
+
   .section__three {
     flex-direction: row;
     align-items: center;
