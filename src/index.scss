@@ -1,12 +1,12 @@
-body{
-  font-family: 'Open Sans', sans-serif;
-}
-
+@import "./scss/variables";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $font-open-sans;
 }
 
-
+body{
+  font-family: 'Open Sans', sans-serif;
+}
