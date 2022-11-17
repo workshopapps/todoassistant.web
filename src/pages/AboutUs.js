@@ -1,7 +1,12 @@
 import React from 'react';
+import AboutUsHeader from '../components/AboutUs/AboutUsHeader';
 
 const AboutUs = () => {
-  return <div>AboutUs</div>;
+  return (
+    <>
+      <AboutUsHeader/>
+    </>
+  );
 };
 
 export default AboutUs;
