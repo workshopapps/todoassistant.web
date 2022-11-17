@@ -59,4 +59,9 @@
             justify-content: flex-end;
         }
     }
+
+    @media screen and (max-width: 450px) {
+        width: 70vw;
+        right: 5%;
+    }
 }

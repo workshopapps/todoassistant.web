@@ -10,7 +10,6 @@ const ContactHero = () => {
     <div className='contact__hero'>
         <div className='image'>
             <img src={People} alt='contact-img' className='people' />
-            {/* <img src={BgShade} alt='shade' className='shade' /> */}
         </div>
         <div className='content'>
             <h1>Contact Ticked</h1>
