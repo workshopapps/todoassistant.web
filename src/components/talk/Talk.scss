@@ -1,0 +1,62 @@
+.contact__talk{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    padding: 0 5%;
+
+    h2{
+        font-weight: 700;
+        font-size: 55px;
+    }
+
+    p{
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: .5rem;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .profiles{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .item{
+            font-weight: 700;
+            font-size: 22px;
+            margin: .7rem 2rem;
+
+            .unit{
+                color: #714DD9;
+            }
+            img{
+                width: 250px;
+
+                @media screen and (max-width: 300px) {
+                    width: 95%;
+                }
+            }
+
+            
+        }
+
+        @media screen and (max-width: 600px) {
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        h2{
+            font-size: 27px;
+        }
+        p{
+            font-size: 18px;
+        }
+    }
+}
