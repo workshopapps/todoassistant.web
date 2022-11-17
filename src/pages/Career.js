@@ -1,9 +1,13 @@
 import CareerHero from '../layout/CareerHero';
-import styles from '../layout/CareerHero.module.scss'
+import styles from './Career.module.scss'
 
 const Career = () => {
-  return <div className={styles.container}>
-    <CareerHero />
+  return <div className={styles.wrapper}>
+    
+    <div className={styles.container}>
+      <CareerHero />
+    </div>
+    
   </div>;
 };
 
