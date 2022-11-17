@@ -23,7 +23,7 @@ const JobOpening = () => {
           </p>
           <form>
             <div className={styles.inputWrapper}>
-              <img src={searchIcon} alt="" />
+              <img src={searchIcon} alt="search" />
               <input type="text" placeholder="Search Jobs" />
             </div>
             <div className={styles.selectWrapper}>
