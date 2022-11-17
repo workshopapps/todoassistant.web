@@ -32,7 +32,7 @@ const Map = () => {
           ></iframe>
           <div className={classes.direction}>
             <div className={classes.location}>
-              <img src={location} alt="location" />
+              <img className={classes.location1} src={location} alt="location" />
               <h4>Ticked Head Quarters</h4>
             </div>
             <p>8502 Preston Rd. Inglewood, Maine 98380</p>
