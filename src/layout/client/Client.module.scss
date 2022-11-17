@@ -1,0 +1,87 @@
+.main {
+    background-color: #F9F7FF;
+    padding: 15px;
+
+    @media (min-width: 900px) {
+        padding: 60px 0px;
+    }
+
+    &__clientSub {
+
+        h3 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 160%;
+            @media (min-width: 900px) {
+                font-size: 3rem;
+            }
+        }
+        p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 400;
+            line-height: 160%;
+        }
+    }
+
+    &__card {
+        padding: 20px;
+        display: flex;
+        // gap: 1.2rem;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        @media (min-width: 900px) {
+            padding: 60px 60px 20px 60px;
+            flex-direction: row;
+            // width: 90%;
+            
+            
+        }
+    }
+
+    &__arrow {
+        width: 150px;
+        margin-bottom: 50px !important;
+        margin: 0 auto;
+        img {
+            margin: 10px;
+        }
+    }
+}
+
+// Card design
+.card {
+    width: 100%;
+    min-height: 18.05vh;
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCFCFF;
+    border-radius: 8px;
+
+    @media (min-width: 900px) {
+        max-width: 20.57vw;
+    }
+    h5 {
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 180%;
+        margin-top: 10px;
+        color: #222636;
+    }
+    p {
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 400;
+        line-height: 140%;
+        margin-top: 10px;
+        color: #898B94;
+    }
+}

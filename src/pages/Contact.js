@@ -4,11 +4,11 @@ import Talk from '../components/talk/Talk';
 
 const Contact = () => {
   return <div>
-    {/* <ContactHero />
-    <Talk /> */}
     <ContactHero />
     <Talk />
   </div>
 };
 
 export default Contact;
+
+<Map />;

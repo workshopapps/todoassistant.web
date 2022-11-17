@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import LowerLevel from "../layout/FAQ/LowerLevel";
 
 const FAQ = () => {
-  return <div>FAQ</div>;
+  return (
+    <div>
+     
+    </div>
+  );
 };
 
 export default FAQ;
