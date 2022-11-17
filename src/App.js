@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Contact from "./pages/Contact";
 import Career from "./pages/Career";
+import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/FAQ";
 import PrivatePolicy from "./pages/PrivatePolicy";
 import Header from "./layout/Header";
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path='/about-us' element={<AboutUs/>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/faq" element={<FAQ />} />
