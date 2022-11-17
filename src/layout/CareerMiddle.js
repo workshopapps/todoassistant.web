@@ -11,7 +11,7 @@ const CareerMiddle = () => {
       <h2 className={styles.recruitment__h2}>Learn our Recruitment Process</h2>
       <p className={styles.recruitment__p}>
         We always look for talents with great entity because we believe, we can
-        train the right skills in the right entity
+        train the right skills in the right entity.
       </p>
       <div className={styles.card}>
         <div className={styles.card__info}>
