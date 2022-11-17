@@ -1,0 +1,32 @@
+.nav-fluid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+    margin:.375rem auto 0.63625rem;
+    background-color: #f6fafb;
+}
+
+.nav-fluid a{
+    width: 24px;
+    height: 24px;
+}
+
+.heading{
+    padding: 0.3125rem 0 0.625rem 1.3125rem;
+    background-color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 160%;
+}
+
+.thick-border{
+     border-bottom:2px solid #714dd9;
+    //  border: ;
+}
+
+@media (min-width: 991px){
+    .mobile_nav{
+        display: none;
+    }
+}

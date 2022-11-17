@@ -1,0 +1,175 @@
+@import "../../scss/variables";
+
+body{
+    background-color: #f6fafb;
+}
+
+.va-main{
+    border-radius: 24px;
+    background-color: #fff;
+    margin:7.5rem 5.5rem 3rem 16.9375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1.5rem;
+}
+
+.cancel-button{
+    // padding: 0.125rem;
+    align-self: flex-end;
+}
+
+.cancel-button img{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.calling-img{
+    margin:.5625rem auto 1.158125rem;
+    width: 44.4033%;
+}
+
+.calling-img img{
+    width: 100%;
+}
+
+.talking-text{
+    text-align: center;
+    color: #333;
+}
+
+.talking-text h4{
+    font-weight: 700;
+    padding-bottom: 0.1875rem;
+    font-size: 1.5625rem;
+    line-height: 160%;
+}
+
+.talking-text p{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    padding-bottom: 4rem;
+}
+    
+
+.talking-btns{
+    display: flex;
+    padding-bottom: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 23.5675rem;
+}
+
+.talking-btns button{
+    border-radius: .5rem;
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 160%;
+    outline: none;
+    padding: .8125rem .875rem;
+}
+
+.talking-btns button:first-of-type{
+    background-color: #714dd9;
+    color: #fafafa;
+    border: none;
+}
+
+.talking-btns button:last-of-type{
+    color: #714dd9;
+    border: 1px solid #714dd9;
+    background-color: #fff;
+}
+
+
+
+
+@media (max-width: 481px){
+   .va-main{
+       border-radius: 13.7103px;
+       margin:1.6875rem 0.625rem  3.75rem;
+       padding: 1.1875rem 1.25rem;
+
+    }
+
+    .calling-img{
+        width: 66.5183099%;
+        margin:.650625rem auto 1.87125rem;
+    }
+
+    .talking-text{
+    padding: 0 1.875rem 0 1.9375rem;
+    }
+
+    .talking-text h4{
+        
+        line-height: 1.125rem;
+        font-size: 0.875rem;
+    }
+
+    .talking-text p{
+        font-size: .6875rem;
+        line-height: 100%;
+        padding-bottom:1.875rem ;
+    }
+
+    .talking-btns{
+        max-width:fit-content;
+        padding:0 0 7.125rem 0;
+        margin: 0 auto;
+   
+    }
+
+    .talking-btns button:first-of-type{
+        margin-right: 25px;
+    }
+}
+
+@media (max-width:321px){
+    .talking-btns button:first-of-type{
+        margin-right: 10px;
+    }
+}
+
+@media (min-width:481px) and (max-width: 769px){
+    .talking-btns{
+        width: fit-content;
+    }
+
+    .talking-btns button:first-of-type{
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1023px){
+    .va-main{
+        margin-inline: auto;
+        width: 85%;
+    }
+}
+
+
+@media (min-width: 2560px){
+    .talking-text p{
+        font-size: 2rem;
+    }
+
+    .talking-text h4{
+        font-size:2.5625rem;
+    }
+
+    .cancel-button img {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .talking-btns button{
+        padding:1.8125rem 1.875rem;
+        font-size: 1.875rem;
+    }
+
+    .talking-btns{
+        width: 30rem;
+    }
+}
