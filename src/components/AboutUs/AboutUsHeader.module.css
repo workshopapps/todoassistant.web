@@ -11,7 +11,7 @@
     padding-top: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 .headerTickedbox{
@@ -19,6 +19,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 2rem;
+    margin-top: -2rem;
 }
 
 .ticked{
@@ -26,6 +28,7 @@
     font-weight: 700;
     font-family: 'Open Sans', sans-serif;
     color: #141414;
+    font-style: normal;
 }
 .tickedText {
     font-size: 1rem;
@@ -33,7 +36,7 @@
     font-family: 'Open Sans', sans-serif;
     color: #333;
     text-align: left;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .button{
@@ -80,7 +83,7 @@
         justify-content: center;
         background: #e5e5e5;
         padding-top: 2rem;
-        padding-left: 4rem;
+        padding-left: 1rem;
         padding-right: 1rem;
         padding-bottom: 4rem;
     }
