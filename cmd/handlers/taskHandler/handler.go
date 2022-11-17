@@ -6,6 +6,8 @@ import (
 	"test-va/internals/entity/errorEntity"
 	"test-va/internals/entity/taskEntity"
 	"test-va/internals/service/taskService"
+
+	"github.com/go-chi/chi/v5"
 )
 
 type taskHandler struct {
@@ -37,4 +39,18 @@ func (t *taskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(task)
 
+}
+
+func (t *taskHandler) GetPendingTasks(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("content-type", "application/json")
+	userId := chi.URLParam(r, "userId")
+	task, errRes := t.srv.GetPendingTasks(userId)
+	if errRes != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(errRes)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(task)
 }

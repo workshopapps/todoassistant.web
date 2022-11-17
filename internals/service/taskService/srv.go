@@ -2,17 +2,19 @@ package taskService
 
 import (
 	"context"
-	"github.com/google/uuid"
 	"log"
 	"test-va/internals/Repository/taskRepo"
 	"test-va/internals/entity/errorEntity"
 	"test-va/internals/entity/taskEntity"
 	"test-va/internals/service/timeSrv"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type TaskService interface {
 	PersistTask(req *taskEntity.CreateTaskReq) (*taskEntity.CreateTaskRes, *errorEntity.ErrorRes)
+	GetPendingTasks(userId string) ([]*taskEntity.GetPendingTasksRes, *errorEntity.ErrorRes)
 }
 
 type taskSrv struct {
@@ -46,6 +48,19 @@ func (t taskSrv) PersistTask(req *taskEntity.CreateTaskReq) (*taskEntity.CreateT
 
 	return &data, nil
 
+}
+
+func (t taskSrv) GetPendingTasks(userId string) ([]*taskEntity.GetPendingTasksRes, *errorEntity.ErrorRes) {
+	// create context of 1 minute
+	ctx, cancelFunc := context.WithTimeout(context.TODO(), time.Minute*1)
+	defer cancelFunc()
+
+	tasks, err := t.repo.GetPendingTasks(userId, ctx)
+	if err != nil {
+		log.Println(err)
+		return nil, errorEntity.NewCustomError(500, "Internal Server Error")
+	}
+	return tasks, nil
 }
 
 func NewTaskSrv(repo taskRepo.TaskRepository, timeSrv timeSrv.TimeService) TaskService {
