@@ -1,0 +1,67 @@
+.Top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+
+    .QA-container {
+        display: flex;
+        flex-direction: column;
+
+        .QA {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .question {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #333333;
+                line-height: 1.575rem;
+            }
+        }
+
+        .sub {
+            font-size: 0.875rem;
+            color: #707070;
+            text-align: left;
+        }
+
+        .icon {
+            margin-bottom: .6rem;
+        }
+    }
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}
+
+
+
+@media screen and (min-width:616px) {
+
+    .container-2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .Top {
+        .QA-container {
+            .QA {
+                .question {
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+}
