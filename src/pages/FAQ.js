@@ -4,7 +4,7 @@ import LowerLevel from "../layout/FAQ/LowerLevel";
 const FAQ = () => {
   return (
     <div>
-      <LowerLevel />
+     
     </div>
   );
 };
