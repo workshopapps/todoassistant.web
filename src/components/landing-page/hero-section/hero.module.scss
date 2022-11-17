@@ -1,18 +1,7 @@
 @import "../../../scss/variables";
-
-// using the BEM system
-
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
-
-p {
-  color: $blackText;
-}
-
+// ===================
+// MIXINS
+// ===================
 @mixin img_fluid {
   width: 100%;
   height: 100%;
@@ -29,11 +18,26 @@ p {
   cursor: pointer;
   font-weight: 600;
 }
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: $blackText;
+}
 
 .hero {
   position: relative;
   height: 100vh;
-  font-size: 16px;
   text-align: center;
   color: $black;
   overflow: hidden;
@@ -53,6 +57,9 @@ p {
   }
 
   .hero__text_section {
+    max-width: 42.7rem;
+    width: 100%;
+    margin: 0 auto;
     .hero__title {
       font-weight: 700;
       line-height: 160%;
@@ -112,15 +119,15 @@ p {
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .hero {
-    height: 66rem;
+    height: 100vh;
     .hero__bg_img {
       background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1668646951/hng/todoAppVirtualAssistant/Frame_34485_m2htfd.svg")
         center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .hero__text_section {
-      width: 42.7rem;
-      margin: 0 auto;
       .hero__title {
         font-weight: 700;
         line-height: 160%;
@@ -156,12 +163,16 @@ p {
     }
   }
 }
+
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 }
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .hero {
+    height: 66rem;
+  }
 }
 
 // XX-Large devices (larger desktops, 1400px and up)

@@ -1,0 +1,259 @@
+@import "../../../scss/variables";
+
+// ===================
+// MIXINS
+// ===================
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: $blackText;
+}
+
+.icon_wrapper {
+  border: 1px solid #d3d3d360;
+  border-radius: 16px;
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__two {
+  border-top: 1px solid lightgrey;
+  text-align: center;
+  height: 40.9rem;
+
+  .section__two_wrapper {
+    position: relative;
+    .float_icon_1,
+    .float_icon_2,
+    .float_icon_3 {
+      p {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-top: 1rem;
+      }
+    }
+
+    .float_icon_1 {
+      transform: scale(0.2);
+      position: absolute;
+      top: 45%;
+      left: -10%;
+      p {
+        display: none;
+        color: $activeColor;
+      }
+    }
+
+    .float_icon_2 {
+      position: absolute;
+      top: 115%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.3);
+      p {
+        color: $black;
+      }
+    }
+
+    .float_icon_3 {
+      transform: scale(0.2);
+      position: absolute !important;
+      top: 71%;
+      left: 67%;
+      p {
+        display: none;
+        color: rgba(170, 50, 52, 1);
+      }
+    }
+  }
+
+  header {
+    width: 100%;
+    max-width: 31.5rem;
+    margin: 0 auto;
+    margin-top: 5.38rem;
+
+    .section__two_title {
+      font-weight: 700;
+      line-height: 160%;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+
+      .section__two_task {
+        color: $accentOrange;
+      }
+    }
+    .section__two_subtitle {
+      font-size: 1.13rem;
+      line-height: 180%;
+    }
+  }
+
+  .section__two_tasklist_wrapper {
+    max-width: 65rem;
+    width: 100%;
+    margin: 3.6rem auto;
+
+    .section__two_tag_wrapper {
+      position: relative;
+      max-width: 591.67px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      @media (min-width: 768px) {
+        gap: 1.125rem;
+      }
+
+      .tag1 {
+        width: 80%;
+        transform: translateX(25%);
+
+        @media (min-width: 768px) {
+          width: 100%;
+          transform: translateX(0%);
+        }
+      }
+      .tag2 {
+        width: 80%;
+        transform: translateX(12%);
+
+        @media (min-width: 768px) {
+          width: 100%;
+          transform: translateX(10%);
+        }
+      }
+      .tag3 {
+        width: 80%;
+        @media (min-width: 768px) {
+          width: 100%;
+          transform: translateX(-10%);
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .section__two {
+    text-align: center;
+    height: 60.9rem;
+
+    .section__two_wrapper {
+      .float_icon_1 {
+        transform: scale(0.4);
+        top: 50%;
+        left: 0%;
+      }
+
+      .float_icon_2 {
+        top: 120%;
+        transform: translate(-50%, -50%) scale(0.4);
+      }
+
+      .float_icon_3 {
+        transform: scale(0.4);
+        top: 80%;
+        left: 80%;
+      }
+    }
+
+    header {
+      margin-top: 7.5rem;
+
+      .section__two_title {
+        font-size: 2.4rem;
+      }
+
+      .section__two_subtitle {
+        font-size: 1.25rem;
+        line-height: 140%;
+        margin-bottom: 7.9rem
+      }
+    }
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .section__two {
+    .section__two_wrapper {
+      .float_icon_1 {
+        transform: scale(0.6);
+
+        p {
+          display: block;
+        }
+      }
+
+      .float_icon_2 {
+        top: 130%;
+
+        transform: translate(-50%, -50%) scale(0.6);
+      }
+
+      .float_icon_3 {
+        transform: scale(0.6);
+        p {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  .section__two {
+    .section__two_wrapper {
+      .float_icon_1 {
+        transform: scale(1);
+        top: 21%;
+        left: 5%;
+        p {
+          display: block;
+        }
+      }
+
+      .float_icon_2 {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .float_icon_3 {
+        top: 67%;
+        left: 85%;
+        transform: scale(1);
+        p {
+          display: block;
+        }
+      }
+    }
+  }
+}
