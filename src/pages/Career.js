@@ -5,7 +5,7 @@ const Career = () => {
   return <div className={styles.wrapper}>
     
     <div className={styles.container}>
-      <CareerHero />
+      
     </div>
     
   </div>;
