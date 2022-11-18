@@ -11,15 +11,17 @@ import Footer from "./layout/Footer";
 import Account from "./layout/FAQ/Account/Account";
 import Task from "./layout/FAQ/Tasks/Tasks";
 import Premium from "./layout/FAQ/Premium/Premium";
+import Dasboard from "./Components/dasboard/Dasboard";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/dashboard/*" element={<Dasboard />} />
         <Route path="/faq" element={<FAQ />}>
           <Route index element={<Account />} />
           <Route path="account" element={<Account />} />
