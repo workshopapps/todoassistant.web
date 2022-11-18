@@ -15,6 +15,7 @@ import (
 	"test-va/internals/service/callService"
 	"test-va/internals/service/taskService"
 	"test-va/internals/service/timeSrv"
+	"test-va/internals/service/validationService"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -37,6 +38,8 @@ func main() {
 	defer connection.Close()
 	conn := connection.GetConn()
 
+	// create cron tasks for checking if time is due
+
 	// repo service
 	repo := mySqlRepo.NewSqlRepo(conn)
 
@@ -45,8 +48,11 @@ func main() {
 	// time service
 	timeSrv := timeSrv.NewTimeStruct()
 
+	//validation service
+	validationSrv := validationService.NewValidationStruct()
+
 	// create service
-	srv := taskService.NewTaskSrv(repo, timeSrv)
+	srv := taskService.NewTaskSrv(repo, timeSrv, validationSrv)
 
 	callSrv := callService.NewCallSrv(callRepo, timeSrv)
 	callHandler := callhandler.NewTaskHandler(callSrv)
