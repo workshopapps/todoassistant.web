@@ -47,7 +47,7 @@ export const QandA = [
   {
     id: 10,
     question: "How do I use the reminder feature?",
-    answer: "You need to set a reminder then you will be notified at that said time",
+    answer: "You need to set a reminder then you will be notified at that said time.",
   },
   {
     id: 11,
