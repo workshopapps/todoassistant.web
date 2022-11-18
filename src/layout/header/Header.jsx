@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Logo from '../../assets/logo.png';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-import Button from '../../components/button/Button';
+import Button from '../../Components/button/Button';
 // import hamburger from "../../assets/hamburger.png";
 
 import { GrClose } from 'react-icons/gr';
