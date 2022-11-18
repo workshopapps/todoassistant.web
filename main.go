@@ -3,9 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
-	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"net/http"
 	"os"
@@ -17,6 +14,10 @@ import (
 	"test-va/internals/service/timeSrv"
 	"test-va/internals/service/validationService"
 	"time"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
@@ -66,6 +67,10 @@ func main() {
 	})
 
 	router.Post("/task", handler.CreateTask)
+
+	// for all tasks
+	router.Get("/tasks", handler.SearchTask)
+//
 
 	srvDetails := http.Server{
 		Addr:        fmt.Sprintf(":%s", port),

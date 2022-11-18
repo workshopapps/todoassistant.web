@@ -2,6 +2,7 @@ package taskHandler
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"test-va/internals/entity/errorEntity"
 	"test-va/internals/entity/taskEntity"
@@ -13,6 +14,10 @@ type taskHandler struct {
 }
 
 func NewTaskHandler(srv taskService.TaskService) *taskHandler {
+	return &taskHandler{srv: srv}
+}
+
+func SearchTaskHandler(srv taskService.TaskService) *taskHandler {
 	return &taskHandler{srv: srv}
 }
 
@@ -36,5 +41,26 @@ func (t *taskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(task)
+
+}
+
+// handle search function
+func (t *taskHandler) SearchTask (w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+
+	title := r.URL.Query().Get("title")
+
+	w.Write([]byte("This route returns all tasks in DB"))
+	if title != ""{
+		searchedTasks, errRes := t.srv.SearchTask(title)
+		fmt.Println(searchedTasks)
+		if errRes != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			json.NewEncoder(w).Encode(errRes)
+		return
+		}
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(searchedTasks)
+	}
 
 }
