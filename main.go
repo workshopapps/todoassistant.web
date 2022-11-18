@@ -61,7 +61,11 @@ func main() {
 	})
 
 	router.Post("/task", handler.CreateTask)
+<<<<<<< Updated upstream
 	router.Get("/task/pending/{userId}", handler.GetPendingTasks)
+=======
+	router.Get("/calls", handler.GetCalls)
+>>>>>>> Stashed changes
 
 	srvDetails := http.Server{
 		Addr:        fmt.Sprintf(":%s", port),

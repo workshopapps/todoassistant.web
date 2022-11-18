@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"test-va/internals/Repository/taskRepo"
+	"test-va/internals/entity/callEntity"
 	"test-va/internals/entity/taskEntity"
 )
 
@@ -111,4 +112,49 @@ func (s *sqlRepo) Persist(ctx context.Context, req *taskEntity.CreateTaskReq) er
 	}
 
 	return nil
+}
+
+
+func (s *sqlRepo) GetCalls(ctx context.Context) ([]*callEntity.CallRes, error) {
+	tx, err := s.conn.BeginTx(ctx, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	defer func() {
+		if err != nil {
+			tx.Rollback()
+		} else {
+			tx.Commit()
+		}
+	}()
+
+	query := fmt.Sprintf(`
+		SELECT call_id, va_id, user_id
+		FROM Call`)
+
+	rows, err := tx.QueryContext(ctx, query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	calls := []*callEntity.CallRes{}
+
+	for rows.Next() {
+		var call callEntity.CallRes
+		err := rows.Scan(
+			&call.CallId,
+			&call.VaId,
+			&call.UserId,
+		)
+		if err != nil {
+			return nil, err
+		}
+		calls = append(calls, &call)
+	}
+	if rows.Err(); err != nil {
+		return nil, err
+	}
+	return calls, nil
 }
