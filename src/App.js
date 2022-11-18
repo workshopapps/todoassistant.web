@@ -12,6 +12,8 @@ import Footer from "./layout/footer/Footer";
 // import Task from "./layout/FAQ/Tasks/Tasks";
 // import Premium from "./layout/FAQ/Premium/Premium";
 import Dasboard from "./Components/dasboard/Dasboard";
+import Home from "./Components/userDasboardComponents/home/Home"
+import ChatBox from './core/chatbox/ChatBox'
 
 function App() {
   return (
@@ -20,8 +22,12 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/dashboard/*" element={<Dasboard />} />
+        <Route path="career" element={<Career />} />
+        <Route path="/dashboard" element={<Dasboard />} >
+          //add your route here for Va dashboard
+          <Route path="" element={<Home />} />
+          <Route path="chat" element={<ChatBox />} />
+        </Route>
         {/* <Route path="/faq" element={<FAQ />}>
           <Route index element={<Account />} />
           <Route path="account" element={<Account />} />

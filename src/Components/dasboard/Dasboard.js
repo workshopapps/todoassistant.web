@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import styles from './Dashboard.module.scss'
 
-import { Routes, Route, NavLink, useLocation} from "react-router-dom";
-import {useHistory} from "react-router-dom";
+import { Routes, Route, NavLink, useLocation, Outlet} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
 
 
 import AppBar from '@mui/material/AppBar';
@@ -11,9 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import { ListItemAvatar, Grid,Container } from "@mui/material";
+import {  Grid,Container } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -23,6 +21,10 @@ import { userRoutes } from '../../router/user';
 
 //Images
 import tick from '../../assets/home/tick.png'
+import VaImg from '../../assets/dashboard/vaImg.png'
+import arrowDown from '../../assets/dashboard/arrow-down.png'
+import add from '../../assets/dashboard/add.png'
+
 
 const drawerWidth = 240;
 
@@ -30,10 +32,11 @@ export default function Dasboard() {
     const location = useLocation()
     const { window } = location;
   
+    console.log(location)
   
     const [mobileOpen, setMobileOpen] = useState(false)
   
-    const [title, setTitle] = useState('Convert')
+    const [title, setTitle] = useState('home')
   
     useEffect(() => {
       //On click the array of route is split into array with the first item remove
@@ -41,7 +44,7 @@ export default function Dasboard() {
       //Check that path is equal to userroute returned value
       const current = userRoutes.find((item) => item.path === path)
       //Updating state and setting default route to convert
-      setTitle(current?.title ?? 'Convert')
+      setTitle(current?.title ?? 'home')
     }, [location])
   
   
@@ -49,30 +52,19 @@ export default function Dasboard() {
       setMobileOpen(!mobileOpen);
     };
   
-    // const location = useLocation()
-    // const {pathname } = location
-    // const splitLocation = pathname.split("/")
-    // console.log(splitLocation)
-    // console.log(splitLocation[2])
-  
-    // const navLinkStyles = ({ isActive }) => {
-    //   return {
-    //     color: isActive ? "red" : "",
-    //     fontWeight: isActive ? 'bold' : ""
-    //   }
-    // }
   
     const drawer = (
       <div className="drawer" style={{background: "#F6FAFB", borderRight: "1px solid #E9F3F5", minHeight: "100vh", padding: "0px 10px"}}>
         <Toolbar>
-          <NavLink to={`/`} exact >
-           <Box>
+          <NavLink to={`/`} exact style={{textDecoration: "none"}}>
+           <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}} mt={3}>
             <img src={tick} alt="ticked" />
-            <Typography variant="h5" sx={{flexGrow: 1,  fontWeight: 700 }}>
+            <Typography variant="h5" sx={{flexGrow: 1,  fontWeight: 700 }} ml={1.3}>
                 Ticked 
               </Typography>
            </Box>
           </NavLink>
+         
   
           <IconButton
             color="inherit"
@@ -85,27 +77,33 @@ export default function Dasboard() {
           </IconButton>
   
         </Toolbar>
+        <Box px={2.5} mb={4}>
+        <Box
+          minWidth={"10vw"}
+          margin={" 20px auto"}
+          sx={{background: "#714DD9", color: "#fff", padding: "14px", borderRadius: "8px", display: "flex", justifyContent: "center", alignItems: "center"}}
+        >
+          <img src={add} alt="add" />
+            <Typography variant='p'>New to do</Typography>
+        </Box>
+        </Box>
         {
           userRoutes.map((item, index) => {
             // console.log(item)
             return (
               <>
-              <NavLink to={`/user/${item.path}`} exact key={index}
-              
-              >
-                <ListItem sx={{ pl: '30px', my: '10px' }} className=" hov title">
-                  <ListItemAvatar>
-                    <img src={item.icon} alt={`${item.title}_icon`} className="  ima" />
-                  </ListItemAvatar>
-                  <ListItemText 
-                    disableTypography 
-                    
-                    style={{fontWeight:'bold'}}
-                    className=" titleHover"
-                    primary={item.title} sx={{ color: '#ffF', fontWeight: 700 }} />
-                </ListItem>
-                {index % 3 === 0 && index > 1 ? <Divider component="" /> : null}
-              </NavLink>
+              <Box sx={{marginTop: "20px !important"}}>
+
+                <NavLink to={`/dashboard/${item.path}`} exact key={index}
+                style={{textDecoration: "none"}}
+                >
+                  <Box sx={{display: "flex", margin: "0 auto", width: "180px"}} mt={4} px={3}>
+                  <img src={item.icon} alt={`${item.title}_icon`} />
+                  <Typography ml={1}>{item.title}</Typography>
+                  </Box>
+                  {index % 3 === 0 && index > 1 ? <Divider component="" /> : null}
+                </NavLink>
+              </Box>
               </>
             )
           })
@@ -125,6 +123,7 @@ export default function Dasboard() {
           ml: { sm: `${drawerWidth}px` },
           background: "#F6FAFB", color: "black", borderBottom: '1px solid #E9F3F5'
         }}
+        className={styles.main__appbar}
           elevation={0} position="fixed" >
   
           <Toolbar>
@@ -132,17 +131,31 @@ export default function Dasboard() {
               <MenuIcon />
             </IconButton>
   
-            <Grid alignItems="center" container>
+            <Grid alignItems="center" justifyContent="space-between" container>
               <Grid item xs={6} sm={6}>
-                <Typography variant="h6" > {title} </Typography>
+                <Typography 
+                  variant="h6" 
+                  mt={4} 
+                  sx={{borderBottom: "3px solid #714DD9", width: "5vw"}}> {title} </Typography>
               </Grid>
-              <Grid item xs={6} sm={6}>
-                {/* <Typography sx={{ textAlign: 'right' }}>{currentUser.email?.split('@', 1)[0]} </Typography> */}
+              <Grid item xs={6} sm={2}>
+                <Box className={styles.main__span} sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                  <span>
+                    <img src={VaImg} alt="client image" />
+                  </span>
+                  <Typography component="span" display={{xs: "none", md: "block"}}>
+                    <Typography sx={{ textAlign: 'right' }}>John A </Typography>  
+                  </Typography>
+                  <span>
+                    <img src={arrowDown} alt="arrow down" />
+                  </span>
+                
+                </Box>
               </Grid>
   
             </Grid>
-  
           </Toolbar>
+           
         </AppBar>
   
         {/* Left Sidebar */}
@@ -162,7 +175,7 @@ export default function Dasboard() {
         </Box>
   
         {/* Right Sidebar */}
-        <Container maxWidth={false} component="main" sx={{  width: { sm: `calc(100% - ${drawerWidth}px)` } }} >
+        <Container maxWidth={false} component="main" sx={{  width: { sm: `calc(100% - ${drawerWidth}px)` } }} sx={{padding: "20px"}} >
           <Toolbar />
           <Routes>
             {
@@ -170,7 +183,7 @@ export default function Dasboard() {
                 return <Route
                   key={index}
                   exact
-                  path={`/user/${item.path}`}
+                  path={`/dasboard/${item.path}`}
                   render={(props) => {
                     return <>
                     {/* <a
@@ -186,6 +199,7 @@ export default function Dasboard() {
               })
             }
           </Routes>
+          <Outlet />
         </Container>
       </Box>
     );
