@@ -7,4 +7,5 @@ import (
 
 type TaskRepository interface {
 	Persist(ctx context.Context, req *taskEntity.CreateTaskReq) error
+	SearchTasks(title string, ctx context.Context) ([]*taskEntity.SearchTaskRes, error)
 }
