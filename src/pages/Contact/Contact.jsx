@@ -1,7 +1,7 @@
-import React from "react";
-import ContactHero from "../../Components/contact-hero/ContactHero";
-import Map from "../../Components/Contact-map/Map";
-import Talk from "../../Components/talk/Talk";
+import React from 'react';
+import ContactHero from '../../components/contact-hero/ContactHero';
+import Map from '../../components/Contact-map/Map';
+import Talk from '../../components/talk/Talk';
 
 const Contact = () => {
   return (

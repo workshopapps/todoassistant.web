@@ -1,7 +1,7 @@
-import React from "react";
-import CareerHero from "../../Components/career/CareerHero";
-import CareerMiddle from "../../Components/career/CareerMiddle";
-import JobOpening from "../../Components/Job-opening/JobOpening";
+import React from 'react';
+import CareerHero from '../../components/career/CareerHero';
+import CareerMiddle from '../../components/career/CareerMiddle';
+import JobOpening from '../../components/Job-opening/JobOpening';
 
 const Career = () => {
   return (
