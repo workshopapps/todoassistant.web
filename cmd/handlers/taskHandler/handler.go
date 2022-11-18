@@ -47,10 +47,10 @@ func (t *taskHandler) CreateTask(w http.ResponseWriter, r *http.Request) {
 // handle search function
 func (t *taskHandler) SearchTask (w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-
+	w.Header().Set("content-type", "application/json")
 	title := r.URL.Query().Get("title")
 
-	w.Write([]byte("This route returns all tasks in DB"))
+	//w.Write([]byte("This route returns all tasks in DB"))
 	if title != ""{
 		searchedTasks, errRes := t.srv.SearchTask(title)
 		fmt.Println(searchedTasks)
