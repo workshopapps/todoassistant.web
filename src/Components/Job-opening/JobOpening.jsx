@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "./JobOpening.module.scss";
 import arrowIcon from "../../assets/arrow-down.png";
 import searchIcon from "../../assets/search-normal.png";
