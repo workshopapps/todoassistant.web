@@ -1,5 +1,5 @@
 import React from 'react';
-import '.Privatepolicy.module.scss';
+import './Privatepolicy.scss';
 
 function Privatepolicy() {
     
