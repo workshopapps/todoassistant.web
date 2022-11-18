@@ -1,6 +1,6 @@
 import React from "react";
-import AboutUsHeader from "../../Components/aboutUs/AboutUsHeader";
-import Testimonal from "../../Components/aboutUs/Testimonal";
+import AboutUsHeader from "../../Components/AboutUs/AboutUsHeader";
+import Testimonal from "../../Components/AboutUs/Testimonal";
 
 const About = () => {
   return (

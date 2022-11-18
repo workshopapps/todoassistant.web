@@ -1,4 +1,4 @@
-import style from "./Testimonal-module.scss";
+// import style from "./Testimonal-module.scss";
 
 const Testimonal = () => {
   /*testimonal section*/
