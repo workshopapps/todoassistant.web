@@ -1,4 +1,4 @@
-package mySqlRepo
+package mySqlCallRepo
 
 import (
 	"context"
@@ -29,7 +29,7 @@ func (s *sqlRepo) GetCalls(ctx context.Context) ([]*callEntity.CallRes, error) {
 		}
 	}()
 
-	query := "SELECT call_id, va_id, user_id FROM Call"
+	query := "SELECT id, va_id, user_id, call_rating, call_comment FROM Calls"
 
 	rows, err := tx.QueryContext(ctx, query)
 	if err != nil {
@@ -45,6 +45,8 @@ func (s *sqlRepo) GetCalls(ctx context.Context) ([]*callEntity.CallRes, error) {
 			&call.CallId,
 			&call.VaId,
 			&call.UserId,
+			&call.CallRating,
+			&call.CallComment,
 		)
 		if err != nil {
 			return nil, err

@@ -7,9 +7,12 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	callhandler "test-va/cmd/handlers/callHandler"
 	"test-va/cmd/handlers/taskHandler"
+	mySqlCallRepo "test-va/internals/Repository/callRepo/mysqlRepo"
 	"test-va/internals/Repository/taskRepo/mySqlRepo"
 	"test-va/internals/data-store/mysql"
+	"test-va/internals/service/callService"
 	"test-va/internals/service/taskService"
 	"test-va/internals/service/timeSrv"
 	"time"
@@ -37,11 +40,16 @@ func main() {
 	// repo service
 	repo := mySqlRepo.NewSqlRepo(conn)
 
+	callRepo :=  mySqlCallRepo.NewSqlRepo(conn)
+
 	// time service
 	timeSrv := timeSrv.NewTimeStruct()
 
 	// create service
 	srv := taskService.NewTaskSrv(repo, timeSrv)
+
+	callSrv := callService.NewCallSrv(callRepo, timeSrv)
+	callHandler := callhandler.NewTaskHandler(callSrv)
 
 	handler := taskHandler.NewTaskHandler(srv)
 
@@ -61,11 +69,10 @@ func main() {
 	})
 
 	router.Post("/task", handler.CreateTask)
-<<<<<<< Updated upstream
 	router.Get("/task/pending/{userId}", handler.GetPendingTasks)
-=======
-	router.Get("/calls", handler.GetCalls)
->>>>>>> Stashed changes
+
+	//calls
+	router.Get("/calls", callHandler.GetCalls)
 
 	srvDetails := http.Server{
 		Addr:        fmt.Sprintf(":%s", port),

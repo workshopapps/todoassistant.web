@@ -9,8 +9,8 @@ import (
 	"test-va/internals/service/timeSrv"
 	"time"
 )
-type callService interface{
-	GetCalls(ctx context.Context) ([]*callEntity.CallRes, error)
+type CallService interface{
+	GetCalls() ([]*callEntity.CallRes, *errorEntity.ErrorRes)
 }
 
 type callSrv struct{
@@ -20,7 +20,7 @@ type callSrv struct{
 
 
 
-func (t callSrv) GetCalls(userId string) ([]*callEntity.CallRes, *errorEntity.ErrorRes) {
+func (t callSrv) GetCalls()([]*callEntity.CallRes, *errorEntity.ErrorRes) {
 	// create context of 1 minute
 	ctx, cancelFunc := context.WithTimeout(context.TODO(), time.Minute*1)
 	defer cancelFunc()
@@ -33,6 +33,6 @@ func (t callSrv) GetCalls(userId string) ([]*callEntity.CallRes, *errorEntity.Er
 	return calls, nil
 }
 
-// func NewCallSrv(repo callRepo.CallRepository, timeSrv timeSrv.TimeService) callService {
-// 	return &callSrv{repo: repo, timeSrv: timeSrv}
-// }
+func NewCallSrv(repo callRepo.CallRepository, timeSrv timeSrv.TimeService) CallService {
+	return &callSrv{repo: repo, timeSrv: timeSrv}
+}

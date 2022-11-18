@@ -24,7 +24,6 @@ type CreateTaskRes struct {
 	Description string `json:"description"`
 	StartTime   string `json:"start_time"`
 	EndTime     string `json:"end_time"`
-<<<<<<< Updated upstream
 }
 
 type GetPendingTasksRes struct {
@@ -36,6 +35,4 @@ type GetPendingTasksRes struct {
 	EndTime     string `json:"end_time"`
 	Status      string `json:"status"`
 }
-=======
-}
->>>>>>> Stashed changes
+
