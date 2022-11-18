@@ -1,16 +1,16 @@
-import "./App.scss";
+// import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Contact from "./pages/Contact";
-import Career from "./pages/Career";
+import Career from "./pages/Career/Career";
 import AboutUs from "./pages/AboutUs";
-import FAQ from "./pages/FAQ";
-import PrivatePolicy from "./pages/PrivatePolicy";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
-import Account from "./layout/FAQ/Account/Account";
-import Task from "./layout/FAQ/Tasks/Tasks";
-import Premium from "./layout/FAQ/Premium/Premium";
+// import FAQ from "./pages/FAQ";
+import PrivatePolicy from "./pages/Privacy/PrivatePolicy";
+import Header from "./layout/header/Header";
+import Footer from "./layout/footer/Footer";
+// import Account from "./layout/FAQ/Account/Account";
+// import Task from "./layout/FAQ/Tasks/Tasks";
+// import Premium from "./layout/FAQ/Premium/Premium";
 import Dasboard from "./Components/dasboard/Dasboard";
 
 function App() {
@@ -22,16 +22,16 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/dashboard/*" element={<Dasboard />} />
-        <Route path="/faq" element={<FAQ />}>
+        {/* <Route path="/faq" element={<FAQ />}>
           <Route index element={<Account />} />
           <Route path="account" element={<Account />} />
           <Route path="tasks" element={<Task />} />
           <Route path="premium" element={<Premium />} />
-        </Route>
+        </Route> */}
         <Route path='/about-us' element={<AboutUs/>} />
         <Route path="/policy" element={<PrivatePolicy />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

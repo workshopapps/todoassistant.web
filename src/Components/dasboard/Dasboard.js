@@ -21,6 +21,9 @@ import Typography from '@mui/material/Typography';
 //route
 import { userRoutes } from '../../router/user';
 
+//Images
+import tick from '../../assets/home/tick.png'
+
 const drawerWidth = 240;
 
 export default function Dasboard() {
@@ -63,9 +66,12 @@ export default function Dasboard() {
       <div className="drawer" style={{background: "#F6FAFB", borderRight: "1px solid #E9F3F5", minHeight: "100vh", padding: "0px 10px"}}>
         <Toolbar>
           <NavLink to={`/`} exact >
-            <Typography variant="h5" sx={{ color: '#FF842B', flexGrow: 1,  fontWeight: 700 }}>
-              FuturePay <sup>&#8226;</sup>
-            </Typography>
+           <Box>
+            <img src={tick} alt="ticked" />
+            <Typography variant="h5" sx={{flexGrow: 1,  fontWeight: 700 }}>
+                Ticked 
+              </Typography>
+           </Box>
           </NavLink>
   
           <IconButton
