@@ -65,7 +65,7 @@ const Map = () => {
             <h1>Message Us</h1>
             <img src={message} alt="message" />
           </div>
-          <p>Tickedapp@productive.com</p>
+          <p>@productive.com to @gmail.com</p>
         </div>
       </div>
     </div>

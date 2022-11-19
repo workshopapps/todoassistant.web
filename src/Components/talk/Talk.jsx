@@ -17,14 +17,14 @@ const Talk = () => {
                 <p className='name'>Joe Lynn</p>
             </div>
             <div className='item'>
-                <p className='unit'>Technical Support</p>
+                <p className='unit'>Pricing and Billing </p>
                 <img src={Bridget} alt='img' />
-                <p className='name'>Joe Lynn</p>
+                <p className='name'>Bridget  Bello</p>
             </div>
             <div className='item'>
-                <p className='unit'>Technical Support</p>
+                <p className='unit'>Product Advice</p>
                 <img src={Chike} alt='img' />
-                <p className='name'>Joe Lynn</p>
+                <p className='name'>Chike Ike</p>
             </div>
         </div>
         </div>
