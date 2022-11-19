@@ -1,15 +1,28 @@
 .page {
-  padding: 2rem 1.5rem;
   display: flex;
   cursor: default;
+  --py: 1.5rem;
+  --px: 1.5rem;
+  background-color: #F6FAFB;
 }
 
 .side {
-  padding-right: 1.5rem;
+  padding-right: 3px;
+  background-color: white;
+  padding-top: var(--py);
+  padding-bottom: var(--py);
+}
+
+.sideTop {
+  padding-left: var(--px);
+  padding-right: var(--px);
 }
 
 .main {
   padding-left: 1.5rem;
+  background-color: #F6FAFB;
+  padding-top: var(--py);
+  padding-bottom: var(--py);
 }
 
 .heading {
@@ -47,8 +60,8 @@
 
 .listItem {
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 1rem var(--px);
 }
 
 .chatlistTimestamp {
@@ -68,4 +81,18 @@
 .searchIcon {
   position: absolute;
   left: 1rem; top: 1rem;
+}
+
+.chatListImage {
+  height: 4rem; 
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.chatListEnd {
+  margin-left: auto;
+}
+
+.chatListMessage {
+  white-space: nowrap;
 }
