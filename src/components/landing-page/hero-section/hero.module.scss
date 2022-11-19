@@ -17,7 +17,6 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
-  
 }
 // ====================
 // END OF MIXINS
@@ -33,7 +32,12 @@
 }
 
 p {
-  color: $blackText;
+  color: $blackText !important;
+}
+
+h1,
+h2 {
+  color: $black !important;
 }
 
 .hero__icon1 {
