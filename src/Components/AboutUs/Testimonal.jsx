@@ -1,83 +1,87 @@
-// import style from "./Testimonal-module.scss";
+import styles from "./Testimonal.module.scss";
 
 const Testimonal = () => {
-  /*testimonal section*/
-
   return (
     <>
-      <h1 className="testimonal-title big-title">See testimonials of others</h1>
-
-      <h1 className="testimonal-title small-title">Testimonals</h1>
-
-      <section className="testimonal-container">
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            Having the ticked app on my phone has made me manage my task well.
-            I'm always up-to-date on my tasks
+     <div className={styles.testimonialContainer}>
+      <div className={styles.box} >
+          <p className={styles.title}>Mission Statement</p>
+          <p className={styles.text}>To help users prioritize and stay in control of their workload</p>
+      </div>
+      <div className={styles.box} >
+          <p className={styles.title}>Vision Statement</p>
+          <p className={styles.text}>To free our users with the concerned associated with task management</p>
+      </div>
+      <div className={styles.box} >
+          <p className={styles.title}>Core Values</p>
+          <p className={styles.text}>Excellence<br/>
+          Competence<br/>
+          Time management
           </p>
-          <div className="footer-content">
-            <button className="btn1">D</button>
-            <h2 className="footer-title"> David Mark</h2>
-          </div>
-        </article>
+      </div>
+     
+     </div>
+      <div className={styles.sayBox} >
+        <p className={styles.saytitle}>See what others have to say</p>
+        <div className={styles.gridbox}>
+           <div className={styles.grid}>
+            <p className={styles.lefttext}>
+              Having the ticked app on my phone has made me manage my task well . I’m always up-to-date on my tasks
+              </p>
+            <div className={styles.hstack}>
+              <div style={{background:'#714DD9'}} className={styles.round}>D</div>
+              <p className={styles.hstacktext}>David mark</p>
+            </div>
 
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            Thia has been the app I would say i needed. I love the interface and
-            how easy is forcme to access the features provided. Good job guys I
-            will highly recommend
-          </p>
-          <div className="footer-content">
-            <button className="btn2">R</button>
-            <h2 className="footer-title">Ruth Davidson</h2>
           </div>
-        </article>
-
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            I must commend the efforts use to build this great app. Well done
-            guys
-          </p>
-
-          <div className="footer-content">
-            <button className="btn1">E</button>
-            <h2 className="footer-title">Esther George</h2>
+          <div className={styles.grid}>
+            <p className={styles.lefttext}>
+              Thia has been the app I would say i needed . I love the interface and how easy it is for me to access the features provided. Good job guys I will highly recommend
+            </p>
+            <div className={styles.hstack}>
+              <div style={{background:'#FDA758'}} className={styles.round}>R</div>
+              <p className={styles.hstacktext}>Ruth Davidson</p>
+            </div>
           </div>
-        </article>
+           <div className={styles.grid}>
+            <p className={styles.lefttext}>
+              Thia has been the app I would say i needed . I love the interface and how easy it is for me to access the features provided. Good job guys I will highly recommend
+            </p>
+            <div className={styles.hstack}>
+              <div style={{background:'#714DD9'}} className={styles.round}>R</div>
+              <p className={styles.hstacktext}>Ruth Davidson</p>
+            </div>
 
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            Working with this team has been amazing. I'm happy with the progress
-            we made building something individuals are happy using. Well done
-            Team
-          </p>
-          <div className="footer-content">
-            <button className="btn1">A</button>
-            <h2 className="footer-title">Adorable Grace</h2>
           </div>
-        </article>
+           <div className={styles.grid}>
+            <p className={styles.lefttext}>
+              I must commened the efforts use to build this great app. Well done guys    </p>
+            <div className={styles.hstack}>
+              <div style={{background:'#FDA758'}} className={styles.round}>E</div>
+              <p className={styles.hstacktext}>Esther George</p>
+            </div>
 
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            I love the Simplicity of the app. It's very easy to navigate. Well
-            done Guys, great work
-          </p>
-          <div className="footer-content">
-            <button className="btn2">G</button>
-            <h2 className="footer-title">Goodluck Chris</h2>
           </div>
-        </article>
+           <div className={styles.grid}>
+            <p className={styles.lefttext}>I love the simplicity of the app , it’s very easy to navigate . Well donr guys , great work</p>
+            <div className={styles.hstack}>
+              <div style={{background:'#714DD9'}} className={styles.round}>G</div>
+              <p className={styles.hstacktext}>Goodluck Chris</p>
+            </div>
 
-        <article className="testimonial-box">
-          <p className="testimonal-content">
-            Great user Interface and experience i'm in love with the app guys.
-          </p>
-          <div className="footer-content">
-            <button className="btn1">P</button>
-            <h2 className="footer-title">Peter Jacob</h2>
           </div>
-        </article>
-      </section>
+           <div className={styles.grid}>
+            <p className={styles.lefttext}>Great user interface and experience I’m in love with the app guys.
+                   </p>
+            <div className={styles.hstack}>
+              <div style={{background:'#FDA758'}} className={styles.round}>P</div>
+              <p className={styles.hstacktext}>Pete Jacob</p>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
     </>
   );
 };
