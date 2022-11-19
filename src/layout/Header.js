@@ -3,7 +3,7 @@ import Logo from "../assets/logo.png";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import hamburger from "../assets/hamburger.png";
-import Button from "../components/button/button";
+import Button from "../Components/button/button";
 import { GrClose } from "react-icons/gr";
 import { FiMenu } from "react-icons/fi";
 import { useLocation } from "react-router-dom";

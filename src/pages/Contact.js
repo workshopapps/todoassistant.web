@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactHero from '../components/contact-hero/ContactHero';
-import Talk from '../components/talk/Talk';
+import ContactHero from '../Components/contact-hero/ContactHero';
+import Talk from '../Components/talk/Talk';
 
 const Contact = () => {
   return <div>
@@ -11,4 +11,4 @@ const Contact = () => {
 
 export default Contact;
 
-<Map />;
+{/* <Map />; */}
