@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import Contact from './pages/Contact';
 import Career from './pages/Career/Career';
 import AboutUs from './pages/AboutUs';
+
 // import FAQ from "./pages/FAQ";
 import PrivatePolicy from './pages/Privacy/PrivatePolicy';
 import Header from './layout/header/Header';
@@ -16,6 +17,9 @@ import Home from './Components/userDasboardComponents/home/Home';
 import ChatBox from './core/chatbox/ChatBox';
 import ResetPassword from "./Components/Reset Password/ResetPassword";
 import NewPassword from "./Components/Reset Password/NewPassword";
+
+// Internal Pages
+import Preference from './pages/Preference/Preference';
 
 function App() {
   return (
@@ -40,6 +44,7 @@ function App() {
         <Route path='/policy' element={<PrivatePolicy />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
+        <Route path="/preferences" element={<Preference />} />
       </Routes>
       <Footer />
     </div>
