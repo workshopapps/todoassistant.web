@@ -3,6 +3,7 @@ import People from "../../assets/people.png";
 import "./ContactHero.scss";
 import ContactPopup from "../contact-popup/ContactPopup";
 
+
 const ContactHero = () => {
   const [showPopup, setShowPopup] = useState(false);
   return (

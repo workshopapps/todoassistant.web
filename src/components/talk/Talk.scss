@@ -2,7 +2,9 @@
     text-align: center;
     font-family: 'Open Sans';
     font-style: normal;
-    padding: 0 5%;
+    background-color: #f6fafb;
+
+    padding: 5rem 5%;
 
     h2{
         font-weight: 700;
@@ -24,7 +26,6 @@
     .profiles{
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
 
         .item{
             font-weight: 700;
@@ -37,12 +38,24 @@
             img{
                 width: 250px;
 
+                @media screen and (max-width:900px ) {
+                    width: 30vw;
+                }
+
+                @media screen and (max-width: 650px) {
+                    width: 250px;
+                }
+
                 @media screen and (max-width: 300px) {
                     width: 95%;
                 }
             }
 
             
+        }
+
+        @media screen and (max-width:900px ) {
+            flex-wrap: wrap;
         }
 
         @media screen and (max-width: 600px) {
