@@ -1,0 +1,178 @@
+.recruitContainer {
+  background: #F6FAFB;
+  width: 100%;
+}
+
+.recruitment {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  padding: 1rem;
+
+  &__h2 {
+    line-height: 160%;
+    font-weight: 700;
+    font-size: 1.6875rem;
+    color: #333333;
+  }
+
+  &__p {
+    line-height: 160%;
+    font-weight: 600;
+    font-size: 1.125rem;
+    padding: 1.5rem 0;
+    margin: 0 auto 1.875rem auto;
+    width: 65%;
+    text-align: left;
+    color: #333333;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+
+  &__info {
+    border: 1px solid #707070;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    margin: 0 auto;
+    width: 80%;
+    background: #FFFFFF;
+  }
+
+  &__img {
+    width: 50%;
+    margin-bottom: 1rem;
+  }
+
+  &__p {
+    padding: 0.75rem 0;
+    font-weight: 700;
+    font-size: 1.5625rem;
+    line-height: 160%;
+    color: #333333;
+  }
+
+  // .card__info:last-child {
+  //   .card__img {
+  //     width: 60%;
+  //   }
+  // }
+}
+
+// Small devices (landscape phones, 430px and up)
+
+@media screen and (min-width: 26.875rem) {
+
+  .card {
+    width: 90%;
+    
+    &__info {
+      width: 70%;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+
+@media screen and (min-width: 36rem) {
+
+  .card {
+    width: 80%;
+
+    &__info {
+      width: 60%;
+    }
+  }
+}
+
+// Large devices (Tablets, 768px and up)
+
+@media screen and (min-width: 48rem) {
+  .recruitment {
+    &__h2 {
+      font-size: 3.25rem;
+      color: #060C22;
+    }
+
+    &__p {
+      font-weight: 700;
+      font-size: 1.375rem;
+      text-align: center;
+      color: #060C22;
+    }
+  }
+
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    &__info {
+      width: 90%;
+    }
+
+    &__p {
+      color: #060C22;
+    }
+  }
+}
+
+// Large devices (Desktops, 992px and up)
+
+@media screen and (min-width: 62rem) {
+  .recruitment {
+    padding: 3.125rem 1rem;
+
+    &__h2 {
+      font-size: 3.8125rem;
+    }
+
+    &__p {
+      font-size: 1.5625rem;
+      width: 70%;
+    }
+  }
+
+  .card {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+
+    &__info {
+      width: 100%;
+    }
+
+    &__p {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+// X-Large devices (Large desktops, 1200px and up)
+
+@media screen and (min-width: 75rem) {
+
+  .card {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 3rem;
+
+    &__info {
+      width: 100%;
+    }
+
+    &__p {
+      font-size: 1.5625rem;
+    }
+  }
+}
+
+// X-Large devices (Large desktops, 1400px and up)
+
+@media screen and (min-width: 87.5rem) {
+  .recruitment {
+    max-width: 87.5rem;
+    margin: 0 auto;
+  }
+}

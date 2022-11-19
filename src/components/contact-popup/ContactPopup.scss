@@ -5,11 +5,15 @@
     width: 300px;
     font-family: 'Open Sans';
     font-style: normal;
-
+z-index: 1;
     .head{
         background: #714DD9;
         padding: 10px 10px 20px;
         color: #fff;
+        
+        p{
+            color: #fff;
+        }
     }
 
     form{
@@ -55,6 +59,7 @@
             border-radius: 8px;
             padding: 13px;
             border: none;
+            cursor: pointer;
             display: flex;
             justify-content: flex-end;
         }

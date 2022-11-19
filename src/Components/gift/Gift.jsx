@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Gift.module.scss";
 
 import gift from "../../assets/home/gift.png";
-import Button from "../button/Button";
+import Button from "../button/button";
 
 export default function Gift() {
   const btnStyle = {

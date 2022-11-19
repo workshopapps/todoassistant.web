@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8fb25c47.css",
+    "main.js": "/static/js/main.3f551335.js",
+    "static/media/macbook.svg": "/static/media/macbook.86a616e130ae10fb4675812afb5fb711.svg",
+    "static/media/gift.png": "/static/media/gift.870848d4cf8d3b9f64c2.png",
+    "static/media/people.png": "/static/media/people.9104ca03cf154aba800d.png",
+    "static/media/phone.png": "/static/media/phone.343037dc4d56ef1db432.png",
+    "static/media/career-profile.svg": "/static/media/career-profile.0a53941dcc1ca5044c49fce49e48248f.svg",
+    "static/media/Joe.svg": "/static/media/Joe.62cb72936a57d0960e272aab63d4db5e.svg",
+    "static/media/Bridget.svg": "/static/media/Bridget.06e442bd5d85b039068d0304e6ce38d1.svg",
+    "static/media/ticked_about_header2.png": "/static/media/ticked_about_header2.4af8697f8ee7e4273fc1.png",
+    "static/media/Chike.svg": "/static/media/Chike.f2632947e131dba02200793340e92b63.svg",
+    "static/media/bg-img.png": "/static/media/bg-img.dac21b27b74ccc363071.png",
+    "static/media/interview.svg": "/static/media/interview.b12eb5563a06e16aa2c27c8a482db3e2.svg",
+    "static/media/career-great-coworkers.svg": "/static/media/career-great-coworkers.fb6c9627c43f59c1050a386f0fde3554.svg",
+    "static/media/phone.svg": "/static/media/phone.69d2977484147ab17d5be97f10f427d3.svg",
+    "static/media/career-performance.svg": "/static/media/career-performance.cf3f52741d53968fc8bc5120e353154b.svg",
+    "index.html": "/index.html",
+    "static/media/cv.svg": "/static/media/cv.419c60b18fb191c438aefce191a0771a.svg",
+    "static/media/skill.svg": "/static/media/skill.589e2c4b6c8264343579099260b8bfba.svg",
+    "static/media/career-remote.svg": "/static/media/career-remote.7d391c21161f2373d73194aeb9bdaba3.svg",
+    "static/media/add.svg": "/static/media/add.9202f75703cad61a2ef2657864fe8bd4.svg",
+    "static/media/minus.svg": "/static/media/minus.878d3398926e7fe32565898494178601.svg",
+    "static/media/arrow-down.svg": "/static/media/arrow-down.0340f5d58c3c5b6e7d01d33218c3b312.svg",
+    "static/media/my-tick.svg": "/static/media/my-tick.836ea2dbb01e1051283c.svg",
+    "main.8fb25c47.css.map": "/static/css/main.8fb25c47.css.map",
+    "main.3f551335.js.map": "/static/js/main.3f551335.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fb25c47.css",
+    "static/js/main.3f551335.js"
+  ]
+}

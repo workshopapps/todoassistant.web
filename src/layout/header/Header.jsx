@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import Button from "../../Components/button/Button";
+import Button from "../../Components/button/button";
 
 // import hamburger from "../../assets/hamburger.png";
 
@@ -55,8 +55,8 @@ const Header = () => {
           </Link>
         </div>
         <span className={styles.header_button}>
-          <Button style={btnStyleOutline} title="Login" />
-          <Button title="Sign up" />
+          <Button link="/login" style={btnStyleOutline} title="Login" />
+          <Button link="/signup" title="Sign up" />
         </span>
       </div>
 
