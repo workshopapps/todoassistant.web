@@ -181,7 +181,7 @@ button.submit__button {
     .boxes,
     button.submit__button,
     .input___half {
-        max-width: 76%;
+        max-width: 100%;
     }
 }
 @media screen and (max-width: 1000px) {
@@ -189,7 +189,11 @@ button.submit__button {
     .boxes,
     button.submit__button,
     .input___half {
-        max-width: 60%;
+        max-width: 92%;
+    }
+
+    .button_button_wrap__vytmx {
+        width: 92%;
     }
     .expiry,
     .cvv {
@@ -275,7 +279,7 @@ button.submit__button {
         justify-content: space-between;
     }
     .input___half {
-        gap: 16rem;
+        gap: 10rem;
     }
 }
 
