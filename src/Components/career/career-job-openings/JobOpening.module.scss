@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 87.5rem;
   margin: 0 auto;
 }
 
@@ -62,7 +62,7 @@
   padding: 1rem 1rem 1rem 3.5rem;
   background: #f6fafb;
   border: 1px solid #714dd9;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .jobOpenings form input:focus,
@@ -108,7 +108,7 @@
   row-gap: 4.25rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
 
   .container {
     max-width: 90%;
@@ -122,7 +122,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .jobOpenings h2 {
     font-size: 2.125rem;
     margin-bottom: 0.3125rem;
@@ -150,7 +150,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 36rem) {
 
   .grid {
     width: 80%;
