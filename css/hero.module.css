@@ -1,0 +1,201 @@
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: rgb(112, 112, 112);
+}
+
+.hero__icon1 {
+  position: absolute;
+  top: 36%;
+  z-index: -1;
+  left: 1%;
+}
+@media (min-width: 1200px) {
+  .hero__icon1 {
+    top: 17%;
+    left: 5%;
+  }
+}
+
+.hero__icon2 {
+  position: absolute;
+  top: 60%;
+  left: 1%;
+  z-index: -1;
+}
+@media (min-width: 1200px) {
+  .hero__icon2 {
+    top: 38%;
+    left: 8%;
+  }
+}
+
+.hero__icon3 {
+  position: absolute;
+  top: 60%;
+  left: 82%;
+  z-index: -1;
+}
+@media (min-width: 1200px) {
+  .hero__icon3 {
+    top: 27%;
+    left: 90%;
+  }
+}
+
+.hero__icon4 {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  z-index: -1;
+}
+@media (min-width: 1200px) {
+  .hero__icon4 {
+    top: 0;
+    left: 90%;
+  }
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: rgb(51, 51, 51);
+  overflow: hidden;
+}
+.hero .hero__bg_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1668648043/hng/todoAppVirtualAssistant/Group_3_hzbhze.svg") bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+}
+.hero .hero__text_section {
+  max-width: 42.7rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.hero .hero__text_section .hero__title {
+  font-weight: 700;
+  line-height: 160%;
+  font-size: 34px;
+  margin: 2.6rem 0 1.4rem 0;
+}
+.hero .hero__text_section .hero__title .hero__plan {
+  color: rgb(247, 148, 31);
+}
+.hero .hero__text_section .hero__subtitle {
+  font-size: 1.125rem;
+  line-height: 180%;
+}
+.hero .hero__text_section .hero__btn_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.75rem 0;
+}
+.hero .hero__text_section .hero__btn_container .button_getstarted {
+  width: 183.84px;
+  height: 47.98px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  background-color: rgb(113, 77, 217);
+  color: rgb(255, 255, 255);
+}
+.hero .hero__text_section .hero__btn_container .button_getstarted:hover {
+  box-shadow: 0px 0px 0px 4px rgba(113, 77, 217, 0.3137254902);
+}
+.hero .hero__text_section .hero__btn_container .button_login {
+  width: 183.84px;
+  height: 47.98px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  border: 1px solid rgb(113, 77, 217);
+  background-color: transparent;
+  color: rgb(113, 77, 217);
+}
+.hero .hero__text_section .hero__btn_container .button_login:hover {
+  box-shadow: 0px 0px 0px 4px rgba(113, 77, 217, 0.3137254902);
+}
+.hero .hero__img {
+  width: fit-content;
+  margin: 0 auto;
+}
+.hero .hero__img .hero__mobile_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero .hero__img .hero__destop_img {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+  .hero .hero__bg_img {
+    background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1668646951/hng/todoAppVirtualAssistant/Frame_34485_m2htfd.svg") center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .hero .hero__text_section .hero__title {
+    font-weight: 700;
+    line-height: 160%;
+    font-size: 48px;
+    margin: 7.5rem 0 1.4rem 0;
+  }
+  .hero .hero__text_section .hero__title .hero__plan {
+    color: rgb(247, 148, 31);
+  }
+  .hero .hero__text_section .hero__subtitle {
+    font-size: 1.25rem;
+    line-height: 160%;
+  }
+  .hero .hero__text_section .hero__btn_container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .hero .hero__img .hero__mobile_img {
+    display: none;
+  }
+  .hero .hero__img .hero__destop_img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 7rem;
+  }
+}
+@media (min-width: 770px) {
+  .hero {
+    height: fit-content;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    height: 66rem;
+  }
+}/*# sourceMappingURL=hero.module.css.map */

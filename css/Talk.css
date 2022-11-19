@@ -1,0 +1,55 @@
+.contact__talk {
+  text-align: center;
+  font-family: "Open Sans";
+  font-style: normal;
+  padding: 0 5%;
+}
+.contact__talk h2 {
+  font-weight: 700;
+  font-size: 55px;
+}
+.contact__talk p {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 0.5rem;
+}
+.contact__talk .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.contact__talk .profiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact__talk .profiles .item {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0.7rem 2rem;
+}
+.contact__talk .profiles .item .unit {
+  color: #714DD9;
+}
+.contact__talk .profiles .item img {
+  width: 250px;
+}
+@media screen and (max-width: 300px) {
+  .contact__talk .profiles .item img {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .contact__talk .profiles {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 600px) {
+  .contact__talk h2 {
+    font-size: 27px;
+  }
+  .contact__talk p {
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=Talk.css.map */
