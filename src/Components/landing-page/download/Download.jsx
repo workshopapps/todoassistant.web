@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./Download.module.scss";
 
 //Images
-import play from "../../assets/home/play.png";
-import apple from "../../assets/home/apple.png";
-import phone from "../../assets/home/phone.png";
+import play from "../../../assets/home/play.png";
+import apple from "../../../assets/home/apple.png";
+import phone from "../../../assets/home/phone.png";
 
 export default function Download() {
   return (

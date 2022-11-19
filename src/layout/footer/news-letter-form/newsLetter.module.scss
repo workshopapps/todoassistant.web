@@ -3,6 +3,18 @@
     color: #fff;
     font-size: 25px;
     font-weight: 700;
+    margin-bottom: 1rem
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .label {
+      text-align: left !important;
+      font-size: 12px;
+      color: #fff;
+    }
   }
 
   .input {
@@ -12,6 +24,6 @@
     border: 1px solid #e9f3f5;
     border-radius: 8px;
     padding: 0 2rem;
-    margin: 2rem 0;
+    margin: 0 0 1rem 0;
   }
 }

@@ -1,17 +1,17 @@
-import React from 'react';
-import styles from './Footer.module.scss';
-import { Link } from 'react-router-dom';
-import facebook from '../../assets/facebook.png';
-import twitter from '../../assets/twitter.png';
-import instagram from '../../assets/instagram.png';
-import NewsLetter from './news-letter-form/NewsLetter';
+import React from "react";
+import styles from "./Footer.module.scss";
+import { Link } from "react-router-dom";
+import facebook from "../../assets/facebook.png";
+import twitter from "../../assets/twitter.png";
+import instagram from "../../assets/instagram.png";
+import NewsLetter from "./news-letter-form/NewsLetter";
 
 const Footer = () => {
   return (
-    <div className={styles.footer_wrap}>
+    <footer className={styles.footer_wrap}>
       <img
-        src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1668833428/hng/todoAppVirtualAssistant/Frame_34483_yg6eoz.png'
-        alt='logo'
+        src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668833428/hng/todoAppVirtualAssistant/Frame_34483_yg6eoz.png"
+        alt="logo"
       />
       <section className={styles.footer_text}>
         <NewsLetter />
@@ -25,18 +25,18 @@ const Footer = () => {
         </p>
       </section>
       <div className={styles.footer_links}>
-        <Link to='/about'>About Us</Link>
-        <Link to='/contact'>Contact Us</Link>
-        <Link to='/faq'>FAQs</Link>
-        <Link to='/career'>Career</Link>
-        <Link to='/policy'>Privacy</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/contact">Contact Us</Link>
+        <Link to="/faq">FAQs</Link>
+        <Link to="/career">Career</Link>
+        <Link to="/policy">Privacy</Link>
       </div>
       <div className={styles.footer_socials}>
-        <img src={facebook} alt='logo' />
-        <img src={twitter} alt='logo' />
-        <img src={instagram} alt='logo' />
+        <img src={facebook} alt="logo" />
+        <img src={twitter} alt="logo" />
+        <img src={instagram} alt="logo" />
       </div>
-    </div>
+    </footer>
   );
 };
 

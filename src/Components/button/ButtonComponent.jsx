@@ -9,11 +9,10 @@ const Button = ({ link, style, title }) => {
       {title}
     </Link>
   );
-
 };
 
 Button.defaultProps = {
-  link: '/',
-}
+  link: "/",
+};
 
 export default Button;

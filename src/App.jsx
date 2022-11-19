@@ -4,7 +4,7 @@ import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./Components/accountPreferences/AccountPreferences";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
-import Layout from "./layout/Layout";
+
 import FAQ from "./pages/FAQ/FAQ";
 import { About, Career, Contact, LandingPage, PrivatePolicy } from "./pages";
 import Dasboard from "./Components/dasboard/Dasboard";
