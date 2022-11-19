@@ -29,7 +29,9 @@ function App() {
 					<Route path="/about" element={<About />} />
 					<Route path="/policy" element={<PrivatePolicy />} />
 					<Route path="/account" element={<AccountPreferences />} />
+					<Route path="/account/edit" element={<PreferenceSettingEdit />} />
 					<Route path="/signup" element={<Signup />} />
+					<Route path="/newtask" element={<NewTask />} />
 
 					<Route path="/faq" element={<FAQ />} />
 
