@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a6e446e6.css",
+    "main.js": "/static/js/main.8a553759.js",
+    "static/media/ticked_about_header.png": "/static/media/ticked_about_header.7830bb803e3a0d5bfc7d.png",
+    "static/media/ticked_about_header_mobile.png": "/static/media/ticked_about_header_mobile.e33155cfd592555625cb.png",
+    "static/media/career-profile.svg": "/static/media/career-profile.05a8230080de6cb365c83a4a2b36cc23.svg",
+    "static/media/gift.png": "/static/media/gift.870848d4cf8d3b9f64c2.png",
+    "static/media/people.png": "/static/media/people.9104ca03cf154aba800d.png",
+    "static/media/phone.png": "/static/media/phone.343037dc4d56ef1db432.png",
+    "static/media/Joe.svg": "/static/media/Joe.2f2c28d6eea83efd6c8450bcc0de1bba.svg",
+    "static/media/Bridget.svg": "/static/media/Bridget.eaed8f271532dae7daafe34384a02748.svg",
+    "static/media/Chike.svg": "/static/media/Chike.9696b632dd8d93ab44b3c387baad0427.svg",
+    "static/media/bg-img.png": "/static/media/bg-img.dac21b27b74ccc363071.png",
+    "static/media/career-performance.svg": "/static/media/career-performance.0c3604917f9d4c4210837bd6a00fde6a.svg",
+    "static/media/career-great-coworkers.svg": "/static/media/career-great-coworkers.3a776e967bc4505d6843915bdae173bd.svg",
+    "index.html": "/index.html",
+    "static/media/career-remote.svg": "/static/media/career-remote.4a20e029a0611c9255cd1a08534bd7cc.svg",
+    "static/media/add.svg": "/static/media/add.65056095c670fe78575c0d683dcc54b7.svg",
+    "static/media/minus.svg": "/static/media/minus.72950b713d0ec3bbe1d18819784c59cd.svg",
+    "main.a6e446e6.css.map": "/static/css/main.a6e446e6.css.map",
+    "main.8a553759.js.map": "/static/js/main.8a553759.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a6e446e6.css",
+    "static/js/main.8a553759.js"
+  ]
+}
