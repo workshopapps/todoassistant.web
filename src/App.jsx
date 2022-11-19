@@ -5,14 +5,14 @@ import GeneralLoading from './layout/general-loading/GeneralLoading';
 import Layout from './layout/Layout';
 import {
   About,
-  Account,
+
   Career,
   Contact,
   FAQ,
   LandingPage,
-  Premium,
+
   PrivatePolicy,
-  Task,
+  
 } from './pages';
 
 function App() {
