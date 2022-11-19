@@ -8,6 +8,7 @@ import gPay from '../../assets/image 20gpay.svg';
 import others from '../../assets/add-circleothers.svg';
 
 import './Payment.css';
+import Modal from './Modal/Modal';
 // import Modal from '../ui-components/Modal/Modal';
 // import { AnimatePresence, motion } from 'framer-motion';
 
@@ -203,15 +204,13 @@ const Payment = () => {
                                 />
                             </div>
                         </div>
-                        {/* <button
-                            whileHover={{ scale: 1.04 }}
-                            whileTap={{ scale: 0.9 }}
+                        <button
                             type='submit'
                             className='button submit__button'
                             onSubmit={handleSubmit}>
                             Make Payment
-                        </button> */}
-                        <Button title={'Make Payment'} />
+                        </button>
+                        {/* <Button title={'Make Payment'} /> */}
                     </form>
                 </div>
             );
@@ -292,6 +291,8 @@ const Payment = () => {
             {/* <AnimatePresence>
                 <Modal open={openModal} setOpen={setOpenModal} success />
             </AnimatePresence> */}
+
+            <Modal open={openModal} setOpen={setOpenModal} success />
         </div>
     );
 };

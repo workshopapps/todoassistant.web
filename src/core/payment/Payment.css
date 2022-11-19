@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 main.MuiContainer-root.css-1wckgid-MuiContainer-root {
     background-color: #f6fafb;
 }
@@ -8,17 +12,21 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* RE-USABLE CSS */
+
+.button {
+    width: 170px;
+    background-color: #714dd9;
+    padding: 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .payment__screen {
     min-height: 100vh;
     background-color: #f6fafb;
 
-    padding-left: 2.3rem;
+    padding-left: 0rem;
     display: flex;
 }
 
@@ -135,7 +143,7 @@ input::-webkit-inner-spin-button {
     margin-left: 5px;
 }
 button.submit__button {
-    max-width: 90%;
+    max-width: 100%;
     width: 100%;
     color: #fff;
     border: none;
