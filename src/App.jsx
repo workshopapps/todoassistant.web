@@ -4,11 +4,11 @@ import AccountPreferences from "./Components/accountPreferences/AccountPreferenc
 import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 import Layout from "./layout/Layout";
+import FAQ from "./pages/FAQ/FAQ";
 import {
   About,
   Career,
   Contact,
-  FAQ,
   LandingPage,
   PrivatePolicy,
 } from "./pages";
