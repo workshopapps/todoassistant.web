@@ -3,7 +3,8 @@ import AboutUsHeader from '../Components/AboutUs/AboutUsHeader';
 import Testimonal from '../Components/AboutUs/Testimonal';
 const AboutUs = () => {
   return (
-    <></>
+    <>
+    </>
   );
 };
 
