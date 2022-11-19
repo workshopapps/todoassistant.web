@@ -13,6 +13,7 @@ import {
   Premium,
   PrivatePolicy,
   Task,
+  Error,
 } from './pages';
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             {/* 404-error handler */}
             <Route
               path='*'
-              element={<GeneralLoading text='PAGE NOT FOUND' />}
+              element={<Error />}
             />
           </Routes>
         </Suspense>
