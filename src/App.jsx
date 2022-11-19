@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import AccountPreferences from "./Components/accountPreferences/AccountPreferences";
 import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 import Layout from "./layout/Layout";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/career" element={<Career />} />
             <Route path="/about" element={<About />} />
             <Route path="/policy" element={<PrivatePolicy />} />
+            <Route path="/account" element={<AccountPreferences />} />
 
             <Route path="/faq" element={<FAQ />} />
 
