@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactHero from '../Components/contact-hero/ContactHero';
-import Talk from '../Components/talk/Talk';
+import ContactHero from '../components/contact-hero/ContactHero';
+import Talk from '../components/talk/Talk';
 
 const Contact = () => {
   return <div>

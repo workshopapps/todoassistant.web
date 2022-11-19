@@ -1,4 +1,4 @@
-import Home from '../Components/userDasboardComponents/home/Home'
+import Home from '../components/userDasboardcomponents/home/Home'
 import ChatBox from '../core/chatbox/ChatBox'
 
 //icons
