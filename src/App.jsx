@@ -5,7 +5,7 @@ import AccountPreferences from "./Components/accountPreferences/AccountPreferenc
 import PreferenceSettingEdit from "./Components/PreferenceSetting/Preference";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
-import Layout from "./layout/Layout";
+
 import FAQ from "./pages/FAQ/FAQ";
 import { About, Career, Contact, LandingPage, PrivatePolicy } from "./pages";
 import Dasboard from "./Components/dasboard/Dasboard";

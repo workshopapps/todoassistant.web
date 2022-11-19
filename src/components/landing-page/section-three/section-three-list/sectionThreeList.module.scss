@@ -31,6 +31,11 @@ p {
   border-bottom: 1px solid #d3d3d360;
   margin: 1.5rem 0;
 
+  &:hover {
+    border: 1px solid $activeColor;
+    border-radius: 8px;
+  }
+
   // Large devices (desktops, 768px and up)
   @media (min-width: 768px) {
     margin: 0;

@@ -1,4 +1,4 @@
-@import "../../scss/variables";
+@import "../../../scss/variables";
 
 // ===================
 // MIXINS
@@ -21,14 +21,14 @@
 }
 
 .main {
-  background-image: url("../../assets/home/bg-img.png");
+  background-image: url("../../../assets/home/bg-img.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 
   &__top {
     h3 {
-      font-size: 2rem;
+      font-size: 24px;
       text-align: center;
       font-weight: 700;
       line-height: 160%;
@@ -42,7 +42,7 @@
       line-height: 140%;
       text-align: center;
       color: #707070;
-      margin-top: 20px;
+      margin: 20px 0 2rem;
     }
     button {
       margin-top: 20px !important;

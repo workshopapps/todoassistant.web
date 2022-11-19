@@ -3,6 +3,9 @@ import SectionThreeList from "./section-three-list/SectionThreeList";
 import styles from "./SectionThree.module.scss";
 
 const SectionThree = () => {
+
+  
+
   return (
     <div className={styles.main}>
       <section className={styles.container}>

@@ -17,11 +17,6 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: .3s ease;
-
-  &:hover {
-    box-shadow: 0px 0px 0px 4px #714dd950;
-  }
 }
 // ====================
 // END OF MIXINS
@@ -37,7 +32,12 @@
 }
 
 p {
-  color: $blackText;
+  color: $blackText !important;
+}
+
+h1,
+h2 {
+  color: $black !important;
 }
 
 .hero__icon1 {

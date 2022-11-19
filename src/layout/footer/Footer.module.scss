@@ -1,12 +1,15 @@
+@import "../../scss//variables";
+
 .footer_wrap {
-  // position: fixed;
+  // height: 585px;
+  background: $footer;
   bottom: 0px;
   left: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #060c22;
+
   padding: 4rem 0;
   .footer_text {
     @media screen and (max-width: 596px) {
@@ -19,12 +22,10 @@
     text-align: center;
     letter-spacing: -0.231818px;
     max-width: 40%;
-    mix-blend-mode: normal;
-    opacity: 0.5;
     margin-top: 4rem;
 
     p {
-      color: #fff;
+      color: #7e838e;
       font-size: 17px;
       line-height: 23px;
     }
