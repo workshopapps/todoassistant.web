@@ -14,6 +14,7 @@ import Footer from './layout/footer/Footer';
 import Dasboard from './Components/dasboard/Dasboard';
 import Home from './Components/userDasboardComponents/home/Home';
 import ChatBox from './core/chatbox/ChatBox';
+import Payment from './core/payment/Payment';
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                     {/* //add your route here for Va dashboard */}
                     <Route path='' element={<Home />} />
                     <Route path='chat' element={<ChatBox />} />
+                    <Route path='payment' element={<Payment />} />
                 </Route>
                 {/* <Route path="/faq" element={<FAQ />}>
           <Route index element={<Account />} />
