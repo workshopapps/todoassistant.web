@@ -1,0 +1,91 @@
+.recruitment {
+  font-family: Open Sans;
+  text-align: center;
+  font-weight: 700;
+  padding: 3.125rem 0;
+
+  &__h2 {
+    font-size: 2.125rem;
+  }
+
+  &__p {
+    font-size: 0.875rem;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    width: 65vw;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 1.5rem;
+
+  &__info {
+    border: 1px solid #707070;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    min-width: 70vw;
+  }
+
+  &__img {
+    width: 15vw;
+    height: 10vh;
+  }
+
+  &__p {
+    font-size: 0.875rem;
+    padding: 0.8rem 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .recruitment {
+    &__h2 {
+      font-size: 2.3rem;
+    }
+
+    &__p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    &__info {
+      min-width: 40vw;
+    }
+
+    &__img {
+      height: 15vh;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .recruitment {
+    &__h2 {
+      font-size: 3.8125rem;
+    }
+
+    &__p {
+      font-size: 1.5625rem;
+      width: 60vw;
+    }
+  }
+
+  .card {
+    grid-template-columns: repeat(4, 1fr);
+
+    &__info {
+      min-width: 20vw;
+    }
+
+    &__img {
+      width: 5vw;
+      height: 10vh;
+    }
+  }
+}
