@@ -2,7 +2,7 @@ export const QandA = [
   {
     id: 0,
     question: "How do I back up my data?",
-    answer: "You can connect to your google account.",
+    answer: "You can connect to your google account",
   },
   {
     id: 1,
