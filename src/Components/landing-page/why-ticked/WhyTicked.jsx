@@ -14,7 +14,7 @@ const WhyTicked = () => {
         </header>
         <section className={style.section__four_grid}>
           <WhyTickedBox
-            title={`Personalised Virtual Assistant`}
+            title={`Personalised Virtual Assistant.`}
             desc={`Opportunity to own a Virtual Assistant to have a relationship and build a level of trust such that You can assign a task or more to your Virtual Assistant.`}
           />
           <WhyTickedBox
