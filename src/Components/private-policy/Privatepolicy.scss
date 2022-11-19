@@ -26,7 +26,7 @@
     text-decoration: none;
 }
 .pagecontainer{
-    max-width: 1244px;
+    max-width: 85vw;
     margin: 1.4375rem auto;
     padding: 0px 20px;
 }
@@ -40,7 +40,6 @@
     text-align: center;
 }
 .privacy_header p{
-    font-size: 1.125rem;
     margin: 1.875rem 0 0;
 }
 .privacy_header a{
@@ -64,6 +63,9 @@
 
 // media queries
 @media screen and (max-width: 767px) {
+    .pagecontainer{
+        max-width: 95vw;
+    }
     .privatepolicy h2{
         font-size: 1.40625rem;
         line-height: 130%;
@@ -75,9 +77,6 @@
         margin: 0.8125rem 0 0;
         padding: 0 0 0.8125rem;
     }
-    .privatepolicy a{
-        text-decoration: underline;
-    }
     .pagecontainer{
         margin: 0.71875rem auto;
         padding-bottom: 2rem;
@@ -87,7 +86,6 @@
         text-align: left;
     }
     .privacy_header p{
-        font-size: 1rem;
         margin: 1.1875rem 0 0;
         padding: 0 0 0.5rem;
     }

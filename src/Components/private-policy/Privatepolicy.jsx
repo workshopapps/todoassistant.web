@@ -2,6 +2,9 @@ import React from 'react';
 import './Privatepolicy.scss';
 
 function Privatepolicy() {
+
+  // link to directly compose message to the ticked app team
+  const gmail_link = "https://mail.google.com/mail/?view=cm&fs=1&to=teamrulerhng@gmail.com&su=HNG%20Team%20Ruler%20-%20Any%20Questions%20About%20How%20We%20Handle%20Your%20User%20Data%20And%20Personal%20Information";
     
   // function to bring page back to the top
   const scrollTop = () => {
@@ -36,7 +39,7 @@ function Privatepolicy() {
                 desired services. Your continued use of our website will be regarded as 
                 acceptance of our practices around privacy and personal information. If you 
                 have any questions about how we handle user data and personal information, 
-                feel free to contact us: mailto:<a href="#">Teamrulerhng@gmail.com</a>
+                feel free to contact us: <a href={gmail_link} target="_blank" rel="noopener noreferrer">teamrulerhng@gmail.com</a>
                 </p>
             </div>
 
@@ -92,8 +95,7 @@ function Privatepolicy() {
                     Third party analytics are used to track and measure usage of this site so that we can continue to produce engaging content. These cookies may track things such as how long you spend on the site or pages you visit which helps us to understand how we can improve the site for you. From time to time we test new features and make subtle changes to the way that the site is delivered. When we are still testing new features these cookies may be used to ensure that you receive a consistent experience whilst on the site whilst ensuring we understand which optimisations our users appreciate the most. As we sell products it's important for us to understand statistics about how many of the visitors to our site actually make a purchase and as such this is the kind of data that these cookies will track. This is important to you as it means that we can accurately make business predictions that allow us to monitor our advertising and product costs to ensure the best possible price. <br />
                     We also use social media buttons and/or plugins on this site that allow you to connect with your social network in various ways. We set cookies through our site which may be used to enhance your profile on their site or contribute to the data they hold for various purposes outlined in their respective privacy policies. <br />
                     More Information. <br />
-                    Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site. This policy is effective as of Nov 2022. <br />
-                    ReplyForward
+                    Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site. This policy is effective as of Nov 2022.
                 </p>
             </div>
             <div className="back_to_top">
