@@ -12,18 +12,22 @@
     @media screen and (max-width: 596px) {
       max-width: 70%;
     }
-    font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     line-height: 23px;
     text-align: center;
     letter-spacing: -0.231818px;
-    color: #f6fafb;
     max-width: 40%;
     mix-blend-mode: normal;
     opacity: 0.5;
     margin-top: 4rem;
+
+    p {
+      color: #fff;
+      font-size: 17px;
+      line-height: 23px;
+    }
   }
   .footer_links {
     @media screen and (max-width: 670px) {

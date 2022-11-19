@@ -1,5 +1,4 @@
 import React from "react";
-import Client from "../../Components/client/Client";
 import Download from "../../Components/download/Download";
 import Gift from "../../Components/gift/Gift";
 import HappyClient from "../../Components/landing-page/happy-client/HappyClient";
