@@ -14,7 +14,6 @@ import Footer from './layout/footer/Footer';
 import Dasboard from './Components/dasboard/Dasboard';
 import Home from './Components/userDasboardComponents/home/Home';
 import ChatBox from './core/chatbox/ChatBox';
-import FAQ from './pages/FAQ/FAQ';
 function App() {
   return (
     <div className='App'>
@@ -28,9 +27,12 @@ function App() {
           <Route path='' element={<Home />} />
           <Route path='chat' element={<ChatBox />} />
         </Route>
-         <Route path="/faq" element={<FAQ />}>
-          
-        </Route> 
+        {/* <Route path="/faq" element={<FAQ />}>
+          <Route index element={<Account />} />
+          <Route path="account" element={<Account />} />
+          <Route path="tasks" element={<Task />} />
+          <Route path="premium" element={<Premium />} />
+        </Route> */}
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/policy' element={<PrivatePolicy />} />
       </Routes>
