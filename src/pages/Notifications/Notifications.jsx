@@ -18,19 +18,19 @@ const NotificationList = [
         taskType: TaskType.completed,
         description: 'HNG Task completed.',
         time: '2022-11-19T12:59+0100',
-        id:1
+        id:2
     },
     {
         taskType: TaskType.overdue,
         description: 'Design system submission for 11am due,would you like to...',
         time: '2022-11-19T20:59-0500',
-        id:1
+        id:3
     },
     {
         taskType: TaskType.completed,
         description: 'HNG Task completed.',
         time: '2022-10-19T12:59-0500',
-        id:1
+        id:4
     }
 ]
 
