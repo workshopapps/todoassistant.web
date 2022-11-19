@@ -1,4 +1,5 @@
 // import "./App.scss";
+
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Contact from "./pages/Contact";
@@ -6,20 +7,22 @@ import Career from "./pages/Career/Career";
 import AboutUs from "./pages/AboutUs";
 import Error from "./pages/404/Error";
 // import FAQ from "./pages/FAQ";
-import PrivatePolicy from "./pages/Privacy/PrivatePolicy";
-import Header from "./layout/header/Header";
-import Footer from "./layout/footer/Footer";
+import PrivatePolicy from './pages/Privacy/PrivatePolicy';
+import Header from './layout/header/Header';
+import Footer from './layout/footer/Footer';
 // import Account from "./layout/FAQ/Account/Account";
 // import Task from "./layout/FAQ/Tasks/Tasks";
 // import Premium from "./layout/FAQ/Premium/Premium";
-import Dasboard from "./Components/dasboard/Dasboard";
-import Home from "./Components/userDasboardComponents/home/Home"
-import ChatBox from './core/chatbox/ChatBox'
+import Dasboard from './Components/dasboard/Dasboard';
+import Home from './Components/userDasboardComponents/home/Home';
+import ChatBox from './core/chatbox/ChatBox';
+import ResetPassword from "./Components/Reset Password/ResetPassword";
+import NewPassword from "./Components/Reset Password/NewPassword";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Header /> */}
+    <div className='App'>
+      <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/contact" element={<Contact />} />
@@ -36,10 +39,12 @@ function App() {
           <Route path="tasks" element={<Task />} />
           <Route path="premium" element={<Premium />} />
         </Route> */}
-        <Route path='/about-us' element={<AboutUs/>} />
-        <Route path="/policy" element={<PrivatePolicy />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/policy' element={<PrivatePolicy />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/new-password" element={<NewPassword />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

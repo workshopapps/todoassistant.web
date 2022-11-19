@@ -1,7 +1,9 @@
 import React from 'react';
 
 const PrivatePolicy = () => {
-  return <div>PrivatePolicy</div>;
-};
+  return (
+    <div>PrivatePolicy</div>
+    )
+}
 
-export default PrivatePolicy;
+export default PrivatePolicy
