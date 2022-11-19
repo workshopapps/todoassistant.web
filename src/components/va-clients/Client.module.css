@@ -1,0 +1,71 @@
+.page {
+  padding: 2rem 1.5rem;
+  display: flex;
+  cursor: default;
+}
+
+.side {
+  padding-right: 1.5rem;
+}
+
+.main {
+  padding-left: 1.5rem;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.search {
+  padding: .8rem .5rem .8rem 2.5rem;
+  border-radius: 4px;
+  margin-bottom: 2.5rem;
+  border: 1px solid #8A9EA8;
+  width: 100%;
+}
+
+.chatList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chatList > * {
+  background-color: #F6FAFB;
+}
+
+.chatList > *:first-child {
+  background-color: #714DD9;
+  color: white;
+}
+
+.chatListName {
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.chatlistTimestamp {
+  font-weight: 300;
+  color: #2B363B;
+  font-size: 12px;
+}
+
+.checkIcon {
+  margin-right: .5rem;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem; top: 1rem;
+}

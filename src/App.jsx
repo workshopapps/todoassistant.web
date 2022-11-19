@@ -14,6 +14,7 @@ import {
   PrivatePolicy,
   Task,
 } from './pages';
+import Client from './components/va-clients/Client';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/career' element={<Career />} />
             <Route path='/about' element={<About />} />
             <Route path='/policy' element={<PrivatePolicy />} />
+            <Route path="/client" element={<Client />} />
 
             <Route path='/faq' element={<FAQ />} />
 
