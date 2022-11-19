@@ -2,8 +2,16 @@ import React from "react";
 import styles from "./Gift.module.scss";
 
 import gift from "../../assets/home/gift.png";
+import Button from "../button/Button";
 
 export default function Gift() {
+  const btnStyle = {
+    width: "207px",
+    background: "transparent",
+    border: "1px solid rgb(113, 77, 217)",
+    color: "rgb(113, 77, 217)",
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -16,7 +24,9 @@ export default function Gift() {
             Fancy pockets filled with pocket <br /> sauce. Pocket sauce rampant
             in fancy pockets.
           </p>
-          <button>Get Started</button>
+          <div className={styles.main__getStarted}>
+            <Button style={btnStyle} title={`Get Started`} />
+          </div>
         </div>
         <div className={styles.main__bottom}>
           <div className={styles.main__img}>

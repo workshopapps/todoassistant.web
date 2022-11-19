@@ -50,6 +50,8 @@ p {
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 42px;
   justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
