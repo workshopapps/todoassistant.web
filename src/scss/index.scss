@@ -11,3 +11,10 @@ body {
   font-family: "Open Sans", sans-serif;
   color: $black !important;
 }
+
+.hover {
+  transition: 0.3s ease;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px #714dd950;
+  }
+}

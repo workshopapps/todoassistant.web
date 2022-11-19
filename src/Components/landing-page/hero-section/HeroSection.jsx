@@ -38,8 +38,12 @@ const Hero = () => {
             </p>
           </div>
           <div className={style.hero__btn_container}>
-            <button className={style.button_getstarted}>get Started</button>
-            <button className={style.button_login}>login</button>
+            <button className={`${style.button_getstarted} hover`}>
+              get Started
+            </button>
+            <button className={`${style.button_login} hover`}>
+              login
+            </button>
           </div>
         </article>
         <article className={style.hero__img}>
