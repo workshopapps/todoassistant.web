@@ -1,27 +1,31 @@
-.career {
+.careerJobContainer {
+  padding: 3.125rem 1rem 11rem 1rem;
   padding-bottom: 11rem;
+  background: #F6FAFB;
+  font-family: "Open Sans";
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .jobOpenings h2 {
-  font-family: "Open Sans";
-  font-style: normal;
   font-weight: 700;
-  font-size: 3.8125rem;
   line-height: 160%;
-  color: #060c22;
-  margin-bottom: 0.5rem;
   text-align: start;
+  font-size: 3.8125rem;
+  margin-bottom: 0.5rem;
+  color: #060c22;
 }
 
 .sub {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.5625rem;
+  font-weight: 700;  
   line-height: 160%;
-  color: #060c22;
-  margin-bottom: 2.5rem;
   text-align: start;
+  margin-bottom: 2.5rem;
+  font-size: 1.5625rem;
+  color: #060c22;
 }
 
 .jobOpenings form {
@@ -104,19 +108,29 @@
   row-gap: 4.25rem;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
+
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
   .grid {
+    width: 90%;
     grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .jobOpenings h2 {
     font-size: 2.125rem;
     margin-bottom: 0.3125rem;
+    color: #333333;
   }
   .sub {
     font-size: 1.125rem;
+    color: #333333;
   }
   .jobOpenings form {
     grid-template-columns: 1fr;
@@ -126,11 +140,19 @@
     grid-column: 1/1;
   }
   .grid {
+    width: 70%;
     grid-template-columns: 1fr;
     row-gap: 1.875rem;
   }
 
   .jobOpenings form {
     row-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .grid {
+    width: 80%;
   }
 }

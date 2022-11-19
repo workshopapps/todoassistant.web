@@ -15,7 +15,7 @@ const JobOpening = () => {
     { name: "Mobile Developer", id: "6" },
   ];
   return (
-    <div className={styles.career}>
+    <section className={styles.careerJobContainer}>
       <div className={styles.container}>
         <div className={styles.jobOpenings}>
           <h2>Job Openings</h2>
@@ -54,7 +54,7 @@ const JobOpening = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -27,7 +27,7 @@ const CareerHero = () => {
   ]
 
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.topContainer}>
         <div className={styles.imageContainer}>
           <img src={profile} alt="" />
@@ -50,7 +50,7 @@ const CareerHero = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 
 }

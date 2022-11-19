@@ -4,10 +4,6 @@
     object-fit: cover;
 }
 
-// img {
-//     @include img_fluid;
-// }
-
 .hero,
 .topContainer,
 .headingContainer,
@@ -50,7 +46,7 @@
 h1, h4 {
     font-weight: 700;
     line-height: 160%;
-    color: #060C22;
+    color: #333333;
 }
 
 h1 {
@@ -65,7 +61,7 @@ p {
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 120%;
-    color: #060C22;
+    color: #333333;
 }
 
 .btn {
@@ -170,6 +166,10 @@ p {
 
     .headingContainer {
         width: 70%;
+    }
+
+    h1, h4, p {
+        color: #060C22;
     }
 
     h1 {

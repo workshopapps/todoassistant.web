@@ -7,7 +7,7 @@ import interview from "../../../assets/interview.svg";
 
 const CareerMiddle = () => {
   return (
-    <div className={styles.recruitContainer}>
+    <section className={styles.recruitContainer}>
       <div className={styles.recruitment}>
         <h2 className={styles.recruitment__h2}>Learn our Recruitment Process</h2>
         <p className={styles.recruitment__p}>
@@ -33,7 +33,7 @@ const CareerMiddle = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,14 +5,13 @@
 .recruitment {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-
-  color: #333333;
   padding: 1rem;
 
   &__h2 {
     line-height: 160%;
     font-weight: 700;
     font-size: 1.6875rem;
+    color: #333333;
   }
 
   &__p {
@@ -23,6 +22,7 @@
     margin: 0 auto 1.875rem auto;
     width: 65%;
     text-align: left;
+    color: #333333;
   }
 }
 
@@ -51,6 +51,7 @@
     font-weight: 700;
     font-size: 1.5625rem;
     line-height: 160%;
+    color: #333333;
   }
 
   .card__info:last-child {
@@ -92,12 +93,14 @@
   .recruitment {
     &__h2 {
       font-size: 3.25rem;
+      color: #060C22;
     }
 
     &__p {
       font-weight: 700;
       font-size: 1.375rem;
       text-align: center;
+      color: #060C22;
     }
   }
 
@@ -107,6 +110,10 @@
 
     &__info {
       width: 90%;
+    }
+
+    &__p {
+      color: #060C22;
     }
   }
 }
