@@ -1,0 +1,288 @@
+@mixin img_fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero,
+.topContainer,
+.headingContainer,
+.cardContainer,
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+.hero {
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 3.125rem;
+    background: #F6FAFB;
+}
+
+.topContainer {
+    flex-flow: column-reverse nowrap;
+    align-items: center;
+}
+
+.imageContainer {
+    width: 100%;
+
+    img {
+        @include img_fluid;
+        transform: translateY(-1rem);
+    }
+}
+
+.headingContainer {
+    gap: 1rem;
+    margin-top: 3.125rem;
+
+    p {
+        margin-top: -0.5rem;
+    }
+}
+
+h1, h4 {
+    font-weight: 700;
+    line-height: 160%;
+    color: #333333;
+}
+
+h1 {
+    font-size: 2.125rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+p {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.btn {
+    padding: 0.875rem;
+    background: #714DD9;
+    border-radius: 0.5rem;
+    color: white;
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+}
+
+.cardContainer {
+    align-items: center;
+    justify-content: center;
+    gap: 3.125rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.card {
+    gap: 0.625rem;
+    padding: 1.5rem 1rem;
+    max-width: 80%;
+    background: #FFFFFF;
+    border-radius: 1rem;
+
+    img {
+        @include img_fluid;
+        margin-bottom: 1.5rem;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+}
+
+.card:nth-child(2){
+    h4 {
+        width: 70%;
+    }
+}
+
+// Small devices (landscape phones, 430px and up)
+
+@media screen and (min-width: 26.875rem) {
+
+    .cardContainer {
+        max-width: 75%;
+    }
+
+    // .card {
+    //     padding: 2rem 1.5rem;
+    //     max-width: 60%;    
+    // }
+
+}
+
+// Small devices (landscape phones, 576px and up)
+
+@media screen and (min-width: 36rem) {
+
+    h1 {
+        font-size: 3.25rem;
+    }
+    
+    h4 {
+        font-size: 1.375rem;
+    }
+
+    .card {
+        padding: 2rem 1.5rem;
+        max-width: 65%;    
+    }
+
+}
+
+// Large devices (Tablets, 768px and up)
+
+@media screen and (min-width: 48rem) {
+    .hero {
+        gap: 6.25rem;
+    }
+
+    .topContainer {
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .imageContainer {
+    
+        img {
+            @include img_fluid;
+        }
+    }
+
+    .headingContainer {
+        width: 70%;
+    }
+
+    h1, h4, p {
+        color: #060C22;
+    }
+
+    h1 {
+        font-size: 3.25rem;
+    }
+    
+    h4 {
+        font-size: 1.375rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .cardContainer {
+        flex-flow: row nowrap;
+        gap: 3.125rem;
+        max-width: 90%;
+        padding-top: 3.125rem;
+    }
+
+    .card {
+        width: 40%;    
+    }
+
+    .card:nth-child(2){
+        transform: translateY(-7rem);
+    }
+
+}
+
+// Large devices (Desktops, 992px and up)
+
+@media screen and (min-width: 62rem) {
+
+
+    .headingContainer {
+        margin-top: 4.375rem;
+    }
+
+    .cardContainer {
+        gap: 4.625rem;
+    }
+
+}
+
+// X-Large devices (Large desktops, 1200px and up)
+
+@media screen and (min-width: 75rem) {
+
+
+    .headingContainer {
+        margin-top: 6.25rem;
+        width: 50%;
+    }
+
+    .imageContainer {
+        width: 50%;
+    }
+
+    .cardContainer {
+        width: 80%;
+    }
+
+}
+
+// XX-Large devices (Larger desktops, 1400px and up)
+
+@media screen and (min-width: 87.5rem) {
+
+    .topContainer {
+        gap: 3.125rem;
+    }
+    
+    .imageContainer {
+        max-width: 50rem;
+    }
+
+    h1 {
+        font-size: 3.8125rem;
+    }
+    
+    h4 {
+        font-size: 1.5625rem;
+    }
+
+    .cardContainer {
+        width: 75%;
+    }
+
+}
+
+// XXX-Large devices (Larger desktops, 1700px and up)
+
+@media screen and (min-width: 106.25rem) {
+
+    .hero {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .topContainer {
+        max-width: 106.25rem;
+        
+    }
+
+    .cardContainer {
+        gap: 6.25rem;
+        max-width: 81.25rem;
+        width: 70%;
+    }
+
+    .card {
+        width: 27%;    
+    }
+
+}

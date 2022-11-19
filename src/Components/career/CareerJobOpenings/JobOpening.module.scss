@@ -1,0 +1,158 @@
+.careerJobContainer {
+  padding: 3.125rem 1rem 11rem 1rem;
+  padding-bottom: 11rem;
+  background: #F6FAFB;
+  font-family: "Open Sans";
+}
+
+.container {
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+
+.jobOpenings h2 {
+  font-weight: 700;
+  line-height: 160%;
+  text-align: start;
+  font-size: 3.8125rem;
+  margin-bottom: 0.5rem;
+  color: #060c22;
+}
+
+.sub {
+  font-weight: 700;  
+  line-height: 160%;
+  text-align: start;
+  margin-bottom: 2.5rem;
+  font-size: 1.5625rem;
+  color: #060c22;
+}
+
+.jobOpenings form {
+  padding: 1.5rem;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 1.5rem;
+  margin-bottom: 4.25rem;
+}
+
+.inputWrapper {
+  grid-column: 1/4;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper img {
+  position: absolute;
+  left: 1rem;
+}
+
+.jobOpenings form select {
+  padding: 1rem;
+  background: #f6fafb;
+  border: 1px solid #714dd9;
+  border-radius: 0.5rem;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.5rem;
+  background: #f6fafb;
+  border: 1px solid #714dd9;
+  border-radius: 0.5rem;
+}
+
+.jobOpenings form input:focus,
+.jobOpenings form select:focus {
+  border: 1px solid #714dd9;
+  outline: none;
+}
+
+.jobOpenings form input::placeholder,
+.jobOpenings form select {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 120%;
+  color: #707070;
+}
+
+.jobOpenings form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  width: 100%;
+}
+
+.selectWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 0;
+}
+
+.selectWrapper img {
+  position: absolute;
+  right: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 4.25rem;
+}
+
+@media (max-width: 75rem) {
+
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .grid {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 48rem) {
+  .jobOpenings h2 {
+    font-size: 2.125rem;
+    margin-bottom: 0.3125rem;
+    color: #333333;
+  }
+  .sub {
+    font-size: 1.125rem;
+    color: #333333;
+  }
+  .jobOpenings form {
+    grid-template-columns: 1fr;
+  }
+
+  .inputWrapper {
+    grid-column: 1/1;
+  }
+  .grid {
+    width: 70%;
+    grid-template-columns: 1fr;
+    row-gap: 1.875rem;
+  }
+
+  .jobOpenings form {
+    row-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 36rem) {
+
+  .grid {
+    width: 80%;
+  }
+}
