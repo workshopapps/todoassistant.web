@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a6c40517.css",
-    "main.js": "/static/js/main.4e79e21a.js",
+    "main.css": "/static/css/main.d781e0d6.css",
+    "main.js": "/static/js/main.449c6258.js",
     "static/media/macbook.svg": "/static/media/macbook.86a616e130ae10fb4675812afb5fb711.svg",
     "static/media/ticked_about_header.png": "/static/media/ticked_about_header.7830bb803e3a0d5bfc7d.png",
     "static/media/ticked_about_header2.png": "/static/media/ticked_about_header2.7830bb803e3a0d5bfc7d.png",
@@ -23,11 +23,11 @@
     "static/media/career-remote.svg": "/static/media/career-remote.7d391c21161f2373d73194aeb9bdaba3.svg",
     "static/media/add.svg": "/static/media/add.9202f75703cad61a2ef2657864fe8bd4.svg",
     "static/media/minus.svg": "/static/media/minus.878d3398926e7fe32565898494178601.svg",
-    "main.a6c40517.css.map": "/static/css/main.a6c40517.css.map",
-    "main.4e79e21a.js.map": "/static/js/main.4e79e21a.js.map"
+    "main.d781e0d6.css.map": "/static/css/main.d781e0d6.css.map",
+    "main.449c6258.js.map": "/static/js/main.449c6258.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6c40517.css",
-    "static/js/main.4e79e21a.js"
+    "static/css/main.d781e0d6.css",
+    "static/js/main.449c6258.js"
   ]
 }
