@@ -3,8 +3,9 @@
     left: 0;
     top: 0;
     width: 100vw;
-    min-height: 100%;
-    background-color: black;
+    min-height: 118%;
+    background-color: rgba(0, 0, 0, 0.686);
+
     display: grid;
     visibility: visible;
     place-items: center;
@@ -36,10 +37,15 @@
     visibility: visible;
     position: relative;
     z-index: 999999;
+    scale: 1;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
 }
 
 .modal.closeModal {
     visibility: hidden;
+    scale: 0;
+    transform: translateX(-100px);
 }
 .top__modal {
     position: relative;
@@ -74,7 +80,21 @@
     width: 17rem;
 }
 
-@media screen and (max-width: 919px) {
+@media screen and (max-width: 932px) {
+    modal__backdrop {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        min-height: 153%;
+    }
+}
+@media screen and (max-width: 780px) {
+    .modal__backdrop {
+        position: absolute;
+        left: -264px;
+        top: -84px;
+    }
 }
 @media screen and (max-width: 663px) {
     .modal__container {
@@ -84,6 +104,15 @@
     .modal {
         min-width: auto;
         width: 90%;
-        height: 280px;
+        height: 372px;
+    }
+}
+
+@media screen and (max-width: 595px) {
+    .modal__backdrop {
+        position: absolute;
+        left: -21px;
+        top: -76px;
+        height: 161%;
     }
 }
