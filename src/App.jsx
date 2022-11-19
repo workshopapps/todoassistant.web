@@ -10,6 +10,7 @@ import {
   Contact,
   FAQ,
   LandingPage,
+  Notifications,
   Premium,
   PrivatePolicy,
   Task,
@@ -26,8 +27,9 @@ function App() {
             <Route path="/career" element={<Career />} />
             <Route path="/about" element={<About />} />
             <Route path="/policy" element={<PrivatePolicy />} />
+            <Route path="/notifications" element={<Notifications />} />
 
-            {/* nexted routes */}
+            {/* nested routes */}
             <Route path="/faq" element={<FAQ />}>
               <Route index element={<Account />} />
               <Route path="account" element={<Account />} />
