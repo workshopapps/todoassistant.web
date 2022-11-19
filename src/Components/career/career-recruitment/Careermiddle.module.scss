@@ -1,5 +1,6 @@
 .recruitContainer {
   background: #F6FAFB;
+  width: 100%;
 }
 
 .recruitment {
@@ -54,11 +55,11 @@
     color: #333333;
   }
 
-  .card__info:last-child {
-    .card__img {
-      width: 60%;
-    }
-  }
+  // .card__info:last-child {
+  //   .card__img {
+  //     width: 60%;
+  //   }
+  // }
 }
 
 // Small devices (landscape phones, 430px and up)

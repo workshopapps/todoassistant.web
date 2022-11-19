@@ -30,7 +30,7 @@
 
     img {
         @include img_fluid;
-        transform: translateY(-2rem) scale(0.9);
+        transform: translateY(-1rem);
     }
 }
 
@@ -160,7 +160,6 @@ p {
     
         img {
             @include img_fluid;
-            transform: translateY(-1rem) translateX(2rem);
         }
     }
 
