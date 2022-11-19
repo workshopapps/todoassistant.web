@@ -7,12 +7,12 @@ import CardJobs from "./cardjobs/CardJobs";
 
 const JobOpening = () => {
   const jobs = [
-    { name: "Graphic Design", id: "1" },
-    { name: "Web Developer", id: "2" },
-    { name: "UI/UX Designer", id: "3" },
-    { name: "Virtual Assistant", id: "4" },
-    { name: "Design Lead", id: "5" },
-    { name: "Mobile Developer", id: "6" },
+    { name: "Graphic Design", text: "Minimum of 3 years experience in Graphics design or any related work", id: "1" },
+    { name: "Web Developer", text: "Minimum of 3 years experience in Web Development or any related work", id: "2" },
+    { name: "UI/UX Designer", text: "Minimum of 2 years experience in UI/UX Design or any related work", id: "3" },
+    { name: "Virtual Assistant", text: "Minimum of 1 year experience being an assistant or any related work", id: "4" },
+    { name: "Design Lead", text: "Minimum of 5 years experience in Design or any related work", id: "5" },
+    { name: "Mobile Developer", text: "Minimum of 2 years experience in Mobile development or any related work", id: "6" },
   ];
   return (
     <section className={styles.careerJobContainer}>
@@ -48,8 +48,8 @@ const JobOpening = () => {
             </div>
           </form>
           <div className={styles.grid}>
-            {jobs.map((i) => (
-              <CardJobs name={i.name} key={i.id} />
+            {jobs.map((data) => (
+              <CardJobs name={data.name} text={data.text} key={data.id} />
             ))}
           </div>
         </div>
