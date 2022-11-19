@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Signup from './core/auth/signup/Signup';
 import ErrorBoundary from './layout/error-boundary/ErrorBoundary';
 import GeneralLoading from './layout/general-loading/GeneralLoading';
 import Layout from './layout/Layout';
@@ -26,6 +27,7 @@ function App() {
             <Route path='/career' element={<Career />} />
             <Route path='/about' element={<About />} />
             <Route path='/policy' element={<PrivatePolicy />} />
+            <Route path='/signup' element={<Signup />} />
 
             <Route path='/faq' element={<FAQ />} />
 
