@@ -68,6 +68,7 @@ function PrefSetForm() {
 								</select>
 								<br />
 								<input
+									className={style.check}
 									onChange={handleTimeZoneNot}
 									type="checkbox"
 									name="time-change"
@@ -87,6 +88,7 @@ function PrefSetForm() {
 									<div>
 										<label>
 											<input
+												className={style.rad}
 												type="radio"
 												id=""
 												value="dmy"
@@ -100,6 +102,7 @@ function PrefSetForm() {
 									<div className={style.radio}>
 										<label>
 											<input
+												className={style.rad}
 												type="radio"
 												id=""
 												value="mdy"
@@ -113,6 +116,7 @@ function PrefSetForm() {
 									<div className={style.radio}>
 										<label>
 											<input
+												className={style.rad}
 												type="radio"
 												id=""
 												value="ymd"
@@ -131,6 +135,7 @@ function PrefSetForm() {
 									<div className={style.radio}>
 										<label>
 											<input
+												className={style.rad}
 												type="radio"
 												id=""
 												value="12"
@@ -144,6 +149,7 @@ function PrefSetForm() {
 									<div className={style.radio}>
 										<label>
 											<input
+												className={style.rad}
 												type="radio"
 												id=""
 												value="24"
@@ -163,7 +169,7 @@ function PrefSetForm() {
 					<h4 className={style.prefformhead}>Reminder and Notifications</h4>
 					<div className={style.par}>
 						<div className={style.prefformarray}>
-							<div>
+							<div className={style.prefformarray}>
 								<label className={style.l} htmlFor="daily-reminder">
 									Daily Reminder
 								</label>
@@ -175,7 +181,12 @@ function PrefSetForm() {
 									id=""
 								/>
 								<br />
-								<input type="checkbox" name="disable-daily-rem" id="" />
+								<input
+									className={style.check}
+									type="checkbox"
+									name="disable-daily-rem"
+									id=""
+								/>
 								<label
 									htmlFor="disable-daily-rem"
 									className="disable-daily-rem"
@@ -202,7 +213,7 @@ function PrefSetForm() {
 						<br />
 						<div>
 							<input
-								className={style.encheck}
+								className={style.check}
 								type="checkbox"
 								name="enable-email-not"
 								id=""
