@@ -14,6 +14,7 @@ import Footer from "./layout/footer/Footer";
 import Dasboard from "./Components/dasboard/Dasboard";
 import Home from "./Components/userDasboardComponents/home/Home"
 import ChatBox from './core/chatbox/ChatBox'
+import { FAQ } from "./pages";
 
 function App() {
   return (

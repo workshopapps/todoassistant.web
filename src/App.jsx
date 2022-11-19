@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import ErrorBoundary from './layout/error-boundary/ErrorBoundary';
 import GeneralLoading from './layout/general-loading/GeneralLoading';
 import Layout from './layout/Layout';
+import LowerLevel from './pages/FAQ/FAQ';
 import {
   About,
   Account,

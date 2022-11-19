@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import "./FAQ.scss";
 
 
-const LowerLevel = () => {
+const FAQ = () => {
 
   const [active, setActive] = useState(-1);
 
@@ -75,4 +75,4 @@ const LowerLevel = () => {
   );
 };
 
-export default LowerLevel;
+export default FAQ;
