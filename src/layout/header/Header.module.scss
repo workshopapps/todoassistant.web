@@ -30,6 +30,7 @@
         margin-right: 2rem;
         padding-bottom: 0.3rem;
         transition: all 0.2s ease-in-out;
+        margin-right: 5rem;
         &:hover {
           border-bottom: 0.225rem solid #714dd9;
         }
@@ -40,7 +41,8 @@
       }
     }
     .header_button {
-      margin-left: 3rem;
+      display: flex;
+      gap: 3rem;
     }
   }
   .header_hamburger {

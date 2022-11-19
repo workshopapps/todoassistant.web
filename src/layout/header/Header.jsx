@@ -14,6 +14,13 @@ const Header = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const [modal, setModal] = useState(0);
+
+  const btnStyleOutline = {
+    border: "1px solid #714dd9",
+    background: "transparent",
+    color: "#714dd9",
+  };
+
   return (
     <div className={styles.header_wrap}>
       <Link to="/">
@@ -47,9 +54,10 @@ const Header = () => {
             FAQs
           </Link>
         </div>
-        <div className={styles.header_button}>
-          <Button title="DOWNLOAD APP" />
-        </div>
+        <span className={styles.header_button}>
+          <Button style={btnStyleOutline} title="Login" />
+          <Button title="Sign up" />
+        </span>
       </div>
 
       <FiMenu
@@ -106,7 +114,7 @@ const Header = () => {
           </div>
 
           <div className={styles.header_sidebarButton}>
-            {" "}
+            <Button title="DOWNLOAD APP" />
             <Button title="DOWNLOAD APP" />
           </div>
         </div>
