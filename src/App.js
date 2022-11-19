@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import Contact from "./pages/Contact";
 import Career from "./pages/Career/Career";
 import AboutUs from "./pages/AboutUs";
+import Error from "./pages/404";
 // import FAQ from "./pages/FAQ";
 import PrivatePolicy from "./pages/Privacy/PrivatePolicy";
 import Header from "./layout/header/Header";
@@ -23,8 +24,9 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="career" element={<Career />} />
+        <Route path="*" element={<Error />} />
         <Route path="/dashboard" element={<Dasboard />} >
-          //add your route here for Va dashboard
+          {/* add your route here for Va dashboard */}
           <Route path="" element={<Home />} />
           <Route path="chat" element={<ChatBox />} />
         </Route>
