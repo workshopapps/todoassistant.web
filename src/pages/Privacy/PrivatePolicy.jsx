@@ -1,12 +1,16 @@
-import React from 'react';
-import Privacypolicy from '../../Components/privacy-policy/Privatepolicy';
+import React from "react";
+import Privacypolicy from "../../Components/privacy-policy/Privatepolicy";
+import Footer from "../../layout/footer/Footer";
+import Header from "../../layout/header/Header";
 
 const PrivatePolicy = () => {
   return (
-  <div>
+    <div>
+      <Header />
       <Privacypolicy />
-  </div>
-      );
+      <Footer />
+    </div>
+  );
 };
 
 export default PrivatePolicy;
