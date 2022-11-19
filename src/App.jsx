@@ -10,6 +10,7 @@ import { About, Career, Contact, LandingPage, PrivatePolicy } from "./pages";
 import Dasboard from "./Components/dasboard/Dasboard";
 import Home from "./Components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
+import NewTask from "./core/todo/NewTask";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/newtask" element={<NewTask />} />
 
           <Route path="/faq" element={<FAQ />} />
 
