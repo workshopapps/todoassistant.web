@@ -142,6 +142,7 @@ const Payment = () => {
       document.body.style.overflowY = "hidden";
     } else {
       document.body.style.overflowY = "scroll";
+      console.log(openModal);
     }
   }, [openModal]);
 
