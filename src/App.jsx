@@ -14,9 +14,11 @@ import ChatBox from "./core/chatbox/ChatBox";
 import NewTask from "./core/todo/NewTask";
 import Task from "./components/task/Task";
 import Detail from "./components/details/Detail";
+
 import Client from './components/va-clients/Client'
 import Notification from './components/notification/Notification'
 import VaProfile from './components/VA-Profile/VaProfile';
+
 function App() {
   return (
     <ErrorBoundary>
@@ -38,6 +40,7 @@ function App() {
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
+
           <Route path="/signup" element={<Signup />} />
           <Route path="/newtask" element={<NewTask />} />
 
