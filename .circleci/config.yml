@@ -1,36 +1,32 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  heroku: circleci/heroku@1.2.6
   docker: circleci/docker@1.5.0
+
 executors:
-  docker-publisher:
-    environment:
-    docker:
-      - image: circleci/node:latest
-        auth:
-          username: $DOCKERHUB_USER
-          password: $DOCKERHUB_PASS
+  docker-publisher: 
+            environment:
+            docker:
+              - image: circleci/node:latest
+                auth:
+                  username: $DOCKERHUB_USER
+                  password: $DOCKERHUB_PASS
 
 jobs:
-  build_and_test:
-    executor: node/default
+  Build: # this can be any name you choose
+    executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+      
       - run:
-          command: | 
-            yarn install
-            yarn start
-            yarn build
-            yarn test
+          command:   CI=false yarn build
           name: Build app
-          no_output_timeout: 60m
       - persist_to_workspace:
-          root: ~/build
-          paths:
-            - .
+          root: ~/project
+          paths: .
+
   publish-docker-image:
     executor: docker-publisher
     steps:
@@ -42,62 +38,38 @@ jobs:
              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
              docker build . -t teamrulerhng9/frontend:latest
              docker push teamrulerhng9/frontend:latest
-             
+
   Deploy-staging:
-    machine:
-      enabled: true
-    steps:
-      - run:
+     machine:
+        enabled: true
+     steps:
+        - run:
             name: Deploy Over SSH
             command : |
-              ssh $SSH_PROD_USER@$SSH_PROD_HOST "cd todoassistant.api" || "docker-compose down" || "docker-compse up -d"
-
-  Deploy-prod:
-    machine:
-      enabled: true
-    steps:
-      - run:
-            name: Deploy Over SSH
-            command : |
-             ssh $SSH_PROD_USER@$SSH_PROD_HOST "cd todo-docker" || "docker-compose down" || "docker-compse up -d"
-                 
-             
-  deploy: # this can be any name you choose
-    executor: heroku/default
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - heroku/deploy-via-git:
-          force: true 
-
+             ssh $SSH_USER@$SSH_HOST "cd todoassistant.api" || "docker-compose down" || "docker-compose up -d" 
 workflows:
-  test_my_app: 
+  front-workflow: 
       jobs: 
-         - build_and_test
+         - Build
          - publish-docker-image:
                  requires:
-                   - build_and_test
-#                    - publish-docker-image
+                   - Build
 
-                 filters:
+                 filters: 
                      branches:
                        only: 
                          - Development
+                         
 
          - Deploy-staging:
                 requires: 
-                    - build_and_test
+                    - Build
                     - publish-docker-image
                 filters:
                       branches:
                         only:
                           - Development
-         - Deploy-prod:
-                requires:
-                    - build_and_test
-                    - publish-docker-image
-                    - Deploy-staging
-                filters:
-                      branches:
-                         only:
-                           - Development
+                          
+                          
+
+   

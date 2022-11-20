@@ -1,16 +1,20 @@
-# Fetching the latest node image on apline linux
-FROM node:alpine
+#
+FROM node:bullseye-slim
 
-# Declaring env
-ENV NODE_ENV
+RUN mkdir -p /home/frontend
 
-# Setting up the work directory
-RUN mkdir /home/react-app
+COPY . /home/frontend
 
-# Installing dependencies
-COPY . /react-app
-WORKDIR /react-app
-RUN yarn install
+RUN cd /home/frontend
 
-# Starting our application
-CMD [ "yarn", "start" ]
+WORKDIR /home/frontend
+
+RUN yarn 
+
+RUN yarn build
+
+RUN yarn global add serve
+
+EXPOSE 3000
+
+ENTRYPOINT [ "yarn", "start" ]
