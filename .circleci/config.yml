@@ -46,7 +46,21 @@ jobs:
         - run:
             name: Deploy Over SSH
             command : |
-             ssh $SSH_USER@$SSH_HOST "cd todoassistant.api" || "docker-compose down" || "docker-compose up -d" 
+             ssh $SSH_USER@$SSH_HOST "docker-compose pull" 
+             ssh $SSH_USER@$SSH_HOST "docker-compose -up -d"
+             
+             
+   Deploy-production:
+     machine:
+        enabled: true
+     steps:
+        - run:
+            name: Deploy Over SSH
+            command : |
+             ssh $SSH_USER@$SSH_PROD_HOST "docker-compose pull" 
+             ssh $SSH_USER@$SSH_PROD_HOST "docker-compose -up -d"
+             
+             
 workflows:
   front-workflow: 
       jobs: 
@@ -69,6 +83,17 @@ workflows:
                       branches:
                         only:
                           - Development
+                          
+        - Deploy-production:
+                requires: 
+                    - Build
+                    - publish-docker-image
+                    - Deploy-staging
+                filters:
+                      branches:
+                        only:
+                          - Development
+                          
                           
                           
 
