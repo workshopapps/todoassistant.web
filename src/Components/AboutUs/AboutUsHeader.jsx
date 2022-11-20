@@ -1,6 +1,6 @@
 import styles from './AboutUsHeader.module.scss'
 import React from 'react'
-import img from '../../assets/ticked_about_header2.png'
+import img from '../../assets/ticked_about_header.png'
 
 
 const AboutUsHeader = () => {
