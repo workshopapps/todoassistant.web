@@ -13,7 +13,7 @@ const Testimonal = () => {
           <p className={styles.text}>To free our users with the concerned associated with task management</p>
       </div>
       <div className={styles.box} >
-          <p className={styles.title}>Core Values</p>
+          <p className={styles.title}>Our Core Values</p>
           <p className={styles.text}>Excellence<br/>
           Competence<br/>
           Time management
@@ -36,7 +36,7 @@ const Testimonal = () => {
           </div>
           <div className={styles.grid}>
             <p className={styles.lefttext}>
-              Thia has been the app I would say i needed . I love the interface and how easy it is for me to access the features provided. Good job guys I will highly recommend
+              This has been the app I would say i needed . I love the interface and how easy it is for me to access the features provided. Good job guys I will highly recommend
             </p>
             <div className={styles.hstack}>
               <div style={{background:'#FDA758'}} className={styles.round}>R</div>
@@ -45,20 +45,19 @@ const Testimonal = () => {
           </div>
            <div className={styles.grid}>
             <p className={styles.lefttext}>
-              Thia has been the app I would say i needed . I love the interface and how easy it is for me to access the features provided. Good job guys I will highly recommend
-            </p>
+             I must commened the efforts use to build this great app. Well done guys </p>
             <div className={styles.hstack}>
-              <div style={{background:'#714DD9'}} className={styles.round}>R</div>
-              <p className={styles.hstacktext}>Ruth Davidson</p>
+              <div style={{background:'#714DD9'}} className={styles.round}>E</div>
+              <p className={styles.hstacktext}>Esther George</p>
             </div>
 
           </div>
            <div className={styles.grid}>
             <p className={styles.lefttext}>
-              I must commened the efforts use to build this great app. Well done guys    </p>
+              Working with this team has been amazing, I’m happy witjh the progress we made building aomething individuals are happy using. Well donr team. </p>
             <div className={styles.hstack}>
-              <div style={{background:'#FDA758'}} className={styles.round}>E</div>
-              <p className={styles.hstacktext}>Esther George</p>
+              <div style={{background:'#FDA758'}} className={styles.round}>A</div>
+              <p className={styles.hstacktext}>Adorable Grace</p>
             </div>
 
           </div>
