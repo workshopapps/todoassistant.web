@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/Login.css'
+import './Login.scss'
 import LoginBottom from './LoginBottom';
 import LoginForm from './LoginForm';
 

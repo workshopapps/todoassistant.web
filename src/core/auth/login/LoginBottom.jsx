@@ -1,6 +1,6 @@
-import '../Login.css'
-import facebook_login from '../picture/facebook (2).png';
-import google_login from '../picture/google.png';
+import './Login.scss'
+import facebook_login from './facebook (login).png';
+import google_login from './google (login).png';
 import { Link } from 'react-router-dom';
 
 const LoginBottom = () =>{
