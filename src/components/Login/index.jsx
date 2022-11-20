@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from './style.module.css';
+import google from './assets/google.png'
+import fb from './assets/fb.png'
+import visibility from './assets/eye.svg';
+import visibilityOff from './assets/eye-off.svg';
 
 const Login = () => {
+	const [show, setShow] = React.useState(false);
+	const toggle = () => setShow(!show);
 	return (
 		<div className={styles.login__main}>
 			<div className={styles.login__formWrapper}>
@@ -9,11 +15,16 @@ const Login = () => {
 				<form className={styles.login__form}>
 					<div className={styles.login__formItem}>
 						<label className={styles.login__formLabel}>Email Address</label>
-						<input className={styles.login__input} placeholder="Enter email" type="email" />
+						<input required className={styles.login__input} placeholder="Enter email" type="email" />
 					</div>
 					<div className={styles.login__formItem}>
 						<label className={styles.login__formLabel}>Password</label>
-						<input className={styles.login__input} placeholder="Password" type="password" />
+						<div className={styles.login__passwordWrapper}>
+							<input required className={styles.login__password} placeholder="Password" type={show ? "text" : "password"} />
+							<span>
+								<img src={!show ? visibility : visibilityOff} onClick={toggle} />
+							</span>
+						</div>
 					</div>
 					<div className={styles.login__formItem__checkbox}>
 						<label className={styles.login__formLabel}>
@@ -26,15 +37,19 @@ const Login = () => {
 						<button className={styles.login__submitBtn}>Login</button>
 					</div>
 				</form>
-				<div>
-					<div>
-						<hr />
-						<span>Or continue with</span>
-						<hr />
+				<div className={styles.login__bottomContent}>
+					<div className={styles.login__others}>
+						<span className={styles.login__line} />
+						<span className={styles.login__continueText}>Or continue with</span>
+						<span className={styles.login__line} />
 					</div>
 					<div className={styles.login__socials}>
-						<img src="" alt="google_login" />
-						<img src="" alt="fb_login" />
+						<img src={google} alt="google_login" />
+						<img src={fb} alt="fb_login" />
+					</div>
+					<div className={styles.login__createAccount}>
+						<p>Don't have an account?</p>
+						<p>Create account</p>
 					</div>
 				</div>
 			</div>
