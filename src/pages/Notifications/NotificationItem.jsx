@@ -46,7 +46,7 @@ return (
         </div> 
           </div> 
     
-    <div style={{ fontSize:'14px',fontWeight:'bold'}} className={`${classes.dot5_margin_top} ${classes.desktopMarginRight}`>
+    <div style={{ fontSize:'14px',fontWeight:'bold'}} className={`${classes.dot5_margin_top} ${classes.desktopMarginRight}`}>
     <Moment fromNow>{props.time}</Moment>
     </div>
 

@@ -1,6 +1,6 @@
 import RouteHeaders from "../../layout/routeHeaders/RouteHeaders";
 import NotificationItem from "./NotificationItem";
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import cssClasses from './Notifications.module.css';
 
 
@@ -19,11 +19,11 @@ const tempDays = [
     "TODAY","YESTERDAY"
 ]
 
-const tabs = [
-   { name : 'All', active:true},
-   { name: 'Unread (2)',active:false},
-   { name: 'Mark all as read'}
-]
+// const tabs = [
+//    { name : 'All', active:true},
+//    { name: 'Unread (2)',active:false},
+//    { name: 'Mark all as read'}
+// ]
 const NotificationList = [
     {
         taskType: TaskType.review,
@@ -57,21 +57,21 @@ const NotificationList = [
 
 
 const Notifications = () => {
-  const [ value, setValue ] = useState(null)
+//   const [ value, setValue ] = useState(null)
      
-    const handleChange = (val) => {
-            setValue(val.target.value)
-    }
+    // const handleChange = (val) => {
+    //         setValue(val.target.value)
+    // }
       
     return (
       <div className={cssClasses.padding}>
        <RouteHeaders name="Notifications" user="Joseph A"/>
        <div className={`${cssClasses.d_flex} ${cssClasses.justify_between} ${cssClasses.padding}`}>
-        {tabs.map(tab => (
+        {/* {tabs.map(tab => (
             <div className={tab.active ? cssClasses.active: cssClasses.non_active} >
                 {tab.name}
             </div>
-        ))}
+        ))} */}
        </div>
 
         {NotificationList.map((notList,index) => (
