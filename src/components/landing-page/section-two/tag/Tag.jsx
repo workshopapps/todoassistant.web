@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./tag.module.scss";
 
-const Tag = ({position}) => {
+const Tag = ({ position, text, time }) => {
   return (
     <div style={position} className={style.tag}>
-      <p className={style.tag__title}>Go Glofing with friends</p>
+      <p className={style.tag__title}>{text}</p>
       <span className={style.tag__time}>
         <div className={style.tag__icon_wrapper}>
           <img
@@ -13,7 +13,7 @@ const Tag = ({position}) => {
             alt="time-tag"
           />
         </div>
-        2hrs, 3hrs
+        {time}
       </span>
     </div>
   );

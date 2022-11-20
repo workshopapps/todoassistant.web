@@ -22,12 +22,14 @@ const HappyClient = () => {
             job={`Founder, Winanda’s World`}
             profilePicture={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1664896547/webtech/cardImage_djdvjj.png`}
           />
+
           <HappyClientCard
             name={`Crystal Jumbo`}
             job={`Product Manager`}
             comment={`“With the ticked app, I’ve been able to curb procrastination because I can not only schedule my taks but I can also assign tasks to my virtual assistant.”`}
             profilePicture={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1628113374/globalChef/chef_2_2x_xrc2xw.png`}
           />
+
           <HappyClientCard
             name={`Tolulope Oduola`}
             job={`Freelancer`}
