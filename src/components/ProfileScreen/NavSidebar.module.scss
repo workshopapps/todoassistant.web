@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    background: #F6FAFB;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Side Bar */
+
+.sidecon {
+    width: 250px;
+    height: 100vh;
+    background: #F6FAFB;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #E9F3F5;
+}
+
+.sidecon1 {
+    margin-top: 1.5rem;
+    margin-left: 2.5rem;
+}
+
+.logo {
+    width: 129px;
+    height: 33px;
+    padding-bottom: 3.25rem;
+}
+
+.sidecon2 {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    width: 24px;
+    height: 24px;
+}
+
+.sidecon2 h2 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 160%;
+    color: #714DD9;
+}
+
+
+@media (max-width: 575px) {
+    .sidecon {
+        display: none;
+    } 
+}
+
+/* Nav Bar */
+
+.navcon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    width: calc(100% - 330px);
+    margin-left: 250px;
+    height: 64px;
+    background: #F6FAFB;
+    border-bottom: 1px solid #E9F3F5;
+}
+
+.menu {
+    display: none;
+}
+
+/* .navcon1 {
+    padding-left: 200px;
+} */
+
+.navcon1 h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 100%;
+    color: #333333;
+}
+
+.navborder {
+    display: block;
+    width: 98px;
+    height: 4px;
+    background: #714DD9;
+    position: relative;
+    top: 0.5rem;
+}
+
+.avatar {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), #714DD9;
+}
+
+.avatar h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 180%;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    top: -0.5rem;
+}
+
+.navcon2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.navcon2 p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+/* Menu Bar*/
+
+.menubarcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem;
+    position: fixed;
+    top: 64px;
+    right: 40px;
+    z-index: 1;
+    width: 14.5rem;
+    height: 12.625rem;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menubarcon1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 14.5rem;
+    border-bottom: 0.5px solid #D3D0D9;
+    gap: 0.5rem;
+}
+
+.settings {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.menubarcon1 p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.menubarcon2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 14.5rem;
+    border-bottom: 0.5px solid #D3D0D9;
+}
+
+.menubarcon2 p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.rightarrow {
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    top: 0.8rem;
+}
+
+.logoutcon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logoutcon p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 120%;
+    color: #FF4D4F;
+}
+
+.logout {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (max-width: 575px) {
+    .navcon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        width: 100%;
+        height: 56px;
+        background: #F6FAFB;
+        border-bottom: 1px solid #E9F3F5;
+        margin-left: 0px;
+    }
+
+    .menu {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .navcon1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.25rem;
+        padding-left: 0px;
+    }
+
+   .navborder, .navcon2 p, .arrow {
+    display: none;
+   }
+}
+
+/* Menu Bar Mobile*/
+
+@media (max-width: 575px) {
+    .menubarcon {
+        padding: 1.5rem;
+        position: fixed;
+        top: 80px;
+        right: 0px;
+        left: 18px;
+        z-index: 1;
+        width: 14.5rem;
+        height: 12.625rem;
+        background: #FFFFFF;
+        border-radius: 8px;
+    }
+}
