@@ -21,6 +21,8 @@ import Client from './components/va-clients/Client'
 import Notification from './components/notification/Notification'
 import VaProfile from './components/VA-Profile/VaProfile';
 import VaModal1 from './components/VA-modal/VaModal1';
+import Login from "./components/Login";
+import ErrorMain from "./components/404";
 
 function App() {
   return (
@@ -45,6 +47,7 @@ function App() {
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/newtask" element={<NewTask />} />
           <Route path="/va1" element={<VaModal1 />} />
@@ -53,7 +56,8 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
 
           {/* 404-error handler */}
-          <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} />
+          {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
+          <Route path="*" element={<ErrorMain />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>
