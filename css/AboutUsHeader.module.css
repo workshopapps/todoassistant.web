@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.headerContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.headerTickedbox {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2rem;
+  margin-top: -2rem;
+}
+
+.ticked {
+  font-size: 3.8rem;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  color: #141414;
+  font-style: normal;
+}
+
+.tickedText {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.button {
+  width: 17.6rem;
+  height: 3rem;
+  background: #714DD9;
+  color: #fff;
+  font-size: 0.71rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 3rem;
+}
+
+.headerImageBox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: 200;
+  background-image: url("../../assets/ticked_about_header.png");
+}
+
+.tickedabout {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e5;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .headerContainer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(113, 77, 217, 0.1);
+    padding-top: 1rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0.025rem;
+  }
+  .ticked, .button {
+    display: none;
+  }
+  .tickedText {
+    display: none;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 200;
+    background-position: center;
+    background-image: url("../../assets/ticked_about_header_mobile.png");
+  }
+  .headerImageBox {
+    width: 97%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .headerTickedbox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tickedabout {
+    text-transform: capitalize;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+    margin-top: -1.2rem;
+    display: block;
+    z-index: 400;
+  }
+}/*# sourceMappingURL=AboutUsHeader.module.css.map */

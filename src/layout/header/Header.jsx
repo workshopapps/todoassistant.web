@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import Button from "../../Components/button/button";
+import Button from "../../Components/button/Button";
+
 // import hamburger from "../../assets/hamburger.png";
 
 import { GrClose } from "react-icons/gr";
@@ -15,7 +16,10 @@ const Header = () => {
   const [modal, setModal] = useState(0);
   return (
     <div className={styles.header_wrap}>
-      <img src={Logo} alt="ticked" />
+      <Link to="/">
+        <img src={Logo} alt="ticked" />
+      </Link>
+
       <div className={styles.header_right}>
         <div className={styles.header_links}>
           <Link
@@ -54,7 +58,16 @@ const Header = () => {
         }}
         className={styles.header_hamburger}
       />
-      {modal ? <div className={styles.header_modalbackground}></div> : ""}
+      {modal ? (
+        <div
+          onClick={() => {
+            setModal(!modal);
+          }}
+          className={styles.header_modalbackground}
+        ></div>
+      ) : (
+        ""
+      )}
       {modal ? (
         <div className={styles.header_sidebar}>
           <div

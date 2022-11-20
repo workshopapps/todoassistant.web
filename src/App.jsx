@@ -1,8 +1,8 @@
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
-import GeneralLoading from "./layout/general-loading/GeneralLoading";
-import Layout from "./layout/Layout";
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import ErrorBoundary from './layout/error-boundary/ErrorBoundary';
+import GeneralLoading from './layout/general-loading/GeneralLoading';
+import Layout from './layout/Layout';
 import {
   About,
   Account,
@@ -14,7 +14,8 @@ import {
   Premium,
   PrivatePolicy,
   Task,
-} from "./pages";
+  Error,
+} from './pages';
 
 function App() {
   return (
@@ -40,8 +41,8 @@ function App() {
 
             {/* 404-error handler */}
             <Route
-              path="*"
-              element={<GeneralLoading text="PAGE NOT FOUND" />}
+              path='*'
+              element={<Error />}
             />
           </Routes>
         </Suspense>

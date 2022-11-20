@@ -1,0 +1,65 @@
+.contact__popup {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  width: 300px;
+  font-family: "Open Sans";
+  font-style: normal;
+}
+.contact__popup .head {
+  background: #714DD9;
+  padding: 10px 10px 20px;
+  color: #fff;
+}
+.contact__popup form {
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.contact__popup form div {
+  width: 100%;
+}
+.contact__popup form label {
+  display: block;
+  font-weight: 700;
+  font-size: 11px;
+  color: #707070;
+  margin-bottom: 5px;
+}
+.contact__popup form input, .contact__popup form textarea {
+  width: 100%;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.contact__popup form input:focus {
+  outline: 1px solid #714DD9;
+}
+.contact__popup form textarea {
+  resize: none;
+  height: 150px;
+}
+.contact__popup form textarea:focus {
+  outline: 1px solid #714DD9;
+}
+.contact__popup form button {
+  font-weight: 600;
+  font-size: 14px;
+  color: #FAFAFA;
+  background: #714DD9;
+  border-radius: 8px;
+  padding: 13px;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 450px) {
+  .contact__popup {
+    width: 70vw;
+    right: 5%;
+  }
+}/*# sourceMappingURL=ContactPopup.css.map */

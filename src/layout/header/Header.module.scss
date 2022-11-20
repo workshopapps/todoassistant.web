@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   background: white;
-  padding: 20px 50px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -58,13 +58,13 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.582);
-    z-index: 100;
+    z-index: 1000;
   }
   .header_sidebar {
     position: fixed;
     top: 1.5rem;
     right: 3rem;
-    z-index: 200;
+    z-index: 1100;
     background: #ffffff;
     border-radius: 4px;
     height: 25rem;
