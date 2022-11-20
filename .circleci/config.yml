@@ -21,6 +21,7 @@ jobs:
           pkg-manager: yarn
       - run:
           command: | 
+            yarn install
             yarn start
             yarn build
             yarn test
