@@ -6,7 +6,7 @@ services:
       - 2022:2022
 
   frontend:
-  image: teamrulerhng9/frontend:latest
+    image: teamrulerhng9/frontend:latest
     ports:
       - 3000:3000
 
