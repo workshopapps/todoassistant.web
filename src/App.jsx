@@ -12,6 +12,7 @@ import Dasboard from "./components/dasboard/Dasboard";
 import Home from "./components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
 import NewTask from "./core/todo/NewTask";
+import CheckM from "./core/auth/checkMail/CheckM";
 import Task from "./components/task/Task";
 import Detail from "./components/details/Detail";
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/newtask" element={<NewTask />} />
+          <Route path="/CheckM" element={<CheckM />} />
 
           <Route path="/faq" element={<FAQ />} />
 
