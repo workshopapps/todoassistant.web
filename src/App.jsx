@@ -15,7 +15,8 @@ import NewTask from "./core/todo/NewTask";
 import CheckM from "./core/auth/checkMail/CheckM";
 import Task from "./components/task/Task";
 import Detail from "./components/details/Detail";
-
+import Client from './components/va-clients/Client'
+import Notification from './components/notification/Notification'
 function App() {
   return (
     <ErrorBoundary>
@@ -29,6 +30,8 @@ function App() {
             <Route path="chat" element={<ChatBox />} />
             <Route path="task" element={<Task />}></Route>
             <Route path="detail" element={<Detail />} />
+            <Route path="clients" element={<Client />} />
+            <Route path="notification" element={<Notification />} />
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/policy" element={<PrivatePolicy />} />
