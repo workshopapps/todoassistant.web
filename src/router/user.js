@@ -18,5 +18,7 @@ export const userRoutes = [
   { path: "task", icon: task, title: "Task", component: Task }, 
   { path: "clients", icon: clientIcon, title: "Clients", component: Client},
   { path: "notification", icon: notification, title: "Notification", component: Notification},
+  { path: "notifications", icon: notification, title: "Notifications", component: Notifications},
+
   { path: "profile", icon: profile, title: "Profile", component: VaProfile},
 ]
