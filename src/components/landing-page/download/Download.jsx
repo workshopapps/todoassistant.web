@@ -4,7 +4,7 @@ import styles from "./Download.module.scss";
 //Images
 import play from "../../../assets/home/play.png";
 import apple from "../../../assets/home/apple.png";
-import phone from "../../../assets/home/phone.png";
+import { Animate } from "../../../hooks/animation/AnimateIn";
 
 export default function Download() {
   return (
@@ -27,7 +27,12 @@ export default function Download() {
         </div>
       </section>
       <div className={styles.main__phone}>
-        <img src={phone} alt="phone" />
+        <Animate.FadeIn>
+          <img
+            src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950997/hng/todoAppVirtualAssistant/Frame_34504_lgnz7c.svg`}
+            alt="phone"
+          />
+        </Animate.FadeIn>
       </div>
     </div>
   );

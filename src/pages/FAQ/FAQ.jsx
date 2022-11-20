@@ -29,7 +29,7 @@ const FAQ = () => {
         </div>
       </header>
       <div className="Topp ">
-        <div className="faq container ">
+        <div className="faq containerr ">
           {QandA.map((qA, key) => {
             return (
               <div key={key} className="mapped" onClick={() => Toggle(key)}>
@@ -50,7 +50,7 @@ const FAQ = () => {
             );
           })}
         </div>
-        <div className="text container ">
+        <div className="text containerr ">
           <p className="contact">{contact.contact}</p>
           <Link to="/contact">
             <p className="contact-sub">{contact.link}</p>

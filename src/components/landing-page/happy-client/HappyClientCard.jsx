@@ -1,4 +1,5 @@
 import React from "react";
+import { Animate } from "../../../hooks/animation/AnimateIn";
 import style from "./happyClientCard.module.scss";
 
 const HappyClientCard = ({ name, job, comment, profilePicture }) => {
@@ -12,7 +13,9 @@ const HappyClientCard = ({ name, job, comment, profilePicture }) => {
         <p className={style.happy_client_card_job}>{job}</p>
       </div>
       <article>
-        <p className={style.happy_client_card_desc}>{comment}</p>
+        <Animate.FadeIn>
+          <p className={style.happy_client_card_desc}>{comment}</p>
+        </Animate.FadeIn>
       </article>
     </div>
   );

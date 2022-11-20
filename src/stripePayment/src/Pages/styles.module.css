@@ -1,0 +1,35 @@
+.checkout__main {
+	min-height: 100vh;;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: #E5E5E5;
+}
+
+.checkout__header {
+	color: #333333;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.checkout__subtext {
+	color: #333333;
+	text-align: center;
+}
+
+button {
+	padding: 1rem;
+	cursor: pointer;
+	background: #714DD9;
+	border-radius: 8px;
+	color: #FFFFFF;
+	border: transparent;
+	height: 3rem;
+	width: 100%;
+	max-width: 10.625rem;
+	font-size: 0.875rem;
+}
+
+button:hover {
+	opacity: 0.8;
+}

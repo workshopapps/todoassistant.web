@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import facebook from "../../assets/facebook.png";
 import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/instagram.png";
@@ -9,10 +9,12 @@ import NewsLetter from "./news-letter-form/NewsLetter";
 const Footer = () => {
   return (
     <footer className={styles.footer_wrap}>
-      <img
-        src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668833428/hng/todoAppVirtualAssistant/Frame_34483_yg6eoz.png"
-        alt="logo"
-      />
+      <NavLink to="/">
+        <img
+          src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668833428/hng/todoAppVirtualAssistant/Frame_34483_yg6eoz.png"
+          alt="logo"
+        />
+      </NavLink>
       <section className={styles.footer_text}>
         <NewsLetter />
         <p>
@@ -32,9 +34,15 @@ const Footer = () => {
         <Link to="/policy">Privacy</Link>
       </div>
       <div className={styles.footer_socials}>
-        <img src={facebook} alt="logo" />
-        <img src={twitter} alt="logo" />
-        <img src={instagram} alt="logo" />
+        <NavLink to={null}>
+          <img src={facebook} alt="logo" />
+        </NavLink>
+        <NavLink to={null}>
+          <img src={twitter} alt="logo" />
+        </NavLink>
+        <NavLink to={null}>
+          <img src={instagram} alt="logo" />
+        </NavLink>
       </div>
     </footer>
   );

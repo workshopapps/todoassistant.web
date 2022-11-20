@@ -1,4 +1,5 @@
 import React from "react";
+import { Animate } from "../../../../hooks/animation/AnimateIn";
 import style from "./sectionThreeList.module.scss";
 
 const SectionThreeList = ({ icon, title, desc }) => {
@@ -9,7 +10,10 @@ const SectionThreeList = ({ icon, title, desc }) => {
       </div>
       <div className={style.section__three_list_text}>
         <h5 className={style.section__three_list_title}>{title}</h5>
-        <p className={style.section__three_list_desc}>{desc}</p>
+
+        <Animate.FadeIn>
+          <p className={style.section__three_list_desc}>{desc}</p>
+        </Animate.FadeIn>
       </div>
     </section>
   );

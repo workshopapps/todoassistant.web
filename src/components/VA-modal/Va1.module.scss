@@ -1,0 +1,204 @@
+@import "../../scss/variables";
+
+/* The following line can be included in a src/App.scss */
+
+/* @import "~bootstrap/scss/bootstrap"; */
+
+
+
+body_modal{
+
+    background: linear-gradient(118.85deg, #808080 -6.3%, rgba(128, 128, 128, 0.852756) -6.3%, rgba(128, 128, 128, 0.360016) -0.46%, rgba(128,128,128, 0) 98.73%);
+}
+
+.va_main{
+    border-radius: 24px;
+    background-color: #fff;
+    margin:7.5rem 5.5rem 3rem 16.9375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1.5rem;
+    width: auto;
+    height: fit-content;
+    z-index: 1000;
+}
+
+.cancel_button{
+    /* // padding: 0.125rem; */
+    align-self: flex-end;
+}
+
+.cancel_button img{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.calling_img{
+    margin:.5625rem auto 1.158125rem;
+    width: 44.4033%;
+}
+
+.calling_img img{
+    width: 100%;
+}
+
+.talking_text{
+    text-align: center;
+    color: #333;
+}
+
+.talking_text h4{
+    font-weight: 700;
+    padding-bottom: 0.1875rem;
+    font-size: 1.5625rem;
+    line-height: 160%;
+}
+
+.talking_text p{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    padding-bottom: 4rem;
+}
+    
+
+.talking_btns{
+    display: flex;
+    padding-bottom: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 23.5675rem;
+    margin: 0 auto;
+}
+
+.talking_btns button{
+    border-radius: .5rem;
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 160%;
+    outline: none;
+    padding: .8125rem .875rem;
+    cursor: pointer;
+}
+
+
+
+.talking_btns button:first-of-type{
+    background-color: #714dd9;
+    color: #fafafa;
+    border: none;
+}
+
+.talking_btns button:first-of-type:hover, .talking_btns button:first-of-type:focus{
+    background: linear-gradient(0deg, rgba( 0, 0, 0, 0.2), ( 0, 0, 0, 0.2)), #714dd9;
+}
+
+.talking_btns button:last-of-type{
+    color: #714dd9;
+    border: 1px solid #714dd9;
+    background-color: #fff;
+}
+
+
+
+
+@media (max-width: 481px){
+
+    body{
+        background: #f6fafb;
+    }
+   .va_main{
+       border-radius: 13.7103px;
+       margin:1.6875rem 0.625rem  3.75rem;
+       padding: 1.1875rem 1.25rem;
+
+    }
+
+    .calling_img{
+        width: 66.5183099%;
+        margin:.650625rem auto 1.87125rem;
+    }
+
+    .talking_text{
+    padding: 0 1.875rem 0 1.9375rem;
+    }
+
+    .talking_text h4{
+        
+        line-height: 1.125rem;
+        font-size: 0.875rem;
+    }
+
+    .talking_text p{
+        font-size: .6875rem;
+        line-height: 100%;
+        padding-bottom:1.875rem ;
+    }
+
+    .talking_btns{
+        max-width:fit-content;
+        padding:0 0 7.125rem 0;
+        margin: 0 auto;
+   
+    }
+
+    .talking_btns button:first-of-type{
+        margin-right: 25px;
+    }
+}
+
+@media (max-width:321px){
+    .talking_btns button:first-of-type{
+        margin-right: 10px;
+    }
+}
+
+@media (min-width:481px) and (max-width: 769px){
+    .talking_btns{
+        width: fit-content;
+    }
+
+    .talking_btns button:first-of-type{
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1025px){
+    .va_main{
+        margin-inline: auto;
+        width: 85%;
+    }
+}
+
+ @media (min-width: 769px) and (max-width:1025px){
+    .va_main{
+    width: 90.84%;
+    margin: 3.5rem 0 3rem 1.3125rem;
+    }
+ }
+
+@media (min-width: 2560px){
+    .talking_text p{
+        font-size: 2rem;
+    }
+
+    .talking_text h4{
+        font-size:2.5625rem;
+    }
+
+    .cancel_button img {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .talking_btns button{
+        padding:1.8125rem 1.875rem;
+        font-size: 1.875rem;
+    }
+
+    .talking_btns{
+        width: 30rem;
+    }
+}
+
