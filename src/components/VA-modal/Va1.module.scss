@@ -6,33 +6,12 @@
 
 
 
-body, .modal-backdrop{
+body_modal{
 
     background: linear-gradient(118.85deg, #808080 -6.3%, rgba(128, 128, 128, 0.852756) -6.3%, rgba(128, 128, 128, 0.360016) -0.46%, rgba(128,128,128, 0) 98.73%);
 }
 
-.modal-content{
-    border: none !important;
-    width: inherit;
-    height:inherit;
-}
-
-.modal .show .modal-dialog{
-    margin: 0;
-}
-
-.modal-container{
-    background-color:transparent;
-    border: none;
-    /* margin:auto !important; */
-    /* width: 100%; */
-}
-
-p{
-    margin-bottom: 0!important;
-}
-
-.va_main, .modal{
+.va_main{
     border-radius: 24px;
     background-color: #fff;
     margin:7.5rem 5.5rem 3rem 16.9375rem;
@@ -44,14 +23,6 @@ p{
     height: fit-content;
     z-index: 1000;
 }
-
-.modal .show{
-    padding-left: 0;
-}
-
-/* .modal-dialog{
-    width: 80%;
-} */
 
 .cancel_button{
     /* // padding: 0.125rem; */

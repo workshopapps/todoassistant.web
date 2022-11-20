@@ -18,7 +18,7 @@ const VaModal = (props) => {
     // const fName = 'Michael';
 
   return (
-    <div>
+    <div className={style.body_modal}>
         <main className={style.task_layout}>
         <MobileNav />
             {/* <button id='create_task' onClick={handleShow}>Create Task</button> */}
