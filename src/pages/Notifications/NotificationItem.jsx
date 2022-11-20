@@ -8,8 +8,15 @@ const TaskType = {
     overdue: 'Overdue Task'
 }
 
+const ReadAction = {
+    read: 'Read',
+    unread: 'Unread'
+}
+
 const NotificationItem = (props) => {
     let circleBackground= '#1890FF';
+    let whiteBackgroundGreyBorder = `${classes.white_background} ${classes.grey_border}`
+
     switch (props.taskType) {
         case TaskType.review:
             circleBackground = '#1890FF'
@@ -26,15 +33,20 @@ const NotificationItem = (props) => {
    
     const initials = props.taskType.charAt(0);
 return (
-<div className={`${classes.d_flex} ${classes.item_padding}`}>
-    <div style={{backgroundColor: circleBackground}} className={classes.circularDiv} >
+<div className={`${props.action === ReadAction.unread ? classes.grey_background: whiteBackgroundGreyBorder} ${classes.border_radius} ${classes.d_flex} ${classes.justify_between} ${classes.item_padding} ${classes.item_margin}`}>
+    
+    <div className={classes.d_flex}>
+     <div style={{backgroundColor: circleBackground}} className={classes.circularDiv} >
         {initials}
-        </div> 
-    <div className={classes.d_block}>
-    <div style={{fontWeight: 'bold'}}>{props.taskType}</div>
+   
+         </div>  
+         <div className={`${classes.d_block} ${classes.small_margin}`}>
+    <div style={{fontWeight: 'bold', fontSize:'14px'}}>{props.taskType}</div>
     <div style={{color:'#707070', fontSize:'11px'}}>{props.description}</div>
-        </div>
-    <div>
+        </div> 
+          </div> 
+    
+    <div style={{ fontSize:'14px',fontWeight:'bold'}} className={classes.dot5_margin_top}>
     <Moment fromNow>{props.time}</Moment>
     </div>
 
