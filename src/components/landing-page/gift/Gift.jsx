@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Gift.module.scss'
+import styles from "./Gift.module.scss";
 import gift from "../../../assets/home/gift.png";
 import Button from "../../button/ButtonComponent";
 
@@ -8,7 +8,7 @@ export default function Gift() {
     width: "207px",
     background: "transparent",
     border: "1px solid rgb(113, 77, 217)",
-    color: "rgb(113, 77, 217)",
+    color: "rgb(113, 77, 217)"
   };
 
   return (
@@ -20,8 +20,8 @@ export default function Gift() {
             <span style={{ color: "#FDA758" }}> Special Feature</span>
           </h3>
           <p>
-            Fancy pockets filled with pocket <br /> sauce. Pocket sauce rampant
-            in fancy pockets.
+            Get more done for you with the subscription plan to gain access to
+            unlimited features.
           </p>
           <div className={styles.main__getStarted}>
             <Button style={btnStyle} title={`Get Started`} />

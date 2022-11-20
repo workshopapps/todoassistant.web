@@ -8,7 +8,7 @@ const NewsLetter = () => {
         <label className={style.label} htmlFor="email">
           Email Address
         </label>
-        <input className={style.input} type="email" placeholder="Enter email" />
+        <input className={`${style.input} hover`} type="email" placeholder="Enter email" />
       </form>
     </section>
   );
