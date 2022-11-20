@@ -20,7 +20,7 @@ import Payment from "./core/payment/Payment"
 import Client from './components/va-clients/Client'
 import Notification from './components/notification/Notification'
 import VaProfile from './components/VA-Profile/VaProfile';
-import VaModal from './components/VA-modal/VaModal1';
+import VaModal1 from './components/VA-modal/VaModal1';
 
 function App() {
   return (
