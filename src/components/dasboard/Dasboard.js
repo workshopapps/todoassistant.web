@@ -30,8 +30,6 @@ export default function Dasboard() {
   const location = useLocation();
   const { window } = location;
 
-  console.log(location);
-
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [title, setTitle] = useState("home");
@@ -109,7 +107,6 @@ export default function Dasboard() {
         </Box>
       </Box>
       {userRoutes.map((item, index) => {
-        // console.log(item)
         return (
           <>
             <Box sx={{ marginTop: "20px !important" }}>
