@@ -55,8 +55,8 @@ const Header = () => {
           </Link>
         </div>
         <span className={styles.header_button}>
-          <Button style={btnStyleOutline} title="Login" />
-          <Button title="Sign up" />
+          <Button link="/login" style={btnStyleOutline} title="Login" />
+          <Button link="/signup" title="Sign up" />
         </span>
       </div>
 
