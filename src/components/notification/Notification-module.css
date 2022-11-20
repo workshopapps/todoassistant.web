@@ -16,7 +16,7 @@ body {
 
 .container {
   margin: 3rem;
-  /* padding: 2rem 4rem; */
+  padding: 2rem 4rem;
 }
 
 /*back code*/
@@ -55,7 +55,7 @@ body {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  /* font-size: 3rem; */
+  font-size: 3rem;
   line-height: 1.125rem;
   color: #2b363b;
 }

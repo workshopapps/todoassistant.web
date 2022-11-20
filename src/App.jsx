@@ -19,6 +19,7 @@ import Payment from "./core/payment/Payment";
 
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
+import Notifications from "./pages/Notifications/Notifications";
 import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import Login from "./components/Login";
@@ -40,10 +41,12 @@ function App() {
             <Route path="detail" element={<Detail />} />
             <Route path="clients" element={<Client />} />
             <Route path="notification" element={<Notification />} />
+            <Route path="notifications" element={<Notifications />} />
             <Route path="payment" element={<Payment />} />
             <Route path="profile" element={<VaProfile />} />
           </Route>
           <Route path="/about" element={<About />} />
+
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />

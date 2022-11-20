@@ -2,6 +2,7 @@ import Home from "../components/userDasboardComponents/home/Home";
 import ChatBox from "../core/chatbox/ChatBox";
 import Client from "../components/va-clients/Client";
 import Notification from "../components/notification/Notification";
+import Notifications from "../pages/Notifications/Notifications";
 import VaProfile from "../components/VA-Profile/VaProfile";
 //icons
 import home from "../assets/icons/home.png";
@@ -23,5 +24,12 @@ export const userRoutes = [
     title: "Notification",
     component: Notification
   },
+  {
+    path: "notifications",
+    icon: notification,
+    title: "Notifications",
+    component: Notifications
+  },
+
   { path: "profile", icon: profile, title: "Profile", component: VaProfile }
 ];
