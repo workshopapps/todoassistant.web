@@ -20,6 +20,7 @@ import Payment from "./core/payment/Payment"
 import Client from './components/va-clients/Client'
 import Notification from './components/notification/Notification'
 import VaProfile from './components/VA-Profile/VaProfile';
+import VaModal from './components/VA-modal/VaModal1';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
 
           <Route path="/signup" element={<Signup />} />
           <Route path="/newtask" element={<NewTask />} />
+          <Route path="/va1" element={<VaModal1 />} />
           <Route path="/CheckM" element={<CheckM />} />
 
           <Route path="/faq" element={<FAQ />} />
