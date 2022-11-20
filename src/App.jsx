@@ -12,9 +12,10 @@ import Dasboard from "./components/dasboard/Dasboard";
 import Home from "./components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
 import NewTask from "./core/todo/NewTask";
+import Task from "./components/task/Task";
+import Detail from "./components/details/Detail";
 
 function App() {
-
   return (
     <ErrorBoundary>
       <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
@@ -25,6 +26,8 @@ function App() {
           <Route path="/dashboard" element={<Dasboard />}>
             <Route path="" element={<Home />} />
             <Route path="chat" element={<ChatBox />} />
+            <Route path="task" element={<Task />}></Route>
+            <Route path="detail" element={<Detail />} />
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/policy" element={<PrivatePolicy />} />
