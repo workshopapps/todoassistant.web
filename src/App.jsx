@@ -40,11 +40,12 @@ function App() {
             <Route path="detail" element={<Detail />} />
             <Route path="clients" element={<Client />} />
             <Route path="notification" element={<Notification />} />
+            <Route path="notifications" element={<Notifications />} />
             <Route path="payment" element={<Payment />} />
             <Route path="profile" element={<VaProfile />} />
           </Route>
           <Route path="/about" element={<About />} />
-          <Route path="/notifications" element={<Notifications />} />
+          
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />

@@ -1,4 +1,3 @@
-import RouteHeaders from "../../layout/routeHeaders/RouteHeaders";
 import NotificationItem from "./NotificationItem";
 import React  from 'react';
 import cssClasses from './Notifications.module.css';
@@ -65,7 +64,7 @@ const Notifications = () => {
       
     return (
       <div className={cssClasses.padding}>
-       <RouteHeaders name="Notifications" user="Joseph A"/>
+       {/* <RouteHeaders name="Notifications" user="Joseph A"/> */}
        <div className={`${cssClasses.d_flex} ${cssClasses.justify_between} ${cssClasses.padding}`}>
         {/* {tabs.map(tab => (
             <div className={tab.active ? cssClasses.active: cssClasses.non_active} >
