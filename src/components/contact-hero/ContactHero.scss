@@ -1,0 +1,75 @@
+.contact__hero{
+    background: #F6FAFB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    font-family: 'Open Sans';
+    font-style: normal;
+    padding-bottom: 50px;
+
+    div{
+        width: 50%;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    .image{
+        position: relative;
+        padding: 5%;
+        .people{
+            width: 100%;
+            z-index: 10;
+        }
+        @media screen and (max-width: 600px) {
+            padding: 0;
+        }
+    }
+
+    .content{
+        color: #060C22;
+        h1{
+            font-weight: 700;
+            font-size: 61px;
+            @media screen and (max-width: 600px) {
+                font-size: 2.5rem;
+            }
+        }
+        h3{
+            font-weight: 700;
+            font-size: 25px;
+            margin-bottom: 10px;
+
+            @media screen and (max-width: 600px) {
+                font-size: 1.1rem;
+            }
+        }
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            margin-bottom: 10px;
+
+            @media screen and (max-width: 600px) {
+                font-size: .9rem;
+            }
+        }
+        button{
+            background: #714DD9;
+            border-radius: 8px;
+            padding: 14px;
+            border: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            margin: 0 auto;
+            
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+    }
+}

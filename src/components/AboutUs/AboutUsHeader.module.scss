@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.headerContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding-top: 5rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.headerTickedbox {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem;
+    margin-top: -2rem;
+}
+
+.ticked {
+    font-size: 2.45rem;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color: #141414;
+    // text-shadow: 2px 0 #141414;
+    //     letter-spacing: 2px;
+    font-style: normal;
+}
+
+.tickedText {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.button {
+    width: 17.6rem;
+    height: 3rem;
+    background: #714DD9;
+    color: #fff;
+    font-size: .71rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.headerImageBox {
+    width: 40.4rem;
+    height: 29.15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed #714DD9;
+    border-radius: 5px;
+    justify-content: center;
+
+}
+
+.img {
+    width: 39.8rem;
+    height: 28.4rem;
+    background-size: cover;
+    z-index: 200;
+    background-image: url('../../assets/ticked_about_header2.png');
+
+}
+
+.tickedabout {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .headerContainer {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #e5e5e5;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 4rem;
+    }
+
+    .headerTickedbox {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4rem;
+        margin-top: -2rem;
+    }
+
+
+    .tickedText {
+        line-height: 28.8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .headerContainer {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #F6FAFB;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .ticked {
+        font-size: 1.45rem;
+        font-weight: 700;
+        font-family: 'Open Sans', sans-serif;
+        color: #141414;
+        // text-shadow: 2px 0 #141414;
+        //     letter-spacing: 2px;
+        font-style: normal;
+    }
+
+    .tickedText {
+        line-height: 28.8px;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        z-index: 200;
+        background-position: center;
+        background-image: url('../../assets/ticked_about_header2.png');
+    }
+
+    .headerImageBox {
+        width: 20.25rem;
+        height: 14.45rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px dashed #714DD9;
+        border-radius: 5px;
+        justify-content: center;
+        background: #F6FAFB;
+
+    }
+
+    .headerTickedbox {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        justify-content: center;
+        background-color: #fff;
+    }
+}
