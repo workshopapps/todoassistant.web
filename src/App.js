@@ -18,6 +18,7 @@ import Home from './Components/userDasboardComponents/home/Home';
 import ChatBox from './core/chatbox/ChatBox';
 import ResetPassword from "./Components/Reset Password/ResetPassword";
 import NewPassword from "./Components/Reset Password/NewPassword";
+import  Notifications from "./pages/Notifications/Notifications";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="premium" element={<Premium />} />
         </Route> */}
         <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/notifications' element={<Notifications />} />
         <Route path='/policy' element={<PrivatePolicy />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
