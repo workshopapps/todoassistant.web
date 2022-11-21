@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./App.scss";
+import "./OTPSection.scss";
 
 function OtpSection() {
   // const [value, setValue] = useState("");

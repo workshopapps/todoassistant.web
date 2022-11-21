@@ -1,6 +1,18 @@
 .chatMain {
     &__pad {
-        padding: 30px !important;    }
+        padding: 30px !important;    
+    }
+
+    &__ima {
+        // border: 1px solid red;
+        width: 40px !important;
+        position: fixed;
+        right: 20px;
+        top: 88vh;
+        @media (min-width: 900px) {
+            right: 25px;
+        }
+    }
     div {
         max-width: 65vw;
         margin-top: 1rem;
@@ -28,24 +40,25 @@
     &__left {
         float: left;
         align-items: end;
+        margin-bottom: 10px;
     }
     &__right {
         float: right;
         align-items: end;
         justify-content: end;
         flex-direction: row-reverse;
+        margin-bottom: 20px;
     }
 
     input {
         width: 93%;
-        padding: 20px;
+        padding: 30px;
         background: #F6FAFB;
         border: 1px solid #D3D0D9;
         border-radius: 8px;
         outline: none;
-        margin-top: 15px;
+        margin-top: 20px !important;
         flex: 1;
-
         @media (min-width: 900px) {
         width: 97%;
             
@@ -54,9 +67,10 @@
     span {
         position: absolute;
         right: 80px;
-        margin-top: 35px;
+        margin-top: -65px;
         img {
             margin: 0px 5px;
+            // margin-top: -60px !important;
         }
     }
 
