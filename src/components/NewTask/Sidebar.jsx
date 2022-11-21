@@ -1,15 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import logo from '../../assets/logotask.svg'
-import back from '../../assets/back.svg'
-import './Sidebar.scss'
+import logo from '../../assets/newTask/newtasklogo.png'
+import back from '../../assets/newTask/arrowBack.png'
+import styles from './Sidebar.module.scss'
 
 function Sidebar() {
   return (
-      <div className='sidebar'>
+    <div className={styles.sidebar}>
           <img src={logo} alt="logo" />
-          <div className='backContainer'>
-            <Link to="/back"><img src={back} alt="logo" /></Link> Back
+      <div className={styles.backContainer}>
+            <Link to="/home"><img src={back} alt="logo" /></Link> Back
           </div>
       </div>
   )
