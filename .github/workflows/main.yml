@@ -93,5 +93,6 @@ jobs:
                  password: ${{ secrets.Password }}
                  port: ${{ secrets.PORT }}
                  script: |
+                     cd todo-docker
                      sudo docker-compose pull
                      sudo docker-compose up -d
