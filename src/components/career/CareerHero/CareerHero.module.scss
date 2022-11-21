@@ -28,41 +28,41 @@
 .imageContainer {
     width: 100%;
 
-    img {
-        @include img_fluid;
-        transform: translateY(-1rem);
-    }
+    // img {
+    //     @include img_fluid;
+    //     transform: translateY(-1rem);
+    // }
 }
 
 .headingContainer {
     gap: 1rem;
     margin-top: 3.125rem;
 
-    p {
-        margin-top: -0.5rem;
-    }
+    // p {
+    //     margin-top: -0.5rem;
+    // }
 }
 
-h1, h4 {
-    font-weight: 700;
-    line-height: 160%;
-    color: #333333;
-}
+// h1, h4 {
+//     font-weight: 700;
+//     line-height: 160%;
+//     color: #333333;
+// }
 
-h1 {
-    font-size: 2.125rem;
-}
+// h1 {
+//     font-size: 2.125rem;
+// }
 
-h4 {
-    font-size: 1.125rem;
-}
+// h4 {
+//     font-size: 1.125rem;
+// }
 
-p {
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 120%;
-    color: #333333;
-}
+// p {
+//     font-weight: 400;
+//     font-size: 0.875rem;
+//     line-height: 120%;
+//     color: #333333;
+// }
 
 .btn {
     padding: 0.875rem;
@@ -89,24 +89,24 @@ p {
     background: #FFFFFF;
     border-radius: 1rem;
 
-    img {
-        @include img_fluid;
-        margin-bottom: 1.5rem;
-        width: 4.5rem;
-        height: 4.5rem;
-    }
+    // img {
+    //     @include img_fluid;
+    //     margin-bottom: 1.5rem;
+    //     width: 4.5rem;
+    //     height: 4.5rem;
+    // }
 
-    p {
-        font-size: 1rem;
-    }
+    // p {
+    //     font-size: 1rem;
+    // }
 
 }
 
-.card:nth-child(2){
-    h4 {
-        width: 70%;
-    }
-}
+// .card:nth-child(2){
+//     // h4 {
+//     //     width: 70%;
+//     // }
+// }
 
 // Small devices (landscape phones, 430px and up)
 
@@ -127,13 +127,13 @@ p {
 
 @media screen and (min-width: 36rem) {
 
-    h1 {
-        font-size: 3.25rem;
-    }
+    // h1 {
+    //     font-size: 3.25rem;
+    // }
     
-    h4 {
-        font-size: 1.375rem;
-    }
+    // h4 {
+    //     font-size: 1.375rem;
+    // }
 
     .card {
         padding: 2rem 1.5rem;
@@ -156,32 +156,32 @@ p {
         padding: 1rem;
     }
 
-    .imageContainer {
+    // .imageContainer {
     
-        img {
-            @include img_fluid;
-        }
-    }
+    //     // img {
+    //     //     @include img_fluid;
+    //     // }
+    // }
 
     .headingContainer {
         width: 70%;
     }
 
-    h1, h4, p {
-        color: #060C22;
-    }
+    // h1, h4, p {
+    //     color: #060C22;
+    // }
 
-    h1 {
-        font-size: 3.25rem;
-    }
+    // h1 {
+    //     font-size: 3.25rem;
+    // }
     
-    h4 {
-        font-size: 1.375rem;
-    }
+    // h4 {
+    //     font-size: 1.375rem;
+    // }
 
-    p {
-        font-size: 1rem;
-    }
+    // p {
+    //     font-size: 1rem;
+    // }
 
     .cardContainer {
         flex-flow: row nowrap;
@@ -247,13 +247,13 @@ p {
         max-width: 50rem;
     }
 
-    h1 {
-        font-size: 3.8125rem;
-    }
+    // h1 {
+    //     font-size: 3.8125rem;
+    // }
     
-    h4 {
-        font-size: 1.5625rem;
-    }
+    // h4 {
+    //     font-size: 1.5625rem;
+    // }
 
     .cardContainer {
         width: 75%;

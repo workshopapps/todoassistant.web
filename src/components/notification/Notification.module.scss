@@ -1,33 +1,33 @@
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
+// html,
+// body {
+//   overflow-x: hidden;
+//   width: 100%;
+// }
 
 /* body{
   background-color: #F6FAFB;
 } */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
 
 .container {
   margin: 3rem;
-  padding: 2rem 4rem;
+  /* padding: 2rem 4rem; */
 }
 
 /*back code*/
-.back-container {
+.backContainer {
   display: flex;
   flex-direction: row;
   align-content: center;
   margin-bottom: 2rem;
 }
 
-.back-text {
+.backText {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
@@ -36,7 +36,7 @@ body {
   color: #576b75;
 }
 
-.icon-back {
+.iconBack {
   font-weight: 700;
   font-size: 0.8rem;
   margin-right: 0.3rem;
@@ -51,23 +51,23 @@ body {
   margin-bottom: 2rem;
 }
 
-.header-title {
+.headerTitle {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  font-size: 3rem;
+  /* font-size: 3rem; */
   line-height: 1.125rem;
   color: #2b363b;
 }
 
-.header-icon {
+.headerIcon {
   color: #333333;
   font-weight: 700;
   margin-right: 0.5rem;
   font-size: 1.5rem;
 }
 
-.today-row {
+.todayRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -78,7 +78,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.today-title {
+.todayTitle {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -87,7 +87,7 @@ body {
   color: #2b363b;
 }
 
-.today-subTitle {
+.todaySubTitle {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
@@ -96,7 +96,7 @@ body {
   color: #576b75;
 }
 
-.content-box {
+.contentBox {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -108,7 +108,7 @@ body {
   background-color: #ffffff;
 }
 
-.content-today-title {
+.contentDayTitle {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
@@ -117,7 +117,7 @@ body {
   color: #2b363b;
 }
 
-.content-today-text {
+.contentTodayText {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
@@ -126,7 +126,7 @@ body {
   color: #576b75;
 }
 
-.content-today-big {
+.contentTodayBig {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
@@ -135,7 +135,7 @@ body {
   color: #2b363b;
 }
 
-.content-today-small {
+.contentTodaySmall {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
@@ -147,21 +147,21 @@ body {
 
 /*mobile screen*/
 @media (min-width: 320px) and (max-width: 480px) {
-  html,
-  body {
-    margin: 0rem;
-    padding: 0rem;
-    overflow-x: hidden;
-  }
+  // html,
+  // body {
+  //   margin: 0rem;
+  //   padding: 0rem;
+  //   overflow-x: hidden;
+  // }
 
-  .content-holder {
+  .contentHolder {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 
-  .today-row {
+  .todayRow {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +171,7 @@ body {
     gap: 2rem;
   }
 
-  .today-title {
+  .todayTitle {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
@@ -180,7 +180,7 @@ body {
     color: #2b363b;
   }
 
-  .today-subTitle {
+  .todaySubTitle {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -189,7 +189,7 @@ body {
     color: #576b75;
   }
 
-  .content-box {
+  .contentBox {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,7 +211,7 @@ body {
     color: #2b363b;
   }
 
-  .content-today-text {
+  .contentTodayText {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -220,7 +220,7 @@ body {
     color: #707070;
   }
 
-  .content-today-big {
+  .contentTodayBig {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 300;
@@ -229,7 +229,7 @@ body {
     color: #2b363b;
   }
 
-  .content-today-small {
+  .contentTodaySmall {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -244,21 +244,21 @@ body {
 
 /*tablet screen*/
 @media (min-width: 481px) and (max-width: 768px) {
-  html,
-  body {
-    margin: 0rem;
-    padding: 0rem;
-    overflow-x: hidden;
-  }
+  // html,
+  // body {
+  //   margin: 0rem;
+  //   padding: 0rem;
+  //   overflow-x: hidden;
+  // }
 
-  .content-holder {
+  .contentHolder {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 
-  .today-row {
+  .todayRow {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -268,7 +268,7 @@ body {
     gap: 18rem;
   }
 
-  .today-title {
+  .todayTitle {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
@@ -277,7 +277,7 @@ body {
     color: #2b363b;
   }
 
-  .today-subTitle {
+  .todaySubTitle {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -286,7 +286,7 @@ body {
     color: #576b75;
   }
 
-  .content-box {
+  .contentBox {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -308,7 +308,7 @@ body {
     color: #2b363b;
   }
 
-  .content-today-text {
+  .contentTodayText {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
@@ -317,7 +317,7 @@ body {
     color: #707070;
   }
 
-  .content-today-big {
+  .contentTodayBig {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 300;
@@ -326,7 +326,7 @@ body {
     color: #2b363b;
   }
 
-  .content-today-small {
+  .contentTodaySmall {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
