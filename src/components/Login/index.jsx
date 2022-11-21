@@ -35,7 +35,7 @@ const Login = () => {
 								<input type="checkbox" />
 								<span>Remember me</span>
 							</label>
-							<span><a href="#">Forgot password?</a></span>
+							<span><Link to="/reset-password">Forgot password?</Link></span>
 						</div>
 						<div className={styles.login__formItem}>
 							<button className={styles.login__submitBtn}>Login</button>

@@ -21,6 +21,8 @@ import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
 import VaProfile from "./components/VA-Profile/VaProfile";
+import NewPassword from "./components/Reset Password/NewPassword";
+import ResetPassword from "./components/Reset Password/ResetPassword";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import Login from "./components/Login";
 import ErrorMain from "./components/404";
@@ -65,6 +67,8 @@ function App() {
           <Route path="/settings/profile" element={<SettingsProfile />} />
 
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/new-password" element={<NewPassword />} />
+          <Route path="/reset-password" element={<ResetPassword/>}/>
 
           {/* 404-error handler */}
           {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
