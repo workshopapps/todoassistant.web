@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./NewPassword.module.scss";
-import warning from "../../assets/form-warning.png";
+
 import arrow from "../../assets/arrow-left.png";
 import eye from "../../assets/eye.png";
 import { useState } from "react";
