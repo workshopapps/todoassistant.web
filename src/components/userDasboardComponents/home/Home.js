@@ -48,7 +48,7 @@ export default function Home() {
     });
     console.log(searchData);
     if (e.target.value === "") {
-      setSearchTodos(dummy_todos);
+      setSearchTodos(myTodos);
     } else {
       setSearchTodos(searchData);
     }
@@ -206,26 +206,32 @@ export default function Home() {
             <p>Streak</p>
           </div>
         </div>
-        <div className={styles.logHeader}>
-          <p className={styles.left}>Log</p>
-          <p className={styles.right}>Refreshes in 3h</p>
+        <div className={styles.logWrapper}>
+          <div className={styles.logHeader}>
+            <p className={styles.left}>Log</p>
+            <p className={styles.right}>Refreshes in 3h</p>
+          </div>
+          <Log
+            action="To do completed"
+            taskName="Resolve frontend bugs"
+            time="3hrs"
+          />
+          <Log
+            action="New To do"
+            taskName="Resolve frontend bugs"
+            time="3hrs"
+          />
+          <Log
+            action="To do deleted"
+            taskName="Resolve frontend bugs"
+            time="3hrs"
+          />
+          <Log
+            action="To do updated"
+            taskName="Resolve frontend bugs"
+            time="3hrs"
+          />
         </div>
-        <Log
-          action="To do completed"
-          taskName="Resolve frontend bugs"
-          time="3hrs"
-        />
-        <Log action="New To do" taskName="Resolve frontend bugs" time="3hrs" />
-        <Log
-          action="To do deleted"
-          taskName="Resolve frontend bugs"
-          time="3hrs"
-        />
-        <Log
-          action="To do updated"
-          taskName="Resolve frontend bugs"
-          time="3hrs"
-        />
       </div>
     </div>
   );
