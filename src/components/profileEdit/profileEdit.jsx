@@ -5,7 +5,7 @@ import Window10 from "../../assets/Vector.png";
 import NoImage from "../../assets/no-image-icon.jpg"
 import UploadIcon from "../../assets/icons/upload-icon.png";
 
-const JaybeeTodo = () => {
+const profileEdit = () => {
     const [file, setFile] = useState("");
 
 
@@ -116,4 +116,4 @@ const JaybeeTodo = () => {
   );
 };
 
-export default JaybeeTodo;
+export default profileEdit;
