@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import mac from "../../../assets/macbook.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
@@ -7,27 +8,53 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import Header from "../../../layout/header/Header";
 
 const Signup = () => {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (
-      name.length == 0 ||
+      fullName.length == 0 ||
       email.length == 0 ||
-      phoneNumber.length == 0 ||
+      phone.length == 0 ||
       password.length == 0
     ) {
       setError(true);
+    }
+
+    //splitting the name into first_name and last_name
+    if (fullName) {
+      setFirstName(fullName.split(" ")[0]);
+      setLastName(fullName.split(" ")[1]);
+    }
+
+    try {
+      const response = await axios.post(
+        "http://api.ticked.hng.tech:2022/user",
+        { first_name, last_name, email, phone, password }
+      );
+      console.log(response);
+      navigate("/login", {
+        state: {
+          registeredEmail: { email },
+          registeredPassword: { password }
+        }
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -57,11 +84,11 @@ const Signup = () => {
                 id="name"
                 type="text"
                 placeholder="Enter name"
-                value={name}
+                value={fullName}
                 required
-                onChange={e => setName(e.target.value)}
+                onChange={e => setFullName(e.target.value)}
               />
-              {error && name.length <= 0 ? (
+              {error && fullName.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Name does not match!
                 </div>
@@ -93,19 +120,19 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
-              <label htmlFor="phoneNumber" className={styles.describer}>
+              <label htmlFor="phone" className={styles.describer}>
                 Phone Number
               </label>
               <input
-                id="phoneNumber"
+                id="phone"
                 className="emailInput"
                 type="number"
                 placeholder="Enter phone"
-                value={phoneNumber}
+                value={phone}
                 required
-                onChange={e => setPhoneNumber(e.target.value)}
+                onChange={e => setPhone(e.target.value)}
               />
-              {error && phoneNumber.length <= 0 ? (
+              {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Phone number does not match!
                 </div>
@@ -160,12 +187,12 @@ const Signup = () => {
               </span>
             </div>
 
-            {name && email && phoneNumber && password && isChecked && (
+            {fullName && email && phone && password && isChecked && (
               <button id="btn__submit" className={styles.button}>
                 Sign Up
               </button>
             )}
-            {(!name || !email || !phoneNumber || !password || !isChecked) && (
+            {(!fullName || !email || !phone || !password || !isChecked) && (
               <button
                 id="btn__submit"
                 className={styles.buttonDisabled}
