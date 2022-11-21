@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 //Images
 import send from "../../assets/dashboard/send.png";
 import close from "../../assets/dashboard/close.png";
+
 import vaAdd from "../../assets/dashboard/vaAdd.png";
 import microphone from "../../assets/dashboard/microphone.png";
 import camera from "../../assets/dashboard/camera.png";
@@ -94,13 +95,13 @@ export function PopUp({ toggle }) {
 }
 
 const ChatBox = () => {
-  // const [anchorEl] = React.useState(null);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
   const [value, setValue] = useState(data);
   const [toggle, setToggle] = useState(false);
   const [input, setInput] = useState("");
 
-  // console.log(value);
-  // const handleClick = event => {
+  console.log(value);
+  // const handleClick = (event) => {
   //   setAnchorEl(event.currentTarget);
   // };
 
@@ -118,13 +119,13 @@ const ChatBox = () => {
   };
 
   // const open = Boolean(anchorEl);
-  // const id = open ? "simple-popover" : '';
+  // const id = open ? 'simple-popover' : undefined;
 
   return (
     <div className={styles.chatMain}>
-      {value.map((value, index) => (
+      {value.map(value => (
         <Box
-          key={index}
+          key={value.message}
           className={
             value.isClient ? styles.chatMain__right : styles.chatMain__left
           }
@@ -145,7 +146,7 @@ const ChatBox = () => {
         placeholder="Type your message..."
       />
       <span>
-        {toggle == true ? (
+        {toggle === true ? (
           <img onClick={() => setToggle(false)} src={close} alt="close" />
         ) : (
           <img onClick={() => setToggle(true)} src={vaAdd} alt="add" />
@@ -154,12 +155,17 @@ const ChatBox = () => {
         <img src={microphone} alt="microphone" />
       </span>
 
-      <img
-        onClick={handleSend}
-        style={{ marginTop: "30px", marginLeft: "10px", position: "absolute" }}
-        src={send}
-        alt="send"
-      />
+      <Box
+        // sx={{ position: 'absolute', top: "0vh", left: "50rem"}}
+        className={styles.chatMain__ima}
+      >
+        <img
+          onClick={handleSend}
+          // style={{   position: 'absolute', right: "10px", marginTop: "-70px" }}
+          src={send}
+          alt="send"
+        />
+      </Box>
 
       <PopUp toggle={toggle} />
       {/* <Popover
