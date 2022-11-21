@@ -15,15 +15,16 @@ import NewTask from "./core/todo/NewTask";
 import CheckM from "./core/auth/checkMail/CheckM";
 import Task from "./components/task/Task";
 import Detail from "./components/details/Detail";
-import Payment from "./core/payment/Payment"
+import Payment from "./core/payment/Payment";
 
-import Client from './components/va-clients/Client'
-import Notification from './components/notification/Notification'
+import Client from "./components/va-clients/Client";
+import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-import VaProfile from './components/VA-Profile/VaProfile';
-import VaModal1 from './components/VA-modal/VaModal1';
+import VaProfile from "./components/VA-Profile/VaProfile";
+import VaModal1 from "./components/VA-modal/VaModal1";
 import Login from "./components/Login";
 import ErrorMain from "./components/404";
+import SettingsProfile from "./core/settings/profile/SettingsProfile";
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
             <Route path="profile" element={<VaProfile />} />
           </Route>
           <Route path="/about" element={<About />} />
-          
+
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
@@ -55,6 +56,7 @@ function App() {
           <Route path="/newtask" element={<NewTask />} />
           <Route path="/va1" element={<VaModal1 />} />
           <Route path="/CheckM" element={<CheckM />} />
+          <Route path="/settings/profile" element={<SettingsProfile />} />
 
           <Route path="/faq" element={<FAQ />} />
 

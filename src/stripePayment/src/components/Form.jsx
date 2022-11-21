@@ -3,23 +3,23 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import styles from '../style.module.css';
 
-const cardOptions = {
-	iconStyle: 'solid',
-	style: {
-		base: {
-			iconColor: '#C4F0FF',
-			color: '#FFF',
-			fontWeight: 500,
-			fontFamily: 'Open Sans',
-			":-webkit-autofill": { color: '#FCE883' },
-			"::placeholder": { color: '#d70900' },
-		},
-		invalid: {
-			iconColor: '#FFC7EE',
-			color: '#FFC7EE'
-		}
-	}
-}
+// const cardOptions = {
+// 	iconStyle: 'solid',
+// 	style: {
+// 		base: {
+// 			iconColor: '#C4F0FF',
+// 			color: '#FFF',
+// 			fontWeight: 500,
+// 			fontFamily: 'Open Sans',
+// 			":-webkit-autofill": { color: '#FCE883' },
+// 			"::placeholder": { color: '#d70900' },
+// 		},
+// 		invalid: {
+// 			iconColor: '#FFC7EE',
+// 			color: '#FFC7EE'
+// 		}
+// 	}
+// }
 
 const Form = () => {
 	const [success, setSuccess] = React.useState(false);

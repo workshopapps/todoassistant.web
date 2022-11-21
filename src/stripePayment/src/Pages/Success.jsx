@@ -8,7 +8,7 @@ const Success = () => {
 		setTimeout(() => {
 			navigate("/");
 		}, 3000);
-	}, []);
+	}, [navigate]);
 	return (
 		<div className={styles.checkout__main}>
 			<div>

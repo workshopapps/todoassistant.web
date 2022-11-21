@@ -12,7 +12,7 @@ const CardJobs = ({ name, text }) => {
       <p>
         {text}
       </p>
-      <button className={styles.btn}>
+      <button className={styles.career_btn}>
         <p>Apply Now</p>
       </button>
     </div>

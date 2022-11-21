@@ -4,13 +4,15 @@ import ProfileScreen from "../../../components/ProfileScreen/ProfileScreen";
 import ProfileSideBar from "../../../components/ProfileScreen/ProfileSideBar";
 
 const SettingsProfile = () => {
-  return <div>
+  return (
     <div>
-      <ProfileSideBar />
-      <ProfileNav />
-      <ProfileScreen />
+      <div>
+        <ProfileSideBar />
+        <ProfileNav />
+        <ProfileScreen />
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default SettingsProfile;

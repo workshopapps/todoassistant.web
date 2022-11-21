@@ -56,7 +56,7 @@
   text-align: left;
 }
 
-.btn {
+.career_btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -68,11 +68,11 @@
   cursor: pointer;
 }
 
-.btn p {
+.career_btn p {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 160%;
-  color: #fafafa;
+  color: #fafafa !important;
 }
