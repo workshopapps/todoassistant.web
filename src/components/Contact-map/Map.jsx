@@ -26,7 +26,7 @@ const Map = () => {
             }}
             title="myFrame"
             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d8068651.87641677!2d8.674253!3d9.084576!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1668642662794!5m2!1sen!2sng"
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>

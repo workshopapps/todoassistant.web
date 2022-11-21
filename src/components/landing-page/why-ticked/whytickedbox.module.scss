@@ -4,14 +4,14 @@
   background-color: rgba(233, 243, 245, 1);
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: 24px 23px;
   border-radius: 8px;
 
-  @media (min-width: 1200px) {
-    // width: 443px;
-  }
+  // @media (min-width: 1200px) {
+  //   // width: 443px;
+  // }
 
   .whytickedbox__header {
     font-size: 20px;

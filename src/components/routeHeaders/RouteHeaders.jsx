@@ -5,25 +5,25 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 const RouteHeaders = (props) => {
     const [selectOpen, setSelectOpen] = useState(false);
-    const handleSelect = (event) => {
-        setSelectOpen(!selectOpen);
-        console.log(event)
-    }
+    // const handleSelect = (event) => {
+    //     setSelectOpen(!selectOpen);
+    //     // console.log(event)
+    // }
     const centerMarginLeft = `${ classes.center} ${classes.margin_left}`;
-    const dropdownOptions = [
-        {
-            'name':'Profile',
-            'link':'profile'
-        },
-        {
-            'name':'Settings',
-            'link':'settings'
-        },
-        {
-            'name':'Logout',
-            'link':'logout'
-        }
-    ];
+    // const dropdownOptions = [
+    //     {
+    //         'name':'Profile',
+    //         'link':'profile'
+    //     },
+    //     {
+    //         'name':'Settings',
+    //         'link':'settings'
+    //     },
+    //     {
+    //         'name':'Logout',
+    //         'link':'logout'
+    //     }
+    // ];
     return(
         <div className={classes.header_wrap}>
         {props.name}  
