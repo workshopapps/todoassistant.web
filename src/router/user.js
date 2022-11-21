@@ -12,6 +12,7 @@ import Task from "../components/task/Task";
 import clientIcon from "../assets/clientIcon.svg";
 import notification from "../assets/notification.svg";
 import profile from "../assets/profile-circle.svg";
+import Sub from "../core/sub/Sub";
 
 export const userRoutes = [
   { path: "", icon: home, title: "Home", component: Home },
@@ -31,5 +32,6 @@ export const userRoutes = [
     component: Notifications
   },
 
-  { path: "profile", icon: profile, title: "Profile", component: VaProfile }
+  { path: "profile", icon: profile, title: "Profile", component: VaProfile },
+  { path: "sub", icon: profile, title: "Subscription", component: Sub }
 ];
