@@ -4,16 +4,16 @@ import styles from "./CardJobs.module.scss";
 const CardJobs = ({ name, text }) => {
   return (
     <div className={styles.card}>
-      <h4>{name}</h4>
+      <h4 className={styles.cardHeadFour}>{name}</h4>
       <div className={styles.flex}>
-        <p>Ticked</p>
-        <p>Full time or Contract</p>
+        <p className={styles.cardParagraph}>Ticked</p>
+        <p className={styles.cardParagraph}>Full time or Contract</p>
       </div>
-      <p>
+      <p className={styles.cardParagraph}>
         {text}
       </p>
-      <button className={styles.career_btn}>
-        <p>Apply Now</p>
+      <button className={styles.careerJobBtn}>
+        <p className={styles.cardParagraph}>Apply Now</p>
       </button>
     </div>
   );

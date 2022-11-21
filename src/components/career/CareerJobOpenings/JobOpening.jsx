@@ -24,7 +24,7 @@ const JobOpening = () => {
           <form>
             <div className={styles.inputWrapper}>
               <img src={searchIcon} alt="search" />
-              <input type="text" placeholder="Search Jobs" />
+              <input className={styles.careerInput} type="text" placeholder="Search Jobs" />
             </div>
             <div className={styles.selectWrapper}>
               <img src={arrowIcon} alt="arrow-down" />

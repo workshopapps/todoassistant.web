@@ -57,7 +57,7 @@
   border-radius: 0.5rem;
 }
 
-.inputWrapper input {
+.inputWrapper .careerInput {
   width: 100%;
   padding: 1rem 1rem 1rem 3.5rem;
   background: #f6fafb;
@@ -65,13 +65,13 @@
   border-radius: 0.5rem;
 }
 
-.jobOpenings form input:focus,
+.jobOpenings form .careerInput:focus,
 .jobOpenings form select:focus {
   border: 1px solid #714dd9;
   outline: none;
 }
 
-.jobOpenings form input::placeholder,
+.jobOpenings form .careerInput::placeholder,
 .jobOpenings form select {
   font-family: "Open Sans";
   font-style: normal;
@@ -82,6 +82,7 @@
 }
 
 .jobOpenings form select {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 1px;

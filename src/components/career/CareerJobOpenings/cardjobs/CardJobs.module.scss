@@ -9,7 +9,7 @@
   border-radius: 16px;
 }
 
-.card h4 {
+.card .cardHeadFour {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
@@ -56,7 +56,7 @@
   text-align: left;
 }
 
-.career_btn {
+.careerJobBtn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -68,11 +68,11 @@
   cursor: pointer;
 }
 
-.career_btn p {
+.careerJobBtn .cardParagraph {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 160%;
-  color: #fafafa !important;
+  color: #fafafa;
 }

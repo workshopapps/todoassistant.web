@@ -30,13 +30,13 @@ const CareerHero = () => {
     <section className={styles.hero}>
       <div className={styles.topContainer}>
         <div className={styles.imageContainer}>
-          <img src={profile} alt="" />
+          <img className={styles.topImage} src={profile} alt="" />
         </div>
         <div className={styles.headingContainer}>
-          <h1>Ticked Job Board</h1>
-          <h4>More than just a job, we are family</h4>
-          <p>View our available Job Openings to become one of us</p>
-          <button className={styles.btn} type="button">
+          <h1 className={styles.careerHeadingOne}>Ticked Job Board</h1>
+          <h4 className={styles.careerHeadingFour}>More than just a job, we are family</h4>
+          <p className={styles.careerTopParagraph}>View our available Job Openings to become one of us</p>
+          <button className={styles.careerBtn} type="button">
             Job Openings
           </button>
         </div>
@@ -44,9 +44,9 @@ const CareerHero = () => {
       <div className={styles.cardContainer}>
         {careerCardData.map((data) => (
           <div className={styles.card} key={data.id}>
-            <img src={data.img} alt="" />
-            <h4>{data.title}</h4>
-            <p>{data.text}</p>
+            <img className={styles.cardImg} src={data.img} alt="" />
+            <h4 className={styles.careerHeadingFour}>{data.title}</h4>
+            <p className={styles.careerCardParagraph}>{data.text}</p>
           </div>
         ))}
       </div>
