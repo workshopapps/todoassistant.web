@@ -38,7 +38,7 @@ function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/dashboard" element={<Dasboard />}>
             <Route path="" element={<Home />} />
-            <Route path="chat" element={<ChatBox />} />
+            <Route path="assistant" element={<ChatBox />} />
             <Route path="task" element={<Task />}></Route>
             <Route path="detail" element={<Detail />} />
             <Route path="sub" element={<Sub />} />
