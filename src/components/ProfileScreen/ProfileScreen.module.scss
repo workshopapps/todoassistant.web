@@ -8,16 +8,15 @@ body {
 
 .container {
     width: calc(100% - 250px);
-    padding-top: 10px;
+    padding-top: 30px;
     padding-left: 290px;
-    max-width: 53rem;
 }
 
 .h1text {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 2rem;
     color: #714DD9;
     padding-bottom: 1rem;
@@ -42,12 +41,12 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 3.8125rem;
+    font-size: 4.2rem;
     line-height: 160%;
     text-align: center;
     color: #FFFFFF;
     position: relative;
-    top: -1.625rem;
+    top: 0.4rem;
 }
 
 .camcon {
@@ -59,7 +58,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -6rem;
+    top: -1.2rem;
     left: 4.8rem;
 }
 
@@ -76,16 +75,17 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 100%;
     color: #333333;
+    padding-bottom: 1rem;
 }
 
 .innercon1 p {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 120%;
     color: #333333;
 }
@@ -99,10 +99,12 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 100%;
     color: #333333;
     padding-right: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1.5rem;
 }
 
 .innercon2 a {
@@ -110,7 +112,7 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 120%;
     text-decoration-line: underline;
     color: #714DD9;
@@ -128,29 +130,32 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.25rem; 
     color: #333333;
+    padding-bottom: 1rem;
 }
 
 .innercon3 p {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 120%;
     color: #333333;
     width: 15.0625rem;
+    padding-bottom: 2rem;
 }
 
 .h12text {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 100%;
     color: #333333;
     padding-top: 0.5rem;
+    padding-bottom: 1.25rem;
 }
 
 .innercon4 {
@@ -158,6 +163,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 1.8rem;
 }
 
 .innercon4 h3 {
@@ -191,26 +197,26 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.25rem;
     color: #333333;
     position: relative;
-    top: 0.5rem;
+    top: 0.2rem;
+    padding-bottom: 0.8rem;
 }
 
 .innercon5a p {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 120%;
     color: #333333;
 }
 
 .innercon5b {
-    padding: 0.5rem 0.875rem;
-    width: 6rem;
-    height: 1.5rem;
+    padding: 0.875rem;
+    height: 2.4rem;
     background: #D9CDFB;
     border-radius: 0.5rem;
     display: flex;
@@ -222,7 +228,7 @@ body {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #2D224E;
 }
 
@@ -319,30 +325,45 @@ body {
     .container {
         width: 100%;
         margin-left: 0px;
-        padding: 0px 20px 20px 20px;
+        padding: 20px 20px 20px 20px;
     }  
     
     .avatar {
         display: block;
-        width: 4.875rem;
-        height: 4.875rem;
+        width: 5rem;
+        height: 5rem;
     }
 
     .avatar h1 {
         font-size: 2.5rem;
         line-height: 160%;
         position: relative;
-        top: -1.2rem;
+        top: 0.5rem;
     }
 
     .innercon1 h1 {
         position: relative;
         top: 0.25rem;
+        font-size: 1.3rem;
+    }
+
+    .innercon1 p {
+        font-size: 1rem;
+    }
+
+    .innercon2 a {
+        font-size: 1rem;
     }
 
     .innercon2 h1 {
         line-height: 100%;
-        padding-right: 1rem;
+        padding-right: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .h12text {
+        font-size: 1.3rem;
+        padding-bottom: 0.8rem;
     }
 
     .innercon3 {
@@ -359,8 +380,7 @@ body {
 
     .innercon4 {
         position: relative;
-        top: -0.6rem;
-        left: -0.15rem;
+        left: 0.12rem;
     }
 
     .innercon4 h3 {
@@ -401,8 +421,7 @@ body {
         font-size: 1rem;
         line-height: 1.25rem;
         color: #333333;
-        position: relative;
-        top: -0.25rem;
+        padding-bottom: 0.3rem;
     }
     
     .innercon6a p {
@@ -412,8 +431,6 @@ body {
         font-size: 0.875rem;
         line-height: 140%;
         color: #333333;
-        position: relative;
-        top: -0.5rem;
     }
     
     .innercon6b {
@@ -425,7 +442,7 @@ body {
         align-items: center;
         justify-content: center;
         position: relative;
-        top: 2.4rem;
+        top: 1rem;
     }
     
     .innercon6b p {
@@ -453,7 +470,7 @@ body {
         justify-content: center;
         align-items: center;
         position: relative;
-        top: -4rem;
+        top: -0.4rem;
         left: 3rem;
     }
     
