@@ -39,7 +39,7 @@ const SectionTwo = () => {
               <Tag text={`Resolve frontend bugs`} time={`4hrs, 8hrs`} />
             </div>
             <div className={style.tag3}>
-              <Tag text={`Resolve frontend bugs`} time={`2hrs, 3hrs`} />
+              <Tag text={`Call doctor Will by 4pm`} time={`2hrs, 3hrs`} />
             </div>
           </div>
         </section>

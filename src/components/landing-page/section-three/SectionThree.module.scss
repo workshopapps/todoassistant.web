@@ -22,11 +22,24 @@
 }
 
 .main {
-  // min-height: 31.48vh;
+  position: relative;
   background: rgba(249, 247, 255, 1);
   @media (min-width: 900px) {
     display: flex;
     padding: 10rem 0;
+  }
+
+  .float_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1rem;
+    width: 2rem;
+
+    @media screen and (min-width: 992px) {
+      width: initial;
+      margin: 3rem;
+    }
   }
 
   header {

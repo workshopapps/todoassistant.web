@@ -6,6 +6,11 @@ import styles from "./SectionThree.module.scss";
 const SectionThree = () => {
   return (
     <div className={styles.main}>
+      <img
+        className={styles.float_img}
+        src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-4_fj6sl7.svg"
+        alt="float_icon"
+      />
       <section className={styles.container}>
         <div className={styles.main__tick}>
           <header>
