@@ -34,6 +34,8 @@
 
 
 .Topp {
+    background-color: #fff;
+    margin-top: 4rem;
     .faq {
         display: flex;
         flex-direction: column;
@@ -136,6 +138,7 @@
 @media screen and (min-width:426px) {
     .top {
         padding: 5.68rem 1.5rem;
+        margin-bottom: 4rem;
 
         .ls {
             .header-text {

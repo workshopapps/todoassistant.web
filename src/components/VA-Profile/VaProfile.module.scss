@@ -466,6 +466,29 @@
   display: flex;
 }
 
+@media (min-width: 320px) and (max-width: 768px) {
+  .major_container {
+  width: 74.375rem;
+  height: 49rem; 
+  position: absolute;
+  overflow-x: hidden;
+  background-color: #F6FAFB;
+}
+
+.edit_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:  3.125rem;
+  background: #F6FAFB;
+  margin-right: 1.5rem;
+}
+
+.rating_container {
+  margin-bottom: 1.25rem;
+  width: 10rem;
+}
+}
+
 
 
 

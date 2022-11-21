@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ticked from '../images/ticked.svg'
+import ticked from '../../../assets/home/tick.png'
 
-import './App.scss'
+import './OTPSection.scss'
 
 function LogoBar() {
 

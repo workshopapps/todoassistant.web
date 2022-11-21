@@ -25,7 +25,12 @@ import VaModal1 from "./components/VA-modal/VaModal1";
 import Login from "./components/Login";
 import ErrorMain from "./components/404";
 import SettingsProfile from "./core/settings/profile/SettingsProfile";
+profile-edit-page
 import ProfileEdit from "./components/profileEdit/profileEdit"
+
+import Otp from "./core/auth/otp/Otp";
+import Sub from "./core/sub/Sub";
+Development
 
 function App() {
   return (
@@ -40,6 +45,7 @@ function App() {
             <Route path="chat" element={<ChatBox />} />
             <Route path="task" element={<Task />}></Route>
             <Route path="detail" element={<Detail />} />
+            <Route path="sub" element={<Sub />} />
             <Route path="clients" element={<Client />} />
             <Route path="notification" element={<Notification />} />
             <Route path="notifications" element={<Notifications />} />
@@ -58,6 +64,9 @@ function App() {
           <Route path="/newtask" element={<NewTask />} />
           <Route path="/va1" element={<VaModal1 />} />
           <Route path="/CheckM" element={<CheckM />} />
+          <Route path="/otp" element={<Otp />} />
+
+          
           <Route path="/settings/profile" element={<SettingsProfile />} />
 
           <Route path="/faq" element={<FAQ />} />
