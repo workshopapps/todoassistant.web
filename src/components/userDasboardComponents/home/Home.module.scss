@@ -51,6 +51,7 @@
   position: absolute;
   left: 16px;
   width: 18px;
+  margin-bottom: 7px;
 }
 
 .todos h1 {
@@ -166,4 +167,32 @@
   font-size: 12px;
   line-height: 100%;
   color: #333333;
+}
+
+@media (max-width: 1255px) {
+  .activityBox {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .todos .searchWrapper {
+    margin-right: 0px;
+  }
+  .activity {
+    grid-row: 1/2;
+  }
+  .logWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .todoNav {
+    justify-content: center;
+  }
 }
