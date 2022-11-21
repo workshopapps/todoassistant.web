@@ -1,0 +1,136 @@
+.profile-edit-home {
+  .edit-home h3 {
+    color: #714dd9;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  .edit-avatar{
+      position: relative;
+  }
+  .avatar{
+      height: 7rem;
+    width: 7rem;
+      border-radius: 9999px;
+  }
+  .upload-icon{
+      position: absolute;
+      top: 5.5rem;
+      right: 1rem;
+      cursor: pointer;
+  }
+  .profile{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+  }
+  .profile-icon {
+    height: 9rem;
+    width: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 5rem;
+    padding: 1.25rem;
+    border-radius: 9999px;
+  }
+  .profile-text .username{ 
+      font-size: 1rem;
+      font-weight: 600;
+  }
+  .single-form{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+  }
+  .single-form label{
+      font-size: 1rem;
+      font-weight: 700;
+  }
+  .single-form input{
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid gray;
+  }
+  .manage-account label{
+      font-size: 1rem;
+      font-weight: 700;
+  }
+  .edit-device{
+      margin-top: 1.25rem;
+  }
+  .edit-footer{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+  }
+  .edit-footer-top{
+      display: flex;
+      gap: 14px;
+  }
+  .edit-footer img{
+      height: 32px;
+  }
+  .window-text p{
+      margin: 0;
+      font-size: 0.875rem;
+  }
+  .edit-footer-btn{
+      font-size: 9px;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 2px;
+      background-color: #D9CDFB;
+      padding: 4px;
+      border-radius: 0.5rem;
+  }
+  .form-button{
+      background-color: #714DD9;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 40px 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+  }
+  
+}
+
+
+
+@media (min-width: 768px) {
+    .profile-form {
+        display: flex;
+        justify-content: space-between;
+        gap: 8rem;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .single-form{
+       width: 40%;
+    }
+    .edit-footer{
+        width: 100%;
+        gap: 20rem;
+    }
+    .edit-footer-btn{
+        font-size: 1rem;
+        background-color: #D9CDFB;
+        padding: 0.5rem;
+    }
+    .profile-text .username{ 
+      font-size: 1.2rem;
+      font-weight: 600;
+  }
+    
+}
+
+@media (min-width: 1024px) {
+    .lg\:block {
+        display: block;
+    }
+}

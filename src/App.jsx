@@ -25,6 +25,7 @@ import VaModal1 from "./components/VA-modal/VaModal1";
 import Login from "./components/Login";
 import ErrorMain from "./components/404";
 import SettingsProfile from "./core/settings/profile/SettingsProfile";
+import ProfileEdit from "./components/profileEdit/profileEdit"
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="notifications" element={<Notifications />} />
             <Route path="payment" element={<Payment />} />
             <Route path="profile" element={<VaProfile />} />
+            <Route path="profile/edit" element={<ProfileEdit />} />
           </Route>
           <Route path="/about" element={<About />} />
 
