@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import animation from "../../../hooks/animation/animate.module.scss";
 import style from "./hero.module.scss";
 
@@ -42,9 +43,11 @@ const Hero = () => {
             </p>
           </div>
           <div className={style.hero__btn_container}>
+          <Link to="/signup">
             <button className={`${style.button_getstarted} hover`}>
               GET STARTED
             </button>
+          </Link>
             <button className={`${style.button_login} hover`}>
               DOWNLOAD APP
             </button>

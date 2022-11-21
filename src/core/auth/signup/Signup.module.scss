@@ -66,15 +66,17 @@
 
             input[type=number]::-webkit-inner-spin-button, 
             input[type=number]::-webkit-outer-spin-button { 
+            appearance: none;
             -webkit-appearance: none; 
             margin: 0; 
             }
+           
 
             .hideEye{
                 position: absolute;
                 cursor: pointer;
                 right: 1rem;
-                bottom: 0.9rem;
+                bottom: 1.7rem;
                 font-size: 1.5rem;
                 display: none;
             }
@@ -83,7 +85,7 @@
                 position: absolute;
                 cursor: pointer;
                 right: 1rem;
-                bottom: 0.9rem;
+                bottom: 1.7rem;
                 font-size: 1.5rem;
                 display: flex;
                 
@@ -124,6 +126,10 @@
             cursor: pointer;
             margin-top: 5rem;
             border: none;
+
+            &:focus{
+                box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF;
+            }
 
         }
 
