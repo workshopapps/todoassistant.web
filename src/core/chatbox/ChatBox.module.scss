@@ -6,9 +6,9 @@
     &__ima {
         // border: 1px solid red;
         width: 40px !important;
-        position: fixed;
+        position: absolute;
         right: 20px;
-        top: 88vh;
+        top: 133vh;
         @media (min-width: 900px) {
             right: 25px;
         }

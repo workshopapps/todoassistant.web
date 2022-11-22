@@ -16,7 +16,7 @@ import Sub from "../core/sub/Sub";
 
 export const userRoutes = [
   { path: "", icon: home, title: "Home", component: Home },
-  { path: "chat", icon: message, title: "Assistant", component: ChatBox },
+  { path: "assistant", icon: message, title: "Assistant", component: ChatBox },
   { path: "task", icon: task, title: "Task", component: Task },
   { path: "clients", icon: clientIcon, title: "Clients", component: Client },
   {
