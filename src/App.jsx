@@ -27,9 +27,12 @@ import ErrorMain from "./components/404";
 import SettingsProfile from "./core/settings/profile/SettingsProfile";
 import Otp from "./core/auth/otp/Otp";
 import Sub from "./core/sub/Sub";
-import NewPassword from "./components/resetPassword/NewPassword";
-import ResetPassword from "./components/resetPassword/ResetPassword";
+
+import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
+import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
+
 import VaDasboard from "./components/vaDashboard/VaDasboard";
+
 function App() {
   return (
     <ErrorBoundary>
@@ -76,6 +79,8 @@ function App() {
           <Route path="/settings/profile" element={<SettingsProfile />} />
 
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/newpassword" element={<NewPassword/>} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
 
           {/* 404-error handler */}
           {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
