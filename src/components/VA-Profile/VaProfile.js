@@ -39,14 +39,14 @@ function VAProfile() {
             </div>
 
             <div className={style.profile_container_details2}>
-              <p className={style.profile_container_items_paragraph}>Role</p>
+              <p className={style.profile_container_items_paragraph1}>Role</p>
               <p className={style.profile_container__virtualA}>
                 Virtual Assistant
               </p>
             </div>
 
             <div className={style.profile_container_details3}>
-              <p className={style.profile_container_items_paragraph}>Bio</p>
+              <p className={style.profile_container_items_paragraph2}>Bio</p>
               <p className={style.profile_container_bio}>
                 I am available 24 hours a day. You just sit back and count on
                 me.
@@ -55,12 +55,12 @@ function VAProfile() {
 
             <div className={style.profile_container_details4}>
               <div>
-                <p className={style.profile_container_items_paragraph}>Phone</p>
+                <p className={style.profile_container_items_paragraph3}>Phone</p>
                 <p className={style.profile_container_num}>0802 290 4580</p>
               </div>
 
               <div>
-                <p className={style.profile_container_items_paragraph}>
+                <p className={style.profile_container_items_paragraph4}>
                   Email Address
                 </p>
                 <p className={style.profile_container_items_header}>
@@ -71,7 +71,7 @@ function VAProfile() {
 
             <div className={style.profile_container_details5}>
               <div>
-                <p className={style.profile_container_items_paragraph}>
+                <p className={style.profile_container_items_paragraph5}>
                   Address
                 </p>
                 <p className={style.profile_container_address}>
@@ -85,7 +85,7 @@ function VAProfile() {
               </div>
 
               <div>
-                <p className={style.profile_container_items_paragraph}>
+                <p className={style.profile_container_items_paragraph6}>
                   Country
                 </p>
                 <p className={style.profile_container_items_header}>Nigeria</p>
@@ -93,7 +93,7 @@ function VAProfile() {
             </div>
 
             <div className={style.profile_container_details}>
-              <p className={style.profile_container_items_paragraph}>Skills</p>
+              <p className={style.profile_container_items_paragraph7}>Skills</p>
               <div className={style.button_container}>
                 <button className={style.button1}>Excel Software</button>
                 <button className={style.button2}>Time Management</button>
