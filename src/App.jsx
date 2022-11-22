@@ -27,8 +27,11 @@ import ErrorMain from "./components/404";
 import SettingsProfile from "./core/settings/profile/SettingsProfile";
 import Otp from "./core/auth/otp/Otp";
 import Sub from "./core/sub/Sub";
+
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
+
+import VaDasboard from "./components/vaDashboard/VaDasboard";
 
 function App() {
   return (
@@ -40,7 +43,7 @@ function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/dashboard" element={<Dasboard />}>
             <Route path="" element={<Home />} />
-            <Route path="chat" element={<ChatBox />} />
+            <Route path="assistant" element={<ChatBox />} />
             <Route path="task" element={<Task />}></Route>
             <Route path="detail" element={<Detail />} />
             <Route path="sub" element={<Sub />} />
@@ -50,6 +53,11 @@ function App() {
             <Route path="payment" element={<Payment />} />
             <Route path="profile" element={<VaProfile />} />
           </Route>
+          <Route path="/virtualassistance" element={<VaDasboard />}>
+            <Route path="" element={<Home />} />
+            <Route path="notifications" element={<Notifications />} />
+           
+          </Route>
           <Route path="/about" element={<About />} />
 
           <Route path="/policy" element={<PrivatePolicy />} />
@@ -57,6 +65,10 @@ function App() {
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="/newpassword" element={<NewPassword />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
+
+
           <Route path="/signup" element={<Signup />} />
           <Route path="/newtask" element={<NewTask />} />
           <Route path="/va1" element={<VaModal1 />} />

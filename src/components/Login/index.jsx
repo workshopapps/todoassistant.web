@@ -48,7 +48,9 @@ const Login = () => {
 							<span className={styles.login__line} />
 						</div>
 						<div className={styles.login__socials}>
-							<img src={google} alt="google_login" />
+							<link to="/CheckM">
+								<img src={google} alt="google_login" />
+							</link>
 							<img src={fb} alt="fb_login" />
 						</div>
 						<div className={styles.login__createAccount}>

@@ -1,10 +1,12 @@
 import React from 'react'
 import '../checkMail/CheckM.css'
 import Sms from '../../../assets/sms.png'
+import Header from '../../../components/accountPreferences/Header'
 
 const CheckM = () => {
   return (
         <section className='All' id='EmailCon'>
+            <Header />
             <div id='Emaildetails'>
                 <div id='econtainer'>
                     <img id='Sms'  src={Sms} alt="Footer_Logo" />
