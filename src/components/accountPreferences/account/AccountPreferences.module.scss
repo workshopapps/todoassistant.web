@@ -8,6 +8,31 @@
   .container {
     min-width: 70%;
 
+    .secondHeader {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+
+      &__div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 10px 25px;
+        border-radius: 10px;
+        color: #181818;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .accountLink {
+        color: #714dd9;
+        background-color: #ffffff;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
     .account {
       display: flex;
       flex-direction: column;
@@ -57,6 +82,11 @@
 @media (min-width: 768px) {
   .container {
     min-width: 75%;
+
+    &__div {
+      gap: 50px;
+      font-size: 1.25rem;
+    }
   }
 }
 

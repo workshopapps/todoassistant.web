@@ -11,13 +11,13 @@ const SideBar = () => {
   return (
     <>
       <div className={styles.sidebar}>
-        <div className={styles.sidebar__ticked}>
+        <Link className={`${styles.link} ${styles.sidebar__ticked}`}>
           <img src={ticked} alt="Ticked" />
           <h1 className={styles.ticked}>TICKED</h1>
-        </div>
+        </Link>
 
         <div>
-          <Link className={`${styles.link} ${styles.todoBtn}`}>
+          <Link to="/newtask" className={`${styles.link} ${styles.todoBtn}`}>
             <img src={add} alt="Add" />
             <span>New to do</span>
           </Link>
@@ -39,7 +39,7 @@ const SideBar = () => {
             <p>Notification</p>
           </Link>
           <Link
-            to="/"
+            to="/chat"
             className={`${styles.link} ${styles.notificationSide__info}`}
           >
             <img src={assistant} alt="Assistant" />

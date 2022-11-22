@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
-import AccountPreferences from "./components/accountPreferences/AccountPreferences";
+import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
+import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
@@ -49,6 +50,7 @@ function App() {
 
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/account" element={<AccountPreferences />} />
+          <Route path="/pro" element={<ProPreferences />} />
           <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
           <Route path="/login" element={<Login />} />
