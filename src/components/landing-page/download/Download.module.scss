@@ -104,8 +104,8 @@
 
   &__phone {
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     background-color: #e3dbf7;
 
     img {
