@@ -9,8 +9,7 @@ const WhyTicked = () => {
       <div className={style.whyticked}>
         <header>
           <h2 className={style.section__four_title}>
-            Why
-            <span className={style.section__four_task}>Ticked?</span>
+            Why <span className={style.section__four_task}>Ticked?</span>
           </h2>
         </header>
         <section className={style.section__four_grid}>
@@ -28,10 +27,7 @@ const WhyTicked = () => {
             />
           </Animate.FadeIn>
           <Animate.FadeIn>
-            <WhyTickedBox
-              title={`24/7 Support`}
-              desc={`The app provides support and a live chat interface to respond to users promptly whenever they need help.`}
-            />
+            <WhyTickedBox title={`24/7 Support`} desc={`The app provides support and a live chat interface to respond to users promptly whenever they need help.`} />
           </Animate.FadeIn>
           <Animate.FadeIn>
             <WhyTickedBox

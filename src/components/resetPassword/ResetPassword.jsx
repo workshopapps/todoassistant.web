@@ -2,17 +2,18 @@ import React from "react";
 import classes from "./ResetPassword.module.scss";
 // import warning from "../../assets/form-warning.png";
 import arrow from "../../assets/arrow-left.png";
+import { NavLink } from "react-router-dom";
 // import { useFormik } from "formik";
 // import * as yup from "yup";
 const ResetPassword = () => {
-//   let formik = useFormik({
-//     initialValues: {
-//       email: "",
-//     },
-//     validationSchema: yup.object({
-//       email: yup.string().required("Email does not match").email(),
-//     }),
-//   });
+  //   let formik = useFormik({
+  //     initialValues: {
+  //       email: "",
+  //     },
+  //     validationSchema: yup.object({
+  //       email: yup.string().required("Email does not match").email(),
+  //     }),
+  //   });
   return (
     <div className={classes.container}>
       <form className={classes.content}>
@@ -25,11 +26,7 @@ const ResetPassword = () => {
           </p>
           <div className={classes.input}>
             <label htmlFor="email">Email Address</label>
-            <div
-              className={
-                 classes.inputEmail
-              }
-            >
+            <div className={classes.inputEmail}>
               <input
                 required
                 name="email"
@@ -56,34 +53,17 @@ const ResetPassword = () => {
             )} */}
           </div>
         </div>
-        <button> Continue</button>
+        <NavLink to="/checkMail">
+          <button
+            style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
+            className={`hover`}
+          >
+            Login
+          </button>
+        </NavLink>
       </form>
       <div className={classes.side}></div>
     </div>
   );
 };
 export default ResetPassword;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
