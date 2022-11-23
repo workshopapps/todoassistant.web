@@ -52,6 +52,7 @@
 
     input {
         width: 93%;
+        display: inline-block;
         padding: 30px;
         background: #F6FAFB;
         border: 1px solid #D3D0D9;
@@ -59,17 +60,26 @@
         outline: none;
         margin-top: 20px !important;
         flex: 1;
-        @media (min-width: 900px) {
+        @media (min-width: 700px) {
         width: 97%;
             
         }
     }
     span {
         position: absolute;
-        right: 80px;
-        margin-top: -65px;
+        right: 6px;
+        // top: 10px;
+        margin-top: 45px;
+        @media (min-width: 700px) {
+        right: 5px;
+            
+        }
+        @media (min-width: 900px) {
+            right: 20px;
+                
+            }
         img {
-            margin: 0px 5px;
+            // margin: 0px 2px;
             // margin-top: -60px !important;
         }
     }

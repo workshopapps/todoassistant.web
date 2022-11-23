@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clientVa from "../../assets/dashboard/clientVa.png";
 import styles from "./ChatBox.module.scss";
 import { Box } from "@mui/material";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
 
 //Images
 import send from "../../assets/dashboard/send.png";
@@ -54,6 +56,65 @@ const data = [
   }
 ];
 
+export function BasicPopover({ anchorEl, handleClose }) {
+  // const [anchorEl, setAnchorEl] = React.useState(null);
+
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
+  return (
+    <div>
+      <Popover
+        // sx={{marginLeft: "-60px", border: "1px solid red", width: "100%"}}
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right"
+        }}
+      >
+        <Box className={styles.main} p={2}>
+          <Box sx={{ display: "flex" }}>
+            <img src={camera} alt="camera" />
+            <Typography ml={1}>camera</Typography>
+          </Box>
+          <Box sx={{ display: "flex" }} mt={2}>
+            <img src={gallery} alt="gallery" />
+            <Typography ml={1}>Photo & Video Library</Typography>
+          </Box>
+          <Box className={styles.main__sub} sx={{ display: "flex" }} mt={2}>
+            <img src={document} alt="document" />
+            <Typography ml={1}>Document</Typography>
+          </Box>
+
+          <hr style={{ marginTop: "10px" }} />
+          <Box className={styles.main__sub} sx={{ display: "flex" }} mt={2}>
+            <Typography>Attach</Typography>
+          </Box>
+          <Box sx={{ display: "flex" }} mt={2}>
+            <img src={monitor} alt="monitor" />
+            <Typography ml={1}>Upload from your computer</Typography>
+          </Box>
+          <Box sx={{ display: "flex" }} mt={2}>
+            <img src={cloud} alt="cloud" />
+            <Typography ml={1}>Add from Google Drive</Typography>
+          </Box>
+        </Box>
+      </Popover>
+    </div>
+  );
+}
+
 export function PopUp({ toggle }) {
   return (
     <Box
@@ -95,19 +156,21 @@ export function PopUp({ toggle }) {
 }
 
 const ChatBox = () => {
-  // const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [value, setValue] = useState(data);
   const [toggle, setToggle] = useState(false);
   const [input, setInput] = useState("");
 
   console.log(value);
-  // const handleClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    setToggle(true);
+  };
 
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  const handleClose = () => {
+    setAnchorEl(null);
+    setToggle(false);
+  };
 
   const handleChange = val => {
     setInput(val.target.value);
@@ -147,27 +210,26 @@ const ChatBox = () => {
       />
       <span>
         {toggle === true ? (
-          <img onClick={() => setToggle(false)} src={close} alt="close" />
+          <img onClick={handleClose} src={close} alt="close" />
         ) : (
-          <img onClick={() => setToggle(true)} src={vaAdd} alt="add" />
+          <img onClick={handleClick} src={vaAdd} alt="add" />
         )}
         {/* <img onClick={() => setToggle(true)}  src={vaAdd} alt="add" /> */}
         <img src={microphone} alt="microphone" />
-      </span>
-
-      <Box
-        // sx={{ position: 'absolute', top: "0vh", left: "50rem"}}
-        className={styles.chatMain__ima}
-      >
         <img
           onClick={handleSend}
-          // style={{   position: 'absolute', right: "10px", marginTop: "-70px" }}
+          style={{ marginLeft: "30px" }}
           src={send}
           alt="send"
         />
-      </Box>
+      </span>
 
-      <PopUp toggle={toggle} />
+      <BasicPopover
+        anchorEl={anchorEl}
+        toggle={toggle}
+        handleClick={handleClick}
+        handleClose={handleClose}
+      />
       {/* <Popover
             sx={{mb:2}}
             id={id}
