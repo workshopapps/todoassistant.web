@@ -1,3 +1,14 @@
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+// THIS IS THE FONT BREAKER=============================
+
+// *{
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+//   font-family: 'opensans';
+// }
+
+// =====================================================
 
 // Website variables
 $bgColor: #F6FAFB;
@@ -7,37 +18,39 @@ $textLightgrey: #707070;
 $textLightMode: #E9F3F5;
 $btnPurple: #714DD9;
 
-.newTaskBody{
-        background-color: $bgColor;
-        color: $textDarkgrey;
-        font-size: .8rem;
+  .newTaskBody{
+    font-family: 'Open Sans', sans-serif;
+    background-color: $bgColor;
+    color: $textDarkgrey;
+    font-size: .8rem;
 
-        // flex main body
-        .newTaskContainer{
-          display: flex;
 
-          .mainContainer{
+   .newTaskContainer{
 
-          // header
-          .newTaskHeader{
-            width: 80vw;
-            padding: 1rem 0 0 1rem;
-            border-bottom: 1px solid $textLightMode;
+      display: flex;
+
+      .mainContainer{
+
+        // header
+        .newTaskHeader{
+          width: 80vw;
+          padding: 1rem 2rem 0 3rem;
+          border-bottom: 1px solid $textLightMode;
 
           .newTaskTitle{
             display: inline-block;
-            font-size: 1rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid $btnPurple;
+            border-bottom: 4px solid $btnPurple;
           }
         }
 
-      // form
+        // form
         .newTaskForm{
-          padding: 1rem;
+          width: 60vw;
+          padding: 3rem;
           display: flex;
           flex-direction: column;
-          row-gap: 1rem;
+          row-gap: 2rem;
 
           .formGroup{
             display: flex;
@@ -52,7 +65,7 @@ $btnPurple: #714DD9;
             }
 
             // inputs
-            .newTaskInput{
+            .newTaskInput, .newTaskSelect{
               padding: .8rem;
               border-radius: 10px;
               border: 1px solid $textLightMode;
@@ -77,11 +90,41 @@ $btnPurple: #714DD9;
               padding: .8rem;
               color: $textLightgrey;
             }
-        
+
+            // select
+            .repeat, .select{
+              width: 20vw;
+            }
+
+            .optionsContainer {
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              padding: .8rem;
+              background-color: $bgWhite;
+              width: 20vw;
+              font-size: 13px;
+              color: $textLightgrey;
+
+              .newTaskListItem:hover{
+                color: $btnPurple;
+              }
+
+              .newTaskListItem:not(.lastchild){
+                border-bottom: 0.5px solid $textLightgrey;
+                padding-bottom: .8rem;
+              }
+
+              .isDropped{
+                transition: all 8s ease-in-out;
+              }
+            }
+
             // label
             .newTaskLabel{
               font-weight: 600;
-              // margin-bottom: .5rem;
+              margin-bottom: .5rem;
             }
           }
 
@@ -94,63 +137,71 @@ $btnPurple: #714DD9;
             }
           }
 
-          .newTaskRow{
+          .row{
             display: flex;
-            flex-direction: column;
-            row-gap: 1rem;
+            flex-direction: row;
+            column-gap: 3rem;
+
+            .formGroup{
+              width: 50%;
+            }
+
+            .newTaskInput, .newTaskSelect{
+              width: 100%;
+            }
           }
 
-          .newTaskInputRadio{
-            accent-color: $btnPurple;
-            }
-
-            .formSelect{
-              margin: .5rem 0 1rem 0;
-            }
-
           .newTaskButton{
-            padding: .5rem;
+            width: 20vw;
+            padding: 1rem;
             border-radius: 10px;
             background-color: $btnPurple;
             color: $textLightMode;
             outline: none;
             border: none;
-
           }
         }
+
       }
-    }
+   }
+  }
 
-    } // end main body
 
-    @media screen and (min-width: 769px){
+@media screen and (max-width: 769px){
+    .newTaskContainer{
 
-      .newTaskForm{
-        padding-top: 2rem !important;
+      .mainContainer{
 
-        .formSelect{
-          margin: 1rem 0;
-          width: 25vw;
+        .newTaskHeader{
+          font-size: .7rem;
         }
-        
-      .newTaskRow{
-            flex-direction: row !important;
-            column-gap: 3rem;
+
+        .newTaskForm{
+          width: 80vw !important;
+
+          .row{
+            flex-direction: column !important;
+
+            .formGroup:first-child{
+              width: 100% !important;
+              margin-bottom: 2rem;
+            }
 
             .formGroup{
-                width: 50%;
-           }
-      }
+              width: 100% !important;
+            }
+          }
 
-      .newTaskButton{
-        width: 20vw;
-        margin-top: 1rem;
-      }
-    }
-    }
+          .newTaskButton{
+            width: 30vw !important;
+          }
+        }
 
-    @media screen and (min-width: 969px){
-      .newTaskForm{
-        padding-right: 20vw !important;
+        // select
+        .repeat, .select, .optionsContainer{
+          width: 100% !important;
+        }
+
       }
     }
+}
