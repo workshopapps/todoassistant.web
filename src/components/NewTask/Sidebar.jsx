@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import logo from '../../assets/newTask/newtasklogo.png'
+import logo from '../../assets/newTask/logotask.svg'
 import back from '../../assets/newTask/arrowBack.png'
 import styles from './Sidebar.module.scss'
 

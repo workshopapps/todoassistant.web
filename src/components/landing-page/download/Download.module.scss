@@ -14,7 +14,7 @@
 
 // using the BEM system
 .container {
-//   border: 1px solid red;
+  //   border: 1px solid red;
   width: 100%;
   max-width: 600px;
   margin: auto;
@@ -104,23 +104,17 @@
 
   &__phone {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     background-color: #e3dbf7;
-    padding-top: 40px;
+
+    img {
+      @include img_fluid;
+      margin-bottom: -5px;
+    }
 
     @media (min-width: 900px) {
       width: 50%;
-      min-height: 42.42vh;
-    }
-
-    img {
-      max-height: 33.61vh;
-      max-width: 76.32vw;
-      @media (min-width: 700px) {
-        max-height: 53.61vh;
-        max-width: 96.32vw;
-      }
     }
   }
 }

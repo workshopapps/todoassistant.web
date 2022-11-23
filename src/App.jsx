@@ -8,7 +8,7 @@ import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 
 import FAQ from "./pages/FAQ/FAQ";
-import { Career, Contact, LandingPage, PrivatePolicy } from "./pages";
+import { About, Career, Contact, LandingPage, PrivatePolicy } from "./pages";
 import Dasboard from "./components/dasboard/Dasboard";
 import Home from "./components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
@@ -44,6 +44,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dasboard />}>
           <Route path="" element={<Home />} />
           <Route path="assistant" element={<ChatBox />} />

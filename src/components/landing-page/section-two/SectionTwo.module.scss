@@ -36,9 +36,13 @@ p {
 }
 
 .section__two {
-  border-top: 1px solid lightgrey;
+  background: rgba(249, 247, 255, 1);
   text-align: center;
-  height: 40.9rem;
+  padding: 10px 0 64px;
+
+  @media (min-width: 992px) {
+    padding: 7.5rem 0 16.5rem;
+  }
 
   .section__two_wrapper {
     position: relative;
@@ -94,8 +98,12 @@ p {
     .section__two_title {
       font-weight: 700;
       line-height: 160%;
-      font-size: 1.6rem;
+      font-size: 24px;
       margin-bottom: 1rem;
+
+      @media screen and (min-width: 992px) {
+        font-size: 48px;
+      }
 
       .section__two_task {
         color: $accentOrange;
@@ -161,7 +169,6 @@ p {
 @media (min-width: 768px) {
   .section__two {
     text-align: center;
-    height: 60.9rem;
 
     .section__two_wrapper {
       .float_icon_1 {
@@ -185,13 +192,9 @@ p {
     header {
       margin-top: 7.5rem;
 
-      .section__two_title {
-        font-size: 2.4rem;
-      }
-
       .section__two_subtitle {
         font-size: 1.25rem;
-        line-height: 140%;
+        line-height: 160%;
         margin-bottom: 7.9rem;
       }
     }
@@ -231,13 +234,6 @@ p {
     .section__two_wrapper {
       .float_icon_1 {
         left: 2%;
-      }
-
-      .float_icon_2 {
-        // top: 130%;
-      }
-
-      .float_icon_3 {
       }
     }
   }
