@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.scss";
 
-import { Routes, Route, NavLink, useLocation, Outlet } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  NavLink,
+  useLocation,
+  Outlet,
+  Link
+} from "react-router-dom";
 // import {useHistory} from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
@@ -88,24 +95,26 @@ export default function Dasboard() {
           {/* <Close /> */}
         </IconButton>
       </Toolbar>
-      <Box px={2.5} mb={4}>
-        <Box
-          minWidth={"10vw"}
-          margin={" 20px auto"}
-          sx={{
-            background: "#714DD9",
-            color: "#fff",
-            padding: "14px",
-            borderRadius: "8px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <img src={add} alt="add" />
-          <Typography variant="p">New to do</Typography>
+      <Link to="/newtask">
+        <Box px={2.5} mb={4}>
+          <Box
+            minWidth={"10vw"}
+            margin={" 20px auto"}
+            sx={{
+              background: "#714DD9",
+              color: "#fff",
+              padding: "14px",
+              borderRadius: "8px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <img src={add} alt="add" />
+            <Typography variant="p">New to do</Typography>
+          </Box>
         </Box>
-      </Box>
+      </Link>
       {userRoutes.map((item, index) => {
         return (
           <>
