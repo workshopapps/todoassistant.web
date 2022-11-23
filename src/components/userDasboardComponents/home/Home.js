@@ -8,20 +8,25 @@ import TodoCard from "./TodoCard";
 import Log from "./Log";
 export default function Home() {
   const dummy_todos = [
-    { va: true, completed: false, todoName: "Resolve frontend bugs" },
-    { va: true, completed: true, todoName: "Learn NextJS" },
-    { va: false, completed: false, todoName: "Learn React" },
-    { va: false, completed: false, todoName: "Learn Typescript" },
-    { va: false, completed: false, todoName: "Learn Strapi" },
-    { va: true, completed: false, todoName: "Learn Go" },
-    { va: false, completed: true, todoName: "Learn Contex" },
-    { va: false, completed: true, todoName: "Learn Api" },
-    { va: false, completed: true, todoName: "Learn Redux" },
-    { va: true, completed: false, todoName: "Learn React-Router" }
+    { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
+    { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
+    { va: false, completed: false, todoName: "Learn React", id: "3" },
+    { va: false, completed: false, todoName: "Learn Typescript", id: "4" },
+    { va: false, completed: false, todoName: "Learn Strapi", id: "5" },
+    { va: true, completed: false, todoName: "Learn Go", id: "6" },
+    { va: false, completed: true, todoName: "Learn Contex", id: "7" },
+    { va: false, completed: true, todoName: "Learn Api", id: "8" },
+    { va: false, completed: true, todoName: "Learn Redux", id: "9" },
+    { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
   ];
 
+  const [completedDropdown, setCompletedDropdown] = useState(true);
   const [myTodos, setMyTodos] = useState(dummy_todos);
-  const [searchTodos, setSearchTodos] = useState(dummy_todos);
+  const [filterTodos, setFilterTodos] = useState(myTodos);
+  const [activeTab, setActiveTab] = useState({
+    filter: "completed",
+    value: false
+  });
   const numOfCompleted = myTodos.filter(i => i.completed);
   const [allActive, setAllActive] = useState({
     style: { color: "#714DD9", borderBottom: "2px solid #714DD9" },
@@ -36,9 +41,13 @@ export default function Home() {
     active: false
   });
 
-  const handleCheckbox = index => {
+  const handleCheckbox = id => {
     const dummy = [...myTodos];
-    dummy[index].completed = !dummy[index].completed;
+    dummy.map((i, index) => {
+      if (i.id === id) {
+        dummy[index].completed = !dummy[index].completed;
+      }
+    });
     setMyTodos(dummy);
   };
 
@@ -46,14 +55,13 @@ export default function Home() {
     const searchData = myTodos.filter(i => {
       return i.todoName.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    console.log(searchData);
     if (e.target.value === "") {
-      setSearchTodos(myTodos);
+      setFilterTodos(myTodos);
     } else {
-      setSearchTodos(searchData);
+      setFilterTodos(searchData);
     }
-    // console.log(searchData);
   };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.todos}>
@@ -72,6 +80,7 @@ export default function Home() {
           <p
             style={allActive.style}
             onClick={() => {
+              setActiveTab({ filter: "completed", value: false });
               setAllActive({
                 style: { color: "#714DD9", borderBottom: "2px solid #714DD9" },
                 active: true
@@ -91,6 +100,7 @@ export default function Home() {
           <p
             style={mineActive.style}
             onClick={() => {
+              setActiveTab({ filter: "va", value: false });
               setAllActive({
                 style: { color: "", borderBottom: "" },
                 active: false
@@ -110,6 +120,7 @@ export default function Home() {
           <p
             style={assistantActive.style}
             onClick={() => {
+              setActiveTab({ filter: "va", value: true });
               setAllActive({
                 style: { color: "", borderBottom: "" },
                 active: false
@@ -127,65 +138,40 @@ export default function Home() {
             Assistant
           </p>
         </div>
-        {searchTodos.map((i, index) => {
-          if (allActive.active) {
+        {filterTodos.map(i => {
+          if (i[activeTab.filter] === activeTab.value && !i.completed) {
             return (
-              !i.completed && (
-                <TodoCard
-                  title={i.todoName}
-                  va={i.va}
-                  completed={i.completed}
-                  handleChange={() => {
-                    handleCheckbox(index);
-                  }}
-                />
-              )
-            );
-          }
-          if (mineActive.active) {
-            return (
-              !i.completed &&
-              !i.va && (
-                <TodoCard
-                  title={i.todoName}
-                  va={i.va}
-                  completed={i.completed}
-                  handleChange={() => {
-                    handleCheckbox(index);
-                  }}
-                />
-              )
-            );
-          }
-          if (assistantActive.active) {
-            return (
-              !i.completed &&
-              i.va && (
-                <TodoCard
-                  title={i.todoName}
-                  va={i.va}
-                  completed={i.completed}
-                  handleChange={() => {
-                    handleCheckbox(index);
-                  }}
-                />
-              )
+              <TodoCard
+                key={i.id}
+                completed={i.completed}
+                title={i.todoName}
+                va={i.va}
+                handleChange={() => {
+                  handleCheckbox(i.id);
+                }}
+              />
             );
           }
         })}
-        <div className={styles.completedTitle}>
+        <div
+          className={styles.completedTitle}
+          onClick={() => {
+            setCompletedDropdown(completedDropdown => !completedDropdown);
+          }}
+        >
           <p>Completed {numOfCompleted.length}</p>
           <img src={downarrowIcon} alt="down-arrow" />
         </div>
-        {myTodos.map((i, index) => {
+        {myTodos.map(i => {
           return (
-            i.completed && (
+            i.completed &&
+            completedDropdown && (
               <TodoCard
                 title={i.todoName}
                 va={i.va}
                 completed={i.completed}
                 handleChange={() => {
-                  handleCheckbox(index);
+                  handleCheckbox(i.id);
                 }}
               />
             )
@@ -197,7 +183,9 @@ export default function Home() {
         <div className={styles.activityBox}>
           <div className={styles.left}>
             <img src={icon1} alt="" />
-            <h3>4/8 To do's</h3>
+            <h3>
+              {numOfCompleted.length}/{myTodos.length} To do's
+            </h3>
             <p>Ticked</p>
           </div>
           <div className={styles.right}>
