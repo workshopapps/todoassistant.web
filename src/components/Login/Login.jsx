@@ -5,7 +5,7 @@ import fb from "../../assets/fb.png";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
 import Header from "../../layout/header/Header";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = React.useState(false);
@@ -54,7 +54,14 @@ const Login = () => {
               </span>
             </div>
             <div className={styles.login__formItem}>
-              <button className={styles.login__submitBtn}>Login</button>
+              <NavLink to="/dashboard">
+                <button
+                  style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
+                  className={`${styles.login__submitBtn} hover`}
+                >
+                  Login
+                </button>
+              </NavLink>
             </div>
           </form>
           <div className={styles.login__bottomContent}>

@@ -5,6 +5,7 @@ import arrow from "../../assets/arrow-left.png";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { NavLink } from "react-router-dom";
 
 const ResetPassword = () => {
   let formik = useFormik({
@@ -63,7 +64,14 @@ const ResetPassword = () => {
             )}
           </div>
         </div>
-        <button> Continue</button>
+        <NavLink to="/checkM">
+          <button
+            style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
+            className={` hover`}
+          >
+            Login
+          </button>
+        </NavLink>
       </form>
       <div className={classes.side}></div>
     </div>
