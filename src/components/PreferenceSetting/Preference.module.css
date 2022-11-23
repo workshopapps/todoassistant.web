@@ -1,0 +1,9 @@
+:local(.psf) {
+  display: flex;
+  flex-direction: row;
+}
+:local(.preference) {
+  background-color: #f6fafb;
+  display: flex;
+  flex-direction: column;
+}
