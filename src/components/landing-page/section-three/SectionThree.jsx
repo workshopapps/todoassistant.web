@@ -6,14 +6,16 @@ import styles from "./SectionThree.module.scss";
 const SectionThree = () => {
   return (
     <div className={styles.main}>
+      <img
+        className={styles.float_icon}
+        src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-4_fj6sl7.svg"
+        alt="float-icon"
+      />
       <section className={styles.container}>
         <div className={styles.main__tick}>
           <header>
             <h3 className={styles.section__three_title}>How It Works?</h3>
-            <p className={styles.section__three_subtitle}>
-              Simplify your process of management by offering you the best tool
-              that suit for your current type of work.
-            </p>
+            <p className={styles.section__three_subtitle}>Get onboard easily with TICKED.</p>
           </header>
           <SectionThreeList
             icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670551/hng/todoAppVirtualAssistant/task-square_bmrtgd.svg"
@@ -33,15 +35,14 @@ const SectionThree = () => {
           />
         </div>
       </section>
-      <div className={styles.main__phone}>
-        <div className={styles.main__phone_box}>
-          <Animate.FadeIn>
-            <img
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
-              alt="section-three-img"
-            />
-          </Animate.FadeIn>
-        </div>
+      <div>
+        <Animate.FadeIn>
+          <img
+            className={styles.img}
+            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+            alt="section-three-img"
+          />
+        </Animate.FadeIn>
       </div>
     </div>
   );
