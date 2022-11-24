@@ -1,0 +1,31 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.banner {
+  position: relative;
+  text-align: center;
+  padding: 6.8rem 7.7rem;
+  border-radius: 120px;
+  background: rgb(246, 250, 251);
+  overflow: hidden;
+  .text {
+    font-size: 25px;
+    color: $black;
+    font-weight: 700;
+    line-height: $line-height-md;
+  }
+
+  .float_img_1,
+  .float_img_2 {
+    position: absolute;
+  }
+  .float_img_1 {
+    top: 0;
+    right: 0;
+  }
+  .float_img_2 {
+    bottom: 0;
+    left: 0;
+    margin: 4rem;
+  }
+}

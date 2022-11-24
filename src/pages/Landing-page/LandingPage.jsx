@@ -6,12 +6,14 @@ import TodoListSection from "../../components-II/landing-page/todoList/TodoListS
 import Download from "../../components-II/landing-page/download/Download";
 import HeroSection from "../../components-II/landing-page/hero-section/HeroSection";
 import Layout from "../../layout/Layout";
+import VirtualAssistant from "../../components-II/landing-page/virtualAssistant/VirtualAssistant";
 
 const LandingPage = () => {
   return (
     <>
       <Layout>
         <HeroSection />
+        <VirtualAssistant />
         <TodoListSection />
         <SectionTwo />
         <SectionThree />
