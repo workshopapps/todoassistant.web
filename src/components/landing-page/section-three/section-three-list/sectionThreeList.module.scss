@@ -25,11 +25,16 @@ p {
 }
 
 .section__three_list {
+  // border: 1px solid red;
   display: flex;
   gap: 0.5rem;
-  padding: 2rem;
+  padding: 1rem;
   border-bottom: 1px solid #d3d3d360;
   margin: 1.5rem 0;
+
+  @media screen and (min-width: 992px) {
+    padding: 2rem;
+  }
 
   &:hover {
     border: 1px solid $activeColor;
@@ -45,11 +50,17 @@ p {
   .section__three_list_text {
     .section__three_list_title {
       font-size: 1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 18px;
+      @media screen and (min-width: 992px) {
+        margin-bottom: 1.5rem;
+      }
     }
     .section__three_list_desc {
-      font-size: 1rem;
+      font-size: 14px;
       line-height: 180%;
+      @media screen and (min-width: 992px) {
+        font-size: 1rem;
+      }
     }
   }
 }

@@ -1,13 +1,25 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './NavSidebar.module.scss';
 import arrow from '../../assets/assets/arrow-down.png';
 import menu from '../../assets/assets/menu.png';
 import settings from '../../assets/assets/setting-2.png';
-import logout from '../../assets/assets/logout.png';
+import logoutpic from '../../assets/assets/logoutpic.png';
 import rightarrow from '../../assets/assets/arrow-right.png';
 import logo from "../../assets/assets/tickedlogo.png";
+import { AuthContext } from '../../contexts/authContext/AuthContext';
+import { logout } from '../../contexts/authContext/AuthActions';
+import { useNavigate } from 'react-router-dom';
+
 
 const ProfileNav = () => {
+    const navigate = useNavigate();
+    const {dispatch} = useContext(AuthContext);
+
+    const handleLogout = ()=>{
+        dispatch(logout());
+
+        navigate("/login");
+    }
 
     const [nav, setNav] = useState(false)
     const [side, setSide] = useState(false)
@@ -61,14 +73,14 @@ const ProfileNav = () => {
                     alt="Right Arrow Icon"
                     />
                 </a></div>
-                <div><a href="/" className={styles.logoutcon}>
+                <div className={styles.logoutcon} onClick={handleLogout} >
                     <img
-                    src= {logout} 
+                    src= {logoutpic} 
                     className={styles.logout}
                     alt="Logout Icon"
                     />
                     <p>Logout</p>
-                </a></div>
+                </div>
             </div> : ''}
 
             {side ? <div className={styles.sidemob}>
@@ -99,14 +111,14 @@ const ProfileNav = () => {
               </div>
               <p className={styles.sidemob4p1}>Preferences</p>
               <p className={styles.sidemob4p2}> My Profile</p>
-              <div><a href="/" className={styles.logoutmob}>
+              <div className={styles.logoutmob} onClick={handleLogout}>
                     <img
-                    src= {logout} 
+                    src= {logoutpic} 
                     className={styles.logout}
                     alt="Logout Icon"
                     />
                     <p>Logout</p>
-               </a></div>
+               </div>
             </div> : ''}
             
 

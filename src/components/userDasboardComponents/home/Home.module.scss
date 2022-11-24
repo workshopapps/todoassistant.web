@@ -31,11 +31,18 @@
   line-height: 120%;
   color: #707070;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.activeTab {
+  color: "#714DD9";
+  border-bottom: "2px solid #714DD9";
 }
 
 .completedTitle {
   display: flex;
   padding: 40px 40px 20px 40px;
+  cursor: pointer;
 }
 .completedTitle p {
   font-family: "Open Sans";
@@ -178,6 +185,10 @@
 @media (max-width: 1000px) {
   .wrapper {
     grid-template-columns: 1fr;
+  }
+
+  .activityBox {
+    grid-template-columns: 1fr 1fr;
   }
 
   .todos .searchWrapper {
