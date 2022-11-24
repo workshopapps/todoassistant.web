@@ -5,7 +5,7 @@ export const login = async (user, dispatch) => {
   dispatch(loginStart());
   try {
     const res = await axios.post(
-      "https://api.ticked.hng.tech:2022/user/login",
+      "http://api.ticked.hng.tech:2022/user/login",
       user
     );
     dispatch(loginSuccess(res.data));
