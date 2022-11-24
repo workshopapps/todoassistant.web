@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Animate } from "../../../hooks/animation/AnimateIn";
 import Button from "../../button/ButtonComponent";
 import SectionThreeList from "./section-three-list/SectionThreeList";
 import styles from "./SectionThree.module.scss";
 
 const SectionThree = () => {
+  const [img, setImg] = useState(
+    "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+  );
+  const onHover = e => {
+    let name = e.target.dataset.name;
+    if (name === "step-2") {
+      setImg(
+        `https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644176/hng/todoAppVirtualAssistant/Frame_34492_bci6bq.svg`
+      );
+    } else {
+      setImg(
+        "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+      );
+    }
+  };
+
   return (
     <div className={styles.main}>
       <img
@@ -16,12 +32,12 @@ const SectionThree = () => {
         <div className={styles.main__tick}>
           <header>
             <h3 className={styles.section__three_title}>How It Works</h3>
-            <p className={styles.section__three_subtitle}>
-              It's as easy as…
-            </p>
+            <p className={styles.section__three_subtitle}>It's as easy as…</p>
           </header>
           <div className={styles.steps}>
             <SectionThreeList
+              hover={onHover}
+              name={`step-1`}
               icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670551/hng/todoAppVirtualAssistant/task-square_bmrtgd.svg"
               title="Get on your dashboard"
               desc="Describe your task, set the date and time for your task deadline."
@@ -30,6 +46,8 @@ const SectionThree = () => {
 
           <div className={styles.steps}>
             <SectionThreeList
+              hover={onHover}
+              name={`step-2`}
               icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670567/hng/todoAppVirtualAssistant/timer-pause_zksz2j.svg"
               title="Personalized Virtual Assistant"
               desc="The in-app chat feature available allows you to communicate and assign tasks to a personalized Assistant."
@@ -55,11 +73,7 @@ const SectionThree = () => {
       </section>
       <div>
         <Animate.FadeIn>
-          <img
-            className={styles.img}
-            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
-            alt="section-three-img"
-          />
+          <img className={styles.img} src={img} alt="section-three-img" />
         </Animate.FadeIn>
       </div>
     </div>

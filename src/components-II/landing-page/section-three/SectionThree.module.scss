@@ -22,6 +22,7 @@
 
 .img {
   @include img_fluid;
+  transition: 0.3s ease;
 }
 
 .float_icon {
@@ -47,7 +48,7 @@
 
   header {
     margin: 4.25rem 1.25rem;
-    p{
+    p {
       color: $activeColor;
       font-weight: 500;
     }
