@@ -4,19 +4,20 @@ import SectionThree from "../../components-II/landing-page/section-three/Section
 import HappyClient from "../../components-II/landing-page/happy-client/HappyClient";
 import TodoListSection from "../../components-II/landing-page/todoList/TodoListSection";
 import Download from "../../components-II/landing-page/download/Download";
-import Footer from "../../layout/footer/Footer";
-import Header from "../../layout/header/Header";
+import HeroSection from "../../components-II/landing-page/hero-section/HeroSection";
+import Layout from "../../layout/Layout";
 
 const LandingPage = () => {
   return (
     <>
-      <Header />
-      <TodoListSection />
-      <SectionTwo />
-      <SectionThree />
-      <HappyClient />
-      <Download />
-      <Footer />
+      <Layout>
+        <HeroSection />
+        <TodoListSection />
+        <SectionTwo />
+        <SectionThree />
+        <HappyClient />
+        <Download />
+      </Layout>
     </>
   );
 };

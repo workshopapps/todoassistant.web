@@ -22,12 +22,12 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header_wrap}>
-      <Link to="/">
-        <img src={Logo} alt="ticked" />
-      </Link>
+    <nav>
+      <section className={styles.header_wrap}>
+        <Link to="/">
+          <img src={Logo} alt="ticked" />
+        </Link>
 
-      <div className={styles.header_right}>
         <div className={styles.header_links}>
           <Link
             className={
@@ -54,77 +54,82 @@ const Header = () => {
             FAQs
           </Link>
         </div>
-        <span className={styles.header_button}>
-          <Button link="/login" style={btnStyleOutline} title="Login" />
-          <Button link="/signup" title="Sign up" />
-        </span>
-      </div>
 
-      <FiMenu
-        onClick={() => {
-          setModal(!modal);
-        }}
-        className={styles.header_hamburger}
-      />
-      {modal ? (
-        <div
+        <div className={styles.header_right}>
+          <span className={styles.header_button}>
+            <Button link="/login" style={btnStyleOutline} title="Login" />
+            <Button link="/signup" title="Sign up" />
+          </span>
+        </div>
+
+        <FiMenu
           onClick={() => {
             setModal(!modal);
           }}
-          className={styles.header_modalbackground}
-        ></div>
-      ) : (
-        ""
-      )}
-      {modal ? (
-        <div className={styles.header_sidebar}>
+          className={styles.header_hamburger}
+        />
+        {modal ? (
           <div
             onClick={() => {
               setModal(!modal);
             }}
-            className={styles.header_sidebarClose}
-          >
-            <GrClose />
-          </div>
-          <div className={styles.header_sidebarLinks}>
-            <Link
-              className={
-                pathname.includes("/about") ? styles.header_links__border : ""
-              }
-              to="/about"
+            className={styles.header_modalbackground}
+          ></div>
+        ) : (
+          ""
+        )}
+        {modal ? (
+          <div className={styles.header_sidebar}>
+            <div
+              onClick={() => {
+                setModal(!modal);
+              }}
+              className={styles.header_sidebarClose}
             >
-              About Us
-            </Link>
-            <Link
-              className={
-                pathname.includes("/contact") ? styles.header_links__border : ""
-              }
-              to="/contact"
-            >
-              Contact Us
-            </Link>
-            <Link
-              className={
-                pathname.includes("/faq") ? styles.header_links__border : ""
-              }
-              to="/faq"
-            >
-              FAQs
-            </Link>
-          </div>
+              <GrClose />
+            </div>
+            <div className={styles.header_sidebarLinks}>
+              <Link
+                className={
+                  pathname.includes("/about") ? styles.header_links__border : ""
+                }
+                to="/about"
+              >
+                About Us
+              </Link>
+              <Link
+                className={
+                  pathname.includes("/contact")
+                    ? styles.header_links__border
+                    : ""
+                }
+                to="/contact"
+              >
+                Contact Us
+              </Link>
+              <Link
+                className={
+                  pathname.includes("/faq") ? styles.header_links__border : ""
+                }
+                to="/faq"
+              >
+                FAQs
+              </Link>
+            </div>
 
-          <div className={styles.header_sidebarButton}>
-            <Button
-              style={{ ...btnStyleOutline, width: `200px` }}
-              title={`Login`}
-            />
-            <Button style={{ width: `200px` }} title={`Sign in`} />
+            <div className={styles.header_sidebarButton}>
+              <Button
+                style={{ ...btnStyleOutline, width: `200px` }}
+                title={`Login`}
+              />
+              <Button style={{ width: `200px` }} title={`Sign in`} />
+            </div>
           </div>
-        </div>
-      ) : (
-        ""
-      )}
-    </div>
+        ) : (
+          ""
+        )}
+      </section>
+    </nav>
   );
 };
 
