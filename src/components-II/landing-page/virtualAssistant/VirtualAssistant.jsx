@@ -73,16 +73,16 @@ const VirtualAssistant = () => {
   return (
     <section className={styles.vr}>
       <div className={styles.vr_header}>
-        <h3>Virtual Assistant</h3>
+        <h3>You Need Ticked App</h3>
         <p>
-          Opportunity to work with a personal assistant such that you can assign
-          a task or more to be carried out. Receive in-app calls from your
-          personal assistant when you fail to complete your set tasks for each
-          day.
+          The world's most successful and productive people schedule everything
+          and rely on their calendars. If you are a CEO, Manager, Politician,
+          Therapist, Doctor, Customer Care Representative, Realtor, Freelancer,
+          Virtual Assistant, into business or you have busy schedules and need
+          to execute all set tasks with the help of an Assistant to be more
+          productive and get more work done, you are in the right space and
+          TICKED APP is the solution you seek with 24/7 support system.
         </p>
-        <div className={styles.vr_header_buttons}>
-          <Button link={``} style={{ width: `184px` }} title={`Get Started`} />
-        </div>
       </div>
 
       <section className={styles.assistantSlide}>
@@ -98,6 +98,19 @@ const VirtualAssistant = () => {
           </button>
         </div>
       </section>
+
+      <div className={styles.vr_header}>
+        <h3>Virtual Assistant</h3>
+        <p>
+          Opportunity to work with a personal assistant such that you can assign
+          a task or more to be carried out. Receive in-app calls from your
+          personal assistant when you fail to complete your set tasks for each
+          day.
+        </p>
+        <div className={styles.vr_header_buttons}>
+          <Button link={``} style={{ width: `184px` }} title={`Get Started`} />
+        </div>
+      </div>
 
       <article className={styles.banner}>
         <Banner />

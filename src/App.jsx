@@ -47,6 +47,11 @@ function App() {
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/policy" element={<PrivatePolicy />} />
+
         <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/" />}
@@ -56,10 +61,6 @@ function App() {
           element={!user ? <Login /> : <Navigate to="/" />}
         />
 
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/policy" element={<PrivatePolicy />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />

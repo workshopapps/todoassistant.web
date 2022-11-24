@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import animation from "../../../hooks/animation/animate.module.scss";
 import style from "./hero.module.scss";
 
-const Hero = () => {
+const Hero = ({ content }) => {
+  let location = useLocation();
+
+  const showDownloadBtn =
+    location.pathname === "/about" ? null : (
+      <button className={`${style.button_login} hover`}>DOWNLOAD APP</button>
+    );
+
   return (
     <header className={style.hero}>
       <div className={style.hero__bg_img}></div>
@@ -33,14 +40,10 @@ const Hero = () => {
         <article className={style.hero__text_section}>
           <div>
             <h1 className={style.hero__title}>
-              Get Your Tasks Completed With The Support of A{" "}
-              <span className={style.hero__plan}>Personal Assistant</span>
+              {content.title}
+              {/* <span className={style.hero__plan}>Assistant</span>. */}
             </h1>
-            <p className={style.hero__subtitle}>
-              With Ticked App, get a call from your personal assistant when your
-              task is due. You can also assign tasks to your assistant, stay
-              focused and be more productive.
-            </p>
+            <p className={style.hero__subtitle}>{content.subTitle}</p>
           </div>
           <div className={style.hero__btn_container}>
             <Link to="/signup">
@@ -48,15 +51,13 @@ const Hero = () => {
                 GET STARTED
               </button>
             </Link>
-            <button className={`${style.button_login} hover`}>
-              DOWNLOAD APP
-            </button>
+            <div>{showDownloadBtn}</div>
           </div>
         </article>
         <article className={style.hero__img}>
           <img
             className={style.hero__destop_img}
-            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669287350/hng/todoAppVirtualAssistant/Group_1026_fjmpyq.png"
+            src={content.image}
             alt={style.hero_img}
           />
         </article>
