@@ -46,7 +46,6 @@ function App() {
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
-        {/* <Route path="/" element={user ? <LandingPage /> : <Navigate to="/signup" />} /> */}
         <Route path="/" element={<LandingPage />} />
         <Route
           path="/signup"
