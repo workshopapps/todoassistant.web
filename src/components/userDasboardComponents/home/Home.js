@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  // useContext,
+  useState
+} from "react";
 import styles from "./Home.module.scss";
 import icon1 from "../../../assets/completion-rate-icon.png";
 import icon2 from "../../../assets/streak-icon.png";
@@ -6,7 +9,9 @@ import searchIcon from "../../../assets/search-normal.png";
 import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
+// import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
+  // const {tasks} = useContext(TaskCtx);
   const dummy_todos = [
     { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
     { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
@@ -29,16 +34,13 @@ export default function Home() {
   });
   const numOfCompleted = myTodos.filter(i => i.completed);
   const [allActive, setAllActive] = useState({
-    style: { color: "#714DD9", borderBottom: "2px solid #714DD9" },
-    active: true
+    style: { color: "#714DD9", borderBottom: "2px solid #714DD9" }
   });
   const [mineActive, setMineActive] = useState({
-    style: { color: "", borderBottom: "" },
-    active: false
+    style: { color: "", borderBottom: "" }
   });
   const [assistantActive, setAssistantActive] = useState({
-    style: { color: "", borderBottom: "" },
-    active: false
+    style: { color: "", borderBottom: "" }
   });
 
   const handleCheckbox = id => {
@@ -102,16 +104,13 @@ export default function Home() {
             onClick={() => {
               setActiveTab({ filter: "va", value: false });
               setAllActive({
-                style: { color: "", borderBottom: "" },
-                active: false
+                style: { color: "", borderBottom: "" }
               });
               setMineActive({
-                style: { color: "#714DD9", borderBottom: "2px solid #714DD9" },
-                active: true
+                style: { color: "#714DD9", borderBottom: "2px solid #714DD9" }
               });
               setAssistantActive({
-                style: { color: "", borderBottom: "" },
-                active: false
+                style: { color: "", borderBottom: "" }
               });
             }}
           >
@@ -122,16 +121,13 @@ export default function Home() {
             onClick={() => {
               setActiveTab({ filter: "va", value: true });
               setAllActive({
-                style: { color: "", borderBottom: "" },
-                active: false
+                style: { color: "", borderBottom: "" }
               });
               setMineActive({
-                style: { color: "", borderBottom: "" },
-                active: false
+                style: { color: "", borderBottom: "" }
               });
               setAssistantActive({
-                style: { color: "#714DD9", borderBottom: "2px solid #714DD9" },
-                active: true
+                style: { color: "#714DD9", borderBottom: "2px solid #714DD9" }
               });
             }}
           >
@@ -167,6 +163,7 @@ export default function Home() {
             i.completed &&
             completedDropdown && (
               <TodoCard
+                key={i.id}
                 title={i.todoName}
                 va={i.va}
                 completed={i.completed}
