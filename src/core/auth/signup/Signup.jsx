@@ -43,7 +43,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "api.ticked.hng.tech:2022/user",
+        "http://api.ticked.hng.tech:2022/user",
         { first_name, last_name, email, phone, password }
       );
       console.log(response);
