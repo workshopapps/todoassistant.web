@@ -1,7 +1,7 @@
 import Header from "../accountPreferences/Header";
 import Sidebar from "../NewTask/Sidebar";
 import PrefSetForm from "./PreferenceSettingForm";
-import style from "./Preference.module.css";
+import style from "./Preference.module.scss";
 
 function PreferenceSettingEdit() {
   return (
