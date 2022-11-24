@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import clientVa from "../../assets/dashboard/clientVa.png";
 import styles from "./ChatBox.module.scss";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 
@@ -16,47 +16,56 @@ import gallery from "../../assets/dashboard/gallery.png";
 import document from "../../assets/dashboard/document.png";
 import monitor from "../../assets/dashboard/monitor.png";
 import cloud from "../../assets/dashboard/cloud.png";
+import documentText from "../../assets/dashboard/document-text.png";
+import download from "../../assets/dashboard/download.png";
 
 const data = [
   {
     message:
       "Hi Joseph, I am your virtual assistant. How can I help you today?",
     image: clientVa,
-    isClient: false
+    isClient: false,
+    file: false
   },
   {
     message: "I need a reminder by 10am to begin my task.",
     image: clientVa,
-    isClient: true
+    isClient: true,
+    file: false
   },
   {
     message: "How would you like to be reminded, via calls or text? ",
     image: clientVa,
-    isClient: false
+    isClient: false,
+    file: false
   },
   {
     message: "I’d like to be reminded via a call. ",
     image: clientVa,
-    isClient: true
+    isClient: true,
+    file: false
   },
   {
     message: "Noted! A reminder has been set for 10am. ",
     image: clientVa,
-    isClient: false
+    isClient: false,
+    file: false
   },
   {
     message: "You’ll receive a call by 10am reminding you of your task. ",
     image: clientVa,
-    isClient: false
+    isClient: false,
+    file: false
   },
   {
     message: "Thank you, Ayobami.",
     image: clientVa,
-    isClient: true
+    isClient: true,
+    file: false
   }
 ];
 
-export function BasicPopover({ anchorEl, handleClose }) {
+export function BasicPopover({ anchorEl, handleClose, upload }) {
   // const [anchorEl, setAnchorEl] = React.useState(null);
 
   // const handleClick = (event) => {
@@ -83,7 +92,7 @@ export function BasicPopover({ anchorEl, handleClose }) {
           horizontal: "right"
         }}
       >
-        <Box className={styles.main} p={2}>
+        <Box className={styles.new} p={2}>
           <Box sx={{ display: "flex" }}>
             <img src={camera} alt="camera" />
             <Typography ml={1}>camera</Typography>
@@ -92,18 +101,34 @@ export function BasicPopover({ anchorEl, handleClose }) {
             <img src={gallery} alt="gallery" />
             <Typography ml={1}>Photo & Video Library</Typography>
           </Box>
-          <Box className={styles.main__sub} sx={{ display: "flex" }} mt={2}>
+          <Box sx={{ display: "flex" }} mt={2}>
             <img src={document} alt="document" />
             <Typography ml={1}>Document</Typography>
           </Box>
 
           <hr style={{ marginTop: "10px" }} />
-          <Box className={styles.main__sub} sx={{ display: "flex" }} mt={2}>
+          <Box sx={{ display: "flex" }} mt={2}>
             <Typography>Attach</Typography>
           </Box>
           <Box sx={{ display: "flex" }} mt={2}>
             <img src={monitor} alt="monitor" />
-            <Typography ml={1}>Upload from your computer</Typography>
+            <Box onChange={e => upload(e)}>
+              <input
+                style={{ display: "none" }}
+                id="raised-button-file"
+                multiple
+                type="file"
+              />
+              <label htmlFor="raised-button-file">
+                <Button
+                  variant="raised"
+                  sx={{ textTransform: "capitalize", fontWeight: "" }}
+                  component="span"
+                >
+                  Upload from your computer
+                </Button>
+              </label>
+            </Box>
           </Box>
           <Box sx={{ display: "flex" }} mt={2}>
             <img src={cloud} alt="cloud" />
@@ -115,53 +140,15 @@ export function BasicPopover({ anchorEl, handleClose }) {
   );
 }
 
-export function PopUp({ toggle }) {
-  return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: { xs: "53vh", sm: "55vh", md: "54vh" },
-        visibility: toggle ? "visible" : "hidden",
-        flexDirection: "column",
-        right: { xs: "130px", sm: "120px", md: "140px" },
-        minWidth: { xs: "60%", sm: "40%", md: "20%" },
-        background: " #F6FAFB",
-        border: "1px solid #D3D0D9"
-      }}
-      className={styles.main}
-    >
-      <Box className={styles.main__sub}>
-        <img src={camera} alt="camera" />
-        <p>camera</p>
-      </Box>
-      <Box className={styles.main__sub}>
-        <img src={gallery} alt="gallery" />
-        <p>Photo & Video Library</p>
-      </Box>
-      <Box className={styles.main__sub}>
-        <img src={document} alt="document" />
-        <p>Document</p>
-      </Box>
-      <hr />
-      <Box className={styles.main__sub}>
-        <img src={monitor} alt="monitor" />
-        <p>Upload from your computer</p>
-      </Box>
-      <Box className={styles.main__sub}>
-        <img src={cloud} alt="cloud" />
-        <p>Add from Google Drive</p>
-      </Box>
-    </Box>
-  );
-}
-
 const ChatBox = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [value, setValue] = useState(data);
+  // console.log(value)
   const [toggle, setToggle] = useState(false);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState([]);
+  const [image, setImage] = useState([]);
 
-  console.log(value);
+  console.log(image);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
     setToggle(true);
@@ -172,13 +159,43 @@ const ChatBox = () => {
     setToggle(false);
   };
 
+  const upload = e => {
+    handleClose();
+    console.warn(e.target.files);
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append("img", files[0]);
+    setImage([...image, files[0].name]);
+    // console.log(files[0].name)
+    // fetch('https://some-api.com', {
+    //   'content-type': 'multipart/form-data',
+    // 	method: 'POST',
+    // 	body: formData,
+    // }).then((resp) => {
+    // 	resp.json().then((result) => {
+    // 		console.warn(result)
+    // 	})
+    // })
+  };
+
   const handleChange = val => {
     setInput(val.target.value);
   };
 
   const handleSend = () => {
-    setValue([...value, { message: input, isClient: false, image: clientVa }]);
-    setInput("");
+    if (input != "" || image.length > 0) {
+      setValue([
+        ...value,
+        {
+          message: input || image,
+          isClient: false,
+          image: clientVa,
+          file: image.length > 0 ? true : false
+        }
+      ]);
+      setInput("");
+      setImage([]);
+    }
   };
 
   // const open = Boolean(anchorEl);
@@ -199,15 +216,38 @@ const ChatBox = () => {
           }}
         >
           <img src={value.image} />
-          <Box className={styles.chatMain__pad}>{value.message}</Box>
+          <Box className={styles.chatMain__pad}>
+            {value.file ? <img src={documentText} alt="document" /> : null}
+
+            {value.message}
+            {value.file ? <img src={download} alt="document" /> : null}
+          </Box>
         </Box>
       ))}
-      <input
+      {image.length > 0 && (
+        <Box sx={{ position: "relative", bottom: "-70px", zIndex: 20 }}>
+          {image.map(item => (
+            <Typography
+              key={item}
+              sx={{
+                background: "#E9F3F5",
+                padding: "10px 30px"
+              }}
+              mr={1}
+            >
+              {item}
+            </Typography>
+          ))}
+        </Box>
+      )}
+
+      <textarea
         type="text"
         onChange={handleChange}
         value={input}
         placeholder="Type your message..."
       />
+
       <span>
         {toggle === true ? (
           <img onClick={handleClose} src={close} alt="close" />
@@ -229,7 +269,9 @@ const ChatBox = () => {
         toggle={toggle}
         handleClick={handleClick}
         handleClose={handleClose}
+        upload={upload}
       />
+
       {/* <Popover
             sx={{mb:2}}
             id={id}
