@@ -1,0 +1,102 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.icon_wrapper {
+  border: 1px solid #d3d3d360;
+  border-radius: 16px;
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__two {
+  background: rgba(249, 247, 255, 1);
+  text-align: center;
+  padding: 7.5rem 0;
+
+  .float_icon_1,
+  .float_icon_3 {
+    width: fit-content;
+    margin: auto;
+    display: none;
+
+    @media (min-width: 992px) {
+      display: block;
+    }
+
+    p {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+  }
+
+  .float_icon_1 {
+    margin-top: 5em;
+    transform: translateX(5rem) scale(0.5);
+    p {
+      color: rgb(82, 196, 26);
+    }
+    @media (min-width: 992px) {
+      transform: translateX(5rem) scale(1);
+    }
+  }
+  .float_icon_3 {
+    margin-bottom: 5em;
+    transform: translateX(10rem) scale(0.5);
+    p {
+      color: rgb(170, 50, 52);
+    }
+    @media (min-width: 992px) {
+      transform: translateX(10rem) scale(1);
+    }
+  }
+
+  header {
+    width: 100%;
+    max-width: 31.5rem;
+    margin: 0 auto;
+
+    .section__two_title {
+      font-weight: 700;
+      line-height: 160%;
+      font-size: 24px;
+      margin-bottom: 1rem;
+
+      @media screen and (min-width: 992px) {
+        font-size: 48px;
+      }
+
+      .section__two_task {
+        color: $accentOrange;
+      }
+    }
+    .section__two_subtitle {
+      font-size: 1.13rem;
+      line-height: 180%;
+    }
+  }
+
+  .taskDisplay {
+    @include container;
+    margin-top: 39px;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+    .client,
+    .assistant {
+      flex: 1;
+    }
+
+    .assistant {
+      @media (min-width: 992px) {
+        margin-top: -10rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import "../../../scss/variables";
+
+// ===================
+// MIXINS
+// ===================
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+.container {
+  //   border: 1px solid red;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 1.25rem;
+}
+
+.main {
+  // min-height: 31.48vh;
+  @media (min-width: 900px) {
+    display: flex;
+  }
+
+  &__tick {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 0;
+    @media (min-width: 900px) {
+      //   width: 50%;
+      max-height: 42.42vh;
+      align-items: flex-start;
+      //   padding: 90px 60px 20px 60px;
+      margin: 0;
+    }
+    &__tickSub {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h4 {
+        font-weight: 800;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        margin-left: 5px;
+      }
+
+      @media (min-width: 700px) {
+        justify-content: flex-start;
+      }
+    }
+
+    &__download {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 10px;
+
+      h5 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 160%;
+        margin: 2rem 0;
+        @media (min-width: 900px) {
+          text-align: justify;
+        }
+      }
+      p {
+        text-align: center;
+        font-weight: 400;
+        line-height: 180%;
+        @media (min-width: 900px) {
+          text-align: justify;
+        }
+      }
+    }
+
+    &__image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @media (min-width: 900px) {
+        flex-direction: row;
+      }
+
+      img {
+        margin-top: 20px;
+        @media (min-width: 900px) {
+          margin: 20px 20px 0px 0px;
+        }
+      }
+    }
+  }
+
+  &__phone {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #e3dbf7;
+
+    img {
+      @include img_fluid;
+      margin-bottom: -5px;
+    }
+
+    @media (min-width: 900px) {
+      width: 50%;
+    }
+  }
+}
