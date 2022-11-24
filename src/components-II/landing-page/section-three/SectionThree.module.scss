@@ -47,6 +47,14 @@
 
   header {
     margin: 4.25rem 1.25rem;
+    p{
+      color: $activeColor;
+      font-weight: 500;
+    }
+    @media (min-width: 992px) {
+      margin: 0;
+    }
+
     .section__three_title {
       font-size: 1.56rem;
       margin-bottom: 1rem;
@@ -56,6 +64,14 @@
     }
     .section__three_subtitle {
       line-height: 180%;
+    }
+  }
+
+  .steps {
+    margin: 1rem 0;
+
+    p {
+      margin-top: 1rem;
     }
   }
 }
