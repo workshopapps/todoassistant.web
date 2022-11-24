@@ -8,7 +8,7 @@
 .tag {
   border: 1px solid #d3d3d390;
   box-shadow: rgba(113, 77, 217, 0.1) 0px 10px 50px;
-  height: 2.52rem;
+  // height: 2.52rem;
   background-color: $white;
   border-radius: 9px;
   text-align: start;
@@ -19,7 +19,7 @@
   padding: 1.3rem 1.13rem;
 
   .tag__title {
-    font-size: 0.5rem;
+    font-size: 12px;
     font-weight: 700;
     color: $black;
   }
