@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./PreferenceForm.module.css";
+import style from "./PreferenceForm.module.scss";
 
 function PrefSetForm() {
   const [dateformat, setDateFormat] = useState("dmy");
