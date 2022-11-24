@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
@@ -36,15 +36,37 @@ import VaDasboard from "./components/vaDashboard/VaDasboard";
 import LoginPage from "./core/auth/login/LoginPage";
 import Login from "./components/Login/Login";
 
+import { useContext } from "react";
+import { AuthContext } from "./contexts/authContext/AuthContext";
+
+
 function App() {
+
+  const {user} = useContext(AuthContext);
+
   return (
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={user ? <LandingPage /> : <Navigate to="/signup" />} />
+        <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+        <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+
+      
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
+        <Route path="/policy" element={<PrivatePolicy />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+
+      { user && (
+        <>
         <Route path="/dashboard" element={<Dasboard />}>
           <Route path="" element={<Home />} />
           <Route path="assistant" element={<ChatBox />} />
@@ -57,32 +79,27 @@ function App() {
           <Route path="payment" element={<Payment />} />
           <Route path="profile" element={<VaProfile />} />
         </Route>
+
         <Route path="/virtualassistance" element={<VaDasboard />}>
           <Route path="" element={<Home />} />
           <Route path="notifications" element={<Notifications />} />
         </Route>
-        <Route path="/login" element={<Login />} />
 
-        <Route path="/policy" element={<PrivatePolicy />} />
+        
         <Route path="/account" element={<AccountPreferences />} />
         <Route path="/pro" element={<ProPreferences />} />
         <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
 
-        <Route path="/signup" element={<Signup />} />
         <Route path="/newtask" element={<NewTask />} />
         <Route path="/va1" element={<VaModal1 />} />
         <Route path="/CheckM" element={<CheckM />} />
-        <Route path="/otp" element={<Otp />} />
+        
 
         <Route path="/settings/profile" element={<SettingsProfile />} />
-
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
+        </>
+      )}
+        
 
         {/* 404-error handler */}
         {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
