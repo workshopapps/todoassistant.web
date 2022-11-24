@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import Button from "../../components/button/ButtonComponent";
+import Button from "../../components-II/button/ButtonComponent";
 
 // import hamburger from "../../assets/hamburger.png";
 
