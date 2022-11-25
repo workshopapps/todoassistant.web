@@ -39,6 +39,7 @@ import Login from "./components/Login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
+import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -47,10 +48,7 @@ function App() {
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
-        <Route
-          path="/"
-          element={user ? <LandingPage /> : <Navigate to="/signup" />}
-        />
+        <Route path="/" element={<LandingPage />} />
         <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/" />}
@@ -101,8 +99,9 @@ function App() {
             <Route path="/taskdetails" element={<TaskDetails />} />
             <Route path="/va1" element={<VaModal1 />} />
             <Route path="/CheckM" element={<CheckM />} />
-
-            <Route path="/settings/profile" element={<SettingsProfile />} />
+            <Route path="/settings/profile" element={<SettingsProfile />}>
+              <Route path="edit" element={<EditAccountPage />} />
+            </Route>
           </>
         )}
 

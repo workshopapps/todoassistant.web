@@ -1,56 +1,70 @@
-.header_wrap {
-  position: relative;
-  width: 100%;
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+nav {
+  border-bottom: 1px solid #704dd936;
   background: white;
-  padding: 20px 1.25rem;
+}
+
+.header_wrap {
+  @include container;
+  // position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #704dd936;
 
   @media screen and (min-width: 992px) {
-    padding: 20px 50px;
+    // padding: 20px 50px;
   }
 
   .header_right {
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 992px) {
       display: none;
     }
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    .header_links {
-      a {
-        text-decoration: none;
-        font-family: "DM Sans";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 20px;
-        letter-spacing: -0.204545px;
-        color: #707070;
-        margin-right: 2rem;
-        padding-bottom: 0.3rem;
-        transition: all 0.2s ease-in-out;
-        margin-right: 5rem;
-        &:hover {
-          border-bottom: 0.225rem solid #714dd9;
-        }
-      }
-      .header_links__border {
-        padding-bottom: 0.5rem;
-        border-bottom: 0.225rem solid #714dd9;
-      }
-    }
     .header_button {
       display: flex;
       gap: 3rem;
     }
   }
+  .header_links {
+    display: flex;
+    gap: 3rem;
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+    a {
+      text-decoration: none;
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -0.204545px;
+      color: #707070;
+      padding: 0.5rem;
+      height: 2.3rem;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        border-bottom: 0.225rem solid #714dd9;
+      }
+    }
+    .header_links__border {
+      padding-bottom: 0.5rem;
+      border-bottom: 0.225rem solid #714dd9;
+    }
+  }
   .header_hamburger {
-    @media screen and (min-width: 850px) {
+    @media screen and (min-width: 992px) {
       display: none;
     }
     font-size: 2rem;
@@ -69,7 +83,7 @@
   .header_sidebar {
     position: fixed;
     top: 1.5rem;
-    z-index: 1100;
+    z-index: 9999;
     background: #ffffff;
     border-radius: 4px;
     width: 90%;

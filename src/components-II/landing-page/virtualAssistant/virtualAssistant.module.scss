@@ -1,0 +1,73 @@
+@import "../../../scss/variables";
+@import "../../../scss//mixins";
+
+.vr {
+  @include container-fluid;
+  &_header {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    h3 {
+      font-size: 24px;
+      margin: 1rem 0;
+      @media screen and (min-width: 992px) {
+        font-size: 48px;
+      }
+    }
+    p {
+      font-size: 18px;
+      line-height: 180%;
+    }
+
+    &_buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+    }
+  }
+
+  .banner {
+    @media (min-width: 992px) {
+      @include container;
+    }
+  }
+
+  .assistantSlide {
+    margin: 6.6rem 0;
+    .imgWrapper {
+      width: fit-content;
+      margin: auto;
+    }
+
+    .buttonNav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      @media (min-width: 992px) {
+        display: none;
+      }
+
+      button {
+        padding: 12px;
+        background-color: $activeColor;
+        border-radius: 8px;
+        border: 1px solid;
+        color: $white;
+        cursor: pointer;
+        transition: 0.2s all ease-in;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

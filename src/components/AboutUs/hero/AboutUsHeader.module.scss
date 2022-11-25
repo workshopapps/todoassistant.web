@@ -1,0 +1,42 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.headerContainer {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-top: 3rem;
+  @media (min-width: 992px) {
+    flex-direction: row;
+    // gap: 10rem;
+  }
+
+  .headerTickedBox {
+    flex: 1;
+  }
+
+  .header {
+    font-size: 27px;
+    font-weight: 700;
+  }
+
+  .tickedText {
+    line-height: 180%;
+    margin: 1.5rem 0;
+    margin-right: 0;
+    text-align: justify;
+    @media (min-width: 992px) {
+      margin-right: 10rem;
+    }
+  }
+
+  .headerImageBox {
+    flex: 1;
+    .img {
+      border: 1px dashed $activeColor;
+      padding: 3px;
+      @include img_fluid;
+    }
+  }
+}

@@ -1,33 +1,25 @@
 import React from "react";
-import Download from "../../components/landing-page/download/Download";
-import Gift from "../../components/landing-page/gift/Gift";
-
-import HappyClient from "../../components/landing-page/happy-client/HappyClient";
-import Hero from "../../components/landing-page/hero-section/HeroSection";
-import Occupation from "../../components/landing-page/occupation/Occupation";
-import SectionThree from "../../components/landing-page/section-three/SectionThree";
-import SectionTwo from "../../components/landing-page/section-two/SectionTwo";
-import TodoListSection from "../../components/landing-page/todoList/TodoListSection";
-import VirtualAssistant from "../../components/landing-page/virtualAssistant/VirtualAssistant";
-import WhyTicked from "../../components/landing-page/why-ticked/WhyTicked";
-import Footer from "../../layout/footer/Footer";
-import Header from "../../layout/header/Header";
+import FocusOnTaskSection from "../../components-II/landing-page/section-two/Task";
+import SectionThree from "../../components-II/landing-page/section-three/SectionThree";
+import HappyClient from "../../components-II/landing-page/happy-client/HappyClient";
+import TodoListSection from "../../components-II/landing-page/todoList/TodoListSection";
+import Download from "../../components-II/landing-page/download/Download";
+import HeroSection from "../../components-II/landing-page/hero-section/HeroSection";
+import Layout from "../../layout/Layout";
+import VirtualAssistant from "../../components-II/landing-page/virtualAssistant/VirtualAssistant";
 
 const LandingPage = () => {
   return (
     <>
-      <Header />
-      <Hero />
-      <Occupation />
-      <VirtualAssistant />
-      <TodoListSection />
-      <SectionTwo />
-      <SectionThree />
-      <WhyTicked />
-      <Gift />
-      <HappyClient />
-      <Download />
-      <Footer />
+      <Layout>
+        <HeroSection />
+        <VirtualAssistant />
+        <TodoListSection />
+        <FocusOnTaskSection />
+        <SectionThree />
+        <HappyClient />
+        <Download />
+      </Layout>
     </>
   );
 };

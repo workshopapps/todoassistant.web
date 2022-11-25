@@ -1,7 +1,7 @@
 :local(.prefbody) {
   font-family: "Open Sans", sans-serif;
   padding: 2.5rem 9.375rem 19.5rem 2.5rem;
-  background-color: #e9f3f5;
+
   width: fit-content;
 }
 
@@ -137,7 +137,12 @@
   :local(.radioar) {
     justify-content: flex-start;
   }
+  :local(.select) {
+    width: 18rem;
+  }
+  :local(.time) {
+    width: 16rem;
+  }
 }
-
 @media screen and (max-width: 500px) {
 }
