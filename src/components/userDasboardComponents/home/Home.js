@@ -9,9 +9,11 @@ import searchIcon from "../../../assets/search-normal.png";
 import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
+import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
 // import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
   // const {tasks} = useContext(TaskCtx);
+  useTasksLoading();
   const dummy_todos = [
     { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
     { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
