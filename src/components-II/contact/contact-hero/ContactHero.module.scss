@@ -1,0 +1,68 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.section {
+  background-color: $activeColor;
+}
+
+.header {
+  @include container;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: column-reverse;
+    height: 100%;
+    padding: 1rem 0 5rem;
+  }
+  @media (min-width: 992px) {
+    height: 70vh;
+    padding: 2rem 1rem;
+    flex-direction: row-reverse;
+  }
+
+  .text {
+    color: $white;
+    text-align: center;
+    flex: 1;
+    a {
+      margin: 0 auto;
+    }
+    @media (min-width: 992px) {
+      text-align: right;
+      margin-right: 5rem;
+      a {
+        margin: 0;
+        margin-left: auto;
+      }
+    }
+
+    h1 {
+      @include header-font;
+    }
+    p {
+      font-size: 18px;
+      margin: 1rem 0 3rem;
+      color: $white;
+    }
+  }
+
+  .img {
+    flex: 1;
+    height: 100%;
+    img {
+      @include img_fluid;
+    }
+  }
+
+  .modalBtn {
+    @include button;
+    background-color: $white;
+    color: $activeColor !important;
+    width: 208px;
+  }
+}

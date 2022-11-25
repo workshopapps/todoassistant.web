@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
+// import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
@@ -55,7 +55,6 @@ function App() {
   const { user } = useContext(AuthContext);
 
   return (
-
     <ErrorBoundary>
       <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
         <Routes>

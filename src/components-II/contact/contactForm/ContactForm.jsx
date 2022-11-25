@@ -24,7 +24,7 @@ const ContactForm = () => (
       <div className={contactStyles.top}>
         <h2 className={contactStyles.mainHeading}>Reach <span>Out</span></h2>
         <p className={contactStyles.firstPara}>
-          Our lovely team will love to hear from you, <br /> we will respond
+          Our lovely team will love to hear from you, we will respond
           within 12 hours
         </p>
         <p>
