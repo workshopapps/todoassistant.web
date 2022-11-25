@@ -1,3 +1,5 @@
+import { AiFillProject } from "react-icons/ai";
+import { GiStairsGoal } from "react-icons/gi";
 import ValueCard from "../ValueCard";
 import styles from "./Testimonal.module.scss";
 import TestimonialCard from "./testimonial-card/TestimonialCard";
@@ -9,11 +11,15 @@ const Testimonal = () => {
         <ValueCard
           title={`Mission Statement`}
           desc={`To help users prioritize and stay in control of their workload`}
-        ></ValueCard>
+        >
+          <GiStairsGoal className="icon" size={`4rem`} />
+        </ValueCard>
         <ValueCard
           title={`Vision Statement`}
           desc={`To free our users with the concerned associated with task management`}
-        ></ValueCard>
+        >
+          <AiFillProject className="icon" size={`4rem`} />
+        </ValueCard>
       </div>
       <div className={styles.sayBox}>
         <h2>See testimonials of others</h2>

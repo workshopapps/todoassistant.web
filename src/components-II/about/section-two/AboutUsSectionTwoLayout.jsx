@@ -3,7 +3,7 @@ import React from "react";
 import img from "../../../assets/ticked_about_header2.png";
 import Button from "../../button/ButtonComponent";
 
-const AboutUsHero = () => {
+const AboutUsSectionTwoLayout = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerTickedBox}>
@@ -39,4 +39,4 @@ const AboutUsHero = () => {
   );
 };
 
-export default AboutUsHero;
+export default AboutUsSectionTwoLayout;

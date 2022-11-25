@@ -2,12 +2,12 @@
 @import "../../../scss/mixins";
 
 .headerContainer {
- 
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding-top: 3rem;
+  padding-top: 0;
   @media (min-width: 992px) {
+    padding-top: 3rem;
     flex-direction: row;
     // gap: 10rem;
   }

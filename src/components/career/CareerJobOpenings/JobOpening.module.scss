@@ -1,7 +1,6 @@
 .careerJobContainer {
   padding: 3.125rem 1rem 11rem 1rem;
   padding-bottom: 11rem;
-  background: #F6FAFB;
   font-family: "Open Sans";
 }
 
@@ -20,7 +19,7 @@
 }
 
 .sub {
-  font-weight: 700;  
+  font-weight: 700;
   line-height: 160%;
   text-align: start;
   margin-bottom: 2.5rem;
@@ -110,7 +109,6 @@
 }
 
 @media (max-width: 75rem) {
-
   .container {
     max-width: 90%;
     margin: 0 auto;
@@ -152,7 +150,6 @@
 }
 
 @media (max-width: 36rem) {
-
   .grid {
     width: 80%;
   }

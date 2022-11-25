@@ -1,26 +1,33 @@
 import React, { useState } from "react";
-import People from "../../../assets/people.png";
-import "./ContactHero.scss";
-import ContactPopup from "../contact-popup/ContactPopup";
 
+import ContactPopup from "../contact-popup/ContactPopup";
+import style from "./ContactHero.module.scss";
 
 const ContactHero = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const openModal = () => {
+    setShowPopup(true);
+  };
   return (
-    <>
-      <div className="contact__hero">
-        <div className="image">
-          <img src={People} alt="contact-img" className="people" />
-        </div>
-        <div className="content">
-          <h1>Contact Ticke</h1>
-          <h3>We are here to offer solutions</h3>
+    <section className={style.section}>
+      <header className={style.header}>
+        <section className={style.text}>
+          <h1>Contact Ticked</h1>
+          <h4>We are here to offer solutions</h4>
           <p>Start a conversation with our Virtual Assistant</p>
-          <button onClick={() => setShowPopup(true)}>Start A Conversion</button>
-        </div>
-      </div>
-      {showPopup && <ContactPopup />}
-    </>
+          <button onClick={openModal} className={style.modalBtn}>
+            Start a conversation
+          </button>
+        </section>
+        <section className={style.img}>
+          <img
+            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg"
+            alt="img"
+          />
+        </section>
+        {showPopup && <ContactPopup />}
+      </header>
+    </section>
   );
 };
 
