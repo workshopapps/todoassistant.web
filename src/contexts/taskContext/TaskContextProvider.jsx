@@ -12,12 +12,13 @@ export const taskCtxDefaultValues = {
 export const TaskCtx = createContext(taskCtxDefaultValues);
 
 const TaskContextProvider = ({ children }) => {
+  const base_url = "http://api.ticked.hng.tech:2022";
   const [tasks, setTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const getTasks = () => {
     setIsLoading(true);
     axios
-      .get("http://api.ticked.hng.tech:2022/task")
+      .get(`${base_url}/task`)
       .then(res => setTasks(res))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
@@ -26,7 +27,7 @@ const TaskContextProvider = ({ children }) => {
   const updateTask = (id, body) => {
     setIsLoading(true);
     axios
-      .put(`http://api.ticked.hng.tech:2022/task/${id}`, body)
+      .put(`${base_url}/task/${id}`, body)
       .then(res => res)
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
@@ -35,7 +36,7 @@ const TaskContextProvider = ({ children }) => {
   const deleteTask = id => {
     setIsLoading(true);
     axios
-      .delete(`http://api.ticked.hng.tech:2022/task/${id}`)
+      .delete(`${base_url}/task/${id}`)
       .then(res => res)
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
