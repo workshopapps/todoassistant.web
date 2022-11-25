@@ -69,7 +69,7 @@ function Form({ value }) {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post(
+      await axios.post(
         `${baseurl}/task`,
         {
           title: data.title,
@@ -82,7 +82,7 @@ function Form({ value }) {
         },
         { headers: { Authorization: "Bearer " + token } }
       );
-      console.log(res);
+      // console.log(res);
       setOpenModal(true);
       // useTasksLoading();
       // getTasks();

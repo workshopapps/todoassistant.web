@@ -2,6 +2,7 @@ import React, {
   // useContext,
   useState
 } from "react";
+// import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
 import icon1 from "../../../assets/completion-rate-icon.png";
 import icon2 from "../../../assets/streak-icon.png";
@@ -12,6 +13,7 @@ import Log from "./Log";
 import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
 // import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
+  // const navigate = useNavigate();
   // const {tasks} = useContext(TaskCtx);
   useTasksLoading();
   const dummy_todos = [
@@ -146,6 +148,9 @@ export default function Home() {
                 va={i.va}
                 handleChange={() => {
                   handleCheckbox(i.id);
+                }}
+                onClick={() => {
+                  // navigate("/");
                 }}
               />
             );

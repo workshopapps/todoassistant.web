@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Animate } from "../../../hooks/animation/AnimateIn";
+import Button from "../../button/ButtonComponent";
 import SectionThreeList from "./section-three-list/SectionThreeList";
 import styles from "./SectionThree.module.scss";
 
 const SectionThree = () => {
+  const [img, setImg] = useState(
+    "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+  );
+  const onHover = e => {
+    let name = e.target.dataset.name;
+    if (name === "step-2") {
+      setImg(
+        `https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644176/hng/todoAppVirtualAssistant/Frame_34492_bci6bq.svg`
+      );
+    } else {
+      setImg(
+        "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+      );
+    }
+  };
+
   return (
     <div className={styles.main}>
       <img
@@ -14,34 +31,46 @@ const SectionThree = () => {
       <section className={styles.container}>
         <div className={styles.main__tick}>
           <header>
-            <h3 className={styles.section__three_title}>How It Works?</h3>
-            <p className={styles.section__three_subtitle}>Get onboard easily with TICKED.</p>
+            <h3 className={styles.section__three_title}>How It Works</h3>
+            <p className={styles.section__three_subtitle}>It's as easy as…</p>
           </header>
-          <SectionThreeList
-            icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670551/hng/todoAppVirtualAssistant/task-square_bmrtgd.svg"
-            title="Create a task"
-            desc="Fill in your task title, task description, set date, set reminder, get a Virtual Assistant."
-          />
+          <div className={styles.steps}>
+            <SectionThreeList
+              hover={onHover}
+              name={`step-1`}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670551/hng/todoAppVirtualAssistant/task-square_bmrtgd.svg"
+              title="Get on your dashboard"
+              desc="Describe your task, set the date and time for your task deadline."
+            />
+          </div>
 
-          <SectionThreeList
-            icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670567/hng/todoAppVirtualAssistant/timer-pause_zksz2j.svg"
-            title="Get a reminder"
-            desc="Receive reminders and notifications when your task is due as well as when it is overdue."
-          />
-          <SectionThreeList
-            icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670583/hng/todoAppVirtualAssistant/tick-circle_cw0mdk.svg"
-            title="Stay Proactive"
-            desc="Stay one step ahead by scheduling and organising your tasks to ensure you don’t miss out on any deadline."
-          />
+          <div className={styles.steps}>
+            <SectionThreeList
+              hover={onHover}
+              name={`step-2`}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670567/hng/todoAppVirtualAssistant/timer-pause_zksz2j.svg"
+              title="Personalized Virtual Assistant"
+              desc="The in-app chat feature available allows you to communicate and assign tasks to a personalized Assistant."
+            />
+          </div>
+          <div>
+            <SectionThreeList
+              hover={onHover}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670583/hng/todoAppVirtualAssistant/tick-circle_cw0mdk.svg"
+              title="Get TICKED"
+              desc="Receive notifications when you complete your tasks and a call when deadlines are fast approaching.
+"
+            />
+          </div>
+          <div className={styles.steps}>
+            <Button link={`/`} style={{ width: `50%` }} title={`get ticked`} />
+            <button className={styles.download}>Download App</button>
+          </div>
         </div>
       </section>
       <div>
         <Animate.FadeIn>
-          <img
-            className={styles.img}
-            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
-            alt="section-three-img"
-          />
+          <img className={styles.img} src={img} alt="section-three-img" />
         </Animate.FadeIn>
       </div>
     </div>

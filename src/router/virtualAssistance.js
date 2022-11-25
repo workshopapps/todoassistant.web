@@ -6,6 +6,7 @@ import Notifications from "../pages/Notifications/Notifications";
 // import VaProfile from "../components/VA-Profile/VaProfile";
 //icons
 import home from "../assets/icons/home.png";
+import Client from "../components/va-clients/Client";
 // import message from "../assets/icons/message.png";
 // import task from "../assets/task.svg";
 // import Task from "../components/task/Task";
@@ -21,5 +22,11 @@ export const virtualassistance = [
     icon: notification,
     title: "Notifications",
     component: Notifications
+  },
+  {
+    path: "clients",
+    icon: notification,
+    title: "clients",
+    component: Client
   }
 ];

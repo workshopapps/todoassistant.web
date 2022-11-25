@@ -99,4 +99,13 @@
       }
     }
   }
+
+  .howitworksBtn {
+    text-align: left;
+    p {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: $black;
+    }
+  }
 }

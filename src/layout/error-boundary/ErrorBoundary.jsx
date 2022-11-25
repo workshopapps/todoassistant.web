@@ -17,7 +17,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <GeneralLoading text={`Something broke in your code.`} />;
+      return <GeneralLoading text={`Frontend dev task ongoing: Due 11:59pm`} />;
     }
     return this.props.children;
   }

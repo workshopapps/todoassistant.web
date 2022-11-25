@@ -47,6 +47,12 @@
   }
 }
 
+.convoBtn {
+  @include button;
+  background-color: $activeColor;
+  color: $white;
+}
+
 .hero {
   position: relative;
   color: $black;
@@ -103,6 +109,12 @@
         }
       }
 
+      .hero__subtitleBold {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: $line-height-md;
+      }
+
       .hero__btn_container {
         display: flex;
         flex-direction: column;
@@ -134,4 +146,8 @@
       }
     }
   }
+}
+
+.reverse {
+  flex-direction: row-reverse;
 }
