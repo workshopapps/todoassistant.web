@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import Logo from "../../assets/logo.png";
 import styles from "./Header.module.scss";
-import { Link } from "react-router-dom";
-import Button from "../../components-II/button/ButtonComponent";
+import { Link, useNavigate } from "react-router-dom";
+
 
 // import hamburger from "../../assets/hamburger.png";
 
@@ -10,21 +10,58 @@ import { GrClose } from "react-icons/gr";
 import { FiMenu } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
+import { logout } from "../../contexts/authContext/AuthActions";
 
 const btnStyleOutline = {
   border: "1px solid #714dd9",
   background: "transparent",
-  color: "#714dd9"
+  color: "#714dd9",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "48px",
+  borderRadius: "8px",
+  fontFamily: "Open Sans",
+  fontStyle: "normal",
+  fontWeight: "600",
+  fontSize: "14px",
+  lineHeight: "160%",
+  textDecoration: "none",
+  width: "107px",
+  textTransform: "uppercase",
+  cursor: "pointer"
 };
 
 const logOutBtn = {
   border: "1px solid red",
   background: "transparent",
-  color: "red"
+  color: "red",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "48px",
+  borderRadius: "8px",
+  fontFamily: "Open Sans",
+  fontStyle: "normal",
+  fontWeight: "600",
+  fontSize: "14px",
+  lineHeight: "160%",
+  textDecoration: "none",
+  width: "107px",
+  textTransform: "uppercase",
+  cursor: "pointer"
 };
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, dispatch } = useContext(AuthContext);
+
+  const handleLogout = ()=>{
+    dispatch(logout());
+
+    navigate("/login");
+}
 
   const location = useLocation();
   const pathname = location.pathname;
@@ -33,11 +70,11 @@ const Header = () => {
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
-      <Button link="/login" style={btnStyleOutline} title="Login" />
-      <Button link="/signup" title="Sign up" />
+      <Link to="/login"> <button style={btnStyleOutline}>Login</button> </Link>
+      <Link to="/signup"> <button style={btnStyleOutline}>Signup</button> </Link>
     </>
   ) : (
-    <Button link="/" style={logOutBtn} title="Log out" />
+    <button style={logOutBtn} onClick={handleLogout}>Log out</button>
   );
 
   return (
