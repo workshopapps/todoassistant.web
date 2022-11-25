@@ -7,12 +7,21 @@ import searchIcon from "../../../assets/search-normal.png";
 import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
-import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
+// import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
 import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
+import axios from "axios";
 export default function Home() {
   // const navigate = useNavigate();
   const { tasks } = useContext(TaskCtx);
-  useTasksLoading();
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
+  const token = JSON.parse(localStorage.getItem("user")).access_token;
+
+  // useTasksLoading();
+  axios
+    .get(`${baseurl}/task`, {
+      headers: { Authorization: "Bearer " + token }
+    })
+    .then(res => console.log(res));
   console.log(tasks);
   const dummy_todos = [
     { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
