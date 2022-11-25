@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 import axios from "axios";
 
 export const taskCtxDefaultValues = {
@@ -14,27 +14,30 @@ export const taskCtxDefaultValues = {
 export const TaskCtx = createContext(taskCtxDefaultValues);
 
 const TaskContextProvider = ({ children }) => {
-  const base_url = "http://api.ticked.hng.tech:2022/api/v1";
+  const base_url = "https://api.ticked.hng.tech/api/v1";
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const getTasks = () => {
+  const getTasks = useCallback(() => {
     setIsLoading(true);
     axios
       .get(`${base_url}/task`)
       .then(res => setTasks(res))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
-  };
+  }, [setTasks]);
 
-  const getTaskById = id => {
-    setIsLoading(true);
-    axios
-      .get(`${base_url}/task/${id}`)
-      .then(res => setTask(res))
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false));
-  };
+  const getTaskById = useCallback(
+    id => {
+      setIsLoading(true);
+      axios
+        .get(`${base_url}/task/${id}`)
+        .then(res => setTask(res))
+        .catch(err => console.log(err))
+        .finally(() => setIsLoading(false));
+    },
+    [setTask]
+  );
 
   const updateTask = (id, body) => {
     setIsLoading(true);
