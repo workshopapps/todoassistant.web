@@ -5,7 +5,7 @@ import style from "./aboutHero.module.scss";
 const AboutHeroSection = () => {
   return (
     <header className={style.header}>
-      <section>
+      <section className={style.text}>
         <h1>Ticked</h1>
         <p>A platform with great experienece for everyone</p>
         <Button
@@ -14,7 +14,7 @@ const AboutHeroSection = () => {
           style={{ width: `207px` }}
         />
       </section>
-      <section>
+      <section className={style.img}>
         <img
           src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg"
           alt="img"
