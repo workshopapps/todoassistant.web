@@ -49,11 +49,15 @@
         flex-direction: row-reverse;
         margin-bottom: 20px;
     }
+    
 
-    input {
+    textarea {
         width: 93%;
+        z-index: -5;
+        overflow-y: hidden;
+        height: 100px;
         display: inline-block;
-        padding: 30px;
+        padding: 60px 30px;
         background: #F6FAFB;
         border: 1px solid #D3D0D9;
         border-radius: 8px;
@@ -105,5 +109,12 @@ border-radius: 8px;
     &__sub {
         width: 100% !important;
         background-color: #F6FAFB !important;
+    }
+}
+
+
+.new {
+    &__input {
+        padding: 60px;
     }
 }
