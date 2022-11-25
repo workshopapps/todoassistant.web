@@ -1,5 +1,8 @@
-import React, { useContext, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, {
+  // useContext,
+  useState
+} from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
 import icon1 from "../../../assets/completion-rate-icon.png";
 import icon2 from "../../../assets/streak-icon.png";
@@ -8,21 +11,19 @@ import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
 // import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
-import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 import axios from "axios";
+// import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
-  // const navigate = useNavigate();
-  const { tasks } = useContext(TaskCtx);
-  const baseurl = "https://api.ticked.hng.tech/api/v1";
-  const token = JSON.parse(localStorage.getItem("user")).access_token;
-
+  const navigate = useNavigate();
+  // const {tasks} = useContext(TaskCtx);
   // useTasksLoading();
+  const token = JSON.parse(localStorage.getItem("user")).access_token;
   axios
-    .get(`${baseurl}/task`, {
+    .get("https://api.ticked.hng.tech/api/v1/task", {
       headers: { Authorization: "Bearer " + token }
     })
     .then(res => console.log(res));
-  console.log(tasks);
+
   const dummy_todos = [
     { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
     { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
@@ -157,7 +158,7 @@ export default function Home() {
                   handleCheckbox(i.id);
                 }}
                 onClick={() => {
-                  // navigate("/");
+                  navigate("/taskdetails");
                 }}
               />
             );
