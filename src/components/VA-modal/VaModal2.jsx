@@ -1,6 +1,6 @@
 import React from 'react'
 import VaModal from './VaModal'
-import Illustration2 from '../../assets/Illustrations(1).png';
+import Illustration2 from '../../assets/Illustrations (1).png';
 
 const VaModal2 = () => {
   return (
