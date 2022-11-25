@@ -73,7 +73,6 @@ function App() {
           <Route path="task" element={<Task />}></Route>
           <Route path="detail" element={<Detail />} />
           <Route path="sub" element={<Sub />} />
-          <Route path="clients" element={<Client />} />
           <Route path="notification" element={<Notification />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="payment" element={<Payment />} />
@@ -82,6 +81,7 @@ function App() {
 
         <Route path="/virtualassistance" element={<VaDasboard />}>
           <Route path="" element={<Home />} />
+          <Route path="clients" element={<Client />} />
           <Route path="notifications" element={<Notifications />} />
         </Route>
 

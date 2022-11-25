@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clientVa from "../../assets/dashboard/clientVa.png";
 import styles from "./ChatBox.module.scss";
 import { Box, Button } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
+
+//Package
+import Pusher from "pusher-js";
+import axios from "axios";
 
 //Images
 import send from "../../assets/dashboard/send.png";
@@ -182,7 +186,7 @@ const ChatBox = () => {
     setInput(val.target.value);
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input != "" || image.length > 0) {
       setValue([
         ...value,
@@ -193,6 +197,7 @@ const ChatBox = () => {
           file: image.length > 0 ? true : false
         }
       ]);
+      await axios.post("", value).then(res => console.log(res));
       setInput("");
       setImage([]);
     }
@@ -200,6 +205,21 @@ const ChatBox = () => {
 
   // const open = Boolean(anchorEl);
   // const id = open ? 'simple-popover' : undefined;
+  const [messages, setMessages] = useState([]);
+  console.log(messages);
+  const allMessages = [];
+  useEffect(() => {
+    Pusher.logToConsole = true;
+
+    const pusher = new Pusher("f79030d90753a91854e6", {
+      cluster: "eu"
+    });
+    const channel = pusher.subscribe("mohchat");
+    channel.bind("message", function (data) {
+      allMessages.push(data);
+      setMessages(allMessages);
+    });
+  }, []);
 
   return (
     <div className={styles.chatMain}>
