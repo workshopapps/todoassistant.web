@@ -50,6 +50,16 @@ const Header = () => {
         <div className={styles.header_links}>
           <Link
             className={
+              pathname.includes("/how-it-works")
+                ? styles.header_links__border
+                : ""
+            }
+            to="/how-it-works"
+          >
+            How it works
+          </Link>
+          <Link
+            className={
               pathname.includes("/about") ? styles.header_links__border : ""
             }
             to="/about"
@@ -107,6 +117,16 @@ const Header = () => {
             <div className={styles.header_sidebarLinks}>
               <Link
                 className={
+                  pathname.includes("/how-it-works")
+                    ? styles.header_links__border
+                    : ""
+                }
+                to="/how-it-works"
+              >
+                How it works
+              </Link>
+              <Link
+                className={
                   pathname.includes("/about") ? styles.header_links__border : ""
                 }
                 to="/about"
@@ -133,9 +153,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <div className={styles.header_sidebarButton}>
-             {CTA}
-            </div>
+            <div className={styles.header_sidebarButton}>{CTA}</div>
           </div>
         ) : (
           ""
