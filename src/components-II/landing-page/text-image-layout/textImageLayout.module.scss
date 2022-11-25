@@ -1,0 +1,40 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.layout {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  margin-bottom: 5rem;
+  @media (min-width: 992px) {
+    flex-direction: row;
+    .imgWrapper,
+    .textWrapper {
+      flex: 1;
+    }
+  }
+
+  .textWrapper {
+    text-align: center;
+
+    p {
+      font-size: 18px;
+      line-height: $line-height-lg;
+    }
+
+    @media (min-width: 992px) {
+      text-align: left;
+    }
+
+    h3 {
+      @include header-font;
+      margin-bottom: 1rem;
+    }
+  }
+
+  img {
+    @include img_fluid;
+  }
+}

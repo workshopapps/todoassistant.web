@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import facebook from "../../assets/facebook.png";
 import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/instagram.png";
-import NewsLetter from "./news-letter-form/NewsLetter";
+// import NewsLetter from "./news-letter-form/NewsLetter";
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
         />
       </NavLink>
       <section className={styles.footer_text}>
-        <NewsLetter />
+        {/* <NewsLetter /> */}
         <p>
           Subscribe to our monthly newsletter and be among the first to be
           notified on an update of the App. Our newsletter is full of important
