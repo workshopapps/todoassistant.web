@@ -3,8 +3,10 @@ import axios from "axios";
 
 export const taskCtxDefaultValues = {
   tasks: [],
+  task: {},
   isLoading: false,
   getTasks: () => null,
+  getTaskById: () => null,
   updateTask: () => null,
   deleteTask: () => null
 };
@@ -14,12 +16,22 @@ export const TaskCtx = createContext(taskCtxDefaultValues);
 const TaskContextProvider = ({ children }) => {
   const base_url = "http://api.ticked.hng.tech:2022/api/v1";
   const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const getTasks = () => {
     setIsLoading(true);
     axios
       .get(`${base_url}/task`)
       .then(res => setTasks(res))
+      .catch(err => console.log(err))
+      .finally(() => setIsLoading(false));
+  };
+
+  const getTaskById = id => {
+    setIsLoading(true);
+    axios
+      .get(`${base_url}/task/${id}`)
+      .then(res => setTask(res))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -43,7 +55,15 @@ const TaskContextProvider = ({ children }) => {
   };
   return (
     <TaskCtx.Provider
-      value={{ tasks, isLoading, getTasks, updateTask, deleteTask }}
+      value={{
+        tasks,
+        task,
+        isLoading,
+        getTasks,
+        getTaskById,
+        updateTask,
+        deleteTask
+      }}
     >
       {children}
     </TaskCtx.Provider>
