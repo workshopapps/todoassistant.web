@@ -45,6 +45,8 @@ import Login from "./components/Login/Login";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
+import TaskDetails from "./core/todo/TaskDetials";
+import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 function App() {
@@ -99,15 +101,20 @@ function App() {
                 <Route path="notifications" element={<Notifications />} />
               </Route>
 
+              <Route path="/newtask" element={<NewTask />} />
+              <Route path="/edittask" element={<NewTask />} />
+              <Route path="/taskdetails" element={<TaskDetails />} />
+              <Route path="/va1" element={<VaModal1 />} />
+              <Route path="/CheckM" element={<CheckM />} />
+              <Route path="/settings/profile" element={<SettingsProfile />}>
+                <Route path="edit" element={<EditAccountPage />} />
+              </Route>
+
               <Route path="/account" element={<AccountPreferences />} />
               <Route path="/pro" element={<ProPreferences />} />
               <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
-              <Route path="/newtask" element={<NewTask />} />
-              <Route path="/va1" element={<VaModal1 />} />
-              <Route path="/CheckM" element={<CheckM />} />
-
-              <Route path="/settings/profile" element={<SettingsProfile />} />
+              {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
             </>
           )}
 
