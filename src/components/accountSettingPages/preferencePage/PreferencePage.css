@@ -1,0 +1,121 @@
+.preferencespage{
+    max-width: 1240px;
+    padding: 20px;
+}
+.preferencespage h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 180%;
+    display: flex;
+    align-items: center;
+    color: #714DD9;
+    margin: 0px 0px 16px;
+}
+.preferencespage h2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #333333;
+    margin: 0px 0px 24px;
+}
+.preferencespage .double_input_select{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4.5rem;
+    margin: 0px 0px 32px;
+}
+.preferencespage .double_input_select .single_input_select{
+    width: 100%;
+}
+.preferencespage .double_input_select .single_input_select label{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333333;
+    justify-content: space-between;
+}
+.preferencespage .double_input_select .single_input_select select,
+.preferencespage .double_input_select .single_input_select input[type='time']{
+    width: 100%;
+    padding: 15px 48px 15px 16px;
+    background: #FFFFFF;
+    border: 1px solid #707070;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.16px;
+    color: #707070;
+    outline: none;
+}
+.preferencespage .double_input_select .single_input_select input[type='time']{
+    height: 50px;
+}
+.preferencespage .double_input_select .single_input_select .datetime_format{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 0px 0px 8px;
+}
+.preferencespage .double_input_select .single_input_select .datetime_format > div{
+    display: flex;
+    gap: 8px;
+}
+.preferencespage .double_input_select .single_input_select .check_input{
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.preferencespage .double_input_select .single_input_select .check_input label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 160%;
+    color: #333333;
+}
+.color{
+    color: #714DD9;
+}
+.preferencespage .double_input_select .single_input_select .datetime_format label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1F1F1F;
+}
+.preferencespage button.pref_btn{
+    color: white;
+    padding: 13px 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 121px;
+    background: #714DD9;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #714DD9;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+    .preferencespage .double_input_select{
+        flex-direction: column;
+        max-width: 450px;
+        gap: 1.25rem;
+    }
+    
+}

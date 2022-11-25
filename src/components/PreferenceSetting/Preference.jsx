@@ -1,7 +1,8 @@
 import Header from "../accountPreferences/Header";
 import Sidebar from "../NewTask/Sidebar";
-import PrefSetForm from "./PreferenceSettingForm";
+// import PrefSetForm from "./PreferenceSettingForm";
 import style from "./Preference.module.scss";
+import PreferencePage from "../accountSettingPages/preferencePage/PreferencePage";
 
 function PreferenceSettingEdit() {
   return (
@@ -9,7 +10,8 @@ function PreferenceSettingEdit() {
       <Sidebar />
       <div className={style.preference}>
         <Header />
-        <PrefSetForm />
+        <PreferencePage />
+        {/* <PrefSetForm /> */}
       </div>
     </div>
   );
