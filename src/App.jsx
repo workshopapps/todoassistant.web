@@ -55,7 +55,7 @@ function App() {
   const { user } = useContext(AuthContext);
 
   return (
-    <ErrorBoundary>
+    // <ErrorBoundary>
       <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -126,7 +126,7 @@ function App() {
           <Route path="*" element={<ErrorMain />} />
         </Routes>
       </Suspense>
-    </ErrorBoundary>
+    // </ErrorBoundary>
   );
 }
 
