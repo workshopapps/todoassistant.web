@@ -3,6 +3,7 @@
 
 .vr {
   @include container-fluid;
+  position: relative;
   &_header {
     max-width: 900px;
     margin: 0 auto;
@@ -30,7 +31,7 @@
 
   .banner {
     @media (min-width: 992px) {
-      @include container;
+      @include container-fluid;
     }
   }
 

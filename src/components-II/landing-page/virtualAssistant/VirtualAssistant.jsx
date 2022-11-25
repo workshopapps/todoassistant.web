@@ -102,10 +102,11 @@ const VirtualAssistant = () => {
       <div className={styles.vr_header}>
         <h3>Virtual Assistant</h3>
         <p>
-          Opportunity to work with a personal assistant such that you can assign
-          a task or more to be carried out. Receive in-app calls from your
-          personal assistant when you fail to complete your set tasks for each
-          day.
+          A Virtual Assistant will be available for you. Get the opportunity to
+          work with a Virtual Assistant such that you can delegate some tasks to
+          be carried out for you. Receive calls from your Assistant when you
+          fail to complete your set tasks for each day or within a speculated
+          time.
         </p>
         <div className={styles.vr_header_buttons}>
           <Button link={``} style={{ width: `184px` }} title={`Get Started`} />

@@ -1,4 +1,5 @@
 @import "../../../scss/variables";
+@import "../../../scss/mixins";
 
 // ===================
 // MIXINS
@@ -70,6 +71,16 @@
 
   .steps {
     margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+
+    .download {
+      @include button;
+      border: 1px solid $activeColor;
+      background-color: transparent;
+      width: 50%;
+    }
 
     p {
       margin-top: 1rem;

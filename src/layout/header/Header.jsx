@@ -133,7 +133,9 @@ const Header = () => {
               </Link>
             </div>
 
-            <div className={styles.header_sidebarButton}>{CTA}</div>
+            <div className={styles.header_sidebarButton}>
+             {CTA}
+            </div>
           </div>
         ) : (
           ""

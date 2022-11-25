@@ -53,22 +53,19 @@ const SectionThree = () => {
               desc="The in-app chat feature available allows you to communicate and assign tasks to a personalized Assistant."
             />
           </div>
-          <div className={styles.steps}>
-            <Button
-              link={`/`}
-              style={{ width: `184px` }}
-              title={`get ticked`}
+          <div>
+            <SectionThreeList
+              hover={onHover}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670583/hng/todoAppVirtualAssistant/tick-circle_cw0mdk.svg"
+              title="Get TICKED"
+              desc="Receive notifications when you complete your tasks and a call when deadlines are fast approaching.
+"
             />
-            <p>
-              Receive notifications when you complete your tasks and a call when
-              deadlines are fast approaching.{" "}
-            </p>
           </div>
-          {/* <SectionThreeList
-            icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670583/hng/todoAppVirtualAssistant/tick-circle_cw0mdk.svg"
-            title="Stay Proactive"
-            desc="Stay one step ahead by scheduling and organising your tasks to ensure you don’t miss out on any deadline."
-          /> */}
+          <div className={styles.steps}>
+            <Button link={`/`} style={{ width: `50%` }} title={`get ticked`} />
+            <button className={styles.download}>Download App</button>
+          </div>
         </div>
       </section>
       <div>
