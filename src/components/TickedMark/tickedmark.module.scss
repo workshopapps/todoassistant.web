@@ -3,12 +3,150 @@
         font-style: normal;
 }
 
+.TMhero{
+    text-align: center;
+    padding-top: 4.5rem;
+    background: rgb(123, 63, 225);
+    background: linear-gradient(160deg, rgb(123, 63, 225) 0%, rgb(123, 63, 225) 62%, rgb(255, 255, 255) 62%, rgb(255, 255, 255) 100%);
+}
+
+.TMHhtxt{
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height:  5rem;
+    text-align: center;
+    letter-spacing: -0.03em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin: 0 auto 1.875rem;
+}
+.TMHptxt{
+    font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-align: center;
+        letter-spacing: -0.02em;    
+        color: #FFFFFF;    
+        opacity: 0.8;
+        width: 36rem;
+        margin: auto;
+
+
+}
+.TMHemail{
+    align-content: center;
+    padding-left: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    width: 36rem;
+    background-color: #FFFFFF;
+    border-radius: 4.5rem;
+    margin: 2.5rem auto 3.75rem;
+
+}
+
+.TMHEm{
+    margin: 0px;
+}
+
+.TMHEbtn{
+    background: linear-gradient(106.75deg, #6922FF 0%, #4C03C3 100%);
+    opacity: 0.8;
+    width: 16.5rem;
+    padding: 16px 30px;
+    border-radius: 2.625rem;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6rem;
+    color: #FFFFFF;
+
+}
+
+.TMwfy{
+    margin-top: 14rem;
+    margin-bottom: 12.75rem;
+    text-align: center;
+}
+.TMWh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: 0.005em;
+    text-transform: capitalize;
+    color: #000000;
+}
+.TMWarr{
+    margin-top: 3.125rem;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+.TMWa{
+
+    text-align: center;
+    padding: 3.375rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23.75rem;
+    height: 21.25rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+}
+.TMWi{
+    width: fit-content;
+    margin: 0 auto;
+}
+.TMWAh{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+
+    color: #000000;
+}
+
+
+.TMsup{
+    background: #F6FAFB;
+    display: flex;
+    flex-direction: row;
+}
+.TMSh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 3.5rem;
+
+    /* or 112% */
+    letter-spacing: -0.03em;
+
+    color: #000000;
+}
+
+.TMSbtn{
+    padding: 15px 40px;
+    width: 215px;
+    height: 68px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+
+    background: linear-gradient(106.75deg, #834BFA 0%, #7038D4 100%);
+    border-radius: 40px;
+}
 
 
 
+.TMWsmart{
+    background: linear-gradient(106.75deg, #8C49F4 0%, #7038D4 100%);
 
-
-
+}
 
 .TMParray{
     display: flex;

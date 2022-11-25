@@ -18,19 +18,25 @@ function TickedMark() {
   return (
     <>
       <div className={style.TMhero}>
-        <h1>
+        <h1 className={style.TMHhtxt}>
           Complete your Set Tasks <br />
           with assistance from an <br />
           Executive Assistant
         </h1>
-        <p>
+        <p className={style.TMHptxt}>
           Ticked is a task manager built for busy schedules, with an in app
           executive assistant to keep you on top of the hassle
         </p>
-        <div>
+        <div className={style.TMHemail}>
           <img src={mail} alt="" />
-          <input type="email" name="" id="" placeholder="Enter your email" />
-          <button>Start for free</button>
+          <input
+            className={style.TMHEm}
+            type="email"
+            name=""
+            id=""
+            placeholder="Enter your email"
+          />
+          <button className={style.TMHEbtn}>Start for free</button>
         </div>
         <img src={prev} alt="" />
         <p>
@@ -39,29 +45,29 @@ function TickedMark() {
         </p>
       </div>
       <div className={style.TMwfy}>
-        <h3>
+        <h3 className={style.TMWh}>
           Why we are for <br /> You?
         </h3>
-        <div>
-          <div>
-            <img src={TMicon} alt="" />
-            <h5>Task Management</h5>
+        <div className={style.TMWarr}>
+          <div className={style.TMWa}>
+            <img className={style.TMWi} src={TMicon} alt="" />
+            <h5 className={style.TMWAh}>Task Management</h5>
             <p>
               The process of managing a task through its life cycle. It involves
               planning, execution, and, tracking.
             </p>
           </div>
-          <div>
-            <img src={FRicon} alt="" />
-            <h5>Follow up reminders</h5>
+          <div className={style.TMWa}>
+            <img className={style.TMWi} src={FRicon} alt="" />
+            <h5 className={style.TMWAh}>Follow up reminders</h5>
             <p>
               Through follow up calls and constant communication, our assistant
               is always there to keep you on track
             </p>
           </div>
-          <div>
-            <img src={TEicon} alt="" />
-            <h5>Task Execution</h5>
+          <div className={style.TMWa}>
+            <img className={style.TMWi} src={TEicon} alt="" />
+            <h5 className={style.TMWAh}>Task Execution</h5>
             <p>
               We get it, getting is a virtual is rather cost heavy? but there
               are those simple basic things, you wish you could delegate
@@ -71,12 +77,14 @@ function TickedMark() {
       </div>
       <div className={style.TMsup}>
         <div>
-          <h4>You could execute like a superhuman today</h4>
+          <h4 className={style.TMSh}>
+            You could execute like a superhuman today
+          </h4>
           <p>
             Use ticked to create task and collaborate with your productivity
             assistant in getting the work done with ease
           </p>
-          <button></button>
+          <button className={style.TMSbtn}>Get Started</button>
         </div>
         <img src={mantask} alt="" />
       </div>
