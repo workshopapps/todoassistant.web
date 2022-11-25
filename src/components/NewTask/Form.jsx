@@ -7,9 +7,8 @@ import Modal from "./Modal";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 // import useTasksLoading from "../../hooks/tasks/useTasksLoading";
-import { useContext } from "react";
-import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
-const {task} = useContext(TaskCtx)
+// import { useContext } from "react";
+// import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 
 function Form({ value }) {
   if (localStorage.getItem("myTasks")) {
@@ -112,20 +111,18 @@ function Form({ value }) {
 
   const handleEdit = e => {
     e.preventDefault();
-
-    
   };
 
   return value === "edit" ? (
     //--------------------Edit Task Form------------------
-   
+
     <form
       className={styles.newTaskForm}
       onSubmit={e => {
         handleEdit(e);
       }}
     >
-      <h1>{task.title}</h1>
+      <h1>{"Go to bank"}</h1>
       <div className={styles.formGroup}>
         <label htmlFor="task_description" className={styles.newTaskLabel}>
           Task Description
@@ -208,6 +205,40 @@ function Form({ value }) {
             </span>
           </div>
         </div>
+        {/* <div className={styles.formGroup}>
+          <label htmlFor="time" className={styles.newTaskLabel}>
+            Select reminder
+          </label>
+          <div className={styles.formGroup__item}>
+            <input
+              className={styles.newTaskInputTime}
+              type={timeInput}
+              value={data.time}
+              onChange={e => handle(e)}
+              placeholder="Select time"
+              id="time"
+              onFocus={() => setTimeType("time")}
+              onBlur={() => setTimeType("text")}
+              required
+            />
+            <span
+              className={`${styles.clockIcon} ${styles.icon}`}
+              style={
+                timeInput === "time"
+                  ? { display: "none" }
+                  : { display: "inline" }
+              }
+              onClick={() => setTimeType("time")}
+              onBlur={() => setTimeType("text")}
+            >
+              <img
+                className={styles.newTaskImg}
+                src={clockIcon}
+                alt="Clock icon"
+              />
+            </span>
+          </div>
+        </div> */}
       </div>
       {/* Drop down */}
       <div className={styles.formGroup}>
@@ -266,7 +297,7 @@ function Form({ value }) {
       </div>
 
       <button className={styles.newTaskButton} type="submit">
-        Edit Task
+        Create Task
       </button>
 
       <Modal
