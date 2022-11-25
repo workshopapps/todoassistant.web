@@ -27,21 +27,22 @@ const CareerHero = () => {
   ];
 
   return (
-    <section className={styles.hero}>
-      <section className={styles.section}>
+    <>
+      <section className={styles.hero}>
         <header className={styles.header}>
           <section className={styles.text}>
-            <h1>Contact Ticked</h1>
-            <h4>We are here to offer solutions</h4>
-            <p>Start a conversation with our Virtual Assistant</p>
-          </section>
-          <section className={styles.img}>
-            <img
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg"
-              alt="img"
-            />
+            <h1>Ticked Job Board</h1>
+            <h4>More than just a job, we are family</h4>
+            <p>View our available Job Openings to become one of us</p>
+            <button className={styles.jobBtn}>Job Openings</button>
           </section>
         </header>
+        <section className={styles.img}>
+          <img
+            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669414568/hng/todoAppVirtualAssistant/Man_with_join_us_sign_for_open_recruitment_ahae74.svg"
+            alt="img"
+          />
+        </section>
       </section>
       <div className={styles.cardContainer}>
         {careerCardData.map(data => (
@@ -52,7 +53,7 @@ const CareerHero = () => {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
 };
 export default CareerHero;
