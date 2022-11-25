@@ -7,6 +7,8 @@ import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 
+import Ticked from "./pages/Ticked/Ticked";
+
 import FAQ from "./pages/FAQ/FAQ";
 import { About, Career, Contact, LandingPage, PrivatePolicy } from "./pages";
 import Dasboard from "./components/dasboard/Dasboard";
@@ -68,6 +70,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/marketing" element={<Ticked />} />
 
         {user && (
           <>
