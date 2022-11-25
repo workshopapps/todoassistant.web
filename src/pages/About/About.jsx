@@ -8,7 +8,8 @@ import Layout from "../../layout/Layout";
 const content = {
   title: `Ticked`,
   subTitle: `A platform with great experienece for everyone`,
-  image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg`
+  image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg`,
+  image2: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669354585/hng/todoAppVirtualAssistant/Group_34485_1_edhnbo.svg`
 };
 
 const About = () => {

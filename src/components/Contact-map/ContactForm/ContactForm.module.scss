@@ -1,0 +1,158 @@
+.page {
+    font-size: .875rem;
+    text-align: left;
+    padding: 0 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    cursor: default;
+    --primary: #714DD9;
+    background-color: #f6fafb;
+
+  }
+  
+  .formSection {
+    max-width: 931px;
+  }
+  
+  .mainHeading {
+    font-size: 2.3125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  .firstPara {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .emphasis {
+    font-weight: 600;
+  }
+  
+  .top {
+    margin-bottom: 2rem;
+    color: #333333;
+  }
+  
+  .inputRow {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  label:has(input:not([type="checkbox"], [type="radio"]), textarea) {
+    font-size: 0.6875rem;
+    color: #707070;
+    font-weight: 700;
+    display: block;
+  }
+  
+  input:not([type="checkbox"], [type="radio"]), textarea {
+    margin-top: .5rem;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: block;
+    border-radius: .5rem;
+    border: 1px solid var(--primary);
+    width: 100%;
+    resize: none;
+  }
+
+  .outline:focus{
+    outline: #714DD9;
+  }
+
+  .outline1,.outline1:focus{
+    border: 1px solid #707070;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  .subHeading {
+    margin-top: 2rem;
+    line-height: 160%;
+    font-size: 1.125rem;
+  }
+  
+  .bottom {
+    color: #060C22; 
+  }
+  
+  .radioCollection {
+    width: max-content;
+    margin-top: 1.21875rem;
+    margin-bottom: 2.1875rem;
+    display: flex; 
+    flex-direction: column;
+    gap: 1.4375rem;
+  }
+  
+  .radioCollection > label {
+    display: flex;
+  }
+  
+  .checkboxRoot {
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .4rem;
+    background-color: transparent;
+    border: 1.5px solid var(--primary);
+    height: 20px; width: 20px;
+    margin-right: 1.125rem;
+  }
+  
+  .checkboxRoot svg {
+    height: 1rem; width: 1rem;
+  }
+  
+  button[type="submit"] {
+    padding: .875rem;
+    font-family: inherit;
+    color: #FAFAFA;
+    font-weight: 600;
+    border-radius: .5rem;
+    background-color: var(--primary);
+    border: none;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .page {
+      padding: 0 7.5rem;
+    }
+    .mainHeading {
+      font-size: 3.8125rem;
+    }
+    .firstPara {
+      font-size: 1.5625rem;
+    }
+    .top {
+      font-size: 1rem;
+    }
+    .inputRow {
+      flex-direction: row;
+      gap: 1rem;
+    }
+     .inputRow > * {
+      flex: 1;
+    }
+     textarea {
+      height: 231px;
+    }
+    .subHeading {
+      font-size: 1.5625rem;
+    }
+    .radioCollection {
+      font-size: 1rem;
+    }
+    .checkboxRoot {
+      width: 33.33px; height: 33.33px;
+    }
+    .checkboxRoot svg {
+      height: 2rem; width: 2rem;
+    }
+  }

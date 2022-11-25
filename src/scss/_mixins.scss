@@ -35,3 +35,10 @@
     font-size: 48px;
   }
 }
+
+@mixin hover {
+  transition: 0.3s ease;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px #714dd950;
+  }
+}

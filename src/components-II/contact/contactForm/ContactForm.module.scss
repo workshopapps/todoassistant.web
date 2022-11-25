@@ -1,5 +1,5 @@
-@import "../../scss//mixins";
-@import "../../scss/variables";
+@import "../../../scss//mixins";
+@import "../../../scss/variables";
 
 .page {
   // border: 1px solid red;
@@ -30,6 +30,10 @@
 .top {
   margin-bottom: 2rem;
   color: #333333;
+
+  span {
+    color: $activeColor;
+  }
 }
 
 .inputRow {
