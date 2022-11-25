@@ -45,8 +45,9 @@
 
 }
 
-.TMHEm{
+#TMHEm{
     margin: 0px;
+    border: #FFFFFF;
 }
 
 .TMHEbtn{
@@ -126,13 +127,13 @@
     color: #000000;
 }
 
-.TMSHp{
+.TMSHp {
     font-weight: 400;
-        font-size: 18px;
-        line-height: 26px;
-        letter-spacing: -0.02em;
-        color: #000000;
-        opacity: 0.8;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    opacity: 0.8;
 }
 .TMStbx{
     display: flex;
@@ -154,9 +155,9 @@
     line-height: 30px;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-
     background: linear-gradient(106.75deg, #834BFA 0%, #7038D4 100%);
     border-radius: 40px;
+    margin: auto;
 }
 
 
@@ -165,6 +166,11 @@
     padding: 120px;
     background: linear-gradient(106.75deg, #8C49F4 0%, #7038D4 100%);
 
+}
+.TMWStop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .TMWSo {
@@ -182,6 +188,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    margin-top: 5.6rem;
 }
 .TMWSarr{
     display: flex;
@@ -196,6 +203,15 @@
     border-radius: 100%;
     justify-content: center;
     text-align: center;
+}
+
+.TMWSp {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    opacity: 0.8;
 }
 
 .TWWtxt{
@@ -213,10 +229,7 @@
     font-weight: 700;
     font-size: 26px;
     line-height: 32px;
-
-    /* identical to box height, or 125% */
     letter-spacing: -0.02em;
-
     color: #FFFFFF;
 }
 
@@ -237,17 +250,28 @@
 }
 
 .TMPa{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 23.75rem;
     padding: 2.5rem 1.875rem;
-    border-radius: 15px;
     background: #FFFFFF;
     box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    
 }
 
 #TMPap{
     background: linear-gradient(106.75deg, #714DD9 0%, #5D21E6 100%);
 }
+
+.TMAPw{
+    color: #FFFFFF;
+}
+#TMAPw {
+    color: #FFFFFF;
+}
+
 .gstbtn {
     color: #060C22;
     background-color: #FFFFFF;
@@ -257,8 +281,17 @@
     font-weight: 700;
     font-size: 1.125rem;
     line-height: 100%;
-
-
+}
+.gstpbtn {
+    color:#5D21E6;
+    background-color: #FFFFFF;
+    border-radius: 31rem;
+    width: 13.5rem;
+    height: 3.7rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 100%;
+    margin: auto;
 }
 
 .TMPh{
@@ -274,9 +307,20 @@
 }
 
 .TMPAbt{
+    color: #5D21E6;
     font-weight: 700;
     font-size: 3.5rem;
     line-height: 3.75rem;
+}
+
+
+
+.TMPSa{
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
 }
 
 .gryline{
@@ -294,7 +338,16 @@
     height: 20px;
     padding: 5px;
     border-radius: 100%;
+}
 
+.spnpimg {
+    display: flex;
+    background-color: #FFFFFF;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
 }
 
 

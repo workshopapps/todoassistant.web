@@ -9,6 +9,7 @@ import mail from "./img/mail.svg";
 import TMicon from "./img/TMicon.svg";
 import TEicon from "./img/TEicon.svg";
 import FRicon from "./img/FRicon.svg";
+import txtbub from "./img/textbubb.svg";
 
 import adnd from "./img/adnd.png";
 import kbkr from "./img/kbkr.png";
@@ -30,10 +31,9 @@ function TickedMark() {
         <div className={style.TMHemail}>
           <img src={mail} alt="" />
           <input
-            className={style.TMHEm}
+            id={style.TMHEm}
             type="email"
             name=""
-            id=""
             placeholder="Enter your email"
           />
           <button className={style.TMHEbtn}>Start for free</button>
@@ -94,44 +94,47 @@ function TickedMark() {
             <span className={style.TMWSor}>Work smarter</span> <br />
             with the support of a assistant friend
           </p>
-          <button className={style.gstbtn}>Get Started Now</button>
+          <button className={style.gstpbtn}>Get Started Now</button>
         </div>
-        <div className={style.TMWSbody}>
-          <div className={style.TMWSarr}>
-            <div className={style.TWWtag}>
-              <p className={style.TWWtxt}>1</p>
+        <div className={style.TMWStop}>
+          <div className={style.TMWSbody}>
+            <div className={style.TMWSarr}>
+              <div className={style.TWWtag}>
+                <p className={style.TWWtxt}>1</p>
+              </div>
+              <div>
+                <h4 className={style.TWWSsh}>Create Account</h4>
+                <p className={style.TMWSp}>
+                  Enter email, password and call
+                  <br /> number to get started
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className={style.TWWSsh}>Create Account</h4>
-              <p className={style.TMSHp}>
-                Enter email, password and call number to get started
-              </p>
+            <div className={style.TMWSarr}>
+              <div className={style.TWWtag}>
+                <p className={style.TWWtxt}>2</p>
+              </div>
+              <div>
+                <h4 className={style.TWWSsh}>Create task</h4>
+                <p className={style.TMWSp}>
+                  Using our flexible create task flow, <br /> you can create a
+                  task in a minute
+                </p>
+              </div>
+            </div>
+            <div className={style.TMWSarr}>
+              <div className={style.TWWtag}>
+                <p className={style.TWWtxt}>3</p>
+              </div>
+              <div>
+                <h4 className={style.TWWSsh}>Execute with ease</h4>
+                <p className={style.TMWSp}>
+                  delegate to your 24/7 productivity <br /> assistant
+                </p>
+              </div>
             </div>
           </div>
-          <div className={style.TMWSarr}>
-            <div className={style.TWWtag}>
-              <p className={style.TWWtxt}>2</p>
-            </div>
-            <div>
-              <h4 className={style.TWWSsh}>Create task</h4>
-              <p className={style.TMSHp}>
-                Using our flexible create task flow, you can create a task in a
-                minute
-              </p>
-            </div>
-          </div>
-          <div className={style.TMWSarr}>
-            <div className={style.TWWtag}>
-              <p className={style.TWWtxt}>3</p>
-            </div>
-            <div>
-              <h4 className={style.TWWSsh}>Execute with ease</h4>
-              <p className={style.TMSHp}>
-                delegate to your 24/7 productivity assistant{" "}
-              </p>
-            </div>
-          </div>
-          <img alt="" />
+          <img src={txtbub} alt="" />
         </div>
       </div>
       <div className={style.TMprice}>
@@ -146,7 +149,7 @@ function TickedMark() {
               <p>For Everyone</p>
             </div>
             <hr className={style.gryline} />
-            <div>
+            <div className={style.TMPSa}>
               <span className={style.TMPAl}>
                 <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
@@ -166,46 +169,48 @@ function TickedMark() {
                 <p>Customization</p>
               </span>
             </div>
-            <button>Get Started</button>
+            <button className={style.TMSbtn}>Get Started</button>
           </div>
 
           <div className={style.TMPa} id={style.TMPap}>
             <div>
-              <p>Popular</p>
-              <p>
-                <span className={style.TMPAbt}>$6</span>
+              <p className={style.TMAPw}>Popular</p>
+              <p className={style.TMAPw}>
+                <span className={style.TMPAbt} id={style.TMAPw}>
+                  $6
+                </span>
                 /month
               </p>
-              <p>For the Busy</p>
+              <p className={style.TMAPw}>For the Busy</p>
             </div>
             <hr className={style.gryline} />
-            <div>
+            <div className={style.TMPSa}>
               <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
-                <p>Task manager</p>
+                <p className={style.TMAPw}>Task manager</p>
               </span>
               <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
-                <p>Reminders</p>
+                <p className={style.TMAPw}>Reminders</p>
               </span>
               <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
-                <p>Customization</p>
+                <p className={style.TMAPw}>Customization</p>
               </span>
               <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
-                <p>Productivity assistant</p>
+                <p className={style.TMAPw}>Productivity assistant</p>
               </span>
             </div>
-            <button className={style.gstbtn}>Get started</button>
+            <button className={style.gstpbtn}>Get started</button>
           </div>
 
           <div className={style.TMPa}>
@@ -218,7 +223,7 @@ function TickedMark() {
               <p>For the Classy</p>
             </div>
             <hr className={style.gryline} />
-            <div>
+            <div className={style.TMPSa}>
               <span className={style.TMPAl}>
                 <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
@@ -244,7 +249,7 @@ function TickedMark() {
                 <p>Personal productivity assistant</p>
               </span>
             </div>
-            <button>Contact Us</button>
+            <button className={style.TMSbtn}>Contact Us</button>
           </div>
         </div>
       </div>
