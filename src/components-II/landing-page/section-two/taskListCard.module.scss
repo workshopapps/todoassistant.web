@@ -1,0 +1,31 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.taskCard {
+  text-align: left;
+  border: 1px solid lightgray;
+  border-radius: 16px;
+  max-width: 32.6rem;
+    margin: 1rem auto;
+  padding: 1.5rem;
+  @media (min-width: 992px) {
+    margin-left: auto;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .title {
+    color: $activeColor;
+
+    &_orange {
+      color: $accentOrange;
+    }
+    &_blue {
+      color: $activeColor;
+    }
+  }
+}

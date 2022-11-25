@@ -1,0 +1,21 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.flex {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  overflow: auto;
+  @media screen and (min-width: 992px) {
+    margin: 5.8rem 0;
+  }
+}
