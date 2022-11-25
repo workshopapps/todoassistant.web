@@ -1,7 +1,4 @@
-import React, {
-  // useContext,
-  useState
-} from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
 import icon1 from "../../../assets/completion-rate-icon.png";
@@ -11,34 +8,40 @@ import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
 // import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
-import axios from "axios";
-// import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
+// import axios from "axios";
+import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
+  if (localStorage.getItem("myTasks")) {
+    console.log("lsdjj");
+  } else {
+    localStorage.setItem("myTasks", "[]");
+  }
+  const tasks = JSON.parse(localStorage.getItem("myTasks"));
   const navigate = useNavigate();
-  // const {tasks} = useContext(TaskCtx);
+  const { getClickedTask } = useContext(TaskCtx);
   // useTasksLoading();
-  const token = JSON.parse(localStorage.getItem("user")).access_token;
-  axios
-    .get("https://api.ticked.hng.tech/api/v1/task", {
-      headers: { Authorization: "Bearer " + token }
-    })
-    .then(res => console.log(res));
+  // const token = JSON.parse(localStorage.getItem("user")).access_token;
+  // axios
+  //   .get("https://api.ticked.hng.tech/api/v1/task", {
+  //     headers: { Authorization: "Bearer " + token }
+  //   })
+  //   .then(res => console.log(res));
 
-  const dummy_todos = [
-    { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
-    { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
-    { va: false, completed: false, todoName: "Learn React", id: "3" },
-    { va: false, completed: false, todoName: "Learn Typescript", id: "4" },
-    { va: false, completed: false, todoName: "Learn Strapi", id: "5" },
-    { va: true, completed: false, todoName: "Learn Go", id: "6" },
-    { va: false, completed: true, todoName: "Learn Contex", id: "7" },
-    { va: false, completed: true, todoName: "Learn Api", id: "8" },
-    { va: false, completed: true, todoName: "Learn Redux", id: "9" },
-    { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
-  ];
+  // const dummy_todos = [
+  //   { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
+  //   { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
+  //   { va: false, completed: false, todoName: "Learn React", id: "3" },
+  //   { va: false, completed: false, todoName: "Learn Typescript", id: "4" },
+  //   { va: false, completed: false, todoName: "Learn Strapi", id: "5" },
+  //   { va: true, completed: false, todoName: "Learn Go", id: "6" },
+  //   { va: false, completed: true, todoName: "Learn Contex", id: "7" },
+  //   { va: false, completed: true, todoName: "Learn Api", id: "8" },
+  //   { va: false, completed: true, todoName: "Learn Redux", id: "9" },
+  //   { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
+  // ];
 
   const [completedDropdown, setCompletedDropdown] = useState(true);
-  const [myTodos, setMyTodos] = useState(dummy_todos);
+  const [myTodos, setMyTodos] = useState(tasks);
   const [filterTodos, setFilterTodos] = useState(myTodos);
   const [activeTab, setActiveTab] = useState({
     filter: "completed",
@@ -58,7 +61,7 @@ export default function Home() {
   const handleCheckbox = id => {
     const dummy = [...myTodos];
     dummy.map((i, index) => {
-      if (i.id === id) {
+      if (i.task_id === id) {
         dummy[index].completed = !dummy[index].completed;
       }
     });
@@ -67,7 +70,7 @@ export default function Home() {
 
   const handleSearch = e => {
     const searchData = myTodos.filter(i => {
-      return i.todoName.toLowerCase().includes(e.target.value.toLowerCase());
+      return i.title.toLowerCase().includes(e.target.value.toLowerCase());
     });
     if (e.target.value === "") {
       setFilterTodos(myTodos);
@@ -114,7 +117,7 @@ export default function Home() {
           <p
             style={mineActive.style}
             onClick={() => {
-              setActiveTab({ filter: "va", value: false });
+              setActiveTab({ filter: "va_option", value: "none" });
               setAllActive({
                 style: { color: "", borderBottom: "" }
               });
@@ -131,7 +134,10 @@ export default function Home() {
           <p
             style={assistantActive.style}
             onClick={() => {
-              setActiveTab({ filter: "va", value: true });
+              setActiveTab({
+                filter: "va_option",
+                value: "Assign the task to assistant"
+              });
               setAllActive({
                 style: { color: "", borderBottom: "" }
               });
@@ -150,14 +156,17 @@ export default function Home() {
           if (i[activeTab.filter] === activeTab.value && !i.completed) {
             return (
               <TodoCard
-                key={i.id}
+                key={i.task_id}
                 completed={i.completed}
-                title={i.todoName}
-                va={i.va}
+                title={i.title}
+                va={
+                  i.va_option === "Assign the task to assistant" ? true : false
+                }
                 handleChange={() => {
-                  handleCheckbox(i.id);
+                  handleCheckbox(i.task_id);
                 }}
                 onClick={() => {
+                  getClickedTask(i.task_id);
                   navigate("/taskdetails");
                 }}
               />
@@ -178,12 +187,14 @@ export default function Home() {
             i.completed &&
             completedDropdown && (
               <TodoCard
-                key={i.id}
-                title={i.todoName}
-                va={i.va}
+                key={i.task_id}
+                title={i.title}
+                va={
+                  i.va_option === "Assign the task to assistant" ? true : false
+                }
                 completed={i.completed}
                 handleChange={() => {
-                  handleCheckbox(i.id);
+                  handleCheckbox(i.task_id);
                 }}
               />
             )
