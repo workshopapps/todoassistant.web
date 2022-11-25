@@ -1,12 +1,14 @@
 import React from "react";
 
+// import Button from "../../components-II/button/ButtonComponent";
+
 const GeneralLoading = ({ text }) => {
   const style = {
     height: `90vh`,
     display: `flex`,
     flexDirection: `column`,
     justifyContent: `center`,
-    alignItems: `center`,
+    alignItems: `center`
   };
   return (
     <section style={style} height={`85vh`}>
@@ -22,12 +24,16 @@ const GeneralLoading = ({ text }) => {
           style={{
             fontSize: `2rem`,
             fontWeight: `bolder`,
-            color: `rgba(247, 148, 31, 1)`,
+            color: `rgba(247, 148, 31, 1)`
           }}
         >
           {text}
         </p>
       )}
+
+      <div style={{ margin: `3rem 0`, fontWeight: 700 }}>
+        <a href="/">Go Back Home</a>
+      </div>
     </section>
   );
 };

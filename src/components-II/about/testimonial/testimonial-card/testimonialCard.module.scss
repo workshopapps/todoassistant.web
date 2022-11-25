@@ -1,0 +1,49 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+
+.card {
+  border: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 8px;
+  gap: 2rem;
+  .grid {
+    width: 22.125rem;
+    height: 14rem;
+    border: 0.25px solid #997ceb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+  }
+
+  .hstack {
+    display: flex;
+    align-items: center;
+  }
+
+  .round {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-right: 1rem;
+  }
+
+  .hstacktext {
+    font-weight: 700;
+    font-size: 1rem;
+    color: $black;
+  }
+}
