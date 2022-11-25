@@ -1,14 +1,24 @@
 import React from "react";
-import AboutUsHero from "../../components/AboutUs/hero/AboutUsHero";
-import Testimonal from "../../components/AboutUs/Testimonal";
+import AboutSectionTwo from "../../components-II/about/section-two/AboutSectionTwo";
+
+import Testimonial from "../../components-II/about/testimonial/Testimonal";
+import Hero from "../../components-II/landing-page/hero-section/HeroSection";
 import Layout from "../../layout/Layout";
+
+const content = {
+  title: `Ticked`,
+  subTitle: `A platform with great experienece for everyone`,
+  image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669325707/hng/todoAppVirtualAssistant/Group_34485_djmcxu.svg`,
+  image2: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669354585/hng/todoAppVirtualAssistant/Group_34485_1_edhnbo.svg`
+};
 
 const About = () => {
   return (
     <div>
       <Layout>
-        <AboutUsHero />
-        <Testimonal />
+        <Hero content={content} />
+        <AboutSectionTwo />
+        <Testimonial />
       </Layout>
     </div>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+
+import Button from "../../button/ButtonComponent";
 import style from "./SectionTwo.module.scss";
 import TaskListCard from "./TaskListCard";
 // import animation from "../../../hooks/animation/animate.module.scss";
@@ -42,7 +44,8 @@ const Task = () => {
         </h1>
         <p className={style.section__two_subtitle}>
           Organise your tasks, set your reminders and allocate tasks to your
-          Virtual Assistant to focus on your tasks and increase productivity.
+          Virtual Assistant in order to stay focused on your tasks, save time
+          and increase productivity.
         </p>
       </header>
 
@@ -72,6 +75,14 @@ const Task = () => {
             <p>Get notified</p>
           </div>
           <TaskListCard type={`Assistant`} content={assistantContent} />
+          <div className={style.howitworksBtn}>
+            <p>Head over here to see</p>
+            <Button
+              link={`/how-it-works`}
+              title={`How it Works`}
+              style={{ width: `207px` }}
+            />
+          </div>
         </div>
       </section>
 

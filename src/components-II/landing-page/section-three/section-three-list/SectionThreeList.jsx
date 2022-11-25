@@ -2,9 +2,13 @@ import React from "react";
 import { Animate } from "../../../../hooks/animation/AnimateIn";
 import style from "./sectionThreeList.module.scss";
 
-const SectionThreeList = ({ icon, title, desc }) => {
+const SectionThreeList = ({ icon, title, desc, hover, name }) => {
   return (
-    <section className={style.section__three_list}>
+    <section
+      data-name={name}
+      onMouseEnter={hover}
+      className={style.section__three_list}
+    >
       <div className={style.section__three_list_icon}>
         <img src={icon} alt="icon" />
       </div>
