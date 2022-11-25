@@ -76,11 +76,11 @@ function TickedMark() {
         </div>
       </div>
       <div className={style.TMsup}>
-        <div>
+        <div className={style.TMStbx}>
           <h4 className={style.TMSh}>
             You could execute like a superhuman today
           </h4>
-          <p>
+          <p className={style.TMSHp}>
             Use ticked to create task and collaborate with your productivity
             assistant in getting the work done with ease
           </p>
@@ -90,41 +90,45 @@ function TickedMark() {
       </div>
       <div className={style.TMWsmart}>
         <div className={style.TMWStop}>
-          <p>
-            <span>Work smarter</span> <br />
+          <p className={style.TMWSo}>
+            <span className={style.TMWSor}>Work smarter</span> <br />
             with the support of a assistant friend
           </p>
-          <button>Get Started Now</button>
+          <button className={style.gstbtn}>Get Started Now</button>
         </div>
         <div className={style.TMWSbody}>
-          <div className="TMWSarr">
+          <div className={style.TMWSarr}>
             <div className={style.TWWtag}>
-              <p>1</p>
+              <p className={style.TWWtxt}>1</p>
             </div>
             <div>
-              <h4 className="TWWSsh">Create Account</h4>
-              <p>Enter email, password and call number to get started</p>
+              <h4 className={style.TWWSsh}>Create Account</h4>
+              <p className={style.TMSHp}>
+                Enter email, password and call number to get started
+              </p>
             </div>
           </div>
-          <div className="TMWSarr">
+          <div className={style.TMWSarr}>
             <div className={style.TWWtag}>
-              <p>2</p>
+              <p className={style.TWWtxt}>2</p>
             </div>
             <div>
-              <h4 className="TWWSsh">Create task</h4>
-              <p>
+              <h4 className={style.TWWSsh}>Create task</h4>
+              <p className={style.TMSHp}>
                 Using our flexible create task flow, you can create a task in a
                 minute
               </p>
             </div>
           </div>
-          <div className="TMWSarr">
+          <div className={style.TMWSarr}>
             <div className={style.TWWtag}>
-              <p>3</p>
+              <p className={style.TWWtxt}>3</p>
             </div>
             <div>
-              <h4 className="TWWSsh">Execute with ease</h4>
-              <p>delegate to your 24/7 productivity assistant </p>
+              <h4 className={style.TWWSsh}>Execute with ease</h4>
+              <p className={style.TMSHp}>
+                delegate to your 24/7 productivity assistant{" "}
+              </p>
             </div>
           </div>
           <img alt="" />
@@ -143,20 +147,20 @@ function TickedMark() {
             </div>
             <hr className={style.gryline} />
             <div>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Task manager</p>
               </span>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Reminders</p>
               </span>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Customization</p>
@@ -176,25 +180,25 @@ function TickedMark() {
             </div>
             <hr className={style.gryline} />
             <div>
-              <span>
+              <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
                 <p>Task manager</p>
               </span>
-              <span>
+              <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
                 <p>Reminders</p>
               </span>
-              <span>
+              <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
                 <p>Customization</p>
               </span>
-              <span>
+              <span className={style.TMPAl}>
                 <div className={style.spnpimg}>
                   <img src={purplecheck} alt="" />
                 </div>
@@ -215,26 +219,26 @@ function TickedMark() {
             </div>
             <hr className={style.gryline} />
             <div>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Task manager</p>
               </span>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Reminders</p>
               </span>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Customization</p>
               </span>
-              <span>
-                <div className="spnimg">
+              <span className={style.TMPAl}>
+                <div className={style.spnimg}>
                   <img src={whitecheck} alt="" />
                 </div>
                 <p>Personal productivity assistant</p>

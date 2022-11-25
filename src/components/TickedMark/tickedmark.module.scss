@@ -126,6 +126,24 @@
     color: #000000;
 }
 
+.TMSHp{
+    font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: -0.02em;
+        color: #000000;
+        opacity: 0.8;
+}
+.TMStbx{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-top: 252px;
+    padding-left: 128px;
+    padding-bottom: 281px;
+
+}
+
 .TMSbtn{
     padding: 15px 40px;
     width: 215px;
@@ -144,21 +162,86 @@
 
 
 .TMWsmart{
+    padding: 120px;
     background: linear-gradient(106.75deg, #8C49F4 0%, #7038D4 100%);
 
 }
 
+.TMWSo {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+}
+.TMWSor{
+    color: #F7941F;
+}
+
+.TMWSbody{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.TMWSarr{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.TWWtag{
+    display: flex;
+    width: 94.52px;
+    height: 94.52px;
+    background: #FFFFFF;
+    border-radius: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.TWWtxt{
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 32px;
+
+    /* identical to box height, or 70% */
+    letter-spacing: -0.02em;
+
+    color: #8344EA;
+    margin: auto;
+}
+.TWWSsh{
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+
+    /* identical to box height, or 125% */
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+}
+
+
+
+.TMprice{
+    margin-top: 190px;
+    margin-bottom: 290px;
+}
+
 .TMParray{
+    
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
     justify-content: center;
-    margin: auto;
+    margin: 56px auto 0;
 }
 
 .TMPa{
     width: 23.75rem;
     padding: 2.5rem 1.875rem;
+    border-radius: 15px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
 }
 
@@ -178,6 +261,18 @@
 
 }
 
+.TMPh{
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.005em;
+
+    color: #000000;
+}
+
 .TMPAbt{
     font-weight: 700;
     font-size: 3.5rem;
@@ -191,6 +286,17 @@
     border: 1px solid #000000;
 
 }
+.spnimg{
+    display: flex;
+    background-color: #4C03C3;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+
+}
+
 
 .TMRh{
     font-weight: 700;
@@ -243,4 +349,9 @@
     line-height: 1.19rem;
     color: #000000;
     opacity: 0.7;
+}
+.TMPAl{
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
 }
