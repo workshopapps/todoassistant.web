@@ -1,0 +1,74 @@
+@import "../../../../scss/variables";
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  border: 1px solid #d3d3d390;
+  box-shadow: rgba(113, 77, 217, 0.1) 0px 10px 50px;
+  // height: 2.52rem;
+  background-color: $white;
+  border-radius: 9px;
+  text-align: start;
+  gap: 0.28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.3rem 1.13rem;
+
+  .tag__title {
+    font-size: 12px;
+    font-weight: 700;
+    color: $black;
+  }
+
+  .tag__time {
+    font-size: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    .tag__icon_wrapper {
+      width: 0.6rem;
+      height: 0.6rem;
+
+      .tag__time_icon {
+        @include img_fluid;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tag {
+    height: 4.69rem;
+    border-radius: 16px;
+    gap: 0.5rem;
+
+    .tag__title {
+      font-size: 11.7px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: $black;
+    }
+
+    .tag__time {
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: $blackText;
+
+      .tag__icon_wrapper {
+        width: 1rem;
+        height: 1rem;
+
+        .tag__time_icon {
+          @include img_fluid;
+        }
+      }
+    }
+  }
+}

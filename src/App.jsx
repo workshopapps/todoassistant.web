@@ -38,21 +38,25 @@ import Login from "./components/Login/Login";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
-
+import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 function App() {
-
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
-        <Route path="/" element={user ? <LandingPage /> : <Navigate to="/signup" />} />
-        <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
-        <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/" />}
+        />
 
-      
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
@@ -65,41 +69,39 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-      { user && (
-        <>
-        <Route path="/dashboard" element={<Dasboard />}>
-          <Route path="" element={<Home />} />
-          <Route path="assistant" element={<ChatBox />} />
-          <Route path="task" element={<Task />}></Route>
-          <Route path="detail" element={<Detail />} />
-          <Route path="sub" element={<Sub />} />
-          <Route path="notification" element={<Notification />} />
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="payment" element={<Payment />} />
-          <Route path="profile" element={<VaProfile />} />
-        </Route>
+        {user && (
+          <>
+            <Route path="/dashboard" element={<Dasboard />}>
+              <Route path="" element={<Home />} />
+              <Route path="assistant" element={<ChatBox />} />
+              <Route path="task" element={<Task />}></Route>
+              <Route path="detail" element={<Detail />} />
+              <Route path="sub" element={<Sub />} />
+              <Route path="clients" element={<Client />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="payment" element={<Payment />} />
+              <Route path="profile" element={<VaProfile />} />
+            </Route>
 
-        <Route path="/virtualassistance" element={<VaDasboard />}>
-          <Route path="" element={<Home />} />
-          <Route path="clients" element={<Client />} />
-          <Route path="notifications" element={<Notifications />} />
-        </Route>
+            <Route path="/virtualassistance" element={<VaDasboard />}>
+              <Route path="" element={<Home />} />
+              <Route path="notifications" element={<Notifications />} />
+            </Route>
 
-        
-        <Route path="/account" element={<AccountPreferences />} />
-        <Route path="/pro" element={<ProPreferences />} />
-        <Route path="/account/edit" element={<PreferenceSettingEdit />} />
+            <Route path="/account" element={<AccountPreferences />} />
+            <Route path="/pro" element={<ProPreferences />} />
+            <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
+            <Route path="/newtask" element={<NewTask />} />
+            <Route path="/va1" element={<VaModal1 />} />
+            <Route path="/CheckM" element={<CheckM />} />
 
-        <Route path="/newtask" element={<NewTask />} />
-        <Route path="/va1" element={<VaModal1 />} />
-        <Route path="/CheckM" element={<CheckM />} />
-        
-
-        <Route path="/settings/profile" element={<SettingsProfile />} />
-        </>
-      )}
-        
+            <Route path="/settings/profile" element={<SettingsProfile />}>
+              <Route path="edit" element={<EditAccountPage />} />
+            </Route>
+          </>
+        )}
 
         {/* 404-error handler */}
         {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}

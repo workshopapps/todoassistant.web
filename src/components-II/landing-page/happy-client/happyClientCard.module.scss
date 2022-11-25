@@ -1,0 +1,74 @@
+@import "../../../scss/variables";
+
+// ===================
+// MIXINS
+// ===================
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: $blackText;
+}
+
+.happy_client_card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid lightgrey;
+  width: 276px;
+  height: 383px;
+  margin: 0 auto;
+  background-color: #fcfcff;
+  border-radius: 8px;
+  padding: 24px 25px;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.happy_client_card_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  overflow: hidden;
+
+  img {
+    @include img_fluid;
+  }
+}
+
+.happy_client_card_name {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 20px;
+}
+.happy_client_card_job {
+  color: $activeColor;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.happy_client_card_desc {
+  line-height: 180%;
+  color: rgba(137, 139, 148, 1);
+}
