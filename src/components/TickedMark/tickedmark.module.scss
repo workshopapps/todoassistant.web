@@ -1,0 +1,108 @@
+.TMhero, .TMwfy, .TMsup, .TMWsmart, .TMprice, .TMrev{
+    font-family: 'Open Sans';
+        font-style: normal;
+}
+
+
+
+
+
+
+
+
+.TMParray{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: auto;
+}
+
+.TMPa{
+    width: 23.75rem;
+    padding: 2.5rem 1.875rem;
+    border-radius: 15px;
+}
+
+#TMPap{
+    background: linear-gradient(106.75deg, #714DD9 0%, #5D21E6 100%);
+}
+.gstbtn {
+    color: #060C22;
+    background-color: #FFFFFF;
+    border-radius: 31rem;
+    width: 13.5rem;
+    height: 3.7rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 100%;
+
+
+}
+
+.TMPAbt{
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+}
+
+.gryline{
+    width: 19rem;
+    margin: 1.5rem auto 2.5rem;
+    opacity: 0.2;
+    border: 1px solid #000000;
+
+}
+
+.TMRh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 3.435rem;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+.TMRarr{
+    width: 75rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+    justify-content: center;
+    margin-top: 3.75rem;
+    margin-bottom: 17.5rem;
+}
+.TMRa{
+    width: 23.75rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.07);
+    border-radius: 1.25rem;
+    padding:2.375rem 2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.TMRAs{
+    margin-bottom: 2.4rem;
+    width: fit-content;
+}
+.TMRAf{
+    display: flex;
+    margin-top: 2rem;
+    gap: 1.25rem;
+}
+.TMRAh{
+    
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: #000000;
+}
+.TMRAfp{
+    
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.19rem;
+    color: #000000;
+    opacity: 0.7;
+}

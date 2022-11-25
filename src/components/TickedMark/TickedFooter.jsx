@@ -13,19 +13,31 @@ function TickedFooter() {
         We are here to help <br />
         you execute with ease
       </h1>
+      <br />
       <Link to="/signup">
         <button className={style.gstbtn}>Get started now</button>
       </Link>
+      <br />
       <Link to="/">
         <img src={flogo} alt="" />
       </Link>
 
       <div className={style.TMlinkarray}>
-        <Link to="/about">About Us</Link>
-        <Link to="/contact">Contact Us</Link>
-        <Link to="/faq">FAQ</Link>
-        <Link to="/career">Career</Link>
-        <Link to="policy">Privacy</Link>
+        <Link className={style.tmwtxt} to="/about">
+          About Us
+        </Link>
+        <Link className={style.tmwtxt} to="/contact">
+          Contact Us
+        </Link>
+        <Link className={style.tmwtxt} to="/faq">
+          FAQ
+        </Link>
+        <Link className={style.tmwtxt} to="/career">
+          Career
+        </Link>
+        <Link className={style.tmwtxt} to="policy">
+          Privacy
+        </Link>
       </div>
 
       <div className={style.TMsocial}>
