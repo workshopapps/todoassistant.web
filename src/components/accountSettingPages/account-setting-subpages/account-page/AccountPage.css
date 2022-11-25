@@ -1,0 +1,8 @@
+.accountpage{
+    background: #F6FAFB;
+    min-height: calc(100vh - 60px);
+    padding: 20px;
+}
+.mx1080{
+    max-width: 1080px;
+}
