@@ -8,7 +8,7 @@ import Header from "../../layout/header/Header";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
-
+import loginPic from "../../assets/loginPicture.svg";
 
 const Login = () => {
   const { state } = useLocation();
@@ -29,6 +29,10 @@ const Login = () => {
     <React.Fragment>
       <Header />
       <div className={styles.login__main}>
+        <div className={styles.loginImg}>
+            <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
+        </div>
+
         <div className={styles.login__formWrapper}>
           <h2 className={styles.login__title}>Login</h2>
 
