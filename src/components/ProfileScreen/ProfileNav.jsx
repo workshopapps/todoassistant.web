@@ -120,7 +120,6 @@ const ProfileNav = () => {
                     <p>Logout</p>
                </div>
             </div> : ''}
-            
 
         </div>
     );
