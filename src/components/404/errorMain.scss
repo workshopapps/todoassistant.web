@@ -1,18 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-}
-
 .error_main {
   background: #f6fafb;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: calc(100vh - 88px);
   gap: 2rem;
   padding: 8vh 8vw;
 }
