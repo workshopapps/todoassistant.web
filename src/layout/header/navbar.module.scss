@@ -1,17 +1,6 @@
 @import "../../scss/mixins";
 @import "../../scss/variables";
 
-a.active {
-  color: $activeColor !important;
-  border-bottom: 2px solid $activeColor !important;
-}
-
-a {
-  &:hover {
-    color: $activeColor !important;
-  }
-}
-
 .nav,
 .links,
 .cta {
@@ -32,6 +21,16 @@ a {
     flex-direction: column;
     @media (min-width: 992px) {
       flex-direction: row;
+    }
+    a.active {
+      color: $activeColor !important;
+      border-bottom: 2px solid $activeColor !important;
+    }
+
+    a {
+      &:hover {
+        color: $activeColor !important;
+      }
     }
     a {
       color: $blackText;
