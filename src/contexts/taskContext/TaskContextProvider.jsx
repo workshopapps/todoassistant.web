@@ -14,7 +14,7 @@ export const taskCtxDefaultValues = {
 export const TaskCtx = createContext(taskCtxDefaultValues);
 
 const TaskContextProvider = ({ children }) => {
-  const base_url = "http://api.ticked.hng.tech:2022/api/v1";
+  const base_url = "https://api.ticked.hng.tech/api/v1/";
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);

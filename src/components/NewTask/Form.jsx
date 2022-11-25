@@ -5,11 +5,14 @@ import styles from "../../core/todo/NewTask.module.scss";
 import Select from "react-select";
 import Modal from "./Modal";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+// import useTasksLoading from "../../hooks/tasks/useTasksLoading";
+// import { useContext } from "react";
+// import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 
 function Form({ value }) {
-  const navigate = useNavigate();
-  console.log(value);
+  // const { getTasks } = useContext(TaskCtx);
+  // const navigate = useNavigate();
   const [date1Input, setDate1Type] = useState("text");
   const [date2Input, setDate2Type] = useState("text");
   // const [timeInput, setTimeType] = useState("text");
@@ -54,14 +57,14 @@ function Form({ value }) {
     assistant: ""
   });
 
-  const baseurl = "http://api.ticked.hng.tech:2022/api/v1";
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImJvYkB0ZXN0MS5jb20iLCJJZCI6Ijk4ZTdlZGRkLWRlY2YtNDdkYi1iYTYxLTlmYmU5YTA2ZjBhOCIsImV4cCI6MTY2OTQyMjMwNn0.ztJiL-UwwbBZx2QI46BKYh1styEd-CmGYrhl3VRZEyw";
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
+  const token = JSON.parse(localStorage.getItem("user")).access_token;
+
   function handle(e) {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData);
+    // console.log(newData);
   }
   const handleSubmit = async e => {
     e.preventDefault();
@@ -80,9 +83,14 @@ function Form({ value }) {
         { headers: { Authorization: "Bearer " + token } }
       );
       console.log(res);
-      navigate("/dashboard");
+      setOpenModal(true);
+      // useTasksLoading();
+      // getTasks();
+
+      // navigate("/dashboard");
     } catch (error) {
       console.log(error);
+      alert("Invalid input Check and try again");
     }
 
     // setOpenModal(true);
@@ -90,7 +98,6 @@ function Form({ value }) {
 
   const handleEdit = e => {
     e.preventDefault();
-
   };
 
   return value === "edit" ? (
@@ -283,8 +290,8 @@ function Form({ value }) {
       <Modal
         title={data.title}
         description={data.description}
-        date={data.date}
-        time={data.time}
+        start={data.date1}
+        end={data.date2}
         repeat={data.repeat}
         assistant={data.assistant}
         open={openModal}
@@ -493,8 +500,8 @@ function Form({ value }) {
       <Modal
         title={data.title}
         description={data.description}
-        date={data.date}
-        time={data.time}
+        start={data.date1}
+        end={data.date2}
         repeat={data.repeat}
         assistant={data.assistant}
         open={openModal}
