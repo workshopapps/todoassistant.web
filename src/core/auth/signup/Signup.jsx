@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import mac from "../../../assets/macbook.svg";
+import signupPicture from "../../../assets/signup.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -17,6 +17,8 @@ const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
+  const gender = "Male";
+  const date_of_birth = "1990";
 
   const navigate = useNavigate();
 
@@ -35,6 +37,7 @@ const Signup = () => {
       setError(true);
     }
 
+
     //splitting the name into first_name and last_name
     if (fullName) {
       setFirstName(fullName.split(" ")[0]);
@@ -44,7 +47,7 @@ const Signup = () => {
     try {
       const response = await axios.post(
         "https://api.ticked.hng.tech/api/v1/user",
-        { first_name, last_name, email, phone, password }
+        { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
       navigate("/login", {
@@ -62,6 +65,8 @@ const Signup = () => {
     setPasswordShown(!passwordShown);
   };
 
+
+console.log(first_name, last_name, email, phone, password, gender, date_of_birth);
   /*Later, if you want to, you add/use the default validation by making the input fields and textarea "required". */
 
   return (
@@ -70,7 +75,7 @@ const Signup = () => {
 
       <div className={styles.signupContainer}>
         <div className={styles.signupImg}>
-          <img src={mac} alt="macbook" />
+          <img src={signupPicture} alt="signupPicture" />
         </div>
 
         <div className={styles.signupRight}>
