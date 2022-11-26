@@ -7,13 +7,12 @@ import messageIcon from "../../../assets/message-2.png";
 const TodoCard = ({ va, completed, handleChange, title, onClick }) => {
   const completedStyle = completed ? { color: "#D3D0D9" } : {};
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={styles.overlay}
-        onClick={() => {
-          onClick();
-        }}
-      ></div>
+    <div
+      className={styles.wrapper}
+      onClick={() => {
+        onClick();
+      }}
+    >
       <div className={styles.content}>
         <h4 style={completedStyle}>{title}</h4>
         <div className={styles.contentWrapper}>
