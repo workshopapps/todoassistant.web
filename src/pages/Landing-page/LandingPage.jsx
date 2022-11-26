@@ -22,15 +22,10 @@ const content = {
 
 const textImgContent = {
   title: `Get Motivated With Ticked`,
-  text: `Let us help you stay on track so that you don’t forget to complete any task before the due date or miss any deadline. If you are still not achieving all your scheduled tasks after setting them up on a regular To Do List, you procrastinate doing some of them or you don’t remember to get them done and you need a very effective To Do List App to enable you execute all your tasks and increase productivity then you need to sign up (CTA) to TICKED App right now, where you will have a Virtual Assistant assigned to you, who will call you to motivate you and make sure you execute your tasks.
+  text: `Let us help you stay on track so that you don’t forget to complete any task before the due date or miss any deadline. If you are still not achieving all your scheduled tasks after setting them up on a regular To Do List, you procrastinate doing some of them or you don’t remember to get them done and you need a very effective To Do List App to enable you execute all your tasks and increase productivity then you need to sign up to TICKED App right now, where you will have a Virtual Assistant assigned to you, who will call you to motivate you and make sure you execute your tasks.
 `,
   image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg`
 };
-// const textImgContent_noHeader = {
-//   text: `We understand you have a busy schedule with tasks and have set goals to achieve and so we have built this To Do List App for you to get your tasks delegated to a Virtual Assistant who will take the stress off your shoulders, get more tasks done for you while you stay focused. Here are a number of tasks you will need to assign to your Virtual Assistant; scheduling appointments and following up with clients and customers, making phone calls, making travel arrangements, calendar management, research, transcription, creating basic reports, managing email accounts and taking down minutes in meetings. Our Virtual Assistants also specialise in offering graphic design, blog writing, social media and marketing services.`,
-//   image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669359376/hng/todoAppVirtualAssistant/image_452_hkwws6.svg`,
-//   style: `layout`
-// };
 
 const LandingPage = () => {
   return (
@@ -44,7 +39,6 @@ const LandingPage = () => {
         <FocusOnTaskSection />
         <Feature />
         <WhyTicked />
-
         <HappyClient />
         <Download />
       </Layout>

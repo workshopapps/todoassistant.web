@@ -20,7 +20,7 @@
     line-height: 160%;
 }
 
-.thick-border{
+.thick_border{
      border-bottom:4px solid #714dd9;
      border-radius: 2px;
 }
@@ -37,6 +37,9 @@
     .mobile_nav{
         display: none;
     }
+    .heading{
+    background-color:transparent;
+    }
 
     .topBar_destp{
         display: flex;
@@ -49,7 +52,7 @@
         
     }
 
-    .thick-border{
+    .thick_border{
         padding-bottom: 1.125rem;
     }
 

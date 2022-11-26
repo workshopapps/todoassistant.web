@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
+// import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
+
+import Ticked from "./pages/Ticked/Ticked";
 
 import FAQ from "./pages/FAQ/FAQ";
 import {
@@ -53,7 +55,7 @@ function App() {
   const { user } = useContext(AuthContext);
 
   return (
-    <ErrorBoundary>
+    // <ErrorBoundary>
       <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -63,6 +65,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/marketing" element={<Ticked />} />
 
           <Route
             path="/signup"
@@ -123,7 +126,7 @@ function App() {
           <Route path="*" element={<ErrorMain />} />
         </Routes>
       </Suspense>
-    </ErrorBoundary>
+    // </ErrorBoundary>
   );
 }
 

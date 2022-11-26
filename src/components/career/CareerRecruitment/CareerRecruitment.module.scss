@@ -1,17 +1,24 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+h2 {
+  @include header-font;
+}
+
 .recruitContainer {
-  background: #F6FAFB;
   width: 100%;
 }
 
 .recruitment {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
 
   &__h2 {
     line-height: 160%;
     font-weight: 700;
-    font-size: 1.6875rem;
+    // font-size: 1.6875rem;
     color: #333333;
   }
 
@@ -20,9 +27,9 @@
     font-weight: 600;
     font-size: 1.125rem;
     padding: 1.5rem 0;
-    margin: 0 auto 1.875rem auto;
-    width: 65%;
-    text-align: left;
+    // margin: 0 auto 1.875rem auto;
+    // width: 65%;
+    text-align: center;
     color: #333333;
   }
 }
@@ -34,12 +41,13 @@
   margin: 0 auto;
 
   &__info {
-    border: 1px solid #707070;
+    // border: 1px solid #707070;
     padding: 1.25rem;
     border-radius: 0.625rem;
     margin: 0 auto;
     width: 80%;
-    background: #FFFFFF;
+    background: #ffffff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 
   &__img {
@@ -54,16 +62,14 @@
     line-height: 160%;
     color: #333333;
   }
-
 }
 
 // Small devices (landscape phones, 430px and up)
 
 @media screen and (min-width: 26.875rem) {
-
   .card {
     width: 90%;
-    
+
     &__info {
       width: 70%;
     }
@@ -73,7 +79,6 @@
 // Small devices (landscape phones, 576px and up)
 
 @media screen and (min-width: 36rem) {
-
   .card {
     width: 80%;
 
@@ -88,15 +93,15 @@
 @media screen and (min-width: 48rem) {
   .recruitment {
     &__h2 {
-      font-size: 3.25rem;
-      color: #060C22;
+      // font-size: 3.25rem;
+      color: #060c22;
     }
 
     &__p {
       font-weight: 700;
       font-size: 1.375rem;
       text-align: center;
-      color: #060C22;
+      color: #060c22;
     }
   }
 
@@ -109,7 +114,7 @@
     }
 
     &__p {
-      color: #060C22;
+      color: #060c22;
     }
   }
 }
@@ -121,7 +126,7 @@
     padding: 3.125rem 1rem;
 
     &__h2 {
-      font-size: 3.8125rem;
+      // font-size: 3.8125rem;
     }
 
     &__p {
@@ -147,7 +152,6 @@
 // X-Large devices (Large desktops, 1200px and up)
 
 @media screen and (min-width: 75rem) {
-
   .card {
     grid-template-columns: repeat(4, 1fr);
     width: 100%;

@@ -1,8 +1,5 @@
 .side_bar_wrapper{
-    position: fixed;
-    left: 0;
-    top: 0;
-    min-height: 100vh;
+    height: auto;
     // background-color: #fff;
     background: linear-gradient(118.85deg, #808080 -6.3%, rgba(128, 128, 128, 0.852756) -6.3%, rgba(128, 128, 128, 0.360016) -0.46%, rgba(128,128,128, 0) 98.73%);
     border-right:  1px solid #e9f3f5;
@@ -12,6 +9,7 @@
 
 .sidebar_logo{
     padding-left: 2.5rem;
+    padding-right: 5.10625rem;
 }
 
 .back__btn{

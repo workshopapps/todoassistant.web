@@ -1,17 +1,15 @@
 import { QandA } from "./static";
 import { contact } from "./static";
-import plus from "../../assets/add.svg";
-import minus from "../../assets/minus.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./FAQ.scss";
-import Header from "../../layout/header/Header";
-import Footer from "../../layout/footer/Footer";
+import Layout from "../../layout/Layout";
+import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
 const FAQ = () => {
   const [active, setActive] = useState(-1);
 
-  const Toggle = (index) => {
+  const Toggle = index => {
     if (index === active) {
       setActive(-1);
       return;
@@ -20,8 +18,7 @@ const FAQ = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <Layout>
       <header className="top">
         <div className="ls container_2">
           <h2 className="header-text">{contact.header}</h2>
@@ -36,9 +33,9 @@ const FAQ = () => {
                 <div className="question-toggle">
                   <div className="question">{qA.question}</div>
                   {active === key ? (
-                    <img src={minus} alt="" className="icon" />
+                    <CiCircleMinus className="icon_faq" size={`2rem`} />
                   ) : (
-                    <img src={plus} alt="" className="icon" />
+                    <CiCirclePlus className="icon_faq" size={`2rem`} />
                   )}
                 </div>
                 <span
@@ -57,8 +54,7 @@ const FAQ = () => {
           </Link>
         </div>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

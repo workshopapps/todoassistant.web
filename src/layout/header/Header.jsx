@@ -3,7 +3,6 @@ import Logo from "../../assets/logo.png";
 import styles from "./Header.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 
-
 // import hamburger from "../../assets/hamburger.png";
 
 import { GrClose } from "react-icons/gr";
@@ -57,11 +56,10 @@ const Header = () => {
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     dispatch(logout());
-
     navigate("/login");
-}
+  };
 
   const location = useLocation();
   const pathname = location.pathname;
@@ -70,11 +68,19 @@ const Header = () => {
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
-      <Link to="/login"> <button style={btnStyleOutline}>Login</button> </Link>
-      <Link to="/signup"> <button style={btnStyleOutline}>Signup</button> </Link>
+      <Link to="/login">
+        {" "}
+        <button style={btnStyleOutline}>Login</button>{" "}
+      </Link>
+      <Link to="/signup">
+        {" "}
+        <button style={btnStyleOutline}>Signup</button>{" "}
+      </Link>
     </>
   ) : (
-    <button style={logOutBtn} onClick={handleLogout}>Log out</button>
+    <button style={logOutBtn} onClick={handleLogout}>
+      Log out
+    </button>
   );
 
   return (

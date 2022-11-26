@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUsHero from "../hero/AboutUsHero";
+import AboutUsHero from "./AboutUsSectionTwoLayout";
 import styles from "./aboutSectiontwo.module.scss";
 
 const AboutSectionTwo = () => {
