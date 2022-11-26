@@ -102,6 +102,9 @@
 
   .howitworksBtn {
     text-align: left;
+    @media (min-width: 992px) {
+      margin-left: 4rem;
+    }
     p {
       font-weight: bold;
       margin-bottom: 1rem;
