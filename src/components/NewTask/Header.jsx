@@ -1,12 +1,12 @@
-import React from 'react'
-import styles from '../../core/todo/NewTask.module.scss'
+import React from "react";
+import styles from "../../core/todo/NewTask.module.scss";
 
-function Header() {
+function Header({ heading }) {
   return (
-      <header className={styles.newTaskHeader}>
-      <h2 className={ styles.newTaskTitle }>New Task</h2>
-      </header>
-  )
+    <header className={styles.newTaskHeader}>
+      <h2 className={styles.newTaskTitle}>{heading}</h2>
+    </header>
+  );
 }
 
-export default Header
+export default Header;

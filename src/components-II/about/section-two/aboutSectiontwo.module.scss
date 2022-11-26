@@ -1,0 +1,10 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.about {
+  @include container;
+  text-align: center;
+  h2 {
+    @include header-font;
+  }
+}
