@@ -1,17 +1,6 @@
 @import "../../scss/mixins";
 @import "../../scss/variables";
 
-a.active {
-  color: $activeColor !important;
-  border-bottom: 2px solid $activeColor !important;
-}
-
-a {
-  &:hover {
-    color: $activeColor !important;
-  }
-}
-
 .nav,
 .links,
 .cta {
@@ -33,6 +22,16 @@ a {
     @media (min-width: 992px) {
       flex-direction: row;
     }
+    a.active {
+      color: $activeColor !important;
+      border-bottom: 2px solid $activeColor !important;
+    }
+
+    a {
+      &:hover {
+        color: $activeColor !important;
+      }
+    }
     a {
       color: $blackText;
       line-height: 20px;
@@ -51,6 +50,21 @@ a {
   }
 }
 
+.ctaMobile {
+  width: 100%;
+  a {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+.logoutBtn {
+  @include button;
+  border: 1px solid red;
+  background: transparent;
+  color: red;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -59,6 +73,7 @@ a {
   height: 100vh;
   z-index: 100;
   border-right: 1px solid lightgray;
+  background-color: $white;
   transition: 1s all ease;
 
   .nav {

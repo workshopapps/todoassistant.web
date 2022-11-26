@@ -5,7 +5,8 @@ import signupPicture from "../../../assets/signup.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
-import Header from "../../../layout/header/Header";
+// import Header from "../../../layout/header/Header";
+import Navbar from "../../../layout/header/Navbar";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
@@ -37,7 +38,6 @@ const Signup = () => {
       setError(true);
     }
 
-
     //splitting the name into first_name and last_name
     if (fullName) {
       setFirstName(fullName.split(" ")[0]);
@@ -65,14 +65,21 @@ const Signup = () => {
     setPasswordShown(!passwordShown);
   };
 
-
-console.log(first_name, last_name, email, phone, password, gender, date_of_birth);
+  console.log(
+    first_name,
+    last_name,
+    email,
+    phone,
+    password,
+    gender,
+    date_of_birth
+  );
   /*Later, if you want to, you add/use the default validation by making the input fields and textarea "required". */
 
   return (
     <>
-      <Header />
-
+      {/* <Header /> */}
+      <Navbar />
       <div className={styles.signupContainer}>
         <div className={styles.signupImg}>
           <img src={signupPicture} alt="signupPicture" />

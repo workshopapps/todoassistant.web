@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components-II/button/ButtonComponent";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import Links from "./Links";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { logout } from "../../contexts/authContext/AuthActions";
 import style from "./navbar.module.scss";
 
 const btnStyleOutline = {
@@ -12,15 +13,15 @@ const btnStyleOutline = {
   color: "#714dd9"
 };
 
-const logOutBtn = {
-  border: "1px solid red",
-  background: "transparent",
-  color: "red"
-};
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
 
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
@@ -29,7 +30,10 @@ export default function Navbar() {
       <Button link="/signup" title="Sign up" />
     </>
   ) : (
-    <Button link="/" style={logOutBtn} title="Log out" />
+    // <Button style={logOutBtn} title="Log out" />
+    <button className={style.logoutBtn} onClick={handleLogout}>
+      Log out
+    </button>
   );
 
   const toggleSidebar = () => {
@@ -66,6 +70,25 @@ export default function Navbar() {
 }
 
 const NavDrawer = () => {
+  const navigate = useNavigate();
+  const { user, dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+  // CTA -- CALL TO ACTIION
+  const CTA = !user ? (
+    <>
+      <Button link="/login" style={btnStyleOutline} title="Login" />
+      <Button link="/signup" title="Sign up" />
+    </>
+  ) : (
+    // <Button style={logOutBtn} title="Log out" />
+    <button className={style.logoutBtn} onClick={handleLogout}>
+      Log out
+    </button>
+  );
   return (
     <nav className={style.sidebar}>
       <div className={style.nav}>
@@ -80,6 +103,7 @@ const NavDrawer = () => {
         {/* links */}
         <Links isMobile />
         {/* CTAs */}
+        <div className={style.ctaMobile}>{CTA}</div>
       </div>
     </nav>
   );
