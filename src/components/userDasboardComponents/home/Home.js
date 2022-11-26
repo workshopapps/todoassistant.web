@@ -1,5 +1,8 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {
+  // useContext,
+  useState
+} from "react";
+// import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
 import icon1 from "../../../assets/completion-rate-icon.png";
 import icon2 from "../../../assets/streak-icon.png";
@@ -7,41 +10,27 @@ import searchIcon from "../../../assets/search-normal.png";
 import downarrowIcon from "../../../assets/arrow-down.svg";
 import TodoCard from "./TodoCard";
 import Log from "./Log";
-// import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
-// import axios from "axios";
-import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
+import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
+// import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 export default function Home() {
-  if (localStorage.getItem("myTasks")) {
-    console.log("lsdjj");
-  } else {
-    localStorage.setItem("myTasks", "[]");
-  }
-  const tasks = JSON.parse(localStorage.getItem("myTasks"));
-  const navigate = useNavigate();
-  const { getClickedTask } = useContext(TaskCtx);
-  // useTasksLoading();
-  // const token = JSON.parse(localStorage.getItem("user")).access_token;
-  // axios
-  //   .get("https://api.ticked.hng.tech/api/v1/task", {
-  //     headers: { Authorization: "Bearer " + token }
-  //   })
-  //   .then(res => console.log(res));
-
-  // const dummy_todos = [
-  //   { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
-  //   { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
-  //   { va: false, completed: false, todoName: "Learn React", id: "3" },
-  //   { va: false, completed: false, todoName: "Learn Typescript", id: "4" },
-  //   { va: false, completed: false, todoName: "Learn Strapi", id: "5" },
-  //   { va: true, completed: false, todoName: "Learn Go", id: "6" },
-  //   { va: false, completed: true, todoName: "Learn Contex", id: "7" },
-  //   { va: false, completed: true, todoName: "Learn Api", id: "8" },
-  //   { va: false, completed: true, todoName: "Learn Redux", id: "9" },
-  //   { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
-  // ];
+  // const navigate = useNavigate();
+  // const {tasks} = useContext(TaskCtx);
+  useTasksLoading();
+  const dummy_todos = [
+    { va: true, completed: false, todoName: "Resolve frontend bugs", id: "1" },
+    { va: true, completed: true, todoName: "Learn NextJS", id: "2" },
+    { va: false, completed: false, todoName: "Learn React", id: "3" },
+    { va: false, completed: false, todoName: "Learn Typescript", id: "4" },
+    { va: false, completed: false, todoName: "Learn Strapi", id: "5" },
+    { va: true, completed: false, todoName: "Learn Go", id: "6" },
+    { va: false, completed: true, todoName: "Learn Contex", id: "7" },
+    { va: false, completed: true, todoName: "Learn Api", id: "8" },
+    { va: false, completed: true, todoName: "Learn Redux", id: "9" },
+    { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
+  ];
 
   const [completedDropdown, setCompletedDropdown] = useState(true);
-  const [myTodos, setMyTodos] = useState(tasks);
+  const [myTodos, setMyTodos] = useState(dummy_todos);
   const [filterTodos, setFilterTodos] = useState(myTodos);
   const [activeTab, setActiveTab] = useState({
     filter: "completed",
@@ -61,7 +50,7 @@ export default function Home() {
   const handleCheckbox = id => {
     const dummy = [...myTodos];
     dummy.map((i, index) => {
-      if (i.task_id === id) {
+      if (i.id === id) {
         dummy[index].completed = !dummy[index].completed;
       }
     });
@@ -70,7 +59,7 @@ export default function Home() {
 
   const handleSearch = e => {
     const searchData = myTodos.filter(i => {
-      return i.title.toLowerCase().includes(e.target.value.toLowerCase());
+      return i.todoName.toLowerCase().includes(e.target.value.toLowerCase());
     });
     if (e.target.value === "") {
       setFilterTodos(myTodos);
@@ -117,7 +106,7 @@ export default function Home() {
           <p
             style={mineActive.style}
             onClick={() => {
-              setActiveTab({ filter: "va_option", value: "none" });
+              setActiveTab({ filter: "va", value: false });
               setAllActive({
                 style: { color: "", borderBottom: "" }
               });
@@ -134,10 +123,7 @@ export default function Home() {
           <p
             style={assistantActive.style}
             onClick={() => {
-              setActiveTab({
-                filter: "va_option",
-                value: "Assign the task to assistant"
-              });
+              setActiveTab({ filter: "va", value: true });
               setAllActive({
                 style: { color: "", borderBottom: "" }
               });
@@ -156,18 +142,15 @@ export default function Home() {
           if (i[activeTab.filter] === activeTab.value && !i.completed) {
             return (
               <TodoCard
-                key={i.task_id}
+                key={i.id}
                 completed={i.completed}
-                title={i.title}
-                va={
-                  i.va_option === "Assign the task to assistant" ? true : false
-                }
+                title={i.todoName}
+                va={i.va}
                 handleChange={() => {
-                  handleCheckbox(i.task_id);
+                  handleCheckbox(i.id);
                 }}
                 onClick={() => {
-                  getClickedTask(i.task_id);
-                  navigate("/taskdetails");
+                  // navigate("/");
                 }}
               />
             );
@@ -187,14 +170,12 @@ export default function Home() {
             i.completed &&
             completedDropdown && (
               <TodoCard
-                key={i.task_id}
-                title={i.title}
-                va={
-                  i.va_option === "Assign the task to assistant" ? true : false
-                }
+                key={i.id}
+                title={i.todoName}
+                va={i.va}
                 completed={i.completed}
                 handleChange={() => {
-                  handleCheckbox(i.task_id);
+                  handleCheckbox(i.id);
                 }}
               />
             )

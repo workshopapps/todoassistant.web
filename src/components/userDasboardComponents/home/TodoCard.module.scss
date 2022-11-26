@@ -6,7 +6,6 @@
   justify-content: space-between;
   border-top: 1px solid #e9f3f5;
   border-bottom: 1px solid #e9f3f5;
-  position: relative;
 }
 
 .wrapper:hover {
@@ -28,14 +27,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 10px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
 }
 
 .content h4 {
@@ -77,10 +68,4 @@
   font-size: 12px;
   line-height: 100%;
   color: #707070;
-}
-
-.checkboxWrapper {
-  display: flex;
-  position: relative;
-  z-index: 2;
 }

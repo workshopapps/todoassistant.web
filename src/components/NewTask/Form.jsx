@@ -12,7 +12,7 @@ import axios from "axios";
 
 function Form({ value }) {
   if (localStorage.getItem("myTasks")) {
-    console.log("lsdjj");
+    console.log("lsdjj")
   } else {
     localStorage.setItem("myTasks", "[]");
   }
@@ -91,13 +91,12 @@ function Form({ value }) {
       );
 
       console.log(res);
-      res.data.completed = false;
-      console.log(res.data);
       const tasks = JSON.parse(localStorage.getItem("myTasks"));
       tasks.push(res.data);
       localStorage.setItem("myTasks", JSON.stringify(tasks));
 
       setOpenModal(true);
+
       // useTasksLoading();
       // getTasks();
 
