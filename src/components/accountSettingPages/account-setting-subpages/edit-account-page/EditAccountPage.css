@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
 .edit_account_page .personal_info_title{
     display: flex;
     align-items: center;
@@ -43,9 +45,14 @@
     border: 1px solid #D3D0D9;
     border-radius: 8px;
     outline: none;
-    
+    transition: .3s ease-out;
+    margin: 0;
 }
 .edit_account_page .personal_info_content .double_input .single_input input:focus{
+    border: 1px solid #714DD9;
+    box-shadow: 0 1px 2px rgb(16 24 40 / 5%), 0 0 0 4px #714DD938;
+}
+.edit_account_page .personal_info_content .double_input .single_input input:valid{
     border: 1px solid #714DD9;
 }
 .edit_account_page .personal_info_content .double_input .single_input input::placeholder{
@@ -53,8 +60,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
-    color: #D3D0D9;
-    
+    color: #D3D0D9; 
 }
 .edit_account_page .hideEye,
 .edit_account_page .hideEye2{
@@ -88,6 +94,21 @@ button.pref_btn{
     border: 1px solid #714DD9;
     cursor: pointer;
     margin: 0 0 53px;
+}
+.edit_account_page .personal_info_content .double_input .single_input p.error{
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.32px;
+    color: #DA1E28;
+    padding: 6px 0 0;
+}
+
+.edit_account_page .personal_info_content .double_input .single_input input.input_error{
+    border: 1px solid #fc8181;
+    box-shadow: 0 1px 2px rgb(16 24 40 / 5%), 0 0 0 4px #ffbfbf;
 }
 
 @media screen and (max-width: 1024px) {
