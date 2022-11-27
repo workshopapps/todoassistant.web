@@ -3,18 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./Payment.module.scss";
 import Modal from "./Modal/Modal";
 
-// import Modal from '../ui-components/Modal/Modal';
-// import { AnimatePresence, motion } from 'framer-motion';
-
-//assets import
 import debit from "../../assets/cardcard.svg";
 import paypal from "../../assets/empty-walletwallet.svg";
 import gPay from "../../assets/image 20gpay.svg";
 import others from "../../assets/add-circleothers.svg";
-
-//////////////////////////////////////////// //////////////////////////////////////////////////////////////
-////////////////////////////////////////////PAYMENT COMPONENT//////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Payment = () => {
   const [isActive, setIsActive] = useState({
