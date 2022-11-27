@@ -1,159 +1,88 @@
 .subscription {
-  background: #f6fafb;
-  border: "1px solid red !important";
+  h1 {
+    text-align: center;
+    color: #714dd9;
+    font-weight: normal;
+    margin-bottom: 3rem;
+  }
+  .cards {
+    display: flex;
+    h2 {
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+  }
 }
-.subscription .page {
-  margin: 0rem auto;
-}
-.subscription .page h2 {
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 160%;
-  color: #714dd9;
-}
-.subscription .payment_feature {
-  margin: 2.5rem auto 4.5rem;
-  // display: flex;
-  // justify-content: space-between;
-}
-.subscription .payment_feature h3 {
-  font-style: normal;
-  text-align: left;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 100%;
-  color: #333333;
-  margin: 0 0 0.75rem;
-}
-.subscription .payment_feature .cards {
 
+.card_wrapper {
   display: flex;
-  // justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 2.25rem;
-}
+  gap: 4rem;
+  margin-top: 1rem;
 
-.subscription .payment_feature .card {
-  position: relative;
-  width: 370px;
-  height: 536px;
-  background: #ffffff;
-  border: 1px solid #e9f3f5;
-  box-shadow: 0px 16px 40px rgba(255, 255, 255, 0.16);
-  padding: 20px 14px 27px;
-}
-.subscription .payment_feature .card h4 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 160%;
-  color: #333333;
-}
-.subscription .payment_feature .card p {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.6875rem;
-  line-height: 160%;
-  color: #714dd9;
-  margin: 0 0 22px;
-}
-.subscription .payment_feature .card ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 21px;
-}
-
-.subscription .payment_feature .card li {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 120%;
-  color: #333333;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.subscription .payment_feature .card .card_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.subscription .page button.sub_btn {
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 3rem;
-  padding: 13px 72px;
-  background: #714dd9;
-  border-radius: 8px;
-  border: 1px solid #714dd9;
-  outline: none;
-  color: white;
-  cursor: pointer;
-}
-
-.subscription .page button.btn {
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 72px;
-  background: #714dd9;
-  border-radius: 8px;
-  border: 1px solid #714dd9;
-  outline: none;
-  color: white;
-  cursor: pointer;
-  margin: 1rem;
-}
-.subscription .bottom_btn {
-  position: absolute;
-  bottom: 27px;
-}
-.subscription .subfooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.subscription .subfooter h3 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 100%;
-  color: #714dd9;
-}
-@media screen and (max-width: 1024px) {
-  .subscription .page h2 {
-    text-align: left;
-  }
-  .subscription .payment_feature {
-    margin: 1.625rem auto 4rem;
-  }
-  .subscription .payment_feature .cards {
-    gap: 1.375rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .subscription .subfooter {
-    padding: 0 0 3rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .subscription .payment_feature {
-    margin: 16px auto 40px;
-  }
-  .subscription .payment_feature .cards {
-    gap: 1rem;
-    justify-content: center;
-  }
-  .subscription .subfooter {
+  .card {
+    display: flex;
     flex-direction: column;
-    gap: 1.125rem;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem 1.5rem 1rem;
+    height: 28rem;
+    width: 20rem;
+    background-color: white;
+
+    .card_content {
+      p {
+        color: #714dd9;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
   }
-  .subscription .page .subfooter button.foot_btn {
-    width: 100%;
+}
+
+.card {
+  ul {
+    margin-top: 2rem;
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
   }
+}
+
+.sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+
+  p {
+    color: #714dd9;
+    cursor: pointer;
+    margin-right: 10rem;
+  }
+}
+
+.btn,
+.sub_btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #714dd9;
+  color: white;
+}
+
+.sub_btn {
+  padding: 0.8rem 2rem;
+  width: auto;
 }
