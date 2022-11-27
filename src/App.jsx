@@ -48,6 +48,7 @@ import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 function App() {
@@ -55,109 +56,108 @@ function App() {
 
   return (
     // <ErrorBoundary>
-      <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/policy" element={<PrivatePolicy />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/marketing" element={<Ticked />} />
+    <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/policy" element={<PrivatePolicy />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/marketing" element={<Ticked />} />
 
-          <Route
-            path="/signup"
-            element={!user ? <Signup /> : <Navigate to="/dashboard" />}
-          />
-          <Route
-            path="/login"
-            element={!user ? <Login /> : <Navigate to="/dashboard" />}
-          />
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+        />
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/dashboard" />}
+        />
 
-          
-          <Route path="/newpassword" element={<NewPassword />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/otp" element={<Otp />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/newpassword" element={<NewPassword />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
 
-          {user ? (
-            <>
-              <Route path="/dashboard" element={<Dasboard />}>
-                <Route path="" element={<Home />} />
-                <Route path="assistant" element={<ChatBox />} />
-                <Route path="task" element={<Task />}></Route>
-                <Route path="detail" element={<Detail />} />
-                <Route path="sub" element={<Sub />} />
-                <Route path="clients" element={<Client />} />
-                <Route path="notification" element={<Notification />} />
-                <Route path="notifications" element={<Notifications />} />
-                <Route path="payment" element={<Payment />} />
-                <Route path="profile" element={<VaProfile />} />
-              </Route>
+        {user ? (
+          <>
+            <Route path="/dashboard" element={<Dasboard />}>
+              <Route path="" element={<Home />} />
+              <Route path="assistant" element={<ChatBox />} />
+              <Route path="task" element={<Task />}></Route>
+              <Route path="detail" element={<Detail />} />
+              <Route path="sub" element={<Sub />} />
+              <Route path="clients" element={<Client />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="payment" element={<Payment />} />
+              <Route path="profile" element={<VaProfile />} />
+            </Route>
 
-              <Route path="/virtualassistance" element={<VaDasboard />}>
-                <Route path="" element={<Home />} />
-                <Route path="notifications" element={<Notifications />} />
-              </Route>
+            <Route path="/virtualassistance" element={<VaDasboard />}>
+              <Route path="" element={<Home />} />
+              <Route path="notifications" element={<Notifications />} />
+            </Route>
 
-              <Route path="/newtask" element={<NewTask />} />
-              <Route path="/edittask" element={<NewTask />} />
-              <Route path="/taskdetails" element={<TaskDetails />} />
-              <Route path="/va1" element={<VaModal1 />} />
-              <Route path="/CheckM" element={<CheckM />} />
-              <Route path="/settings/profile" element={<SettingsProfile />}>
-                <Route path="edit" element={<EditAccountPage />} />
-              </Route>
+            <Route path="/newtask" element={<NewTask />} />
+            <Route path="/edittask" element={<NewTask />} />
+            <Route path="/taskdetails" element={<TaskDetails />} />
+            <Route path="/va1" element={<VaModal1 />} />
+            <Route path="/CheckM" element={<CheckM />} />
+            <Route path="/settings/profile" element={<SettingsProfile />}>
+              <Route path="edit" element={<EditAccountPage />} />
+            </Route>
 
-              <Route path="/account" element={<AccountPreferences />} />
-              <Route path="/pro" element={<ProPreferences />} />
-              <Route path="/account/edit" element={<PreferenceSettingEdit />} />
+            <Route path="/account" element={<AccountPreferences />} />
+            <Route path="/pro" element={<ProPreferences />} />
+            <Route path="/account/edit" element={<PreferenceSettingEdit />} />
+          </>
+        ) : (
+          <>
+            <Route path="/dashboard" element={<Login />}>
+              <Route path="" element={<Login />} />
+              <Route path="assistant" element={<Login />} />
+              <Route path="task" element={<Login />}></Route>
+              <Route path="detail" element={<Login />} />
+              <Route path="sub" element={<Login />} />
+              <Route path="clients" element={<Login />} />
+              <Route path="notification" element={<Login />} />
+              <Route path="notifications" element={<Login />} />
+              <Route path="payment" element={<Login />} />
+              <Route path="profile" element={<Login />} />
+            </Route>
 
-              </>
-              ) : <>
-              <Route path="/dashboard" element={<Login />}>
-                <Route path="" element={<Login />} />
-                <Route path="assistant" element={<Login />} />
-                <Route path="task" element={<Login />}></Route>
-                <Route path="detail" element={<Login />} />
-                <Route path="sub" element={<Login />} />
-                <Route path="clients" element={<Login />} />
-                <Route path="notification" element={<Login />} />
-                <Route path="notifications" element={<Login />} />
-                <Route path="payment" element={<Login />} />
-                <Route path="profile" element={<Login />} />
-              </Route>
+            <Route path="/virtualassistance" element={<Login />}>
+              <Route path="" element={<Login />} />
+              <Route path="notifications" element={<Login />} />
+            </Route>
 
-              <Route path="/virtualassistance" element={<Login />}>
-                <Route path="" element={<Login />} />
-                <Route path="notifications" element={<Login />} />
-              </Route>
+            <Route path="/newtask" element={<Login />} />
+            <Route path="/edittask" element={<Login />} />
+            <Route path="/taskdetails" element={<Login />} />
+            <Route path="/va1" element={<Login />} />
+            <Route path="/CheckM" element={<Login />} />
+            <Route path="/settings/profile" element={<Login />}>
+              <Route path="edit" element={<Login />} />
+            </Route>
 
-              <Route path="/newtask" element={<Login />} />
-              <Route path="/edittask" element={<Login />} />
-              <Route path="/taskdetails" element={<Login />} />
-              <Route path="/va1" element={<Login />} />
-              <Route path="/CheckM" element={<Login />} />
-              <Route path="/settings/profile" element={<Login />}>
-                <Route path="edit" element={<Login />} />
-              </Route>
+            <Route path="/account" element={<Login />} />
+            <Route path="/pro" element={<Login />} />
+            <Route path="/account/edit" element={<Login />} />
+          </>
+        )}
 
-              <Route path="/account" element={<Login />} />
-              <Route path="/pro" element={<Login />} />
-              <Route path="/account/edit" element={<Login />} />
+        {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
 
-              </>}
-
-              {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
-            
-         {/* 404-error handler */}
-          {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
-          <Route path="*" element={<ErrorMain />} />
-        </Routes>
-      </Suspense>
+        {/* 404-error handler */}
+        {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
+        <Route path="*" element={<ErrorMain />} />
+      </Routes>
+    </Suspense>
     // </ErrorBoundary>
   );
 }

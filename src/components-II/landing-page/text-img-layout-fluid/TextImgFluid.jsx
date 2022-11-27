@@ -41,7 +41,7 @@ const TextImgFluid = () => {
             design, blog writing, social media and marketing services.
           </p>
           <div className={styles.btnWrapper}>
-            <Button style={btnStyleOutline} title={`Sign up today`} />
+            <Button link={`/signup`} style={btnStyleOutline} title={`Sign up today`} />
           </div>
         </div>
       </section>
