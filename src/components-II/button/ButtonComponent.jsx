@@ -12,7 +12,7 @@ const Button = ({ link, style, title }) => {
 };
 
 Button.defaultProps = {
-  
+  link: "/",
 };
 
 export default Button;
