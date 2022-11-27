@@ -4,33 +4,35 @@ import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
-import Header from "../../layout/header/Header";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
+import Navbar from "../../layout/header/Navbar";
 
 const Login = () => {
   const { state } = useLocation();
   const [email, setEmail] = useState(state ? state.registeredEmail.email : "");
-  const [password, setPassword] = useState(state ? state.registeredPassword.password : "");
+  const [password, setPassword] = useState(
+    state ? state.registeredPassword.password : ""
+  );
   const [show, setShow] = React.useState(false);
   const toggle = () => setShow(!show);
 
-  const {dispatch} = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
 
-  const handleLogin = (e) =>{
+  const handleLogin = e => {
     e.preventDefault();
-    
-    login({email, password}, dispatch);
-  }
+
+    login({ email, password }, dispatch);
+  };
 
   return (
     <React.Fragment>
-      <Header />
+      <Navbar />
       <div className={styles.login__main}>
         <div className={styles.loginImg}>
-            <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
+          <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
         </div>
 
         <div className={styles.login__formWrapper}>
@@ -44,8 +46,8 @@ const Login = () => {
                 className={styles.login__input}
                 placeholder="Enter email"
                 type="email"
-                value={email} 
-                onChange= {(e)=>setEmail(e.target.value)}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </div>
             <div className={styles.login__formItem}>
@@ -56,8 +58,8 @@ const Login = () => {
                   className={styles.login__password}
                   placeholder="Password"
                   type={show ? "text" : "password"}
-                  value={password} 
-                  onChange={(e)=>setPassword(e.target.value)}
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
                 />
                 <span>
                   <img
@@ -77,12 +79,12 @@ const Login = () => {
               </span>
             </div>
             <div className={styles.login__formItem}>
-                <button
-                  style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
-                  className={`${styles.login__submitBtn} hover`}
-                >
-                  Login
-                </button>
+              <button
+                style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
+                className={`${styles.login__submitBtn} hover`}
+              >
+                Login
+              </button>
             </div>
           </form>
           <div className={styles.login__bottomContent}>
@@ -113,5 +115,3 @@ const Login = () => {
 };
 
 export default Login;
-              
-              

@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
+// import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
 import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
+
+import Ticked from "./pages/Ticked/Ticked";
 
 import FAQ from "./pages/FAQ/FAQ";
 import {
@@ -40,7 +42,6 @@ import NewPassword from "./components/resetPassword and newPassword pages/NewPas
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
 import VaDasboard from "./components/vaDashboard/VaDasboard";
-import LoginPage from "./core/auth/login/LoginPage";
 import Login from "./components/Login/Login";
 
 import { useContext } from "react";
@@ -53,7 +54,7 @@ function App() {
   const { user } = useContext(AuthContext);
 
   return (
-    <ErrorBoundary>
+    // <ErrorBoundary>
       <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -63,17 +64,18 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/policy" element={<PrivatePolicy />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/marketing" element={<Ticked />} />
 
           <Route
             path="/signup"
-            element={!user ? <Signup /> : <Navigate to="/" />}
+            element={!user ? <Signup /> : <Navigate to="/dashboard" />}
           />
           <Route
             path="/login"
-            element={!user ? <Login /> : <Navigate to="/" />}
+            element={!user ? <Login /> : <Navigate to="/dashboard" />}
           />
 
-          <Route path="/login" element={<LoginPage />} />
+          
           <Route path="/newpassword" element={<NewPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/otp" element={<Otp />} />
@@ -81,7 +83,7 @@ function App() {
           <Route path="/newpassword" element={<NewPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
 
-          {user && (
+          {user ? (
             <>
               <Route path="/dashboard" element={<Dasboard />}>
                 <Route path="" element={<Home />} />
@@ -114,16 +116,49 @@ function App() {
               <Route path="/pro" element={<ProPreferences />} />
               <Route path="/account/edit" element={<PreferenceSettingEdit />} />
 
-              {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
-            </>
-          )}
+              </>
+              ) : <>
+              <Route path="/dashboard" element={<Login />}>
+                <Route path="" element={<Login />} />
+                <Route path="assistant" element={<Login />} />
+                <Route path="task" element={<Login />}></Route>
+                <Route path="detail" element={<Login />} />
+                <Route path="sub" element={<Login />} />
+                <Route path="clients" element={<Login />} />
+                <Route path="notification" element={<Login />} />
+                <Route path="notifications" element={<Login />} />
+                <Route path="payment" element={<Login />} />
+                <Route path="profile" element={<Login />} />
+              </Route>
 
-          {/* 404-error handler */}
+              <Route path="/virtualassistance" element={<Login />}>
+                <Route path="" element={<Login />} />
+                <Route path="notifications" element={<Login />} />
+              </Route>
+
+              <Route path="/newtask" element={<Login />} />
+              <Route path="/edittask" element={<Login />} />
+              <Route path="/taskdetails" element={<Login />} />
+              <Route path="/va1" element={<Login />} />
+              <Route path="/CheckM" element={<Login />} />
+              <Route path="/settings/profile" element={<Login />}>
+                <Route path="edit" element={<Login />} />
+              </Route>
+
+              <Route path="/account" element={<Login />} />
+              <Route path="/pro" element={<Login />} />
+              <Route path="/account/edit" element={<Login />} />
+
+              </>}
+
+              {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
+            
+         {/* 404-error handler */}
           {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
           <Route path="*" element={<ErrorMain />} />
         </Routes>
       </Suspense>
-    </ErrorBoundary>
+    // </ErrorBoundary>
   );
 }
 

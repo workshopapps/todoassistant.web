@@ -1,0 +1,410 @@
+.TMhero, .TMwfy, .TMsup, .TMWsmart, .TMprice, .TMrev{
+    font-family: 'Open Sans';
+        font-style: normal;
+}
+
+.TMhero{
+    text-align: center;
+    padding-top: 4.5rem;
+    background: rgb(123, 63, 225);
+    background: linear-gradient(160deg, rgb(123, 63, 225) 0%, rgb(123, 63, 225) 62%, rgb(255, 255, 255) 62%, rgb(255, 255, 255) 100%);
+}
+
+.TMHhtxt{
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height:  5rem;
+    text-align: center;
+    letter-spacing: -0.03em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin: 0 auto 1.875rem;
+}
+.TMHptxt{
+    font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-align: center;
+        letter-spacing: -0.02em;    
+        color: #FFFFFF;    
+        opacity: 0.8;
+        width: 36rem;
+        margin: auto;
+
+
+}
+.TMHemail{
+    align-content: center;
+    padding-left: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    width: 36rem;
+    background-color: #FFFFFF;
+    border-radius: 4.5rem;
+    margin: 2.5rem auto 3.75rem;
+
+}
+
+#TMHEm{
+    margin: 0px;
+    border: #FFFFFF;
+}
+
+.TMHEbtn{
+    background: linear-gradient(106.75deg, #6922FF 0%, #4C03C3 100%);
+    opacity: 0.8;
+    width: 16.5rem;
+    padding: 16px 30px;
+    border-radius: 2.625rem;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6rem;
+    color: #FFFFFF;
+
+}
+
+.TMwfy{
+    margin-top: 14rem;
+    margin-bottom: 12.75rem;
+    text-align: center;
+}
+.TMWh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: 0.005em;
+    text-transform: capitalize;
+    color: #000000;
+}
+.TMWarr{
+    margin-top: 3.125rem;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+.TMWa{
+
+    text-align: center;
+    padding: 3.375rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23.75rem;
+    height: 21.25rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+}
+.TMWi{
+    width: fit-content;
+    margin: 0 auto;
+}
+.TMWAh{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+
+    color: #000000;
+}
+
+
+.TMsup{
+    background: #F6FAFB;
+    display: flex;
+    flex-direction: row;
+}
+.TMSh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 3.5rem;
+
+    /* or 112% */
+    letter-spacing: -0.03em;
+
+    color: #000000;
+}
+
+.TMSHp {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    opacity: 0.8;
+}
+.TMStbx{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-top: 252px;
+    padding-left: 128px;
+    padding-bottom: 281px;
+
+}
+
+.TMSbtn{
+    padding: 15px 40px;
+    width: 215px;
+    height: 68px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(106.75deg, #834BFA 0%, #7038D4 100%);
+    border-radius: 40px;
+    margin: auto;
+}
+
+
+
+.TMWsmart{
+    padding: 120px;
+    background: linear-gradient(106.75deg, #8C49F4 0%, #7038D4 100%);
+
+}
+.TMWStop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TMWSo {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+}
+.TMWSor{
+    color: #F7941F;
+}
+
+.TMWSbody{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 5.6rem;
+}
+.TMWSarr{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.TWWtag{
+    display: flex;
+    width: 94.52px;
+    height: 94.52px;
+    background: #FFFFFF;
+    border-radius: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.TMWSp {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.TWWtxt{
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 32px;
+
+    /* identical to box height, or 70% */
+    letter-spacing: -0.02em;
+
+    color: #8344EA;
+    margin: auto;
+}
+.TWWSsh{
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+
+
+
+.TMprice{
+    margin-top: 190px;
+    margin-bottom: 290px;
+}
+
+.TMParray{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 56px auto 0;
+}
+
+.TMPa{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23.75rem;
+    padding: 2.5rem 1.875rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    
+}
+
+#TMPap{
+    background: linear-gradient(106.75deg, #714DD9 0%, #5D21E6 100%);
+}
+
+.TMAPw{
+    color: #FFFFFF;
+}
+#TMAPw {
+    color: #FFFFFF;
+}
+
+.gstbtn {
+    color: #060C22;
+    background-color: #FFFFFF;
+    border-radius: 31rem;
+    width: 13.5rem;
+    height: 3.7rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 100%;
+}
+.gstpbtn {
+    color:#5D21E6;
+    background-color: #FFFFFF;
+    border-radius: 31rem;
+    width: 13.5rem;
+    height: 3.7rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 100%;
+    margin: auto;
+}
+
+.TMPh{
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.005em;
+
+    color: #000000;
+}
+
+.TMPAbt{
+    color: #5D21E6;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+}
+
+
+
+.TMPSa{
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.gryline{
+    width: 19rem;
+    margin: 1.5rem auto 2.5rem;
+    opacity: 0.2;
+    border: 1px solid #000000;
+
+}
+.spnimg{
+    display: flex;
+    background-color: #4C03C3;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+.spnpimg {
+    display: flex;
+    background-color: #FFFFFF;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+
+.TMRh{
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: 3.435rem;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+.TMRarr{
+    width: 75rem;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+    justify-content: center;
+    margin-top: 3.75rem;
+    margin-bottom: 17.5rem;
+}
+.TMRa{
+    width: 23.75rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.07);
+    border-radius: 1.25rem;
+    padding:2.375rem 2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.TMRAs{
+    margin-bottom: 2.4rem;
+    width: fit-content;
+}
+.TMRAf{
+    display: flex;
+    margin-top: 2rem;
+    gap: 1.25rem;
+}
+.TMRAh{
+    
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: #000000;
+}
+.TMRAfp{
+    
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.19rem;
+    color: #000000;
+    opacity: 0.7;
+}
+.TMPAl{
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+}

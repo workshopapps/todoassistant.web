@@ -1,9 +1,8 @@
 // import React, { useState } from 'react'
-// import './App.scss';
 import style from './Va1.module.scss';
 import CloseButton from '../../assets/close-square.png';
 
-import MobileNav from './MobileNav';
+// import MobileNav from './MobileNav';
 
 
 
@@ -18,9 +17,9 @@ const VaModal = (props) => {
     // const fName = 'Michael';
 
   return (
-    <div className={style.body_modal}>
-        <main className={style.task_layout}>
-        <MobileNav />
+    <div>
+        <main className={style.body_modal}>
+        {/*<MobileNav />*/}
             {/* <button id='create_task' onClick={handleShow}>Create Task</button> */}
             {/* Modal Container */}
             <section className={style.va_main} {...props}>

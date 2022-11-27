@@ -6,6 +6,7 @@ export const taskCtxDefaultValues = {
   task: {},
   isLoading: false,
   getTasks: () => null,
+  getClickedTask: () => null,
   getTaskById: () => null,
   updateTask: () => null,
   deleteTask: () => null
@@ -39,6 +40,12 @@ const TaskContextProvider = ({ children }) => {
     [setTask]
   );
 
+  const getClickedTask = id => {
+    const tasks = JSON.parse(localStorage.getItem("myTasks"));
+    const singleTask = tasks.find(i => i.task_id === id);
+    setTask(singleTask);
+  };
+
   const updateTask = (id, body) => {
     setIsLoading(true);
     axios
@@ -65,7 +72,8 @@ const TaskContextProvider = ({ children }) => {
         getTasks,
         getTaskById,
         updateTask,
-        deleteTask
+        deleteTask,
+        getClickedTask
       }}
     >
       {children}

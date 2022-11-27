@@ -11,6 +11,12 @@ import axios from "axios";
 // import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 
 function Form({ value }) {
+  if (localStorage.getItem("myTasks")) {
+    console.log("lsdjj");
+  } else {
+    localStorage.setItem("myTasks", "[]");
+  }
+
   // const { getTasks } = useContext(TaskCtx);
   // const navigate = useNavigate();
   const [date1Input, setDate1Type] = useState("text");
@@ -66,10 +72,11 @@ function Form({ value }) {
     setData(newData);
     // console.log(newData);
   }
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post(
+      const res = await axios.post(
         `${baseurl}/task`,
         {
           title: data.title,
@@ -82,8 +89,16 @@ function Form({ value }) {
         },
         { headers: { Authorization: "Bearer " + token } }
       );
-      // console.log(res);
+
+      console.log(res);
+      res.data.completed = false;
+      console.log(res.data);
+      const tasks = JSON.parse(localStorage.getItem("myTasks"));
+      tasks.push(res.data);
+      localStorage.setItem("myTasks", JSON.stringify(tasks));
+
       setOpenModal(true);
+
       // useTasksLoading();
       // getTasks();
 

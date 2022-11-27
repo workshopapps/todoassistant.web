@@ -5,11 +5,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 /* Side Bar */
-
 .sidecon {
-    width: 20vw;
+    min-width: 20vw;
+    // width: 20vw;
     height: 100vh;
     background: #F6FAFB;
     position: fixed;
@@ -19,8 +18,9 @@ body {
 }
 
 .sidecon1 {
-    padding-top: 2.5rem;
-    padding-left: 2.5rem;
+    padding: 20px 0 0;
+    display: flex;
+    justify-content: center;
 }
 
 .logo {
@@ -49,7 +49,6 @@ body {
     font-size: 1rem;
     color: #714DD9;
 }
-
 
 @media (max-width: 575px) {
     .sidecon {
@@ -165,7 +164,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 40px;
+    padding: 0px 20px;
     // width: calc(100% - 250px);
     // margin-left: 250px;
     height: 64px;
@@ -188,8 +187,6 @@ body {
     font-size: 1.25rem;
     line-height: 100%;
     color: #333333;
-    padding-top: 1.375rem;
-    padding-bottom: 1.125rem;
 }
 
 .navborder {
@@ -345,8 +342,9 @@ a {
 
     .menu {
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        aspect-ratio: 1/1;
+        // height: 30px;
     }
     
     .navcon1 {
