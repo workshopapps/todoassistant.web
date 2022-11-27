@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import TinySlider from "tiny-slider-react";
 import "tiny-slider/dist/tiny-slider.css";
 import style from "./happyClient.module.scss";
-import { HiOutlineArrowSmRight, HiOutlineArrowSmLeft } from "react-icons/hi";
+
 import HappyClientCard from "./HappyClientCard";
+import Carousel from "../../../components/carousel/Carousel";
 
 const clients = [
   {
@@ -30,10 +29,10 @@ const clients = [
 ];
 
 const HappyClient = () => {
-  const ts = useRef(null);
-  const [slider, setSlider] = useState(null);
   const settings = {
+    autoplayButtonOutput: false,
     lazyload: true,
+    autoplay: true,
     nav: false,
     mouseDrag: true,
     controls: false,
@@ -45,10 +44,6 @@ const HappyClient = () => {
       }
     }
   };
-
-  useEffect(() => {
-    setSlider(ts.current.slider);
-  }, []);
 
   const clientTestimonial = clients.map((client, index) => {
     return (
@@ -63,27 +58,6 @@ const HappyClient = () => {
     );
   });
 
-  const handleNextButtonNav = () => {
-    slider.goTo("next");
-    // let info = slider.getInfo();
-    // let indexPrev = info.indexCached;
-    // let indexCurrent = info.index;
-
-    // // update style based on index
-    // info.slideItems[indexPrev].classList.remove("active");
-    // info.slideItems[indexCurrent].classList.add("active");
-  };
-  const handlePrevButtonNav = () => {
-    slider.goTo("prev");
-    // let info = slider.getInfo();
-    // let indexPrev = info.indexCached;
-    // let indexCurrent = info.index;
-
-    // update style based on index
-    // info.slideItems[indexPrev].classList.remove("active");
-    // info.slideItems[indexCurrent].classList.add("active");
-  };
-
   return (
     <div className={style.section__six}>
       <section className={style.container}>
@@ -97,17 +71,7 @@ const HappyClient = () => {
           </p>
         </header>
         <section className={style.section__six_grid}>
-          <TinySlider settings={settings} ref={ts}>
-            {clientTestimonial}
-          </TinySlider>
-          <div className={style.buttonNav}>
-            <button className="hover" onClick={handlePrevButtonNav}>
-              <HiOutlineArrowSmLeft size={`23px`} />
-            </button>
-            <button className="hover" onClick={handleNextButtonNav}>
-              <HiOutlineArrowSmRight size={`23px`} />
-            </button>
-          </div>
+          <Carousel settings={settings}>{clientTestimonial}</Carousel>
         </section>
       </section>
     </div>

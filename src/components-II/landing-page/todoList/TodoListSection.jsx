@@ -20,7 +20,7 @@ const TodoListSection = () => {
             get it done in a lively and exciting way.
           </p>
           <div className={styles.vr_header_buttons}>
-            <Button link={``} style={{ width: `184px` }} title={`Get Started`} />
+            <Button link={`/signup`} style={{ width: `184px` }} title={`Get Started`} />
             <Button link={``} style={btnStyleOutline} title={`Download App`} />
           </div>
         </div>

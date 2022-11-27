@@ -66,6 +66,7 @@
 }
 
 .sidebar {
+  border: 1px solid red;
   position: fixed;
   top: 0;
   left: 0;
@@ -80,7 +81,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5rem;
+    justify-content: space-between;
+    height: 100%;
+    // gap: 5rem;
 
     .links {
       align-items: stretch;
