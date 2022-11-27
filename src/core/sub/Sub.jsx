@@ -7,7 +7,7 @@ const Sub = () => {
     <div className={styles.subscription}>
       <h1>Choose a plan tailored to your needs.</h1>
       <div className="cards">
-        <h2>Complete features</h2>
+        <h3>Complete features</h3>
         <div className={styles.card_wrapper}>
           <div className={styles.card}>
             <div className={styles["card_content"]}>

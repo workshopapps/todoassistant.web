@@ -9,7 +9,7 @@
     display: flex;
     h2 {
       font-size: 1.2rem;
-      margin-bottom: 1rem;
+      margin: 1rem;
     }
   }
 }
@@ -20,6 +20,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 4rem;
+  margin-top: 1rem;
 
   .card {
     display: flex;
@@ -59,6 +60,14 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+
+  p {
+    color: #714dd9;
+    cursor: pointer;
+    margin-right: 10rem;
+  }
 }
 
 .btn,
@@ -75,4 +84,5 @@
 
 .sub_btn {
   padding: 0.8rem 2rem;
+  width: auto;
 }
