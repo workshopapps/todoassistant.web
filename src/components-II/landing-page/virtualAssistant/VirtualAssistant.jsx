@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from "react-icons/hi";
-import TinySlider from "tiny-slider-react";
+import Carousel from "../../../components/carousel/Carousel";
 import Button from "../../button/ButtonComponent";
 import Banner from "./Banner";
 
@@ -34,9 +32,6 @@ const assistants = [
 ];
 
 const VirtualAssistant = () => {
-  const ts = useRef(null);
-  const [slider, setSlider] = useState(null);
-
   const settings = {
     autoplayButtonOutput: false,
     lazyload: true,
@@ -53,16 +48,12 @@ const VirtualAssistant = () => {
     }
   };
 
-  useEffect(() => {
-    setSlider(ts.current.slider);
-  }, []);
-
   const AssistantsList = assistants.map((VA, index) => {
     return (
       <div key={index} style={{ position: "relative" }}>
         <div className={styles.imgWrapper}>
           <img
-            className={styles.img_box}
+            className={[styles.img_box].join(" ")}
             src={VA.profilePicture}
             alt="avatar"
           />
@@ -70,6 +61,7 @@ const VirtualAssistant = () => {
       </div>
     );
   });
+
   return (
     <section className={styles.vr}>
       <div className={styles.vr_header}>
@@ -85,19 +77,7 @@ const VirtualAssistant = () => {
         </p>
       </div>
 
-      <section className={styles.assistantSlide}>
-        <TinySlider settings={settings} ref={ts}>
-          {AssistantsList}
-        </TinySlider>
-        <div className={styles.buttonNav}>
-          <button className="hover" onClick={() => slider.goTo("prev")}>
-            <HiOutlineArrowSmLeft size={`23px`} />
-          </button>
-          <button className="hover" onClick={() => slider.goTo("next")}>
-            <HiOutlineArrowSmRight size={`23px`} />
-          </button>
-        </div>
-      </section>
+      <Carousel settings={settings}>{AssistantsList}</Carousel>
 
       <div className={styles.vr_header}>
         <h3>Virtual Assistant</h3>

@@ -1,0 +1,40 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.slide {
+  margin: 6.6rem 0;
+  .imgWrapper {
+    border: 1px solid red;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .buttonNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    @media (min-width: 992px) {
+      display: none;
+    }
+
+    button {
+      padding: 12px;
+      background-color: $activeColor;
+      border-radius: 8px;
+      border: 1px solid;
+      color: $white;
+      cursor: pointer;
+      transition: 0.2s all ease-in;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}
