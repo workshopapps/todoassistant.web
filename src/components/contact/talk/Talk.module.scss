@@ -4,7 +4,9 @@
 .contact__talk {
   text-align: center;
   font-style: normal;
-  @include container;
+  // @include container;
+  max-width: 80vw;
+  margin: 0 auto;
   margin-top: 6.25rem;
 
   h2 {
