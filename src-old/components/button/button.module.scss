@@ -1,0 +1,19 @@
+.button_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background: #714dd9;
+  border-radius: 8px;
+  border: none;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 160%;
+  color: #fafafa;
+  text-decoration: none;
+  width: 107px;
+  text-transform: uppercase;
+}

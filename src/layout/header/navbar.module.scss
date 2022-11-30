@@ -1,0 +1,96 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.nav,
+.links,
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  @include container;
+  padding: 20px 1rem;
+  .links,
+  .cta {
+    gap: 2rem;
+  }
+
+  .links {
+    flex-direction: column;
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+    a.active {
+      color: $activeColor !important;
+      border-bottom: 2px solid $activeColor !important;
+    }
+
+    a {
+      &:hover {
+        color: $activeColor !important;
+      }
+    }
+    a {
+      color: $blackText;
+      line-height: 20px;
+      font-weight: 500;
+      /* identical to box height */
+      letter-spacing: -0.204545px;
+    }
+  }
+}
+
+.navbarLink,
+.cta {
+  display: none;
+  @media (min-width: 992px) {
+    display: flex;
+  }
+}
+
+.ctaMobile {
+  width: 100%;
+  a {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+.logoutBtn {
+  @include button;
+  border: 1px solid red;
+  background: transparent;
+  color: red;
+}
+
+.sidebar {
+  border: 1px solid red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100vh;
+  z-index: 100;
+  border-right: 1px solid lightgray;
+  background-color: $white;
+  transition: 1s all ease;
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    // gap: 5rem;
+
+    .links {
+      align-items: stretch;
+      width: 100%;
+      a {
+        padding: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+.card {
+  max-width: 25rem;
+  text-align: center;
+  background: rgb(244, 249, 250);
+  padding: 3rem;
+  border-radius: 8px;
+  h3 {
+   margin: 1rem;
+  }
+}

@@ -1,0 +1,66 @@
+.view_account_page .personal_info_title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 24px;
+}
+.view_account_page .personal_info_title h2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color: #333333;
+}
+.view_account_page .personal_info_title a{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #714DD9;
+}
+.view_account_page .personal_info_content .double_input{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin: 0 0 2rem;
+}
+.view_account_page .personal_info_content .double_input:last-child{
+    margin: 0 0 40px;
+}
+.view_account_page .personal_info_content .double_input .single_input{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.view_account_page .personal_info_content .double_input .single_input label{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333333;
+    margin: 0 0 1rem;
+}
+.view_account_page .personal_info_content .double_input .single_input p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #333333;
+}
+@media screen and (max-width: 1024px) {
+    .view_account_page .personal_info_content .double_input {
+        flex-direction: column;
+        margin: 0 0 1rem;
+        gap: 16px;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+    .view_account_page .personal_info_title {
+        justify-content: space-between;
+    }
+    
+}

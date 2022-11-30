@@ -1,0 +1,31 @@
+.search_wrap {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e9f3f5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.613rem 0.5rem;
+  width: 18.5rem;
+  .search_icon {
+    color: #8a9ea8;
+    font-size: 1.4rem;
+  }
+  input {
+    border: none;
+    outline: none;
+    background-color: white;
+    margin-left: 0.5rem;
+    width: 80%;
+    &::placeholder {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+      color: #707070;
+    }
+  }
+}

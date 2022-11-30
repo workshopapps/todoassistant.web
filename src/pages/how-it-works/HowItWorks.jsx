@@ -1,6 +1,6 @@
 import React from "react";
-import Download from "../../components-II/landing-page/download/Download";
-import SectionThree from "../../components-II/landing-page/section-three/SectionThree";
+import Download from "../../components/landing-page/download/Download";
+import SectionThree from "../../components/landing-page/section-three/SectionThree";
 import Layout from "../../layout/Layout";
 
 const HowItWorks = () => {

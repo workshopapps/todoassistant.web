@@ -1,0 +1,62 @@
+@import "../../../scss/variables";
+
+// ===================
+// MIXINS
+// ===================
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: $blackText;
+}
+
+.whyticked {
+  margin: 10rem 0;
+}
+
+.section__four_title {
+  font-weight: 700;
+  line-height: 160%;
+  font-size: 24px;
+  margin-bottom: 62px;
+  text-align: center;
+  @media screen and (min-width: 992px) {
+    font-size: 48px;
+  }
+
+  .section__four_task {
+    color: $accentOrange;
+  }
+}
+.section__two_subtitle {
+  font-size: 1.13rem;
+  line-height: 180%;
+}
+
+.section__four_grid {
+  display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(443px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 42px;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
