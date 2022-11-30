@@ -18,8 +18,8 @@ const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
-  const gender = "Male";
-  const date_of_birth = "1990";
+  const [gender, setGender] = useState("");
+  const [date_of_birth, setDateofbirth] = useState("");
 
   const navigate = useNavigate();
 
@@ -151,6 +151,34 @@ const Signup = () => {
               ) : (
                 ""
               )}
+            </div>
+            <div className={styles.eachContainer}>
+              <label htmlFor="gender" className={styles.describer}>
+                Gender
+              </label>
+              <input
+                id="gender"
+                className="emailInput"
+                type="text"
+                placeholder="Enter male or female"
+                value={gender}
+                required
+                onChange={e => setGender(e.target.value)}
+              />
+            </div>
+            <div className={styles.eachContainer}>
+              <label htmlFor="date_of_birth" className={styles.describer}>
+                Date of birth
+              </label>
+              <input
+                id="date_of_birth"
+                className="emailInput"
+                type="date"
+                placeholder="Enter Date of birth"
+                value={date_of_birth}
+                required
+                onChange={e => setDateofbirth(e.target.value)}
+              />
             </div>
 
             <div className={styles.eachContainer}>

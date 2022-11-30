@@ -8,15 +8,15 @@ const assistants = [
   // {
   //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1661799624/portfolio/Screenshot_2022-08-29_195059_vuwyvz.png`
   // },
-  {
-    profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669422674/hng/todoAppVirtualAssistant/Ellipse_164_a4gc7d.png`
-  },
-  {
-    profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_161_dsawpm.png`
-  },
-  {
-    profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_158_k04pxx.png`
-  },
+  // {
+  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669422674/hng/todoAppVirtualAssistant/Ellipse_164_a4gc7d.png`
+  // },
+  // {
+  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_161_dsawpm.png`
+  // },
+  // {
+  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_158_k04pxx.png`
+  // },
   {
     profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_162_llvoex.png`
   },
@@ -43,7 +43,7 @@ const VirtualAssistant = () => {
     gutter: 15,
     responsive: {
       992: {
-        items: 7
+        items: 4
       }
     }
   };
@@ -76,7 +76,6 @@ const VirtualAssistant = () => {
           TICKED APP is the solution you seek with 24/7 support system.
         </p>
       </div>
-
       <Carousel settings={settings}>{AssistantsList}</Carousel>
 
       <div className={styles.vr_header}>
@@ -89,7 +88,11 @@ const VirtualAssistant = () => {
           time.
         </p>
         <div className={styles.vr_header_buttons}>
-          <Button link={`/signup`} style={{ width: `184px` }} title={`Get Started`} />
+          <Button
+            link={`/signup`}
+            style={{ width: `184px` }}
+            title={`Get Started`}
+          />
         </div>
       </div>
 

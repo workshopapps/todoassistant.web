@@ -32,6 +32,8 @@
   @media screen and (min-width: 992px) {
     margin: 0 0 5rem;
     flex-direction: row-reverse;
+    max-width: 80vw;
+    margin: 30px auto;
   }
   &_header {
     text-align: center;

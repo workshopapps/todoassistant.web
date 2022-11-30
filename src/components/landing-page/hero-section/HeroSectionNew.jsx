@@ -9,6 +9,7 @@ const HeroSectionNew = ({ content }) => {
       <section className={styles.container}>
         <div className={styles.header}>
           <h3>{content.title}</h3>
+          <h3 style={{ color:`#FDA758`}}>{content.title2}</h3>
           <p>{content.subTitle}</p>
         </div>
         <div className={styles.hero__btn_container}>

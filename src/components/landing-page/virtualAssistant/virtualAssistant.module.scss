@@ -2,11 +2,13 @@
 @import "../../../scss//mixins";
 
 .vr {
-  @include container-fluid;
+  // @include container-fluid;
+  width: 80vw;
+  margin: 0 auto;
   position: relative;
   &_header {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 50px auto;
     text-align: center;
 
     h3 {
