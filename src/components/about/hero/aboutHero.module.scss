@@ -11,6 +11,8 @@
   margin-bottom: 5rem;
   @media (min-width: 992px) {
     flex-direction: row;
+    max-width: 80vw;
+    margin: 0 auto;
   }
 
   .text {
