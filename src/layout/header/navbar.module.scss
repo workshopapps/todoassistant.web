@@ -10,8 +10,9 @@
 }
 
 .nav {
-  @include container;
   padding: 20px 1rem;
+  max-width: 80vw;
+  margin: 0 auto;
   .links,
   .cta {
     gap: 2rem;
@@ -77,16 +78,29 @@
   background-color: $white;
   transition: 1s all ease;
 
+  .backdrop {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
   .nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     height: 100%;
+    position: relative;
+    z-index: 2;
+    background-color: white;
     // gap: 5rem;
 
     .links {
-      align-items: stretch;
+      align-items: flex-start;
       width: 100%;
       a {
         padding: 1rem;

@@ -64,12 +64,12 @@ export default function Navbar() {
           size={`2rem`}
         />
       </div>
-      {open ? <NavDrawer /> : null}
+      {open ? <NavDrawer toggleSidebar={toggleSidebar} /> : null}
     </nav>
   );
 }
 
-const NavDrawer = () => {
+const NavDrawer = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
 
@@ -105,6 +105,7 @@ const NavDrawer = () => {
         {/* CTAs */}
         <div className={style.ctaMobile}>{CTA}</div>
       </div>
+      <div className={style.backdrop} onClick={toggleSidebar}></div>
     </nav>
   );
 };
