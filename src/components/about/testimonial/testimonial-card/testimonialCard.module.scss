@@ -5,10 +5,12 @@
   border: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
+  background-color: #fcfcff;
+  // justify-content: space-between;
   padding: 2rem;
   border-radius: 8px;
-  gap: 2rem;
+  gap: 1rem;
   .grid {
     width: 22.125rem;
     height: 14rem;
@@ -25,7 +27,9 @@
 
   .hstack {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .round {
@@ -38,7 +42,7 @@
     font-weight: 700;
     font-size: 1rem;
     color: #fff;
-    margin-right: 1rem;
+    margin-bottom: .5rem;
   }
 
   .hstacktext {
