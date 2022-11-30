@@ -1,0 +1,324 @@
+body {
+    overflow-x: hidden;
+}
+
+main.MuiContainer-root.css-798dxp-MuiContainer-root,
+main.MuiContainer-root.css-1wckgid-MuiContainer-root {
+    background-color: #f6fafb;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.button {
+    width: 170px;
+    background-color: #714dd9 !important;
+    padding: 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.payment__screen {
+    min-height: 100vh;
+    background-color: #f6fafb;
+
+    padding-left: 0rem;
+    display: flex;
+}
+
+.select__method {
+    width: 50%;
+    height: 76vh;
+    padding-right: 2.3rem;
+    border-right: 0.7px solid #714dd936;
+}
+
+.select__method h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 1.3rem;
+}
+
+.select__method p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 3.3rem;
+}
+.payment__choice {
+    padding: 0.8rem;
+    border: 1px solid #333;
+    margin-bottom: 2rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.payment__choice__left {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.payment__choice__right {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.active {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #714dd9;
+    border-radius: 50%;
+    visibility: none;
+    opacity: 0;
+    scale: 0;
+    transition: all 0.3s ease;
+}
+.active.isActive {
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+}
+
+.payment__form {
+    padding-left: 3.3rem;
+}
+
+.card__payment {
+    min-width: 404px;
+}
+.input___full {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
+.input___full input {
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #707070;
+    margin-bottom: 3.3rem;
+}
+.input___full label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.input___half {
+    display: flex;
+
+    gap: 3.3rem;
+    max-width: 90%;
+}
+
+.expiry,
+.cvv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.expiry input,
+.cvv input {
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #707070;
+    margin-bottom: 3.3rem;
+    max-width: 51%;
+}
+.expiry label,
+.cvv label,
+.input___pin label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+button.submit__button {
+    max-width: 100%;
+    width: 100%;
+    color: #fff;
+    border: none;
+    height: 58px;
+
+    margin-bottom: 2.3rem;
+}
+
+.input___pin {
+    display: flex;
+    gap: 1.5rem;
+}
+.input___pin input {
+    width: 4.3rem;
+    height: 3.7rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.input___pin input:focus,
+.expiry input:focus,
+.cvv input:focus,
+.input___full input:focus,
+.submit__button:focus {
+    outline: none;
+    border: 3px solid #714dd9;
+}
+.input___pin {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.3rem;
+    flex-direction: column;
+}
+.boxes {
+    display: flex;
+    gap: 2.2rem;
+    max-width: 90%;
+}
+
+@media screen and (max-width: 1080px) {
+    .input___full,
+    .boxes,
+    button.submit__button,
+    .input___half {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .input___full,
+    .boxes,
+    button.submit__button,
+    .input___half {
+        max-width: 92%;
+    }
+
+    .button_button_wrap__vytmx {
+        width: 92%;
+    }
+    .expiry,
+    .cvv {
+        width: 115px;
+    }
+    .expiry input,
+    .cvv input {
+        max-width: 82%;
+    }
+    .boxes {
+        max-width: 90%;
+    }
+    .input___pin input {
+        width: 3.3rem;
+        height: 4.3rem;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .select__method h2 {
+        font-size: 1.3rem;
+    }
+    .select__method p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 942px) {
+    .payment__screen {
+        flex-direction: column;
+        align-items: center;
+        gap: 3.3rem;
+    }
+    .select__method {
+        width: 90%;
+        height: 50%;
+
+        border-bottom: 0.7px solid #714dd936;
+        border-right: none;
+    }
+
+    .input___full,
+    .boxes,
+    button.submit__button,
+    .input___half {
+        max-width: 90%;
+    }
+
+    .payment__form {
+        padding-left: 3.3rem;
+        width: 100%;
+    }
+    .input___pin input {
+        width: 4.3rem;
+        height: 4.3rem;
+    }
+    .input___half {
+        gap: 4.3rem;
+    }
+
+    button.submit__button {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    div#root {
+        overflow-y: hidden;
+    }
+    .payment__screen {
+        margin: 0;
+        position: relative;
+    }
+    .card__payment {
+        min-width: auto;
+    }
+    .payment__screen {
+        padding-left: 0rem;
+    }
+    .boxes {
+        gap: 0rem;
+        max-width: 90%;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .input___half {
+        justify-content: space-between;
+        gap: 0;
+    }
+}
+@media screen and (max-width: 440px) {
+    .input___pin input {
+        width: 3.3rem;
+        height: 3.5rem;
+    }
+    .select__method {
+        padding-right: 0rem;
+    }
+    .payment__form {
+        padding-left: 0rem;
+    }
+    .input___full,
+    .boxes,
+    button.submit__button,
+    .input___half {
+        max-width: 100%;
+    }
+    .button_button_wrap__vytmx {
+        width: 100%;
+    }
+    .input___half {
+        justify-content: flex-start;
+    }
+}

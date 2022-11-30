@@ -1,0 +1,75 @@
+
+@media screen and (min-width:768px) {
+    .desktopMarginRight{
+        margin-right:'2rem' 
+    }
+   
+    
+}
+  .dot {
+     height: 25px;
+     width: 25px;
+    background-color: #bbb;
+     border-radius: 50%;
+     display: inline-block;
+    } 
+
+
+    .circularDiv{
+        border-radius: 50%;
+        color: white;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 7px;
+    }
+
+    .d_flex{
+        display: flex;
+    }
+
+    .justify_between{
+        justify-content: space-between;
+    }
+    .small_margin{
+        margin-top: 0.2rem;
+    }
+
+    .d_block{
+        display: block;
+    }
+
+    .time{
+        align-self: center;
+    }
+
+    .item_padding{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .item_margin{
+        margin: 1rem;
+    }
+
+    .dot5_margin_top{
+        margin-top: 0.5rem;
+    }
+
+    .grey_background{
+        background-color: #E9F3F5;
+    }
+
+    .white_background{
+        background-color: white;
+    }
+    .grey_border{
+        border: 1px solid #E9F3F5;
+    }
+    .border_radius{
+        border-radius: 0.5rem;
+    }

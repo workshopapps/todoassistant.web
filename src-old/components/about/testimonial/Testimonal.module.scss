@@ -1,0 +1,39 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.section {
+  margin: 5rem 0 10rem;
+  .valueCard {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+  }
+  .sayBox {
+    @include container;
+
+    h2 {
+      @include header-font;
+      margin-bottom: 3rem;
+    }
+
+    .gridBox {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 2rem;
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: 992px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}

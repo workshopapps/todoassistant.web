@@ -1,0 +1,46 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-open-sans !important;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: $black !important;
+  background: #fff !important;
+}
+
+.hover {
+  transition: 0.3s ease;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px #714dd950;
+    color: #fff;
+  }
+}
+
+.grow {
+  transition: 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.menu {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+.icon {
+  padding: 1rem;
+  border-radius: 100%;
+  background-color: $activeColor;
+  color: $white;
+}
+
+.shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

@@ -1,17 +1,17 @@
 import React from "react";
-import FocusOnTaskSection from "../../components-II/landing-page/section-two/Task";
+import FocusOnTaskSection from "../../components/landing-page/section-two/Task";
 
-import HappyClient from "../../components-II/landing-page/happy-client/HappyClient";
-import TodoListSection from "../../components-II/landing-page/todoList/TodoListSection";
-import Download from "../../components-II/landing-page/download/Download";
+import HappyClient from "../../components/landing-page/happy-client/HappyClient";
+import TodoListSection from "../../components/landing-page/todoList/TodoListSection";
+import Download from "../../components/landing-page/download/Download";
 
 import Layout from "../../layout/Layout";
-import VirtualAssistant from "../../components-II/landing-page/virtualAssistant/VirtualAssistant";
-import TextImageLayout from "../../components-II/landing-page/text-image-layout/TestImageLayout";
-import TextImgFluid from "../../components-II/landing-page/text-img-layout-fluid/TextImgFluid";
-import HeroSectionNew from "../../components-II/landing-page/hero-section/HeroSectionNew";
-import Feature from "../../components-II/landing-page/feature/Feature";
-import WhyTicked from "../../components-II/landing-page/why-ticked/WhyTicked";
+import VirtualAssistant from "../../components/landing-page/virtualAssistant/VirtualAssistant";
+import TextImageLayout from "../../components/landing-page/text-image-layout/TestImageLayout";
+import TextImgFluid from "../../components/landing-page/text-img-layout-fluid/TextImgFluid";
+import HeroSectionNew from "../../components/landing-page/hero-section/HeroSectionNew";
+import Feature from "../../components/landing-page/feature/Feature";
+import WhyTicked from "../../components/landing-page/why-ticked/WhyTicked";
 
 const content = {
   title: `Execute Your Tasks With The Support Of An Assistant.`,

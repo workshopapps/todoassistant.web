@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../../components-II/button/ButtonComponent";
+import Button from "../../components/button/ButtonComponent";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import Links from "./Links";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";

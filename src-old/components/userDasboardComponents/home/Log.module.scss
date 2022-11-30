@@ -1,0 +1,54 @@
+.wrapper {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.taskWrapper .action {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+}
+.taskWrapper .dash {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+  margin: 0px 2px;
+}
+.taskWrapper .taskName {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #714dd9;
+}
+.wrapper .time {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #333333;
+}
+
+.taskWrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1255px) {
+  .taskWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dash {
+    display: none;
+  }
+}

@@ -1,0 +1,225 @@
+/* body {
+  overflow: hidden;
+} */
+
+.page {
+  display: flex;
+  cursor: default;
+  --py: 1.5rem;
+  --px: 1.5rem;
+  background-color: #F6FAFB;
+  color: #2B363B;
+}
+
+.side {
+  padding-right: 3px;
+  background-color: white;
+  padding-top: var(--py);
+  padding-bottom: var(--py);
+}
+
+.sideTop {
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  background-color: #F6FAFB;
+  color: #333333;
+  height: 100vh;
+  padding: var(--py) var(--px);
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.search {
+  padding: .8rem .5rem .8rem 2.5rem;
+  border-radius: 4px;
+  margin-bottom: 2.5rem;
+  border: 1px solid #8A9EA8;
+  width: 100%;
+}
+
+.chatList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chatList > * {
+  background-color: #F6FAFB;
+}
+
+.chatList > *:first-child {
+  background-color: #714DD9;
+  color: white;
+}
+
+.chatList > *:first-child * {
+  color: inherit;
+}
+
+.chatListName {
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+
+.listItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem var(--px);
+}
+
+.chatListTimestamp {
+  font-weight: 300;
+  color: #2B363B;
+  font-size: 12px;
+}
+
+.checkIcon {
+  margin-right: .5rem;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem; top: 1rem;
+}
+
+.chatListImage {
+  width: 4rem; height: 4rem;
+  object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatListEnd {
+  margin-left: auto;
+}
+
+.chatListMessage {
+  white-space: nowrap;
+}
+
+.mainHeader {
+  display: flex; 
+  padding: .7rem 0;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 3px solid #E9F3F5;
+}
+
+.dp {
+  height: 5rem; width: 5rem;
+  object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.phoneIcon {
+  display: grid; 
+  place-items: center;
+  margin-left: auto;
+  background-color: white;
+  padding: .5rem;
+  border-radius: 50%;
+}
+
+.status {
+  color: #714DD9;
+  font-size: 12px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.date {
+  margin: 1rem auto;
+  position: absolute;
+  background-color: #E2E7E9;
+  border-radius: 1.5rem;
+  padding: .5rem 1rem;
+  width: fit-content;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.sentMessage {
+  background-color: #714DD9;
+  border-radius: 5px 5px 0 5px;
+  color: white;
+  max-width: 452px;
+  width: fit-content;
+  margin-left: auto;
+  padding: 1rem; 
+  display: flex; 
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 14px;
+}
+.sentMessage > * {
+  color: inherit;
+}
+
+.recievedMessage {
+  background-color: white;
+  max-width: 452px;
+  width: fit-content;
+  border-radius: 5px 5px 0 5px;
+  border: 1px solid #E9F3F5;
+  padding: 1rem;
+  display: flex; 
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 14px;
+}
+
+.messagesContainer {
+  position: relative;
+  display: flex; 
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.timestamp {
+  font-size: 12px;
+}
+
+.messageBox {
+  position: absolute;
+  width: 80%;
+  padding: 2rem;
+  bottom: 0;
+  border-radius: .5rem;
+  border: 1px solid #D3D0D9;
+}
+
+.cancelIcon {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+.micIcon {
+  position: absolute;
+  right: 1rem;
+}
+
+.messageBoxContainer {
+  width: fit-content;
+}

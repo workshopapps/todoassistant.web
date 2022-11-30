@@ -1,0 +1,11 @@
+:local(.psf) {
+  // display: flex;
+  // flex-direction: row;
+  display: grid;
+  grid-template-columns: 20vw auto;
+}
+:local(.preference) {
+  background-color: #f6fafb;
+  display: flex;
+  flex-direction: column;
+}

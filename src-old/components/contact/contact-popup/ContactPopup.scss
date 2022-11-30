@@ -1,0 +1,72 @@
+.contact__popup{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    width: 300px;
+    font-family: 'Open Sans';
+    font-style: normal;
+z-index: 1;
+    .head{
+        background: #714DD9;
+        padding: 10px 10px 20px;
+        color: #fff;
+        
+        p{
+            color: #fff;
+        }
+    }
+
+    form{
+        background: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        div{
+            width: 100%;
+        }
+        label{
+            display: block;
+            font-weight: 700;
+            font-size: 11px;
+            color: #707070;
+            margin-bottom: 5px;
+        }
+        input, textarea{
+            width: 100%;
+            border: 1px solid #707070;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input:focus{
+            outline: 1px solid #714DD9;
+        }
+        textarea{
+            resize: none;
+            height: 150px;
+        }
+        textarea:focus{
+            outline: 1px solid #714DD9;
+        }
+        button{
+            font-weight: 600;
+            font-size: 14px;
+            color: #FAFAFA;
+            background: #714DD9;
+            border-radius: 8px;
+            padding: 13px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        width: 70vw;
+        right: 5%;
+    }
+}

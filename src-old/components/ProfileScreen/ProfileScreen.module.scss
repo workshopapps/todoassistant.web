@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    background: #F6FAFB;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+.container {
+    background: #F6FAFB;
+    width: 100%;
+    height: 100vh;
+    padding-top: 30px;
+    padding-left: 290px;
+}
+
+.h1text {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: #714DD9;
+    padding-bottom: 1rem;
+}
+
+.fcon {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.avatar {
+    display: block;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), #714DD9;
+}
+
+.avatar h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.2rem;
+    line-height: 160%;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    top: 0.4rem;
+}
+
+.camcon {
+    width: 40px;
+    height: 40px;
+    background: #D3D0D9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -1.2rem;
+    left: 4.8rem;
+}
+
+.imgcam {
+    width: 24px;
+    height: 24px;
+}
+
+.innercon1 {
+    padding-left: 1.5rem;
+}
+
+.innercon1 h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: #333333;
+    padding-bottom: 1rem;
+}
+
+.innercon1 p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.innercon2 {
+    padding-top: 2rem;
+}
+
+.innercon2 h1 {
+    display: inline-block;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: #333333;
+    padding-right: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1.5rem;
+}
+
+.innercon2 a {
+    text-decoration: none;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 120%;
+    text-decoration-line: underline;
+    color: #714DD9;
+}
+
+.innercon3 {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12.5rem;
+}
+
+.innercon3 h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.25rem; 
+    color: #333333;
+    padding-bottom: 1rem;
+}
+
+.innercon3 p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 120%;
+    color: #333333;
+    width: 15.0625rem;
+    padding-bottom: 2rem;
+}
+
+.h12text {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: #333333;
+    padding-top: 0.5rem;
+    padding-bottom: 1.25rem;
+}
+
+.innercon4 {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1.8rem;
+}
+
+.innercon4 h3 {
+    padding-left: 0.5rem;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #333333;
+}
+
+.innercon5 {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imgwin {
+    width: 64px;
+    height: 64px;
+}
+
+.innercon5a {
+    padding-left: 1rem;
+    padding-right: 9rem;
+}
+
+.innercon5a h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.25rem;
+    color: #333333;
+    position: relative;
+    top: 0.2rem;
+    padding-bottom: 0.8rem;
+}
+
+.innercon5a p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.innercon5b {
+    padding: 0.875rem;
+    height: 2.4rem;
+    background: #D9CDFB;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innercon5b p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2D224E;
+}
+
+.innercon6 {
+    display: none;
+}
+
+/* Profile Screen 2*/
+
+.innercon7 {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    left: 1rem;
+}
+
+.imgmob {
+    width: 36px;
+    height: 44px;
+}
+
+.innercon7a {
+    padding-left: 1.75rem;
+    padding-right: 9rem;
+}
+
+.innercon7a h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #333333;
+    position: relative;
+    top: 0.5rem;
+}
+
+.innercon7a p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #333333;
+}
+
+.innercon7b {
+    /* padding: 0.5rem 0.875rem;
+    width: 6rem;
+    height: 1.5rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 14px;
+    gap: 8px;  
+    width: 83px;
+    height: 32px;
+    border: 1px solid #FF4D4F;
+    border-radius: 0.5rem;
+}
+
+.innercon7b p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 160%;
+    color: #FF4D4F;
+    width: 83px;
+    text-align: center;
+}
+
+
+.innercon8 {
+   display: none;
+}
+
+.innercon8p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #FF4D4F;
+    padding-bottom: 1rem;
+}
+
+/* Mobile Screen */
+
+@media (max-width: 575px) {
+    .container {
+        width: 100%;
+        margin-left: 0px;
+        padding: 20px 20px 20px 20px;
+    }  
+    
+    .avatar {
+        display: block;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .avatar h1 {
+        font-size: 2.5rem;
+        line-height: 160%;
+        position: relative;
+        top: 0.5rem;
+    }
+
+    .innercon1 h1 {
+        position: relative;
+        top: 0.25rem;
+        font-size: 1.3rem;
+    }
+
+    .innercon1 p {
+        font-size: 1rem;
+    }
+
+    .innercon2 a {
+        font-size: 1rem;
+    }
+
+    .innercon2 h1 {
+        line-height: 100%;
+        padding-right: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .h12text {
+        font-size: 1.3rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .innercon3 {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0rem;
+    }
+
+    .innercon3 p {
+        color: #707070;
+    }
+
+    .innercon4 {
+        position: relative;
+        left: 0.12rem;
+    }
+
+    .innercon4 h3 {
+        padding-left: 0.25rem;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 120%;
+    }
+
+    .imgmob2 {
+        width: 28px;
+        height: 32px;
+        position: relative;
+        top: 0.4rem;
+    }
+
+    .innercon5 {
+        display: none;
+    }
+
+    .innercon6 {
+        display: block;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .innercon6a {
+        padding-left: 0.875rem;
+        padding-right: 1.28125rem;
+    }
+
+    .innercon6a h1 {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: #333333;
+        padding-bottom: 0.3rem;
+    }
+    
+    .innercon6a p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 140%;
+        color: #333333;
+    }
+    
+    .innercon6b {
+        width: 74px;
+        height: 28px;
+        background: #D9CDFB;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 1rem;
+    }
+    
+    .innercon6b p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.6875rem;
+        line-height: 100%;
+        color: #2D224E;
+        width: 74px;
+        text-align: center;
+    }
+
+    .imgcam {
+        width: 15.6px;
+        height: 15.6px;
+    }
+
+    .camcon {
+        width: 26px;
+        height: 26px;
+        background: #D3D0D9;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -0.4rem;
+        left: 3rem;
+    }
+    
+    
+    
+}
+
+/* Mobile Screen 2*/
+
+@media (max-width: 575px) {
+   .innercon7 {
+    display: none;
+   }
+
+   .innercon8 {
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    top: -1.5rem;
+}
+
+.innercon8a {
+    padding-left: 0.875rem;
+    padding-right: 1.28125rem;
+
+}
+
+.innercon8a h1 {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #333333;
+    position: relative;
+    top: -0.25rem;
+}
+
+.innercon8a p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 140%;
+    color: #333333;
+    position: relative;
+    top: -0.5rem;
+}
+
+.innercon8b {
+    width: 74px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;  
+    border: 1px solid #FF4D4F;
+    border-radius: 0.5rem;
+}
+
+.innercon8b p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.6875rem;
+    line-height: 100%;
+    color: #FF4D4F;
+    width: 74px;
+    text-align: center;
+}
+
+.imgwin2 {
+    width: 46px;
+    height: 46px;
+    position: relative;
+    top: -0.625rem;
+}
+
+.innercon8p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #FF4D4F;
+    padding-bottom: 1rem;
+    position: relative;
+    top: -2.5rem;
+}
+   
+}

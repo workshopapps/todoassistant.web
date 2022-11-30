@@ -1,0 +1,148 @@
+:local(.prefbody) {
+  font-family: "Open Sans", sans-serif;
+  padding: 2.5rem 9.375rem 19.5rem 2.5rem;
+
+  width: fit-content;
+}
+
+:local(.preferenceform) {
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+}
+
+:local(#prefsubbtn) {
+  background-color: #714dd9;
+  border-radius: 8px;
+  border-color: #714dd9;
+  color: #ffffff;
+  width: 17.5rem;
+  height: 3rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+:local(.prefsubbtn:hover) {
+  background-color: #5a40a8;
+}
+
+:local(.select) {
+  font-family: "Open Sans", sans-serif;
+  padding: 1rem;
+  width: 25rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0.594rem;
+}
+
+:local(.time) {
+  font-family: "Open Sans", sans-serif;
+  padding: 1rem;
+  width: 22rem;
+  height: 2rem;
+  background: #ffffff;
+  border: 1px solid #707070;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0.594rem;
+}
+
+:local(.p) {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 180%;
+  color: #714dd9;
+}
+
+:local(.prefform) {
+  display: flex;
+  flex-direction: column;
+}
+
+:local(.prefformhead) {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 2.5rem;
+  color: #333333;
+}
+
+:local(.prefformarray) {
+  display: flex;
+  flex-direction: column;
+}
+:local(.par) {
+  display: flex;
+  flex-direction: row;
+  gap: 12.5rem;
+}
+
+:local(.pardate) {
+  display: flex;
+  flex-direction: row;
+  gap: 13.5rem;
+}
+
+:local(.radioar) {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
+
+:local(.l) {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #333333;
+}
+
+:local(.encheck) {
+  display: initial;
+}
+
+@media screen and (max-width: 1300px) {
+}
+@media screen and (max-width: 1124px) {
+  :local(.par) {
+    gap: 6rem;
+  }
+  :local(.pardate) {
+    gap: 6rem;
+  }
+  :local(.radioar) {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  :local(.prefbody) {
+    width: auto;
+    padding: 2.5rem 2.5rem 19.5rem 2.5rem;
+  }
+  :local(.par) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  :local(.pardate) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  :local(.radioar) {
+    justify-content: flex-start;
+  }
+  :local(.select) {
+    width: 18rem;
+  }
+  :local(.time) {
+    width: 16rem;
+  }
+}
+@media screen and (max-width: 500px) {
+}

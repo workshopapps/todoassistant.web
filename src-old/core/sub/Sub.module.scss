@@ -1,0 +1,88 @@
+.subscription {
+  h1 {
+    text-align: center;
+    color: #714dd9;
+    font-weight: normal;
+    margin-bottom: 3rem;
+  }
+  .cards {
+    display: flex;
+    h2 {
+      font-size: 1.2rem;
+      margin: 1rem;
+    }
+  }
+}
+
+.card_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: 1rem;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem 1.5rem 1rem;
+    height: 28rem;
+    width: 20rem;
+    background-color: white;
+
+    .card_content {
+      p {
+        color: #714dd9;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.card {
+  ul {
+    margin-top: 2rem;
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+
+  p {
+    color: #714dd9;
+    cursor: pointer;
+    margin-right: 10rem;
+  }
+}
+
+.btn,
+.sub_btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #714dd9;
+  color: white;
+}
+
+.sub_btn {
+  padding: 0.8rem 2rem;
+  width: auto;
+}

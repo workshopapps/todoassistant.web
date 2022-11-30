@@ -1,0 +1,322 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero,
+.topContainer,
+.headingContainer,
+.cardContainer,
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.hero {
+  @include container;
+  display: flex;
+  flex-direction: column-reverse;
+  //   justify-content: space-between;
+  align-items: top;
+  margin-bottom: 5rem;
+  @media (min-width: 992px) {
+    flex-direction: row-reverse;
+  }
+
+  .text {
+    text-align: center;
+    flex: 1;
+    a {
+      margin: 0 auto;
+    }
+    @media (min-width: 992px) {
+      margin: 4rem;
+      text-align: left;
+      a {
+        margin: 0;
+      }
+    }
+
+    h1 {
+      @include header-font;
+      text-transform: uppercase;
+    }
+    p {
+      font-size: 18px;
+      margin: 1rem 0 3rem;
+    }
+
+    .jobBtn {
+      @include button;
+      background-color: $activeColor;
+      color: $white;
+      width: 208px;
+    }
+  }
+
+  .img {
+    flex: 1;
+    height: 100%;
+    img {
+      @include img_fluid;
+    }
+  }
+}
+
+.topContainer {
+  flex-flow: column-reverse nowrap;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 100%;
+
+  .topImg {
+    @include img_fluid;
+    transform: translateY(-1rem);
+  }
+}
+
+.headingContainer {
+  gap: 1rem;
+  margin-top: 3.125rem;
+
+  .careerTopParagraph {
+    margin-top: -0.5rem;
+  }
+}
+
+.careerHeadingOne,
+.careerHeadingFour {
+  font-weight: 700;
+  line-height: 160%;
+  color: #333333;
+}
+
+.careerHeadingOne {
+  font-size: 2.125rem;
+}
+
+.careerHeadingFour {
+  font-size: 1.125rem;
+}
+
+.careerTopParagraph {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 120%;
+  color: #333333;
+}
+
+.careerBtn {
+  padding: 0.875rem;
+  background: #714dd9;
+  border-radius: 0.5rem;
+  color: white;
+  width: fit-content;
+  cursor: pointer;
+  border: none;
+}
+
+.cardContainer {
+  align-items: center;
+  justify-content: center;
+  gap: 3.125rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.card {
+  gap: 0.625rem;
+  padding: 1.5rem 1rem;
+  max-width: 80%;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  .cardImg {
+    @include img_fluid;
+    margin-bottom: 1.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .careerCardParagraph {
+    font-size: 1rem;
+  }
+}
+
+.card:nth-child(2) {
+  .careerHeadingFour {
+    width: 70%;
+  }
+}
+
+// Small devices (landscape phones, 430px and up)
+
+@media screen and (min-width: 26.875rem) {
+  .cardContainer {
+    max-width: 75%;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+    max-width: 60%;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+
+@media screen and (min-width: 36rem) {
+  .careerHeadingOne {
+    font-size: 3.25rem;
+  }
+
+  .careerHeadingFour {
+    font-size: 1.375rem;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+    max-width: 65%;
+  }
+}
+
+// Large devices (Tablets, 768px and up)
+
+@media screen and (min-width: 48rem) {
+  .hero {
+    gap: 6.25rem;
+  }
+
+  .topContainer {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .imageContainer {
+    .topImage {
+      @include img_fluid;
+    }
+  }
+
+  .headingContainer {
+    width: 70%;
+  }
+
+  .careerHeadingOne,
+  .careerHeadingFour,
+  .careerTopParagraph,
+  .careerCardParagraph {
+    color: #060c22;
+  }
+
+  .careerHeadingOne {
+    font-size: 3.25rem;
+  }
+
+  .careerHeadingFour {
+    font-size: 1.375rem;
+  }
+
+  .careerTopParagraph {
+    font-size: 1rem;
+  }
+
+  .cardContainer {
+    flex-flow: row nowrap;
+    gap: 3.125rem;
+    max-width: 90%;
+    padding-top: 3.125rem;
+  }
+
+  .card {
+    width: 40%;
+  }
+
+  .card:nth-child(2) {
+    transform: translateY(-7rem);
+  }
+}
+
+// Large devices (Desktops, 992px and up)
+
+@media screen and (min-width: 62rem) {
+  .headingContainer {
+    margin-top: 4.375rem;
+  }
+
+  .cardContainer {
+    gap: 4.625rem;
+  }
+}
+
+// X-Large devices (Large desktops, 1200px and up)
+
+@media screen and (min-width: 75rem) {
+  .headingContainer {
+    margin-top: 6.25rem;
+    width: 50%;
+  }
+
+  .imageContainer {
+    width: 50%;
+  }
+
+  .cardContainer {
+    width: 80%;
+  }
+}
+
+// XX-Large devices (Larger desktops, 1400px and up)
+
+@media screen and (min-width: 87.5rem) {
+  .topContainer {
+    gap: 3.125rem;
+  }
+
+  .imageContainer {
+    max-width: 50rem;
+  }
+
+  .careerHeadingOne {
+    font-size: 3.8125rem;
+  }
+
+  .careerHeadingFour {
+    font-size: 1.5625rem;
+  }
+
+  .cardContainer {
+    width: 75%;
+  }
+}
+
+// XXX-Large devices (Larger desktops, 1700px and up)
+
+@media screen and (min-width: 106.25rem) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topContainer {
+    max-width: 106.25rem;
+  }
+
+  .cardContainer {
+    gap: 6.25rem;
+    max-width: 81.25rem;
+    width: 70%;
+  }
+
+  .card {
+    width: 27%;
+  }
+}

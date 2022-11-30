@@ -1,0 +1,81 @@
+.task_wrap {
+  background-color: #f6fafb;
+  height: 100vh;
+  .task_top {
+    @media screen and (max-width: 1177px) {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    .task_left_wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      @media screen and (max-width: 1177px) {
+        margin-bottom: 2rem !important;
+      }
+      img {
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .task_left_text {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 44px;
+        color: #333333;
+      }
+    }
+  }
+  .task_bodywrap {
+    // width: 43.75rem;
+    @media screen and (max-width: 1177px) {
+      width: 100%;
+      min-width: unset;
+    }
+    width: 60%;
+    min-width: 26rem;
+    .task_tabwrap {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      p {
+        @media screen and (max-width: 1177px) {
+          width: 100%;
+        }
+        width: 8.771rem;
+        text-align: center;
+        border-bottom: 0.19rem solid #f6fafb;
+      }
+      .task_reSetTabStyle {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        padding: 0.5rem 2rem;
+        color: #707070;
+        // border-bottom: none;
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+      }
+      .task_setTabStyle {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        padding: 0.5rem 2rem;
+        border-bottom: 0.19rem solid #714dd9;
+        color: #714dd9;
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+      }
+    }
+  }
+}

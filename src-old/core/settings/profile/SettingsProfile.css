@@ -1,0 +1,9 @@
+.settingsprofile{
+    display: grid;
+    grid-template-columns: 20vw auto;
+}
+@media screen and (max-width: 575px) {
+    .settingsprofile{
+        grid-template-columns: 0px auto;
+    }
+}
