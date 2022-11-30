@@ -15,3 +15,12 @@
 
     
 }
+
+.arrow_down{
+    transition: all 0.3s ease-in-out;
+}
+
+.arrow_up{
+    transform: rotate(180deg);
+}
+

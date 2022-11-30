@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.scss";
+import Dropdown from "./Dropdown";
 
 import {
   Routes,
@@ -145,6 +146,8 @@ export default function Dasboard() {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const [nav, setNav] = useState(false);
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -203,8 +206,15 @@ export default function Dasboard() {
                   <Typography sx={{ textAlign: "right" }}>John A </Typography>
                 </Typography>
                 <span>
-                  <img src={arrowDown} alt="arrow down" />
+                  <img
+                    className={`${styles.arrow_down} ${nav && styles.arrow_up}`}
+                    id="arrow_down"
+                    onClick={() => setNav(!nav)}
+                    src={arrowDown}
+                    alt="arrow down"
+                  />
                 </span>
+                {nav ? <Dropdown /> : ""}
               </Box>
             </Grid>
           </Grid>
