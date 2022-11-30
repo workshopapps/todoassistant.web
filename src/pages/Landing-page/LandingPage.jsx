@@ -14,8 +14,9 @@ import Feature from "../../components/landing-page/feature/Feature";
 import WhyTicked from "../../components/landing-page/why-ticked/WhyTicked";
 
 const content = {
-  title: `Execute Your Tasks With The Support Of An Assistant.`,
-  subTitle: `Ticked is a To Do List App built for you to organise, track your scheduled tasks and execute all by receiving a call reminder from your personal assistant when your task is due. You can also delegate tasks to your assistant, stay focused and be more productive.`,
+  title: `Execute Your Tasks`,
+  title2: `With Ticked App`,
+  subTitle: `Ticked is a To Do List App built for you to organise, track your scheduled tasks and execute all by receiving a call reminder from your personal assistant when your task is due.`,
   image:
     "https://res.cloudinary.com/kingsleysolomon/image/upload/v1669287350/hng/todoAppVirtualAssistant/Group_1026_fjmpyq.png"
 };
