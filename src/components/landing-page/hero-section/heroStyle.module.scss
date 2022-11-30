@@ -12,18 +12,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
   //   background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1669367204/hng/todoAppVirtualAssistant/Ellipse_2_jtpts7.png")
   //     center right no-repeat;
   background-size: 40%;
   margin-bottom: 3rem;
   @media (min-width: 992px) {
-    background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1669367204/hng/todoAppVirtualAssistant/Ellipse_2_jtpts7.png")
-      center right no-repeat;
+    // background: url("https://res.cloudinary.com/kingsleysolomon/image/upload/v1669367204/hng/todoAppVirtualAssistant/Ellipse_2_jtpts7.png")
+    //   center right no-repeat;
     flex-direction: row;
+    // border: 1px solid red;  
+    max-width: 80vw;
+    margin: 0 auto;
   }
   .container {
-    @include container;
-    max-width: 600px;
+    // @include container;
+    max-width: 40vw;
+   
   }
   .header {
     text-align: center;

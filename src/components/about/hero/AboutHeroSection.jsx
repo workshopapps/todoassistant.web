@@ -6,8 +6,10 @@ const AboutHeroSection = () => {
   return (
     <header className={style.header}>
       <section className={style.text}>
-        <h1>Ticked</h1>
-        <p>A platform with great experienece for everyone</p>
+        <h1>About <span className={style.yellowText}>Ticked</span></h1>
+        <p>
+        We understand you have a busy schedule with tasks and have set goals to achieve and so we have built this To Do List App for you to get your tasks delegated to a Virtual Assistant who will take the stress off your shoulders, get more tasks done for you while you stay focused.
+        </p>
         <Button
           link={`/login`}
           title={`Get Started`}

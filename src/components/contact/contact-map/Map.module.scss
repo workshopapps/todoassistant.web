@@ -2,10 +2,13 @@
 @import "../../../scss/mixins";
 
 .container1 {
-  @include container;
+  // @include container;
   padding: 5rem 0 6rem;
-  @media (miin-width: 992px) {
+  @media (min-width: 992px) {
     padding: 5rem 0 254px;
+    max-width: 80vw;
+    margin: 0 auto;
+
   }
 
   .container {
