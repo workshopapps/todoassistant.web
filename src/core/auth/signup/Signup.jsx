@@ -9,7 +9,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../../layout/header/Navbar";
 
 const Signup = () => {
-  const [fullName, setFullName] = useState("");
+  // const [fullName, setFullName] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,7 +30,8 @@ const Signup = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (
-      fullName.length == 0 ||
+      first_name.length == 0 ||
+      last_name.length == 0 ||
       email.length == 0 ||
       phone.length == 0 ||
       password.length == 0
@@ -39,10 +40,12 @@ const Signup = () => {
     }
 
     //splitting the name into first_name and last_name
-    if (fullName) {
+   /*
+   if (fullName) {
       setFirstName(fullName.split(" ")[0]);
       setLastName(fullName.split(" ")[1]);
     }
+    */
 
     try {
       const response = await axios.post(
@@ -90,17 +93,38 @@ const Signup = () => {
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
               <label htmlFor="name" className={styles.describer}>
-                First & Last Name
+                First Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter first name"
+                value={first_name}
+                required
+                onChange={e => setFirstName(e.target.value)}
+              />
+              {error && first_name.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Name does not match!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.eachContainer}>
+              <label htmlFor="name" className={styles.describer}>
+                Last Name
               </label>
               <input
                 id="name"
                 type="text"
                 placeholder="Enter name"
-                value={fullName}
+                value={last_name}
                 required
-                onChange={e => setFullName(e.target.value)}
+                onChange={e => setLastName(e.target.value)}
               />
-              {error && fullName.length <= 0 ? (
+              {error && last_name.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Name does not match!
                 </div>
@@ -199,12 +223,12 @@ const Signup = () => {
               </span>
             </div>
 
-            {fullName && email && phone && password && isChecked && (
+            {first_name && last_name && email && phone && password && isChecked && (
               <button id="btn__submit" className={styles.button}>
                 Sign Up
               </button>
             )}
-            {(!fullName || !email || !phone || !password || !isChecked) && (
+            {(!first_name || !last_name || !email || !phone || !password || !isChecked) && (
               <button
                 id="btn__submit"
                 className={styles.buttonDisabled}
