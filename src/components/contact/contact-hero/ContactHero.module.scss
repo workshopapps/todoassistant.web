@@ -3,10 +3,12 @@
 
 .section {
   background-color: $activeColor;
+  // max-width: 80vw;
+  // margin: 0 auto;
 }
 
 .header {
-  @include container;
+  // @include container;
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;

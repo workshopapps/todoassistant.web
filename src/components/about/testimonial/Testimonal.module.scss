@@ -4,6 +4,8 @@
 .section {
   padding: 5rem 0 10rem;
   background-color: #f9f7ff;
+  // max-width: 80vw;
+  // margin: 0 auto;
   .valueCard {
     @include container;
     display: flex;

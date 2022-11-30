@@ -10,8 +10,9 @@
 }
 
 .nav {
-  @include container;
   padding: 20px 1rem;
+  max-width: 80vw;
+  margin: 0 auto;
   .links,
   .cta {
     gap: 2rem;
