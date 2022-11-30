@@ -1,0 +1,137 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+nav {
+  border-bottom: 1px solid #704dd936;
+  background: white;
+}
+
+.header_wrap {
+  @include container;
+  // position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 992px) {
+    // padding: 20px 50px;
+  }
+
+  .header_right {
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .header_button {
+      display: flex;
+      gap: 3rem;
+    }
+  }
+  .header_links {
+    display: flex;
+    gap: 3rem;
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+    a {
+      text-decoration: none;
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -0.204545px;
+      color: #707070;
+      padding: 0.5rem;
+      height: 2.3rem;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        border-bottom: 0.225rem solid #714dd9;
+      }
+    }
+    .header_links__border {
+      padding-bottom: 0.5rem;
+      border-bottom: 0.225rem solid #714dd9;
+    }
+  }
+  .header_hamburger {
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
+    font-size: 2rem;
+    color: #292d32;
+    cursor: pointer;
+  }
+  .header_modalbackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.582);
+    z-index: 1000;
+  }
+  .header_sidebar {
+    position: fixed;
+    top: 1.5rem;
+    z-index: 9999;
+    background: #ffffff;
+    border-radius: 4px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 2rem;
+
+    .header_sidebarButton {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .header_sidebarClose {
+      display: flex;
+      width: 100%;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .header_sidebarLinks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      a {
+        text-decoration: none;
+        font-family: "DM Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 20px;
+        letter-spacing: -0.204545px;
+        color: #707070;
+        margin-bottom: 2rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          padding-bottom: 0.5rem;
+          border-bottom: 0.225rem solid #714dd9;
+        }
+      }
+      .header_links__border {
+        padding-bottom: 0.5rem;
+        border-bottom: 0.225rem solid #714dd9;
+      }
+    }
+      
+  }
+}

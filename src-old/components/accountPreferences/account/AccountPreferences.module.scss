@@ -1,0 +1,109 @@
+.mainContainer {
+  display: flex;
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: #f6fafb;
+  font-family: "Open Sans", sans-serif;
+
+  .container {
+    min-width: 70%;
+
+    .secondHeader {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+
+      &__div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 10px 25px;
+        border-radius: 10px;
+        color: #181818;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .accountLink {
+        color: #714dd9;
+        background-color: #ffffff;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+
+    .account {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__email {
+        font-size: 1.8rem;
+        padding-top: 1rem;
+      }
+
+      &__p {
+        font-size: 1rem;
+        padding-bottom: 2rem;
+      }
+
+      &__profile {
+        padding: 10px 20px;
+      }
+
+      &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      &__btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+        color: #181818;
+        background-color: #f4f5f5;
+        border-radius: 7px;
+        margin: 10px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      &__deleteBtn {
+        background: none;
+        color: #d85f50;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 75%;
+
+    &__div {
+      gap: 50px;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainContainer {
+    .container {
+      min-width: 75%;
+
+      .account {
+        &__email {
+          font-size: 2.25rem;
+        }
+
+        &__p {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}

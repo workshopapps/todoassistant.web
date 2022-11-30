@@ -1,8 +1,8 @@
 import React from "react";
-import AboutHeroSection from "../../components-II/about/hero/AboutHeroSection";
-import AboutSectionTwo from "../../components-II/about/section-two/AboutSectionTwo";
+import AboutHeroSection from "../../components/about/hero/AboutHeroSection";
+import AboutSectionTwo from "../../components/about/section-two/AboutSectionTwo";
 
-import Testimonial from "../../components-II/about/testimonial/Testimonal";
+import Testimonial from "../../components/about/testimonial/Testimonal";
 import Layout from "../../layout/Layout";
 
 const About = () => {

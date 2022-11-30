@@ -1,0 +1,263 @@
+.details_wrap {
+  background-color: #f6fafb;
+  height: 100%;
+  margin-top: 1rem;
+  .details_back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    .details_backIcon {
+      font-size: 1.5rem;
+      color: #576b75;
+      font-weight: 300;
+    }
+    p {
+      margin-left: 1rem;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 14px;
+      color: #576b75;
+    }
+  }
+  .details_chatcontainer {
+    @media screen and (max-width: 1266px) {
+      flex-direction: column-reverse;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    .details_left {
+      width: 60%;
+      @media screen and (max-width: 1266px) {
+        width: 100% !important;
+      }
+      .details_widget {
+        padding: 1rem 1.5rem;
+        background-color: white;
+        border: 1px solid #e9f3f5;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        .details_widgetLeft {
+          h1 {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 160%;
+            color: #333333;
+            margin-bottom: 1rem;
+          }
+          span {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 120%;
+            color: #576b75;
+          }
+          p {
+            margin-top: 1rem;
+            margin-bottom: 6rem;
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
+            color: #333333;
+          }
+        }
+        input {
+          width: 1.5rem;
+          height: 1.5rem;
+          &:checked {
+            background-color: #37e288 !important;
+            color: white !important;
+          }
+        }
+      }
+      .details_comment {
+        h1 {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 100%;
+          color: #333333;
+          margin-bottom: 1rem;
+        }
+        .details_commentbody {
+          border: 1px solid #e9f3f5;
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          border-radius: 8px;
+
+          p {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 100%;
+            text-align: right;
+            color: #707070;
+            text-align: center;
+            padding: 1.5rem 2rem;
+          }
+          .details_chatscreen {
+            height: 40vh;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+            .adjust-scroll::-webkit-scrollbar {
+              width: 0px;
+            }
+
+            .details_chats {
+              border-radius: 0.5rem 0.5rem 0rem 0.5rem;
+              padding: 0.75rem 1rem;
+              font-family: "Open Sans";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 120%;
+              color: #f6fafb;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              background-color: #714dd9;
+              margin-bottom: 0.4rem;
+              width: 40%;
+              .details_chatsitem1{
+                margin-bottom: 0.7rem;
+              }
+              .details_chatsitem2{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                img{
+                  margin-left: 0.7rem;
+                }
+              }
+            }
+          }
+          .details_chatinput {
+            padding: 1.125rem 2.5rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .details_chatmoji {
+              font-size: 2rem;
+              color: #d3d0d9;
+              margin-right: 1rem !important;
+              cursor: pointer;
+            }
+
+            input {
+              border: none;
+              outline: none;
+              width: 80%;
+              &::placeholder {
+                font-family: "Open Sans";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 120%;
+                color: #707070;
+              }
+            }
+            img {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .details_right {
+      @media screen and (max-width: 1266px) {
+        margin-bottom: 2rem;
+      }
+      width: 35%;
+      h1 {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 100%;
+        color: #333333;
+        margin-bottom: 1rem;
+      }
+      .details_callcard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #ffffff;
+        border: 0.75px solid #e9f3f5;
+        border-radius: 8px;
+        padding: 2.125rem;
+        width: 21rem;
+
+        .details_callhead {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          width: 100%;
+          margin-bottom: 2rem;
+          img {
+            margin-right: 1.5rem;
+          }
+
+          .details_info {
+            .detials_infoname {
+              font-family: "Open Sans";
+              font-style: normal;
+              font-weight: 700;
+              font-size: 20px;
+              line-height: 100%;
+              color: #333333;
+              margin: unset;
+            }
+            p {
+              font-family: "Open Sans";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 160%;
+              color: #707070;
+            }
+          }
+        }
+        .details_foot {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 40%;
+          img {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+.privatepolicy{
+    background: #f6fafb;
+    font-family: 'Open Sans', sans-serif;
+    text-align: justify;
+}
+.privatepolicy h2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5625rem;
+    line-height: 160%;
+    color: #333333;
+}
+.privatepolicy p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 180%;
+    color: #707070;
+    margin: 1rem 0 0;
+    padding: 0 0 1rem;
+}
+.privatepolicy a{
+    color: #714DD9;
+    text-decoration: none;
+}
+.pagecontainer{
+    max-width: 85vw;
+    margin: 0rem auto;
+    padding: 0px 20px;
+}
+.privacy_header h1{
+    padding: 0 0 0.25rem;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.8125rem;
+    line-height: 160%;
+    color: #714DD9;
+    text-align: center;
+}
+.privacy_header p{
+    margin: 1.875rem 0 0;
+}
+.privacy_header a{
+    text-decoration: underline;
+}
+.blockparagraph{
+    margin: 3.25rem 0;
+}
+.back_to_top{
+    padding: 0 0 8.5625rem;
+}
+.back_to_top a{
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    cursor: pointer;
+}
+
+// media queries
+@media screen and (max-width: 767px) {
+    .pagecontainer{
+        max-width: 95vw;
+    }
+    .privatepolicy h2{
+        font-size: 1.40625rem;
+        line-height: 130%;
+        text-align: left;
+    }
+    .privatepolicy p{
+        font-size: 0.9375rem;
+        line-height: 180%;
+        margin: 0.8125rem 0 0;
+        padding: 0 0 0.8125rem;
+    }
+    .pagecontainer{
+        margin: 0.71875rem auto;
+        padding-bottom: 2rem;
+    }
+    .privacy_header h1{
+        font-size: 2.875rem;
+        text-align: left;
+    }
+    .privacy_header p{
+        margin: 1.1875rem 0 0;
+        padding: 0 0 0.5rem;
+    }
+    .blockparagraph{
+        margin: 2.75rem 0;
+    }
+    .back_to_top{
+        padding: 4.28125px;
+    }
+    .back_to_top a{
+        font-size: 0.9375rem;
+        font-weight: 500;
+        line-height: 118%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .privatepolicy h2{
+        font-size: 1.25rem;
+        line-height: 100%;
+    }
+    .privatepolicy p{
+        font-size: 0.875rem;
+        line-height: 180%;
+    }
+    .pagecontainer{
+        margin: 0rem auto;
+        padding-bottom: 2rem;
+    }
+    .privacy_header h1{
+        font-size: 2.125rem;
+    }
+    .privacy_header p{
+        margin: 0.5rem 0 0;
+    }
+    .blockparagraph{
+        margin: 1.25rem 0;
+    }
+    .back_to_top{
+        padding: 0px;
+    }
+    .back_to_top a{
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 115%;
+    }
+}

@@ -1,0 +1,35 @@
+.d_flex{
+    display: flex;
+}
+
+.justify_between{
+    justify-content: space-between;
+}
+.small_margin{
+    margin-top: 0.2rem;
+}
+
+.d_block{
+    display: block;
+}
+
+.padding_10{
+padding: 10px;
+}
+
+.padding{
+    padding: 1rem;
+}
+
+.active{
+    border-bottom: 1px solid #714DD9;
+    color: #714DD9;
+}
+
+.non_active{
+    color:grey
+}
+
+.red{
+    color: #FF4D4F;
+}

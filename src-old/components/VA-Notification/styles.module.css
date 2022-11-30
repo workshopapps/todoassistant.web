@@ -1,0 +1,94 @@
+.va__main {
+	background-color: #F6FAFB;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+.va__nav {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem 0;
+}
+
+.va__nav img {
+	cursor: pointer;
+}
+
+.va__navText {
+	cursor: pointer;
+	font-weight: 300;
+	line-height: 0.75rem;
+	line-height: 0.875rem;
+}
+
+.va__title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem 0;
+}
+
+.va__title {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.25rem;
+}
+
+.va__title h3 {
+	font-family: 'Roboto', sans-serif;
+}
+
+.va__mainContent {
+	padding: 2rem 0;
+}
+
+.va__mainContentTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.va__mainContentTitle h3 {
+	color: #2B363B;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.1875rem;
+}
+
+.va__mainContentTitle p {
+	color: #707070;
+	font-size: 0.875rem;
+	line-height: 120%;
+}
+
+.va__notificationItem {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 2rem;
+	background-color: #FFFFFF;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	border: 0.75px solid #E9F3F5;
+}
+
+.va__notificationsText {
+	font-weight: 700;
+	color: #2B363B;
+	font-size: 1rem;
+	line-height: 1.25rem;
+}
+
+.va__notificationItem p:nth-child(2) {
+	font-weight: 300;
+	color: #707070;
+	font-size: 0.875rem;
+}
+
+.va__notificationsLightText {
+	font-weight: 300;
+	font-size: 1rem;
+}
+

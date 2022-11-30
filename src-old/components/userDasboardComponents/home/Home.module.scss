@@ -1,0 +1,210 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  background: #f6fafb;
+}
+
+.todos {
+  padding-top: 20px;
+}
+
+.todos .searchWrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  //   margin-left: 40px;
+  margin-right: 40px;
+}
+
+.todoNav {
+  display: flex;
+}
+
+.todoNav p {
+  padding: 11px 39px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #707070;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.activeTab {
+  color: "#714DD9";
+  border-bottom: "2px solid #714DD9";
+}
+
+.completedTitle {
+  display: flex;
+  padding: 40px 40px 20px 40px;
+  cursor: pointer;
+}
+.completedTitle p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 180%;
+  color: #333333;
+  margin-right: 4px;
+}
+
+.todos .searchWrapper img {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  margin-bottom: 7px;
+}
+
+.todos h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 100%;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.todos .searchWrapper input {
+  padding: 15px 16px 15px 40px;
+  background: #ffffff;
+  border: 1px solid #e9f3f5;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.todos .searchWrapper input::placeholder {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #707070;
+}
+
+.activity {
+  padding-top: 34px;
+  border: 1px solid #e9f3f5;
+}
+
+.activity h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 100%;
+  color: #333333;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9f3f5;
+}
+
+.activityBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.activityBox .left,
+.activityBox .right {
+  padding: 60px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.activityBox .left {
+  border-right: 1px solid #e9f3f5;
+}
+
+.activityBox .left img,
+.activityBox .right img {
+  margin-bottom: 12px;
+}
+
+.activityBox .left h3,
+.activityBox .right h3 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.activityBox .left p,
+.activityBox .right p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 100%;
+  color: #707070;
+}
+
+.logHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #ffffff;
+}
+
+.logHeader .left {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333;
+}
+
+.logHeader .right {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #333333;
+}
+
+@media (max-width: 1255px) {
+  .activityBox {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .activityBox {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .todos .searchWrapper {
+    margin-right: 0px;
+  }
+  .activity {
+    grid-row: 1/2;
+  }
+  .logWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .todoNav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,81 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.contact__talk {
+  text-align: center;
+  font-style: normal;
+  @include container;
+  margin-top: 6.25rem;
+
+  h2 {
+    font-weight: 700;
+    @include header-font;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 0.5rem;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profiles {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    .item {
+      font-weight: 700;
+      font-size: 22px;
+      margin: 0.7rem 2rem;
+
+      .name {
+        color: $black;
+      }
+
+      .unit {
+        color: #714dd9;
+        margin-bottom: 1.5rem;
+      }
+      img {
+        width: 250px;
+
+        @media screen and (max-width: 900px) {
+          width: 30vw;
+        }
+
+        @media screen and (max-width: 650px) {
+          width: 250px;
+        }
+
+        @media screen and (max-width: 300px) {
+          width: 95%;
+        }
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 600px) {
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    h2 {
+      font-size: 27px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+.chatMain {
+    &__pad {
+        padding: 30px !important;    
+    }
+
+    &__ima {
+        // border: 1px solid red;
+        width: 40px !important;
+        position: absolute;
+        right: 20px;
+        top: 133vh;
+        @media (min-width: 900px) {
+            right: 25px;
+        }
+    }
+    div {
+        max-width: 65vw;
+        margin-top: 1rem;
+        display: flex;
+        @media (min-width: 900px) {
+            width: 45vw;
+        }
+        
+        // justify-content: left;
+        img {
+            height: 20px;
+            width: 20px;
+            margin: 0 10px;
+        }
+        div {
+            background: #E9F3F5;
+            // border-radius: 8px 8px 8px 0px;
+            padding: 10px;
+            @media (min-width: 900px) {
+                // padding: 30px;
+            }
+        }
+
+    }
+    &__left {
+        float: left;
+        align-items: end;
+        margin-bottom: 10px;
+    }
+    &__right {
+        float: right;
+        align-items: end;
+        justify-content: end;
+        flex-direction: row-reverse;
+        margin-bottom: 20px;
+    }
+    
+
+    textarea {
+        width: 93%;
+        z-index: -5;
+        overflow-y: hidden;
+        height: 100px;
+        display: inline-block;
+        padding: 60px 30px;
+        background: #F6FAFB;
+        border: 1px solid #D3D0D9;
+        border-radius: 8px;
+        outline: none;
+        margin-top: 20px !important;
+        flex: 1;
+        @media (min-width: 700px) {
+        width: 97%;
+            
+        }
+    }
+    span {
+        position: absolute;
+        right: 6px;
+        // top: 10px;
+        margin-top: 45px;
+        @media (min-width: 700px) {
+        right: 5px;
+            
+        }
+        @media (min-width: 900px) {
+            right: 20px;
+                
+            }
+        img {
+            // margin: 0px 2px;
+            // margin-top: -60px !important;
+        }
+    }
+
+    
+   
+}
+
+.main {
+     
+    // min-height: 20px !important;
+    max-width: 280px !important;
+    background: #F6FAFB;
+    // display: none !important;
+    // visibility: hidden;
+
+/* Light mode/DISABLED */
+
+border: 1px solid #D3D0D9;
+box-shadow: 2px 3px 12px rgba(113, 77, 217, 0.12);
+border-radius: 8px;
+   
+    &__sub {
+        width: 100% !important;
+        background-color: #F6FAFB !important;
+    }
+}
+
+
+.new {
+    &__input {
+        padding: 60px;
+    }
+}
