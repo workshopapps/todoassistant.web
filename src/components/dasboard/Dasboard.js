@@ -12,17 +12,6 @@ import {
 } from "react-router-dom";
 // import {useHistory} from "react-router-dom";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import { Grid, Container } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-
 //route
 import { userRoutes } from "../../router/user";
 
@@ -31,24 +20,38 @@ import tick from "../../assets/home/tick.png";
 import VaImg from "../../assets/dashboard/vaImg.png";
 import arrowDown from "../../assets/dashboard/arrow-down.png";
 import add from "../../assets/dashboard/add.png";
+import {
+  AppBar,
+  Box,
+  Container,
+  CssBaseline,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  Toolbar,
+  Typography
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const drawerWidth = 240;
 
 export default function Dasboard() {
   const location = useLocation();
   const { window } = location;
-
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const [title, setTitle] = useState("home");
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
-    const path = location?.pathname?.split("/").pop();
+    const path = location.pathname.split("/").pop();
     //Check that path is equal to userroute returned value
     const current = userRoutes.find(item => item.path === path);
     //Updating state and setting default route to convert
-    setTitle(current?.title ?? "home");
+    setTitle(current?.title ?? "Home");
   }, [location]);
 
   const handleDrawerToggle = () => {
@@ -142,12 +145,7 @@ export default function Dasboard() {
       })}
     </div>
   );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   const [nav, setNav] = useState(false);
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -181,7 +179,7 @@ export default function Dasboard() {
               <Typography
                 variant="h6"
                 mt={4}
-                sx={{ borderBottom: "3px solid #714DD9", width: "5vw" }}
+                sx={{ borderBottom: "3px solid #714DD9", width: "fit-content" }}
               >
                 {" "}
                 {title}{" "}

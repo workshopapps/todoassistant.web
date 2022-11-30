@@ -7,6 +7,8 @@
 
   .container {
     // @include container;
+    max-width: 80vw;
+    margin: 0 auto;
   }
 
   h2 {
@@ -15,12 +17,16 @@
     @include header-font;
   }
   .featureGrid {
+    padding: 0 1rem;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 2rem;
-    // column-gap: 5rem;
+    row-gap: 1.688rem;
+
     @media (min-width: 992px) {
-        column-gap: 14rem;
+      padding: initial;
+      max-width: 1007px;
+      margin: 0 auto;
+      column-gap: 1.688rem;
       grid-template-columns: repeat(2, 1fr);
     }
   }

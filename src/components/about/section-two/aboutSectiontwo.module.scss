@@ -2,7 +2,9 @@
 @import "../../../scss/variables";
 
 .about {
-  @include container;
+  // @include container;
+  max-width: 80vw;
+  margin: 0 auto;
   text-align: center;
   h2 {
     @include header-font;

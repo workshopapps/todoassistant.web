@@ -1,8 +1,7 @@
 import React from "react";
 import AboutHeroSection from "../../components/about/hero/AboutHeroSection";
 import AboutSectionTwo from "../../components/about/section-two/AboutSectionTwo";
-
-import Testimonial from "../../components/about/testimonial/Testimonal";
+import HappyClient from "../../components/about/testimonial/tesimonial-cards/HappyClient";
 import Layout from "../../layout/Layout";
 
 const About = () => {
@@ -11,7 +10,7 @@ const About = () => {
       <Layout>
         <AboutHeroSection />
         <AboutSectionTwo />
-        <Testimonial />
+        <HappyClient />
       </Layout>
     </div>
   );
