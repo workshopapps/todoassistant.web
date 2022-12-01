@@ -3,7 +3,7 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.scss";
-// import google from "../../assets/google.png";
+import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
@@ -119,8 +119,14 @@ const onFailure = (err) => {
               <span className={styles.login__line} />
             </div>
             <div className={styles.login__socials}>
+              {/* <Link to="/CheckM">
+                <img src={google} alt="google_login" />
+              </Link> */}
                 <GoogleLogin
           clientId={clientId}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} className={styles.login__googleButton}> <img src={google} alt="google_login" /></button>
+          )}
           buttonText="Sign in with Google"
           onSuccess={onSuccess}
           onFailure={onFailure}
