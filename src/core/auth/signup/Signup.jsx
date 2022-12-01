@@ -7,6 +7,8 @@ import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 // import Header from "../../../layout/header/Header";
 import Navbar from "../../../layout/header/Navbar";
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const Signup = () => {
   // const [fullName, setFullName] = useState("");
@@ -14,7 +16,7 @@ const Signup = () => {
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState();
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
@@ -98,6 +100,7 @@ const Signup = () => {
               <input
                 id="name"
                 type="text"
+                className={styles.input}
                 placeholder="Enter first name"
                 value={first_name}
                 required
@@ -119,6 +122,7 @@ const Signup = () => {
               <input
                 id="name"
                 type="text"
+                className={styles.input}
                 placeholder="Enter name"
                 value={last_name}
                 required
@@ -139,7 +143,7 @@ const Signup = () => {
               </label>
               <input
                 id="email"
-                className="emailInput"
+                className={styles.input}
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -159,14 +163,15 @@ const Signup = () => {
               <label htmlFor="phone" className={styles.describer}>
                 Phone Number
               </label>
-              <input
+              <PhoneInput
+                className={styles.phone}
+                international
+                defaultCountry="NG"
                 id="phone"
-                className="emailInput"
-                type="number"
-                placeholder="Enter phone"
-                value={phone}
                 required
-                onChange={e => setPhone(e.target.value)}
+                placeholder="Enter phone number"
+                value={phone}
+                onChange={setPhone}
               />
               {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
@@ -183,6 +188,7 @@ const Signup = () => {
               </label>
               <input
                 id="password"
+                className={styles.input}
                 type={passwordShown ? "text" : "password"}
                 placeholder="Enter password"
                 value={password}
@@ -239,14 +245,14 @@ const Signup = () => {
               !phone ||
               !password ||
               !isChecked) && (
-              <button
-                id="btn__submit"
-                className={styles.buttonDisabled}
-                disabled
-              >
-                Sign Up
-              </button>
-            )}
+                <button
+                  id="btn__submit"
+                  className={styles.buttonDisabled}
+                  disabled
+                >
+                  Sign Up
+                </button>
+              )}
           </form>
           <p className={styles.toLogin}>
             Already have an account?,{" "}

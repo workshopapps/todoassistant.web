@@ -41,6 +41,13 @@
             flex-direction: column;
             position: relative;
 
+            .phone{
+                background-color: #fff;
+                border-radius: 0.5rem;
+                border: 1px solid #E9F3F5;
+                padding: 0 1rem;
+                margin-top: 0;
+            }
             .describer{
                 font-weight: 700;
                 font-size: 0.75rem;
@@ -50,13 +57,20 @@
                 margin-top: 1.5rem;
 
             }
-
             input{
+                border: none;
+                padding: 0;
+                outline: none;
+                margin-top: 1rem;
+            }
+
+            .input{
                 padding: 0.938rem 1rem;
                 height: 3rem;
                 background: #FFFFFF;
                 border: 1px solid #E9F3F5;
                 border-radius: 0.5rem;
+                margin-top: 0;
 
                 &:focus{
                     outline: none;
