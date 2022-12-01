@@ -9,6 +9,7 @@ import TodoCard from "./TodoCard";
 import Log from "./Log";
 // import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
 import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
+import CreateTask from "../../createTask/CreateTask";
 export default function Home() {
   if (localStorage.getItem("myTasks")) {
     console.log("lsdjj");
@@ -73,6 +74,7 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
+      <CreateTask />
       <div className={styles.todos}>
         <h1>To do's</h1>
         <div className={styles.searchWrapper}>

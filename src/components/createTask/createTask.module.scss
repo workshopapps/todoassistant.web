@@ -1,0 +1,283 @@
+.createTask_wrapper {
+  background-color: #7070705e;
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .createTask_form {
+    border-radius: 8px;
+    // width: 50vw;
+    // height: fit-content;
+    background-color: #f9f7ff;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    // transition: all 1s ease-in-out;
+    .createTask_header {
+      color: #333333;
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 160%;
+    }
+    .createTask_title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 1rem;
+      .createTask_label {
+        color: #333333;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 100%;
+      }
+      .createTask_input {
+        margin-top: 0.5rem;
+        align-self: stretch;
+        border-radius: 8px;
+        border: 1px solid #e9f3f5;
+        background: #ffffff;
+        padding: 0.938rem 1rem;
+        outline: none;
+        &::placeholder {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 120%;
+          color: #707070;
+        }
+      }
+    }
+    .createTask_date_time {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      .createTask_date {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 1rem;
+        .createTask_label {
+          color: #333333;
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 100%;
+        }
+        .createTask_input {
+          margin-top: 0.5rem;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid #e9f3f5;
+          background: #ffffff;
+          padding: 0.938rem 1rem;
+          outline: none;
+          &::placeholder {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 120%;
+            color: #707070;
+          }
+        }
+      }
+      .createTask_time {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 1rem;
+        .createTask_label {
+          color: #333333;
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 100%;
+        }
+        .createTask_input {
+          margin-top: 0.5rem;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid #e9f3f5;
+          background: #ffffff;
+          padding: 0.938rem 1rem;
+          outline: none;
+          &::placeholder {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 120%;
+            color: #707070;
+          }
+        }
+      }
+    }
+    .createTask_va {
+      margin-top: 1rem;
+      .createTask_va_title {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 100%;
+        color: #333333;
+      }
+      .createTask_va_options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        list-style-type: none;
+        margin-top: 0.6rem;
+        .createTask_va_list1,
+        .createTask_va_list2,
+        .createTask_va_list3 {
+          //   input[type="radio"]:after {
+          //     width: 16px;
+          //     height: 16px;
+          //     border-radius: 15px;
+          //     top: -2px;
+          //     left: -1px;
+          //     position: relative;
+          //     background-color: white;
+          //     content: "";
+          //     display: inline-block;
+          //     visibility: visible;
+          //     border: 1px solid #d3d0d9;
+          //   }
+
+          //   input[type="radio"]:checked:after {
+          //     width: 16px;
+          //     height: 16px;
+          //     border-radius: 15px;
+          //     top: -2px;
+          //     left: -1px;
+          //     position: relative;
+          //     background-color: #714dd9;
+          //     content: "";
+          //     display: inline-block;
+          //     visibility: visible;
+          //     // border: 2px solid white;
+          //     border: 1px solid #d3d0d9;
+          //   }
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 0.3rem;
+          label {
+            font-family: "Noto Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: #1f1f1f;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+    .createTask_button {
+      margin-top: 1rem;
+      background: #714dd9;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0.8rem;
+      border: none;
+      outline: none;
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  .createTask_submit_modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.813rem 6.563rem;
+    gap: 2.188rem;
+    background: #f9f7ff;
+    border-radius: 8px;
+    width: 50vw;
+    .createTask_submit_header {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 160%;
+      text-align: center;
+      color: #333333;
+    }
+    .createTask_submit_item {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      text-align: center;
+      color: #333333;
+    }
+    .createTask_submit_button_wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .createTask_submit_button1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 24px;
+        gap: 8px;
+        width: 207.07px;
+        height: 48px;
+        background: #714dd9;
+        border-radius: 8px;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 160%;
+        color: #fafafa;
+        border: none;
+      }
+      .createTask_submit_button2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 24px;
+        gap: 8px;
+        width: 207.07px;
+        border: 1px solid #714dd9;
+        border-radius: 8px;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 160%;
+        color: #714dd9;
+      }
+    }
+  }
+}
