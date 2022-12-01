@@ -25,13 +25,10 @@ pipeline {
 			steps {
 				sh "sudo cp -rf ./* /home/samuraiaj/ticked-finial"
 				sh "sudo su - samuraiaj && whoami"
-                //sh "sudo pm2 stop certgo"
-				//sh "sudo pm2 stop index"
-				//sh "sudo pm2 serve /home/sean/certgo/frontend/build --port 3066"
-				//sh "sudo pm2 start /home/sean/certgo/backend/index.js"
+               
 			}
 			
 	}
 
 
-	}
+}
