@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.scss";
 import Dropdown from "./Dropdown";
+import CreateTask from "../createTask/CreateTask";
 
 import {
   Routes,
@@ -148,6 +149,8 @@ export default function Dasboard() {
   const [nav, setNav] = useState(false);
   return (
     <Box sx={{ display: "flex" }}>
+      <CreateTask />
+
       <CssBaseline />
 
       {/* Top header */}
