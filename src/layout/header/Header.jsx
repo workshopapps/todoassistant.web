@@ -40,7 +40,7 @@ const logOutBtn = {
   justifyContent: "center",
   alignItems: "center",
   height: "48px",
-  borderRadius: "8px",
+  borderRadius: "7px",
   fontFamily: "Open Sans",
   fontStyle: "normal",
   fontWeight: "600",
