@@ -80,6 +80,7 @@
     .download {
       @include button;
       border: 1px solid $activeColor;
+      color: $activeColor-light;
       background-color: transparent;
       width: 50%;
     }

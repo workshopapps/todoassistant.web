@@ -40,7 +40,7 @@ const Map = () => {
                 <h4>Ticked Head Quarters</h4>
               </div>
               <p>8502 Preston Rd. Inglewood, Maine 98380</p>
-              <button>
+              <button className="hover">
                 <p>Get Directions</p>
                 <img src={arrow} alt="arrow" />
               </button>

@@ -64,7 +64,7 @@ const SectionThree = () => {
           </div>
           <div className={styles.steps}>
             <Button link={`/`} style={{ width: `50%` }} title={`get ticked`} />
-            <button className={styles.download}>Download App</button>
+            <button className={`${styles.download} hover`}>Download App</button>
           </div>
         </div>
       </section>

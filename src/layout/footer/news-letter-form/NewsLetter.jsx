@@ -9,8 +9,16 @@ const NewsLetter = () => {
           Email Address
         </label>
         <div className={style.input_container}>
-           <input className={`${style.input} hover`} type="email" placeholder="Enter email" />
-           <input className={style.subscribe_btn} type="button" value="Subscribe"/>
+          <input
+            className={`${style.input} hover`}
+            type="email"
+            placeholder="Enter email"
+          />
+          <input
+            className={`${style.subscribe_btn} hover`}
+            type="button"
+            value="Subscribe"
+          />
         </div>
       </form>
     </section>

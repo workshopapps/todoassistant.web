@@ -66,5 +66,11 @@
     background-color: $white;
     color: $activeColor !important;
     width: 208px;
+    transition: 0.3s ease;
+    border: 1px solid $activeColor-light;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 4px #ffffff50;
+    }
   }
 }

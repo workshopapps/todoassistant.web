@@ -1,23 +1,24 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
 .news__letter {
   .header {
-   @media screen and (max-width: 486px) {
-     margin-bottom: 2rem;
-   }
-    
+    @media screen and (max-width: 486px) {
+      margin-bottom: 2rem;
+    }
+
     color: #fff;
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
   }
 
   .form {
     display: flex;
     flex-direction: column;
 
-
     .label {
-      @media screen and (max-width: 486px)  {
-       margin-left: -14px;
+      @media screen and (max-width: 486px) {
+        margin-left: -14px;
       }
       text-align: left !important;
       font-size: 12px;
@@ -29,8 +30,8 @@
 
   .input {
     @media screen and (max-width: 486px) {
-    width: 311.89px;
-    height: 48px
+      width: 311.89px;
+      height: 48px;
     }
     width: 100%;
     background-color: #fff;
@@ -40,46 +41,46 @@
     padding: 0 2rem;
     margin: 0 0 1rem 0;
   }
-  
-  .input_container{
+
+  .input_container {
     @media screen and (max-width: 486px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 16px;
   }
-  
+
   .subscribe_btn {
     @media screen and (max-width: 486px) {
-    font-size: 14px;
-    background: #714DD9;
-    border-radius: 8px;
-    padding: 14px;
-    width: 311.89px;
-    height: 48px;
-    border: none;
-    color: #FAFAFA;
+      font-size: 14px;
+      background: #714dd9;
+      border-radius: 8px;
+      padding: 14px;
+      width: 311.89px;
+      height: 48px;
+      border: none;
+      color: #fafafa;
     }
-    
+
+    cursor: pointer;
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-    background: #714DD9;
+    background: #714dd9;
     border-radius: 8px;
     padding: 14px;
     width: 103px;
     height: 48px;
     border: none;
-    color: #FAFAFA;
+    color: #fafafa;
     margin-top: -1px;
   }
-  
 }
