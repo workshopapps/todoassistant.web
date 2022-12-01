@@ -1,7 +1,6 @@
 import React from "react";
 import Search from "../search/Search";
 import styles from "./task.module.scss";
-import TaskIcon from "../../assets/taskIcon.png";
 import { Data } from "./data";
 import TaskView from "../taskView/TaskView";
 
@@ -13,8 +12,8 @@ const Task = () => {
       {/* ------sub-header----------------- */}
       <div className={styles.task_top}>
         <div className={styles.task_left_wrap}>
-          <img src={TaskIcon} alt="task" />
-          <p className={styles.task_left_text}>Tasks</p>
+    
+          <p className={styles.task_left_text}>Welcome to Ticked</p>
         </div>
         <Search />
       </div>
