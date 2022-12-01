@@ -14,7 +14,7 @@ pipeline {
 			steps {
 				
 				sh "sudo yarn"
-        sh "sudo yarn build"
+                                sh "sudo yarn build"
         
 			} 
     }
