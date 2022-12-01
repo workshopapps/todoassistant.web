@@ -7,7 +7,7 @@ import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
@@ -34,11 +34,8 @@ const onSuccess = (res) => {
 const onFailure = (err) => {
   console.log('failed:', err);
 };
-  const { state } = useLocation();
-  const [email, setEmail] = useState(state ? state.registeredEmail.email : "");
-  const [password, setPassword] = useState(
-    state ? state.registeredPassword.password : ""
-  );
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
   const [show, setShow] = React.useState(false);
   const toggle = () => setShow(!show);
 
