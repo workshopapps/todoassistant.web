@@ -17,29 +17,32 @@ const Login = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
   const navigate = useNavigate();
 
-  useEffect(() => {
-   const initClient = () => {
-         gapi.client.init({
-         clientId: clientId,
-         scope: ''
-       });
-    };
-    gapi.load('client:auth2', initClient);
-});
-
-const onSuccess = (res) => {
-  console.log('success:', res);
-  navigate('/dashboard', { replace: true });
-};
-const onFailure = (err) => {
-  console.log('failed:', err);
-};
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-  const [show, setShow] = React.useState(false);
-  const toggle = () => setShow(!show);
+const [show, setShow] = React.useState(false);
+const toggle = () => setShow(!show);
 
   const { dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    const initClient = () => {
+          gapi.client.init({
+          clientId: clientId,
+          scope: ''
+        });
+     };
+     gapi.load('client:auth2', initClient);
+ });
+ 
+ const onSuccess = (res) => {
+   localStorage.setItem('user',JSON.stringify(res?.profileObj));
+   localStorage.setItem('token',res?.tokenId);
+
+   navigate('/dashboard', { replace: true });
+ };
+ const onFailure = (err) => {
+   console.log('failed:', err);
+ };
 
   const handleLogin = e => {
     e.preventDefault();
