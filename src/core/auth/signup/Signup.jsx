@@ -161,7 +161,7 @@ const Signup = () => {
                 Phone Number
               </label>
               <PhoneInput
-                className={styles.phone}
+                className={`${styles.phone} ${styles.phoneInputField}`}
                 international
                 defaultCountry="NG"
                 id="phone"
