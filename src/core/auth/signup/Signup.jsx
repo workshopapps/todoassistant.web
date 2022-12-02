@@ -11,6 +11,8 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../../layout/header/Navbar";
 import { login } from "../../../contexts/authContext/apiCalls";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
   // const [fullName, setFullName] = useState("");
@@ -137,6 +139,7 @@ const Signup = () => {
                 Email Address
               </label>
               <input
+                className={styles.input}
                 id="email"
                 type="email"
                 placeholder="Enter email"
@@ -157,14 +160,16 @@ const Signup = () => {
               <label htmlFor="phone" className={styles.describer}>
                 Phone Number
               </label>
-              <input
+              <PhoneInput
+                className={styles.phone}
+                international
+                defaultCountry="NG"
                 id="phone"
-                type="number"
-                placeholder="Enter phone"
                 value={phone}
                 required
-                onChange={e => setPhone(e.target.value)}
+                onChange={setPhone}
               />
+
               {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Phone number does not match!
@@ -178,7 +183,7 @@ const Signup = () => {
               <label htmlFor="gender" className={styles.describer}>
                 Gender
               </label>
-              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value) }>
+              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value)}>
                 <option value="" disabled>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -198,6 +203,7 @@ const Signup = () => {
                 Date of birth
               </label>
               <input
+                className={styles.input}
                 id="date_of_birth"
                 type="date"
                 placeholder="Enter Date of birth"
@@ -228,15 +234,15 @@ const Signup = () => {
                   onChange={e => setPassword(e.target.value)}
                 />
                 <AiOutlineEye
-                onClick={togglePassword}
-                className={passwordShown ? styles.hideEye : styles.showEye}
+                  onClick={togglePassword}
+                  className={passwordShown ? styles.hideEye : styles.showEye}
                 />
                 <AiOutlineEyeInvisible
                   onClick={togglePassword}
                   className={passwordShown ? styles.showEye : styles.hideEye}
                 />
               </div>
-              
+
               {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
                   Password must be up to 6 characters!
@@ -283,14 +289,14 @@ const Signup = () => {
               !date_of_birth ||
               !password ||
               !isChecked) && (
-              <button
-                id="btn__submit"
-                className={styles.buttonDisabled}
-                disabled
-              >
-                Sign Up
-              </button>
-            )}
+                <button
+                  id="btn__submit"
+                  className={styles.buttonDisabled}
+                  disabled
+                >
+                  Sign Up
+                </button>
+              )}
           </form>
           <p className={styles.toLogin}>
             Already have an account?,{" "}
