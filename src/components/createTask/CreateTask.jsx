@@ -17,14 +17,13 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     assistant: ""
   });
 
-  const baseurl = "https://api.ticked.hng.tech/api/v1";
+  //   const baseurl = "https://api.ticked.hng.tech/api/v1";
   const token = JSON.parse(localStorage.getItem("user")).access_token;
 
   const handle = e => {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData);
   };
 
   const handleClose1 = e => {
@@ -38,8 +37,8 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-      const res = await axios.post(
-        `${baseurl}/task`,
+      await axios.post(
+        `/task`,
         {
           title: data.title,
           description: data.title,
@@ -54,9 +53,9 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
         },
         { headers: { Authorization: "Bearer " + token } }
       );
-      await console.log(res);
+
+      setTaskModal(0);
     } catch (error) {
-      console.log(error);
       alert("Invalid input Check and try again");
     }
   };
