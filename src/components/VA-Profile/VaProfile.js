@@ -1,24 +1,12 @@
 import { CgProfile } from "react-icons/cg";
-import { useNavigate } from "react-router-dom";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsStarHalf, BsStar, BsStarFill } from "react-icons/bs";
 import mainProfileImage from "../../assets/Ellipse 2.svg";
 import style from "./VaProfile.module.scss";
 
 function VAProfile() {
-  const navigate = useNavigate();
-
   return (
     <div className={style.app}>
       <div className={style.major_container}>
-        <div
-          onClick={() => navigate(-1)}
-          className={style.back_button_container}
-        >
-          <AiOutlineArrowLeft className={style.AiOutlineArrowLeft} />
-          <span className={style.back_button_header}>Back</span>
-        </div>
-
         <div className={style.edit_container}>
           <div className={style.profile_icon_container}>
             <CgProfile className={style.CgProfile} />
