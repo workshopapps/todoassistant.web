@@ -79,7 +79,7 @@ const NewsLetter = () => {
           Email Address
         </label>
         <div className={style.input_container}>
-           <input style={{outline: "none"}} autoComplete onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
+           <input className={style.input} style={{outline: "none"}} autoComplete onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
            <input onClick={handleNewsLetter} className={style.subscribe_btn} style={{cursor: "pointer"}} type="button" value="Subscribe"/>
         </div>
       </form>
