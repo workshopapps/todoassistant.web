@@ -180,6 +180,7 @@
 
 .taskDetail_container {
     width: 100%;
+    background: white;
 }
 
 .taskDetail_title_con {
@@ -251,4 +252,32 @@
 
 .child_sub_img {
     color: #F2A005;
+}
+
+// Tablet Screen Downwards
+@media screen and (max-width: 768px) {
+    .task_details {
+        flex-flow: column;
+        gap: 0.5rem;
+    }
+
+    .va_home_container_active {
+        width: 100%;
+    }
+
+    .task_detail_slider {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: grid;
+        place-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .taskDetail_container {
+        width: 80%;
+        background: white;
+    }
 }
