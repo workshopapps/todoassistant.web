@@ -23,7 +23,7 @@ pipeline {
 		stage("deploy") {
 		
 			steps {
-				sh "sudo rm -rf /var/www/ticked-final/*
+				sh "sudo rm -rf /var/www/ticked-slack/*"
 				sh "sudo cp -rf ./... /var/www/ticked-final/"
 				
 				
