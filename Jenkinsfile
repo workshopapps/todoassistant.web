@@ -9,7 +9,7 @@ pipeline {
 		stage("Build"){
 
 			steps {
-				git "https://github.com/workshopapps/todoassistant.web.git"
+				
 				sh "sudo yarn"
                                 sh "sudo yarn build"
         
