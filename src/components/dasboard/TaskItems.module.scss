@@ -60,9 +60,10 @@
     flex-direction: column;
     gap: 2px;
     .task {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      // align-items: center;
+      // justify-content: space-between;
       padding: 20px 40px;
       background: linear-gradient(
           0deg,
@@ -96,6 +97,7 @@
       .asign {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 8px;
 
         img {
@@ -119,6 +121,7 @@
         font-size: 14px;
         line-height: 18px;
         color: #707070;
+        text-align: end;
       }
     }
   }
