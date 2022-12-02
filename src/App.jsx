@@ -30,7 +30,7 @@ import Payment from "./core/payment/Payment";
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-import VaProfile from "./components/VA-Profile/VaProfile";
+//import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import VASignup from "./components/va-signup/auth/signup/VASignup";
 // import Login from "./components/Login/Login";
@@ -56,8 +56,8 @@ import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 
 //userProfile
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
-//import Edit from "./core/settings/profile/Edit";
-//import ChangePassword from "./core/settings/profile/ChangePassword";
+import Edit from "./core/settings/profile/Edit";
+import ChangePassword from "./core/settings/profile/ChangePassword";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -105,13 +105,9 @@ function App() {
               <Route path="notification" element={<Notification />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="payment" element={<Payment />} />
-              <Route path="profile" element={<VaProfile />} />
-              {/**
-               * <Route path="profile" element={<SettingsProfilee />} />
-               * <Route path="profile/edit" element={<Edit />} />
-               * <Route path="profile/change-password" element={<ChangePassword />} />
-               */}
-
+              <Route path="profile" element={<SettingsProfilee />} />
+              <Route path="profile/edit" element={<Edit />} />
+              <Route path="profile/change-password" element={<ChangePassword />} />
             </Route>
 
             {/* <Route path="/virtualassistance" element={<VADashboard />}>
@@ -140,43 +136,43 @@ function App() {
                   <Route path="/virtualassistance" element={<VADashboard />}>
                   <Route path="" element={<Home />} />
                   <Route path="notifications" element={<Notifications />} />
-                  </Route>
-                </>
-              )
-              :
+                </Route>
+              </>
+            )
+            :
 
             <>
-            <Route path="/dashboard" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="assistant" element={<Login />} />
-              <Route path="task" element={<Login />}></Route>
-              <Route path="detail" element={<Login />} />
-              <Route path="sub" element={<Login />} />
-              <Route path="clients" element={<Login />} />
-              <Route path="notification" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
-              <Route path="payment" element={<Login />} />
-              <Route path="profile" element={<SettingsProfilee />} />
-            </Route>
+              <Route path="/dashboard" element={<Login />}>
+                <Route path="" element={<Login />} />
+                <Route path="assistant" element={<Login />} />
+                <Route path="task" element={<Login />}></Route>
+                <Route path="detail" element={<Login />} />
+                <Route path="sub" element={<Login />} />
+                <Route path="clients" element={<Login />} />
+                <Route path="notification" element={<Login />} />
+                <Route path="notifications" element={<Login />} />
+                <Route path="payment" element={<Login />} />
+                <Route path="profile" element={<SettingsProfilee />} />
+              </Route>
 
-            <Route path="/virtualassistance" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
-            </Route>
+              <Route path="/virtualassistance" element={<Login />}>
+                <Route path="" element={<Login />} />
+                <Route path="notifications" element={<Login />} />
+              </Route>
 
-            <Route path="/newtask" element={<Login />} />
-            <Route path="/edittask" element={<Login />} />
-            <Route path="/taskdetails" element={<Login />} />
-            <Route path="/va1" element={<Login />} />
-            <Route path="/CheckM" element={<Login />} />
-            <Route path="/settings/profile" element={<Login />}>
-              <Route path="edit" element={<Login />} />
-            </Route>
+              <Route path="/newtask" element={<Login />} />
+              <Route path="/edittask" element={<Login />} />
+              <Route path="/taskdetails" element={<Login />} />
+              <Route path="/va1" element={<Login />} />
+              <Route path="/CheckM" element={<Login />} />
+              <Route path="/settings/profile" element={<Login />}>
+                <Route path="edit" element={<Login />} />
+              </Route>
 
-            <Route path="/account" element={<Login />} />
-            <Route path="/pro" element={<Login />} />
-            <Route path="/account/edit" element={<Login />} />
-          </>
+              <Route path="/account" element={<Login />} />
+              <Route path="/pro" element={<Login />} />
+              <Route path="/account/edit" element={<Login />} />
+            </>
         )}
 
         {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
