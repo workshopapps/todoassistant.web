@@ -1,0 +1,15 @@
+{
+	"id": "id;objectId",
+	"data": {
+        "firstname": "Sandra",
+        "lastname": "Davids",
+        "vaid": "204191402",
+        "bio": null,
+        "phone": "08022904580",
+        "email": "sandradavids@ticked.com",
+        "rating": 8.4,
+        "completedtasks": 8,
+        "assigned": 5
+    }
+	
+}
