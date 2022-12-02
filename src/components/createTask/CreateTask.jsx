@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./createTask.module.scss";
 import VALogo from "../../assets/createTaskVa.png";
 import axios from "axios";
 import { CgClose } from "react-icons/cg";
+import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 const CreateTask = ({ taskModal, setTaskModal }) => {
+  const { getTasks } = useContext(TaskCtx);
   //   const modal1 = useRef(0);
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
@@ -37,22 +39,24 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-      await axios.post(
-        `/task`,
-        {
-          title: data.title,
-          description: data.title,
-          start_time: new Date(
-            new Date().setMinutes(new Date().getMinutes() + 10)
-          ).toISOString(),
-          end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
-          repeat: "daily",
-          va_option: data.assistant,
-          status: "pending",
-          reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
-        },
-        { headers: { Authorization: "Bearer " + token } }
-      );
+      await axios
+        .post(
+          `/task`,
+          {
+            title: data.title,
+            description: data.title,
+            start_time: new Date(
+              new Date().setMinutes(new Date().getMinutes() + 10)
+            ).toISOString(),
+            end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
+            repeat: "daily",
+            va_option: data.assistant,
+            status: "pending",
+            reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
+          },
+          { headers: { Authorization: "Bearer " + token } }
+        )
+        .then(() => getTasks());
 
       setTaskModal(0);
       setSubmit(!submit);
@@ -194,14 +198,18 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
           <div className={styles.createTask_submit_button_wrapper}>
             <button
               id="remind me"
-              onClick={e => handleSubmit(e)}
+              onClick={e => {
+                handleSubmit(e);
+              }}
               className={styles.createTask_submit_button1}
             >
               Remind me
             </button>
             <button
               id="no"
-              onClick={e => handleSubmit(e)}
+              onClick={e => {
+                handleSubmit(e);
+              }}
               className={styles.createTask_submit_button2}
             >
               No, Thanks
