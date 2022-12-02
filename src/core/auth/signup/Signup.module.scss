@@ -9,6 +9,49 @@
         padding-bottom: 3.625rem;
     }
 
+    .signup__bottomContent {
+        display: grid;
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+    
+    .signup__others {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    
+    .signup__continueText {
+        width: 100%;
+        text-align: center;
+        color: #707070;
+        font-size: 1rem;
+    }
+    
+    .signup__line {
+        height: 2px;
+        display: block;
+        width: 100%;
+        background-color: #D3D0D9;
+    }
+    
+    .signup__socials {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .signup__socials img {
+        cursor: pointer;
+    }
+    
+    .signup__googleButton{
+        background-color: transparent;
+        border: none;
+    }
+
 
     .signupLeft{
         width: 29rem;
@@ -184,7 +227,7 @@
             border: none;
         }
 
-        .toLogin{
+        .tosignup{
             margin-top: 1.719rem;
             color: #707070;
             text-align: center;
