@@ -83,8 +83,6 @@ const Home = () => {
           );
     
           const vaTasks = response.data.data 
-          
-          console.log(vaTasks)
     
           setTasks(vaTasks);
         }
