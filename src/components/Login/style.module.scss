@@ -2,15 +2,14 @@
 	min-height: 100vh;
 	width: 100%;
 	display: flex;
-	place-items: center;
+	justify-content: space-between;
 	background-color: #E5E5E5;
 
 	.loginImg{
-		margin-left: 7.5rem;
-		margin-top: 9.75rem;
-		margin-right: 7rem;
-		margin-bottom: 1rem;
 
+		.loginPic{
+		
+	}
 		@media screen and (max-width: 600px) {
             display: none;
         }
@@ -30,6 +29,12 @@
 	width: 100%;
 	padding: 1rem;
 	max-width: 31.25rem;
+	margin-left: 3rem;
+
+	@media screen and (max-width: 600px) {
+		margin-left: 1rem;
+		
+	}
 }
 
 .login__form {
@@ -80,6 +85,11 @@
 	border-radius: 0.5rem;
 	position: relative;
 	height: 3rem;
+}
+
+.login__googleButton{
+	background-color: transparent;
+	border: none;
 }
 
 .login__password {

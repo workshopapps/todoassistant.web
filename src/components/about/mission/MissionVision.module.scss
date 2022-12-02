@@ -1,0 +1,19 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.section {
+  margin: 5rem 0 10rem;
+  .valueCard {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.wrapper {
+  width: 100%;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .statusName {
+        display: flex;
+        align-items: stretch;
+        .icon {
+          display: flex;
+          padding: 10px;
+          background: #f9f7ff;
+          border: 1px solid #714dd9;
+          border-radius: 4px 0px 0px 4px;
+        }
+        .text {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          background: #714dd9;
+          border-radius: 0px 4px 4px 0px;
+
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 120%;
+          color: #e9f3f5;
+        }
+      }
+      .noOfTasks {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        color: #707070;
+      }
+    }
+
+    .asign,
+    .date {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      color: #707070;
+    }
+  }
+  .tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    .task {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      // align-items: center;
+      // justify-content: space-between;
+      padding: 20px 40px;
+      background: linear-gradient(
+          0deg,
+          rgba(113, 77, 217, 0.11),
+          rgba(113, 77, 217, 0.11)
+        ),
+        #ffffff;
+      border-top: 1px solid #e9f3f5;
+
+      .taskName {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .checkBox {
+          width: 16px;
+          height: 16px;
+          background: #d3d0d9;
+          border: 1px solid #d3d0d9;
+          border-radius: 4px;
+        }
+        .text {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 120%;
+          color: #333333;
+        }
+      }
+
+      .asign {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+
+        img {
+          width: 20px;
+        }
+
+        p {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 100%;
+          color: #707070;
+        }
+      }
+
+      .date {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        color: #707070;
+        text-align: end;
+      }
+    }
+  }
+}

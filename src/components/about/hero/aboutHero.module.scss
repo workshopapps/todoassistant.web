@@ -1,6 +1,12 @@
 @import "../../../scss/mixins";
 @import "../../../scss/variables";
 
+  /*
+.aboutus{
+background:rgba(113,77,217,0.1);
+}
+ */ 
+ 
 .header {
   @include container;
   display: flex;
@@ -60,6 +66,7 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
+  margin-top: 8rem;
   height: 100vh;
   margin-bottom: 5rem;
   .text{ 
@@ -69,4 +76,5 @@
  }
  }
    }
+   
  }

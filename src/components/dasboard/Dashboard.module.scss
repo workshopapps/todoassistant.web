@@ -1,17 +1,23 @@
 .main {
-    &__appbar {
-        hr {
-            border: "5px solid #714DD9"
-        }
+  &__appbar {
+    hr {
+      border: "5px solid #714DD9";
     }
+  }
 
-    &__span {
-        margin-top: 12px;
-        span {
-            margin: 0px 5px;
-
-        }
+  &__span {
+    margin-top: 12px;
+    span {
+      margin: 0px 5px;
     }
+  }
+}
 
-    
+.arrow_down {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.arrow_up {
+  transform: rotate(180deg);
 }

@@ -1,0 +1,100 @@
+@import "../../../../scss/variables";
+
+// ===================
+// MIXINS
+// ===================
+@mixin img_fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ====================
+// END OF MIXINS
+// ====================
+
+// using the BEM system
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+p {
+  color: $blackText;
+}
+
+.slider {
+  border: 1px solid red !important;
+  padding: 0 5rem !important;
+}
+
+.section__six {
+  padding: 76px 0;
+  text-align: center;
+  background: rgba(249, 247, 255, 1);
+  .section__six_task {
+    color: $accentOrange;
+  }
+
+  .section__six_title {
+    font-weight: 700;
+    font-size: 24px;
+    @media screen and (min-width: 992px) {
+      font-size: 48px;
+    }
+  }
+
+  .section__six_subtitle {
+    font-size: 16px;
+    color: $blackText-light;
+    @media screen and (min-width: 992px) {
+      font-size: 20px;
+    }
+  }
+
+  .section__six_grid {
+    width: 100%;
+    // max-width: 55rem;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .buttonNav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      @media (min-width: 992px) {
+        display: none;
+      }
+
+      button {
+        padding: 12px;
+        background-color: $activeColor;
+        border-radius: 8px;
+        border: 1px solid;
+        color: $white;
+        cursor: pointer;
+        transition: 0.2s all ease-in;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

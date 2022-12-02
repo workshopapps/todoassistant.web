@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import google from "../../../assets/google.png";
 import fb from "../../../assets/fb.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import signupPicture from "../../../assets/signup.svg";
+import signupPicture from "../../../assets/thesignupimage.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 // import Header from "../../../layout/header/Header";
 import Navbar from "../../../layout/header/Navbar";
+import { login } from "../../../contexts/authContext/apiCalls";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
@@ -26,7 +30,7 @@ const Signup = () => {
   const [error, setError] = useState(false);
   const [gender, setGender] = useState("");
   const [date_of_birth, setDateofbirth] = useState("");
-
+  const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -59,7 +63,9 @@ const Signup = () => {
       fullName.length == 0 ||
       email.length == 0 ||
       phone.length == 0 ||
-      password.length == 0
+      password.length < 6 ||
+      gender.length == 0 ||
+      date_of_birth.length == 0
     ) {
       setError(true);
     }
@@ -72,16 +78,11 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://api.ticked.hng.tech/api/v1/user",
+        "/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
-      navigate("/login", {
-        state: {
-          registeredEmail: { email },
-          registeredPassword: { password }
-        }
-      });
+      login({ email, password }, dispatch);
     } catch (err) {
       console.log(err);
     }
@@ -107,22 +108,40 @@ const Signup = () => {
       {/* <Header /> */}
       <Navbar />
       <div className={styles.signupContainer}>
-        <div className={styles.signupImg}>
-          <img src={signupPicture} alt="signupPicture" />
-        </div>
 
-        <div className={styles.signupRight}>
+        <div className={styles.signupLeft}>
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
-              <label htmlFor="name" className={styles.describer}>
-                First & Last Name
+              <label htmlFor="first_name" className={styles.describer}>
+                First Name
               </label>
               <input
-                id="name"
+                id="first_name"
                 type="text"
-                placeholder="Enter name"
-                value={fullName}
+                placeholder="Enter first name"
+                value={first_name}
+                required
+                onChange={e => setFirstName(e.target.value)}
+              />
+              {error && first_name.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Name does not match!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.eachContainer}>
+              <label htmlFor="last_name" className={styles.describer}>
+                Last Name
+              </label>
+              <input
+                id="last_name"
+                type="text"
+                placeholder="Enter last name"
+                value={last_name}
                 required
                 onChange={e => setFullName(e.target.value)}
               />
@@ -140,8 +159,8 @@ const Signup = () => {
                 Email Address
               </label>
               <input
+                className={styles.input}
                 id="email"
-                className="emailInput"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -161,15 +180,16 @@ const Signup = () => {
               <label htmlFor="phone" className={styles.describer}>
                 Phone Number
               </label>
-              <input
+              <PhoneInput
+                className={`${styles.phone} ${styles.phoneInputField}`}
+                international
+                defaultCountry="NG"
                 id="phone"
-                className="emailInput"
-                type="number"
-                placeholder="Enter phone"
                 value={phone}
                 required
-                onChange={e => setPhone(e.target.value)}
+                onChange={setPhone}
               />
+
               {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Phone number does not match!
@@ -208,28 +228,72 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
+              <label htmlFor="gender" className={styles.describer}>
+                Gender
+              </label>
+              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value)}>
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              {error && gender.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Input a gender!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+
+            <div className={styles.eachContainer}>
+              <label htmlFor="date_of_birth" className={styles.describer}>
+                Date of birth
+              </label>
+              <input
+                className={styles.input}
+                id="date_of_birth"
+                type="date"
+                placeholder="Enter Date of birth"
+                value={date_of_birth}
+                required
+                onChange={(e) => setDateofbirth(e.target.value)}
+              />
+              {error && first_name.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Date of birth cannot be empty!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.eachContainer}>
               <label htmlFor="password" className={styles.describer}>
                 Password
               </label>
-              <input
-                id="password"
-                type={passwordShown ? "text" : "password"}
-                placeholder="Enter password"
-                value={password}
-                required
-                onChange={e => setPassword(e.target.value)}
-              />
-              <AiOutlineEye
-                onClick={togglePassword}
-                className={passwordShown ? styles.hideEye : styles.showEye}
-              />
-              <AiOutlineEyeInvisible
-                onClick={togglePassword}
-                className={passwordShown ? styles.showEye : styles.hideEye}
-              />
-              {error && password.length <= 0 ? (
+              <div className={styles.passwordInputWrapper}>
+                <input
+                  id="password"
+                  className={styles.passwordInput}
+                  type={passwordShown ? "text" : "password"}
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
+                <AiOutlineEye
+                  onClick={togglePassword}
+                  className={passwordShown ? styles.hideEye : styles.showEye}
+                />
+                <AiOutlineEyeInvisible
+                  onClick={togglePassword}
+                  className={passwordShown ? styles.showEye : styles.hideEye}
+                />
+              </div>
+
+              {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
-                  Password does not match!
+                  Password must be up to 6 characters!
                 </div>
               ) : (
                 ""
@@ -253,20 +317,34 @@ const Signup = () => {
               </span>
             </div>
 
-            {fullName && email && phone && password && isChecked && (
-              <button id="btn__submit" className={styles.button}>
-                Sign Up
-              </button>
-            )}
-            {(!fullName || !email || !phone || !password || !isChecked) && (
-              <button
-                id="btn__submit"
-                className={styles.buttonDisabled}
-                disabled
-              >
-                Sign Up
-              </button>
-            )}
+            {first_name &&
+              last_name &&
+              email &&
+              phone &&
+              gender &&
+              date_of_birth &&
+              password &&
+              isChecked && (
+                <button id="btn__submit" className={styles.button}>
+                  Sign Up
+                </button>
+              )}
+            {(!first_name ||
+              !last_name ||
+              !email ||
+              !phone ||
+              !gender ||
+              !date_of_birth ||
+              !password ||
+              !isChecked) && (
+                <button
+                  id="btn__submit"
+                  className={styles.buttonDisabled}
+                  disabled
+                >
+                  Sign Up
+                </button>
+              )}
           </form>
           <p className={styles.tosignup}>
             Already have an account?,{" "}
@@ -281,16 +359,15 @@ const Signup = () => {
               Sign In
             </Link>
           </p>
-          <div className={styles.signup__bottomContent}>
-            <div className={styles.signup__others}>
-              <span className={styles.signup__line} />
-              <span className={styles.signup__continueText}>
-                Or continue with
-              </span>
-              <span className={styles.signup__line} />
-            </div>
-            <div className={styles.signup__socials}>
-            <GoogleLogin
+
+          <div className={styles.continueWith}>
+            <div className={styles.continueWithLine}></div>
+            <span className={styles.continueWithText}>Or continue with</span>
+            <div className={styles.continueWithLine}></div>
+          </div>
+
+          <div className={styles.signupSocials}>
+          <GoogleLogin
           clientId={clientId}
           render={renderProps => (
             <button onClick={renderProps.onClick} className={styles.signup__googleButton}> <img src={google} alt="google_login" /></button>
@@ -301,10 +378,14 @@ const Signup = () => {
           cookiePolicy={'single_host_origin'}
           isSignedIn={false}
       />
-              <img src={fb} alt="fb_login" />
-            </div>
+              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
           </div>
         </div>
+
+        <div className={styles.signupImg}>
+          <img src={signupPicture} alt="signupPicture" />
+        </div>
+
       </div>
     </>
   );
