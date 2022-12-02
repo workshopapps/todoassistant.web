@@ -176,6 +176,31 @@
             color: #707070;
             text-align: center;
         }
+
+        .continueWith{
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            .continueWithLine{
+                height: 2px;
+                display: block;
+                width: 33%;
+                background-color: #D3D0D9;
+            }
+            .continueWithText{
+                color: #707070;
+                margin-right: 0.7rem;
+                margin-left: 0.7rem;
+            }
+        }
+
+        .signupSocials{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 2rem;
+        }
     }
 
     .signupImg{
