@@ -42,10 +42,15 @@ const VASignup = () => {
       setError(true);
     }
 
+  const config = {
+      headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('VA')).extra.token}` }
+  };
+
     try {
       const response = await axios.post(
-        "va/signup",
-        { first_name, last_name, email, phone, password, account_type}
+        "/va/signup",
+        { first_name, last_name, email, phone, password, account_type },
+        config
       );
       console.log(response);
       login({ email, password }, dispatch);

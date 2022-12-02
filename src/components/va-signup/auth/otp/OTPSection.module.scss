@@ -78,10 +78,12 @@ body {
             }
             input::-webkit-outer-spin-button,
             input::-webkit-inner-spin-button {
-              -webkit-appearance: none;
+              appearance: none;
+                -webkit-appearance: none;
               margin: 0;
             }
             input[type=number] {
+                appearance: none;
                 -moz-appearance: textfield;
               }
             input:focus {
@@ -178,10 +180,12 @@ body {
                 }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
+                    appearance: none;
                   -webkit-appearance: none;
                   margin: 0;
                 }
                 input[type=number] {
+                    appearance: none;
                     -moz-appearance: textfield;
                   }
                 input:focus {
@@ -279,10 +283,12 @@ body {
                 }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
+                    appearance: none;
                   -webkit-appearance: none;
                   margin: 0;
                 }
                 input[type=number] {
+                    appearance: none;
                     -moz-appearance: textfield;
                   }
                 input:focus {
@@ -362,10 +368,12 @@ body {
                 }
                 input::-webkit-outer-spin-button,
                 input::-webkit-inner-spin-button {
+                    appearance: none;
                   -webkit-appearance: none;
                   margin: 0;
                 }
                 input[type=number] {
+                    appearance: none;
                     -moz-appearance: textfield;
                   }
                 input:focus {
