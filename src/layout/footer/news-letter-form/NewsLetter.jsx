@@ -53,12 +53,20 @@ const NewsLetter = () => {
     setEmail("")
   };
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
 
   const handleNewsLetter = async () => {
-    if(email !== "") {
+    if(email !== "" && validateEmail(email)) {
       try {
         const response = await axios.post(
-          "https://api.ticked.hng.tech/api/v1/subscribe", 
+          "/subscribe", 
           {"email":  `"${email}"`},
           )
           if (response.status == 200 ) {
@@ -79,7 +87,7 @@ const NewsLetter = () => {
           Email Address
         </label>
         <div className={style.input_container}>
-           <input className={`style.input hover`} style={{outline: "none"}} autoComplete onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
+           <input className={`style.input`} style={{outline: "none"}} autoComplete onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
            <input onClick={handleNewsLetter} className={style.subscribe_btn} style={{cursor: "pointer"}} type="button" value="Subscribe"/>
         </div>
       </form>
