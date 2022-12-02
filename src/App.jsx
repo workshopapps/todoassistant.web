@@ -41,13 +41,15 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
-import VaDasboard from "./components/vaDashboard/VaDasboard";
+// import VaDasboard from "./components/vaDashboard/VaDasboard";
 import Login from "./components/Login/Login";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
+import VADashboard from "./components/vaDashboard/VADashboard";
 
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
@@ -83,7 +85,7 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        { user ? (
+        {!user ? (
           <>
             <Route path="/dashboard" element={<Dasboard />}>
               <Route path="" element={<Home />} />
@@ -98,10 +100,12 @@ function App() {
               <Route path="profile" element={<VaProfile />} />
             </Route>
 
-            <Route path="/virtualassistance" element={<VaDasboard />}>
+            {/* <Route path="/virtualassistance" element={<VaDasboard />}>
               <Route path="" element={<Home />} />
               <Route path="notifications" element={<Notifications />} />
-            </Route>
+            </Route> */}
+            <Route path="/va-assistance" element={<VADashboard />} />
+            <Route path="/clients" element={<VaClientPage />} />
 
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
@@ -132,8 +136,8 @@ function App() {
             </Route>
 
             <Route path="/virtualassistance" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
+              {/* <Route path="" element={<Login />} />
+              <Route path="notifications" element={<Login />} /> */}
             </Route>
 
             <Route path="/newtask" element={<Login />} />
