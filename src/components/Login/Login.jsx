@@ -54,9 +54,6 @@ const toggle = () => setShow(!show);
     <React.Fragment>
       <Navbar />
       <div className={styles.login__main}>
-        <div className={styles.loginImg}>
-          <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
-        </div>
 
         <div className={styles.login__formWrapper}>
           <h2 className={styles.login__title}>Login</h2>
@@ -143,6 +140,11 @@ const toggle = () => setShow(!show);
             </div>
           </div>
         </div>
+
+        <div className={styles.loginImg}>
+          <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
+        </div>
+        
       </div>
     </React.Fragment>
   );

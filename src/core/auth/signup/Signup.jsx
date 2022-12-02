@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import signupPicture from "../../../assets/thesignupimage.svg";
+import google from "../../../assets/google.png";
+import fb from "../../../assets/fb.png";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -9,6 +11,8 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../../layout/header/Navbar";
 import { login } from "../../../contexts/authContext/apiCalls";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
   // const [fullName, setFullName] = useState("");
@@ -54,7 +58,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://api.ticked.hng.tech/api/v1/user",
+        "/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
@@ -89,11 +93,11 @@ const Signup = () => {
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
-              <label htmlFor="name" className={styles.describer}>
+              <label htmlFor="first_name" className={styles.describer}>
                 First Name
               </label>
               <input
-                id="name"
+                id="first_name"
                 type="text"
                 placeholder="Enter first name"
                 value={first_name}
@@ -110,13 +114,13 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
-              <label htmlFor="name" className={styles.describer}>
+              <label htmlFor="last_name" className={styles.describer}>
                 Last Name
               </label>
               <input
-                id="name"
+                id="last_name"
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter last name"
                 value={last_name}
                 required
                 onChange={e => setLastName(e.target.value)}
@@ -135,6 +139,7 @@ const Signup = () => {
                 Email Address
               </label>
               <input
+                className={styles.input}
                 id="email"
                 type="email"
                 placeholder="Enter email"
@@ -155,14 +160,16 @@ const Signup = () => {
               <label htmlFor="phone" className={styles.describer}>
                 Phone Number
               </label>
-              <input
+              <PhoneInput
+                className={`${styles.phone} ${styles.phoneInputField}`}
+                international
+                defaultCountry="NG"
                 id="phone"
-                type="number"
-                placeholder="Enter phone"
                 value={phone}
                 required
-                onChange={e => setPhone(e.target.value)}
+                onChange={setPhone}
               />
+
               {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Phone number does not match!
@@ -176,7 +183,7 @@ const Signup = () => {
               <label htmlFor="gender" className={styles.describer}>
                 Gender
               </label>
-              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value) }>
+              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value)}>
                 <option value="" disabled>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -196,6 +203,7 @@ const Signup = () => {
                 Date of birth
               </label>
               <input
+                className={styles.input}
                 id="date_of_birth"
                 type="date"
                 placeholder="Enter Date of birth"
@@ -226,15 +234,15 @@ const Signup = () => {
                   onChange={e => setPassword(e.target.value)}
                 />
                 <AiOutlineEye
-                onClick={togglePassword}
-                className={passwordShown ? styles.hideEye : styles.showEye}
+                  onClick={togglePassword}
+                  className={passwordShown ? styles.hideEye : styles.showEye}
                 />
                 <AiOutlineEyeInvisible
                   onClick={togglePassword}
                   className={passwordShown ? styles.showEye : styles.hideEye}
                 />
               </div>
-              
+
               {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
                   Password must be up to 6 characters!
@@ -281,14 +289,14 @@ const Signup = () => {
               !date_of_birth ||
               !password ||
               !isChecked) && (
-              <button
-                id="btn__submit"
-                className={styles.buttonDisabled}
-                disabled
-              >
-                Sign Up
-              </button>
-            )}
+                <button
+                  id="btn__submit"
+                  className={styles.buttonDisabled}
+                  disabled
+                >
+                  Sign Up
+                </button>
+              )}
           </form>
           <p className={styles.toLogin}>
             Already have an account?,{" "}
@@ -303,6 +311,17 @@ const Signup = () => {
               Sign In
             </Link>
           </p>
+
+          <div className={styles.continueWith}>
+            <div className={styles.continueWithLine}></div>
+            <span className={styles.continueWithText}>Or continue with</span>
+            <div className={styles.continueWithLine}></div>
+          </div>
+
+          <div className={styles.signupSocials}>
+              <img src={google} alt="google icon" style={{cursor: "pointer"}}/>
+              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
+          </div>
         </div>
 
         <div className={styles.signupImg}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./VaDashboard.module.scss";
 
-import { Routes, Route, NavLink, useLocation, Outlet } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation, Outlet, Link } from "react-router-dom";
 // import {useHistory} from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
+// import Divider from '@mui/material/Divider';
 import IconButton from "@mui/material/IconButton";
 import { Grid, Container } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -21,8 +22,12 @@ import { virtualassistance } from "../../router/virtualAssistance";
 //Images
 import tick from "../../assets/home/tick.png";
 import VaImg from "../../assets/dashboard/vaImg.png";
-import arrowDown from "../../assets/dashboard/arrow-down.png";
-import add from "../../assets/dashboard/add.png";
+// import arrowDown from "../../assets/dashboard/arrow-down.png";
+import hand from "../../assets/dashboard/hand.png";
+import bell from "../../assets/dashboard/bell.png";
+
+
+// import add from "../../assets/dashboard/add.png";
 
 const drawerWidth = 240;
 
@@ -32,15 +37,15 @@ export default function VaDasboard() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [title, setTitle] = useState("home");
+  // const [title, setTitle] = useState("home");
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
-    const path = location?.pathname?.split("/").pop();
+    // const path = location?.pathname?.split("/").pop();
     //Check that path is equal to userroute returned value
-    const current = virtualassistance.find(item => item.path === path);
+    // const current = virtualassistance.find(item => item.path === path);
     //Updating state and setting default route to convert
-    setTitle(current?.title ?? "home");
+    // setTitle(current?.title ?? "home");
   }, [location]);
 
   const handleDrawerToggle = () => {
@@ -51,10 +56,10 @@ export default function VaDasboard() {
     <div
       className="drawer"
       style={{
-        background: "#F6FAFB",
+        background: "#fff",
         borderRight: "1px solid #E9F3F5",
         minHeight: "100vh",
-        padding: "0px 10px"
+        padding: "0px 10px",
       }}
     >
       <Toolbar>
@@ -89,7 +94,7 @@ export default function VaDasboard() {
         </IconButton>
       </Toolbar>
       <Box px={2.5} mb={4}>
-        <Box
+        {/* <Box
           minWidth={"10vw"}
           margin={" 20px auto"}
           sx={{
@@ -104,7 +109,7 @@ export default function VaDasboard() {
         >
           <img src={add} alt="add" />
           <Typography variant="p">New to do</Typography>
-        </Box>
+        </Box> */}
       </Box>
       {virtualassistance.map((item, index) => {
         return (
@@ -117,14 +122,14 @@ export default function VaDasboard() {
                 style={{ textDecoration: "none" }}
               >
                 <Box
-                  sx={{ display: "flex", margin: "0 auto", width: "180px" }}
+                  sx={{ display: "flex", margin: "15px auto", width: "180px" }}
                   mt={4}
                   px={3}
                 >
                   <img src={item.icon} alt={`${item.title}_icon`} />
                   <Typography ml={1}>{item.title}</Typography>
                 </Box>
-                {index % 3 === 0 && index > 1 ? <Divider component="" /> : null}
+                {item.title === "clients" ? <Divider sx={{color: "#714DD9"}}  /> : null}
               </NavLink>
             </Box>
           </>
@@ -145,9 +150,10 @@ export default function VaDasboard() {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          background: "#F6FAFB",
+          background: "#fff",
           color: "black",
-          borderBottom: "1px solid #E9F3F5"
+          borderBottom: "1px solid #E9F3F5",
+          padding:  "20px"
         }}
         className={styles.main__appbar}
         elevation={0}
@@ -169,11 +175,12 @@ export default function VaDasboard() {
               <Typography
                 variant="h6"
                 mt={4}
-                sx={{ borderBottom: "3px solid #714DD9", width: "5vw" }}
+                sx={{  width: "15vw", display: "inline"}}
               >
-                {" "}
-                {title}{" "}
+                
+                Hello, Sandra
               </Typography>
+              <img style={{position: "relative", left: "10px", top: "2px"}} src={hand} alt="hand" />
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
@@ -184,10 +191,14 @@ export default function VaDasboard() {
                   alignItems: "center"
                 }}
               >
-                <span>
+                <span style={{display: "flex", gap: "10px", alignItems: "center"}}>
+                  <Link to="/virtualassistance/notifications">
+                  <img src={bell} style={{height: "30px"}} alt="bell" />
+                  </Link>
                   <img src={VaImg} alt="client image" />
+
                 </span>
-                <Typography
+                {/* <Typography
                   component="span"
                   display={{ xs: "none", md: "block" }}
                 >
@@ -195,7 +206,7 @@ export default function VaDasboard() {
                 </Typography>
                 <span>
                   <img src={arrowDown} alt="arrow down" />
-                </span>
+                </span> */}
               </Box>
             </Grid>
           </Grid>
@@ -248,7 +259,9 @@ export default function VaDasboard() {
           width: {
             sm: `calc(100% - ${drawerWidth}px)`,
             padding: "20px",
-            backgroundColor: "#F6FAFB"
+            backgroundColor: "#F9F7FF",
+            height: "100vh",
+            marginTop: "50px"
           }
         }}
       >
