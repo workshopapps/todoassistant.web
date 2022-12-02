@@ -70,14 +70,13 @@ const Home = () => {
     const [assigned, setAssigned] = useState([]);
 
     const fetchTasks = async () => {
-        // let vaUser = JSON.parse(sessionStorage.getItem("VA"));
-        let token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IjJAYS5jb20iLCJJZCI6Ijc1MjVjNTIzLWQ0MzktNGU1NS1iM2M4LTMxMGViMjgzYTk4MiIsIlN0YXR1cyI6IlZBIiwiZXhwIjoxNjcwMDg1MjQyfQ.9ZUuXMb8Tn-VrpRb7NIoRsNE13GaUxI5G4LL60mmRis`
-        if (token) {
+        let vaUser = JSON.parse(localStorage.getItem("VA"));
+        if (vaUser) {
           const response = await axios.get(
-            `/task/all/va`,
+            `task/all/va`,
             {
               headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${vaUser.token}`
               }
             }
           );
