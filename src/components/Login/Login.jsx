@@ -9,6 +9,14 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
 import Navbar from "../../layout/header/Navbar";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { useNavigate } from "react-router-dom";
+
+const responseFacebook = response => {
+  const navigate = useNavigate();
+  console.log(response);
+  navigate("/dashboard");
+};
 
 const Login = () => {
   const { state } = useLocation();
@@ -99,7 +107,16 @@ const Login = () => {
               <Link to="/CheckM">
                 <img src={google} alt="google_login" />
               </Link>
-              <img src={fb} alt="fb_login" />
+              <FacebookLogin
+                appId="1161513141464646"
+                autoLoad={true}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <img src={fb} alt="fb_login" onClick={renderProps.onClick} />
+                )}
+                icon={<img src={fb} alt="fb_login" />}
+              />
             </div>
             <div className={styles.login__createAccount}>
               <p>Don't have an account?</p>
