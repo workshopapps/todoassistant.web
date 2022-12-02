@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import signupPicture from "../../../assets/signup.svg";
+import { Link } from "react-router-dom";
+import signupPicture from "../../../assets/thesignupimage.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 // import Header from "../../../layout/header/Header";
 import Navbar from "../../../layout/header/Navbar";
+import { login } from "../../../contexts/authContext/apiCalls";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
 
 const Signup = () => {
   // const [fullName, setFullName] = useState("");
@@ -18,10 +20,11 @@ const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
-  const gender = "Male";
-  const date_of_birth = "1990";
+  const [gender, setGender] = useState("");
+  const [date_of_birth, setDateofbirth] = useState("");
 
-  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -34,7 +37,9 @@ const Signup = () => {
       last_name.length == 0 ||
       email.length == 0 ||
       phone.length == 0 ||
-      password.length == 0
+      password.length < 6 ||
+      gender.length == 0 ||
+      date_of_birth.length == 0
     ) {
       setError(true);
     }
@@ -53,12 +58,7 @@ const Signup = () => {
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
-      navigate("/login", {
-        state: {
-          registeredEmail: { email },
-          registeredPassword: { password }
-        }
-      });
+      login({ email, password }, dispatch);
     } catch (err) {
       console.log(err);
     }
@@ -84,11 +84,8 @@ const Signup = () => {
       {/* <Header /> */}
       <Navbar />
       <div className={styles.signupContainer}>
-        <div className={styles.signupImg}>
-          <img src={signupPicture} alt="signupPicture" />
-        </div>
 
-        <div className={styles.signupRight}>
+        <div className={styles.signupLeft}>
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
@@ -139,7 +136,6 @@ const Signup = () => {
               </label>
               <input
                 id="email"
-                className="emailInput"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -161,7 +157,6 @@ const Signup = () => {
               </label>
               <input
                 id="phone"
-                className="emailInput"
                 type="number"
                 placeholder="Enter phone"
                 value={phone}
@@ -178,28 +173,71 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
+              <label htmlFor="gender" className={styles.describer}>
+                Gender
+              </label>
+              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value) }>
+                <option value="" disabled>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              {error && gender.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Input a gender!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+
+            <div className={styles.eachContainer}>
+              <label htmlFor="date_of_birth" className={styles.describer}>
+                Date of birth
+              </label>
+              <input
+                id="date_of_birth"
+                type="date"
+                placeholder="Enter Date of birth"
+                value={date_of_birth}
+                required
+                onChange={(e) => setDateofbirth(e.target.value)}
+              />
+              {error && first_name.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Date of birth cannot be empty!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.eachContainer}>
               <label htmlFor="password" className={styles.describer}>
                 Password
               </label>
-              <input
-                id="password"
-                type={passwordShown ? "text" : "password"}
-                placeholder="Enter password"
-                value={password}
-                required
-                onChange={e => setPassword(e.target.value)}
-              />
-              <AiOutlineEye
+              <div className={styles.passwordInputWrapper}>
+                <input
+                  id="password"
+                  className={styles.passwordInput}
+                  type={passwordShown ? "text" : "password"}
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
+                <AiOutlineEye
                 onClick={togglePassword}
                 className={passwordShown ? styles.hideEye : styles.showEye}
-              />
-              <AiOutlineEyeInvisible
-                onClick={togglePassword}
-                className={passwordShown ? styles.showEye : styles.hideEye}
-              />
-              {error && password.length <= 0 ? (
+                />
+                <AiOutlineEyeInvisible
+                  onClick={togglePassword}
+                  className={passwordShown ? styles.showEye : styles.hideEye}
+                />
+              </div>
+              
+              {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
-                  Password does not match!
+                  Password must be up to 6 characters!
                 </div>
               ) : (
                 ""
@@ -227,6 +265,8 @@ const Signup = () => {
               last_name &&
               email &&
               phone &&
+              gender &&
+              date_of_birth &&
               password &&
               isChecked && (
                 <button id="btn__submit" className={styles.button}>
@@ -237,6 +277,8 @@ const Signup = () => {
               !last_name ||
               !email ||
               !phone ||
+              !gender ||
+              !date_of_birth ||
               !password ||
               !isChecked) && (
               <button
@@ -262,6 +304,11 @@ const Signup = () => {
             </Link>
           </p>
         </div>
+
+        <div className={styles.signupImg}>
+          <img src={signupPicture} alt="signupPicture" />
+        </div>
+
       </div>
     </>
   );
