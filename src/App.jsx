@@ -32,6 +32,7 @@ import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
 import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
+import VASignup from "./components/va-signup/auth/signup/VASignup";
 // import Login from "./components/Login/Login";
 import ErrorMain from "./components/404";
 import SettingsProfile from "./core/settings/profile/SettingsProfile";
@@ -48,6 +49,7 @@ import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+import VALogin from "./components/VA-Login/VALogin";
 
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
@@ -82,6 +84,8 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/va-signup" element={<VASignup />} />
+        <Route path="/va-login" element={<VALogin />} />
 
         { user ? (
           <>
