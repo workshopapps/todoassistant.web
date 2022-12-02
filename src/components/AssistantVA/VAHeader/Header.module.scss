@@ -1,0 +1,42 @@
+.va_header {
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background: white;
+    padding: 50px;
+    justify-content: space-between;
+
+    &_greeting {
+        font-family: 'Open Sans';
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 160%;
+        color: #000000;
+
+        img {
+            margin-left: 0.8rem;
+        }
+    }
+
+    .profile_notification {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 25px;
+
+        .notification {
+            display: grid;
+            place-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF;
+            border-radius: 40px;
+        }
+
+        // .profile {
+        //     display: flex;
+        //     flex-flow: row nowrap;
+        //     gap: 10px;
+        // }
+    }
+}

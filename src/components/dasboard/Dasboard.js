@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import styles from "./VaDashboard.module.scss";
+import styles from "./Dashboard.module.scss";
 
 import {
   Routes,
@@ -122,7 +122,7 @@ export default function VaDasboard() {
           <>
             <Box sx={{ marginTop: "20px !important" }}>
               <NavLink
-                to={`/virtualassistance/${item.path}`}
+                to={`/dashboard/${item.path}`}
                 exact
                 key={index}
                 style={{ textDecoration: "none" }}
@@ -163,7 +163,7 @@ export default function VaDasboard() {
           borderBottom: "1px solid #E9F3F5",
           padding: "20px"
         }}
-        // className={styles.main__appbar}
+        className={styles.main__appbar}
         elevation={0}
         position="fixed"
       >
@@ -195,7 +195,7 @@ export default function VaDasboard() {
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
-                // className={styles.main__span}
+                className={styles.main__span}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
@@ -284,7 +284,7 @@ export default function VaDasboard() {
               <Route
                 key={index}
                 exact
-                path={`/virtualassistance/${item.path}`}
+                path={`/dashboard/${item.path}`}
                 render={props => {
                   return (
                     <>

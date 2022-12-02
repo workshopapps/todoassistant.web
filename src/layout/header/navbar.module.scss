@@ -10,8 +10,7 @@
 }
 
 .nav {
-  padding: 20px 1rem;
-  max-width: 80vw;
+  @include container;
   margin: 0 auto;
   .links,
   .cta {

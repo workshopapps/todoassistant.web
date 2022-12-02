@@ -30,7 +30,7 @@ import Payment from "./core/payment/Payment";
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-import VaProfile from "./components/VA-Profile/VaProfile";
+//import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import VASignup from "./components/va-signup/auth/signup/VASignup";
 // import Login from "./components/Login/Login";
@@ -41,13 +41,15 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
-import VaDasboard from "./components/vaDashboard/VaDasboard";
+// import VaDasboard from "./components/vaDashboard/VaDasboard";
+import VADashboard from "./components/AssistantVA";
 import Login from "./components/Login/Login";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
 import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 
@@ -55,8 +57,8 @@ import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 
 //userProfile
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
-//import Edit from "./core/settings/profile/Edit";
-//import ChangePassword from "./core/settings/profile/ChangePassword";
+import Edit from "./core/settings/profile/Edit";
+import ChangePassword from "./core/settings/profile/ChangePassword";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -104,19 +106,18 @@ function App() {
               <Route path="notification" element={<Notification />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="payment" element={<Payment />} />
-              <Route path="profile" element={<VaProfile />} />
-              {/**
-               * <Route path="profile" element={<SettingsProfilee />} />
-               * <Route path="profile/edit" element={<Edit />} />
-               * <Route path="profile/change-password" element={<ChangePassword />} />
-               */}
-
+              <Route path="profile" element={<SettingsProfilee />} />
+              <Route path="profile/edit" element={<Edit />} />
+              <Route
+                path="profile/change-password"
+                element={<ChangePassword />}
+              />
             </Route>
 
-            {/* <Route path="/virtualassistance" element={<VaDasboard />}>
+            {/* <Route path="/virtualassistance" element={<VADashboard />}>
               <Route path="" element={<Home />} />
               <Route path="notifications" element={<Notifications />} />
-            </Route> */}
+            </Route>  */}
 
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
@@ -131,20 +132,25 @@ function App() {
             <Route path="/pro" element={<ProPreferences />} />
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
-        ) : (
-            VA ?
-              (
-                <>
-                  <Route path="/va-signup" element={<VASignup />} />
-                  <Route path="/virtualassistance" element={<VaDasboard />}>
-                  <Route path="" element={<Home />} />
-                  <Route path="notifications" element={<Notifications />} />
-                  </Route>
-                </>
-              )
-              :
-
-            <>
+        ) : !VA ? (
+          <>
+            <Route path="/va-signup" element={<VASignup />} />
+            <Route path="" element={<Home />} />
+            <Route path="/virtualassistance" element={<VADashboard />} />
+            <Route path="/clients" element={<VaClientPage />} />
+            <Route path="notifications" element={<Notifications />} />
+          </>
+        )
+        // : VA ? (
+        //   <>
+        //     <Route path="/va-signup" element={<VASignup />} />
+        //     <Route path="/virtualassistance" element={<VADashboard />} />
+        //     <Route path="" element={<Home />} />
+        //     <Route path="notifications" element={<Notifications />} />
+        //   </>
+        // )
+        : (
+          <>
             <Route path="/dashboard" element={<Login />}>
               <Route path="" element={<Login />} />
               <Route path="assistant" element={<Login />} />
