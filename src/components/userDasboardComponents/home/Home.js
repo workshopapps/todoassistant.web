@@ -1,6 +1,7 @@
 import React from "react"; // ,{ useContext, useState }
 // import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
+import addIcon from "../../../assets/newAdd.png";
 // import icon1 from "../../../assets/completion-rate-icon.png";
 // import icon2 from "../../../assets/streak-icon.png";
 // import searchIcon from "../../../assets/search-normal.png";
@@ -9,7 +10,8 @@ import styles from "./Home.module.scss";
 // import Log from "./Log";
 // import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
 // import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
-// import DashboardTabs from "../../dasboard/DashboardTabs";
+import DashboardTabs from "../../dasboard/DashboardTabs";
+import TaskItems from "../../dasboard/TaskItems";
 export default function Home() {
   // if (localStorage.getItem("myTasks")) {
   //   console.log("lsdjj");
@@ -74,7 +76,27 @@ export default function Home() {
   // };
 
   return (
-    <div className={styles.myWrapper}></div>
+    <div className={styles.myWrapper}>
+      <div className={styles.header}>
+        <div className={styles.left}>
+          <h1>Welcome to Ticked</h1>
+          <div className={styles.todoTabs}>
+            <DashboardTabs tabNames={["All Task", "Mine", "Assistant"]} />
+          </div>
+        </div>
+        <div className={styles.right}>
+          <div className={styles.newTask}>
+            <img src={addIcon} alt="" />
+            <p>New Task</p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.allTasks}>
+        <TaskItems status="PENDING" />
+        <TaskItems status="DONE" />
+        <TaskItems status="OVERDUE" />
+      </div>
+    </div>
     // <div className={styles.wrapper}>
     //   <div className={styles.todos}>
     //     <h1>To do's</h1>
