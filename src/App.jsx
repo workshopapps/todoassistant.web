@@ -32,6 +32,7 @@ import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
 import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
+import VASignup from "./components/va-signup/auth/signup/VASignup";
 // import Login from "./components/Login/Login";
 import ErrorMain from "./components/404";
 import Otp from "./core/auth/otp/Otp";
@@ -47,6 +48,8 @@ import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+import VALogin from "./components/VA-Login/VALogin";
+import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
@@ -57,6 +60,7 @@ import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 
 function App() {
   const { user } = useContext(AuthContext);
+  const { VA } = useContext(VAAuthContext);
 
   return (
     // <ErrorBoundary>
@@ -86,6 +90,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/va-login" element={<VALogin />} />
 
         {user ? (
           <>
@@ -108,10 +113,10 @@ function App() {
 
             </Route>
 
-            <Route path="/virtualassistance" element={<VaDasboard />}>
+            {/* <Route path="/virtualassistance" element={<VaDasboard />}>
               <Route path="" element={<Home />} />
               <Route path="notifications" element={<Notifications />} />
-            </Route>
+            </Route> */}
 
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
@@ -127,7 +132,19 @@ function App() {
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
         ) : (
-          <>
+            VA ?
+              (
+                <>
+                  <Route path="/va-signup" element={<VASignup />} />
+                  <Route path="/virtualassistance" element={<VaDasboard />}>
+                  <Route path="" element={<Home />} />
+                  <Route path="notifications" element={<Notifications />} />
+                  </Route>
+                </>
+              )
+              :
+
+            <>
             <Route path="/dashboard" element={<Login />}>
               <Route path="" element={<Login />} />
               <Route path="assistant" element={<Login />} />
