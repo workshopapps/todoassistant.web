@@ -205,7 +205,9 @@ export default function Dasboard() {
                 </Typography>
                 <span>
                   <img
-                    className={`${styles.arrow_down} ${nav && styles.arrow_up}`}
+                    className={[styles.arrow_down, nav && styles.arrow_up].join(
+                      " "
+                    )}
                     id="arrow_down"
                     onClick={() => setNav(!nav)}
                     src={arrowDown}

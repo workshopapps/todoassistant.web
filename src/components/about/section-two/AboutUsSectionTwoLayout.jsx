@@ -1,6 +1,6 @@
 import styles from "./AboutUsHeader.module.scss";
 import React from "react";
-import img from "../../../assets/Frame 34504.png";
+import img from "../../../assets/Frame 34492.png";
 import icon1 from "../../../assets/task-square.png";
 import icon2 from "../../../assets/profile-2user.png";
 import icon3 from "../../../assets/tick-circle.png";
