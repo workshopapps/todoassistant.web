@@ -1,34 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, {useContext, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import signupPicture from "../../../assets/thesignupimage.svg";
-import google from "../../../assets/google.png";
-import fb from "../../../assets/fb.png";
-import styles from "./Signup.module.scss";
+import signupPicture from "../../../../assets/thesignupimage.svg";
+import styles from "./VASignup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
-// import Header from "../../../layout/header/Header";
-import Navbar from "../../../layout/header/Navbar";
-import { login } from "../../../contexts/authContext/apiCalls";
-import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import Navbar from "../../../../layout/header/Navbar";
+
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { VAAuthContext } from "../../../../contexts/VAContexts/AuthContext";
+import { login } from "../../../../contexts/VAContexts/apiCalls";
 
-const Signup = () => {
-  const [fullName, setFullName] = useState("");
+const VASignup = () => {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [account_type, setAccountType] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [error, setError] = useState(false);
-  const [gender, setGender] = useState("");
-  const [date_of_birth, setDateofbirth] = useState("");
 
-  const { dispatch } = useContext(AuthContext);
-
+  const { dispatch } = useContext(VAAuthContext);
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -37,26 +32,25 @@ const Signup = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (
-      fullName.length == 0 ||
+      first_name.length == 0 ||
+      last_name.length == 0 ||
       email.length == 0 ||
       phone.length == 0 ||
       password.length < 6 ||
-      gender.length == 0 ||
-      date_of_birth.length == 0
+      account_type.length == 0
     ) {
       setError(true);
     }
 
-    //splitting the name into first_name and last_name
-    if (fullName) {
-      setFirstName(fullName.split(" ")[0]);
-      setLastName(fullName.split(" ")[1]);
-    }
+  const config = {
+      headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('VA')).extra.token}` }
+  };
 
     try {
       const response = await axios.post(
-        "/user",
-        { first_name, last_name, email, phone, password, gender, date_of_birth }
+        "/va/signup",
+        { first_name, last_name, email, phone, password, account_type },
+        config
       );
       console.log(response);
       login({ email, password }, dispatch);
@@ -69,14 +63,15 @@ const Signup = () => {
     setPasswordShown(!passwordShown);
   };
 
+
   console.log(
     first_name,
     last_name,
     email,
     phone,
     password,
-    gender,
-    date_of_birth
+    account_type,
+    isChecked
   );
   /*Later, if you want to, you add/use the default validation by making the input fields and textarea "required". */
 
@@ -90,15 +85,17 @@ const Signup = () => {
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
-              <label htmlFor="first_name" className={styles.describer}>
+              <label htmlFor="name" className={styles.describer}>
                 First Name
               </label>
               <input
-                id="first_name"
+                className={styles.input}
+                id="name"
                 type="text"
                 placeholder="Enter first name"
                 value={first_name}
                 required
+                autoComplete="off"
                 onChange={e => setFirstName(e.target.value)}
               />
               {error && first_name.length <= 0 ? (
@@ -111,18 +108,20 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
-              <label htmlFor="last_name" className={styles.describer}>
+              <label htmlFor="name" className={styles.describer}>
                 Last Name
               </label>
               <input
+                className={styles.input}
                 id="last_name"
                 type="text"
-                placeholder="Enter last name"
+                placeholder="Enter surname"
                 value={last_name}
+                autoComplete="off"
                 required
-                onChange={e => setFullName(e.target.value)}
+                onChange={e => setLastName(e.target.value)}
               />
-              {error && fullName.length <= 0 ? (
+              {error && last_name.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Name does not match!
                 </div>
@@ -141,6 +140,7 @@ const Signup = () => {
                 type="email"
                 placeholder="Enter email"
                 value={email}
+                autoComplete="off"
                 required
                 onChange={e => setEmail(e.target.value)}
               />
@@ -154,15 +154,16 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
-              <label htmlFor="phone" className={styles.describer}>
+              <label htmlFor="phone" className={`${styles.describer} ${styles.phoneLabel}`}>
                 Phone Number
               </label>
               <PhoneInput
-                className={`${styles.phone} ${styles.phoneInputField}`}
+                className={styles.phone}
                 international
                 defaultCountry="NG"
                 id="phone"
                 value={phone}
+                autoComplete="off"
                 required
                 onChange={setPhone}
               />
@@ -170,75 +171,6 @@ const Signup = () => {
               {error && phone.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Phone number does not match!
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className={styles.eachContainer}>
-              <label htmlFor="gender" className={styles.describer}>
-                Gender
-              </label>
-              <input
-                id="gender"
-                className="emailInput"
-                type="text"
-                placeholder="Enter male or female"
-                value={gender}
-                required
-                onChange={e => setGender(e.target.value)}
-              />
-            </div>
-            <div className={styles.eachContainer}>
-              <label htmlFor="date_of_birth" className={styles.describer}>
-                Date of birth
-              </label>
-              <input
-                id="date_of_birth"
-                className="emailInput"
-                type="date"
-                placeholder="Enter Date of birth"
-                value={date_of_birth}
-                required
-                onChange={e => setDateofbirth(e.target.value)}
-              />
-            </div>
-
-            <div className={styles.eachContainer}>
-              <label htmlFor="gender" className={styles.describer}>
-                Gender
-              </label>
-              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value)}>
-                <option value="" disabled>Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-              {error && gender.length <= 0 ? (
-                <div className={styles.inputFieldErrorText}>
-                  Input a gender!
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-
-
-            <div className={styles.eachContainer}>
-              <label htmlFor="date_of_birth" className={styles.describer}>
-                Date of birth
-              </label>
-              <input
-                className={styles.input}
-                id="date_of_birth"
-                type="date"
-                placeholder="Enter Date of birth"
-                value={date_of_birth}
-                required
-                onChange={(e) => setDateofbirth(e.target.value)}
-              />
-              {error && first_name.length <= 0 ? (
-                <div className={styles.inputFieldErrorText}>
-                  Date of birth cannot be empty!
                 </div>
               ) : (
                 ""
@@ -256,6 +188,7 @@ const Signup = () => {
                   type={passwordShown ? "text" : "password"}
                   placeholder="Enter password"
                   value={password}
+                  autoComplete="off"
                   onChange={e => setPassword(e.target.value)}
                 />
                 <AiOutlineEye
@@ -271,6 +204,24 @@ const Signup = () => {
               {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
                   Password must be up to 6 characters!
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className={styles.eachContainer}>
+              <label htmlFor="account_type" className={`${styles.describer} ${styles.accountLabel}`}>
+                Account Type
+              </label>
+              <select name="account_type" id="account_type" value={account_type} required className={styles.select} onChange={(e) => setAccountType(e.target.value)}>
+                <option value="" disabled>Select Account Type</option>
+                <option value="VA">VA</option>
+                <option value="MASTER">MASTER</option>
+              </select>
+              {error && account_type.length <= 0 ? (
+                <div className={styles.inputFieldErrorText}>
+                  Select Account Type!
                 </div>
               ) : (
                 ""
@@ -293,26 +244,13 @@ const Signup = () => {
                 </Link>
               </span>
             </div>
-
-            {first_name &&
-              last_name &&
-              email &&
-              phone &&
-              gender &&
-              date_of_birth &&
-              password &&
-              isChecked && (
-                <button id="btn__submit" className={styles.button}>
-                  Sign Up
-                </button>
-              )}
+            
             {(!first_name ||
               !last_name ||
               !email ||
               !phone ||
-              !gender ||
-              !date_of_birth ||
               !password ||
+              !account_type ||
               !isChecked) && (
                 <button
                   id="btn__submit"
@@ -322,11 +260,23 @@ const Signup = () => {
                   Sign Up
                 </button>
               )}
+             {first_name &&
+              last_name &&
+              email &&
+              phone &&
+              password &&
+              // confirm_password &&
+              account_type &&
+              isChecked && (
+                <button id="btn__submit" className={styles.button}>
+                  Sign Up
+                </button>
+              )}
           </form>
           <p className={styles.toLogin}>
             Already have an account?,{" "}
             <Link
-              to="/login"
+              to="/va-login"
               style={{
                 textDecoration: "none",
                 marginLeft: "0.3rem",
@@ -336,17 +286,6 @@ const Signup = () => {
               Sign In
             </Link>
           </p>
-
-          <div className={styles.continueWith}>
-            <div className={styles.continueWithLine}></div>
-            <span className={styles.continueWithText}>Or continue with</span>
-            <div className={styles.continueWithLine}></div>
-          </div>
-
-          <div className={styles.signupSocials}>
-              <img src={google} alt="google icon" style={{cursor: "pointer"}}/>
-              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
-          </div>
         </div>
 
         <div className={styles.signupImg}>
@@ -358,4 +297,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default VASignup;

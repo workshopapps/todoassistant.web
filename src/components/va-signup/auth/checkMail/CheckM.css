@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;500;600;700&family=Lexend+Deca&family=Montserrat:wght@300;400;500;600&family=Open+Sans:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@100;400&family=Work+Sans:wght@600&display=swap");
+
+.All{
+  background-color: #F9F7FF;
+}
+
+.EmailCon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#Emaildetails {
+  width: 50%;
+}
+
+#econtainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#Sms {
+  height: 40px;
+  width: 40px;
+}
+
+#econtainer h1 {
+  font-size: 20px;
+  font-family: "Open Sans";
+  color: #333333;
+  margin: 10px 0;
+}
+
+#econtainer button {
+  border: none;
+  border-radius: 8px;
+  font-family: "Open Sans";
+  background: #714dd9;
+  color: #fff;
+  font-size: 10px;
+  padding: 10px 18px;
+  margin: 25px 0;
+  cursor: pointer;
+}
+
+#econtainer button:hover {
+  color: #714dd9;
+  border: 1px solid #714dd9;
+  background: #fff;
+}
+
+#econtainer h6 {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  color: #333333;
+  margin: -5px 0 50px;
+  cursor: pointer;
+}
+#econtainer #code {
+  margin-top: -10px;
+  color: #714dd9;
+}
+
+#econtainer #help {
+  margin: -50px 0 50px;
+}
+
+#econtainer p {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 15px;
+  font-family: "Open Sans";
+  color: #333333;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+#econtainer em {
+  color: #714dd9;
+  font-style: normal;
+  font-family: "Open Sans";
+}
+
+#address {
+  cursor: pointer;
+}
+/* 
+#displayCon {
+  width: 50%;
+  display: none;
+} */
+
+/* #Pimg {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-height: 670px;
+} */
+
+@media (max-width: 1024px) {
+  #econtainer h1 {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  #displayCon {
+    display: none;
+  }
+
+  #econtainer h1 {
+    font-size: 18px;
+  }
+  #econtainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #help {
+    margin: -50px 0 200px;
+  }
+  #econtainer h6 {
+    font-size: 11px;
+  }
+
+  #econtainer p {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 13px;
+    white-space: nowrap;
+  }
+}

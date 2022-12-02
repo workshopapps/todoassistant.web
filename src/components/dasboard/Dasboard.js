@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Dashboard.module.scss";
-import Dropdown from "./Dropdown";
+// import styles from "./VaDashboard.module.scss";
 
 import {
   Routes,
@@ -12,46 +11,47 @@ import {
 } from "react-router-dom";
 // import {useHistory} from "react-router-dom";
 
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+// import Divider from '@mui/material/Divider';
+import IconButton from "@mui/material/IconButton";
+import { Grid, Container } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+
 //route
 import { userRoutes } from "../../router/user";
 
 //Images
 import tick from "../../assets/home/tick.png";
 import VaImg from "../../assets/dashboard/vaImg.png";
-import arrowDown from "../../assets/dashboard/arrow-down.png";
-import add from "../../assets/dashboard/add.png";
-import {
-  AppBar,
-  Box,
-  Container,
-  CssBaseline,
-  Divider,
-  Drawer,
-  Grid,
-  IconButton,
-  Toolbar,
-  Typography
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+// import arrowDown from "../../assets/dashboard/arrow-down.png";
+import hand from "../../assets/dashboard/hand.png";
+import bell from "../../assets/dashboard/bell.png";
+
+// import add from "../../assets/dashboard/add.png";
 
 const drawerWidth = 240;
 
-export default function Dasboard() {
+export default function VaDasboard() {
   const location = useLocation();
   const { window } = location;
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [title, setTitle] = useState("home");
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // const [title, setTitle] = useState("home");
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
-    const path = location.pathname.split("/").pop();
+    // const path = location?.pathname?.split("/").pop();
     //Check that path is equal to userroute returned value
-    const current = userRoutes.find(item => item.path === path);
+    // const current = virtualassistance.find(item => item.path === path);
     //Updating state and setting default route to convert
-    setTitle(current?.title ?? "Home");
+    // setTitle(current?.title ?? "home");
   }, [location]);
 
   const handleDrawerToggle = () => {
@@ -62,7 +62,7 @@ export default function Dasboard() {
     <div
       className="drawer"
       style={{
-        background: "#F6FAFB",
+        background: "#fff",
         borderRight: "1px solid #E9F3F5",
         minHeight: "100vh",
         padding: "0px 10px"
@@ -99,45 +99,45 @@ export default function Dasboard() {
           {/* <Close /> */}
         </IconButton>
       </Toolbar>
-      <Link to="/newtask">
-        <Box px={2.5} mb={4}>
-          <Box
-            minWidth={"10vw"}
-            margin={" 20px auto"}
-            sx={{
-              background: "#714DD9",
-              color: "#fff",
-              padding: "14px",
-              borderRadius: "8px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <img src={add} alt="add" />
-            <Typography variant="p">New to do</Typography>
-          </Box>
-        </Box>
-      </Link>
+      <Box px={2.5} mb={4}>
+        {/* <Box
+          minWidth={"10vw"}
+          margin={" 20px auto"}
+          sx={{
+            background: "#714DD9",
+            color: "#fff",
+            padding: "14px",
+            borderRadius: "8px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <img src={add} alt="add" />
+          <Typography variant="p">New to do</Typography>
+        </Box> */}
+      </Box>
       {userRoutes.map((item, index) => {
         return (
           <>
             <Box sx={{ marginTop: "20px !important" }}>
               <NavLink
-                to={`/dashboard/${item.path}`}
+                to={`/virtualassistance/${item.path}`}
                 exact
                 key={index}
                 style={{ textDecoration: "none" }}
               >
                 <Box
-                  sx={{ display: "flex", margin: "0 auto", width: "180px" }}
+                  sx={{ display: "flex", margin: "15px auto", width: "180px" }}
                   mt={4}
                   px={3}
                 >
                   <img src={item.icon} alt={`${item.title}_icon`} />
                   <Typography ml={1}>{item.title}</Typography>
                 </Box>
-                {index % 3 === 0 && index > 1 ? <Divider component="" /> : null}
+                {item.title === "clients" ? (
+                  <Divider sx={{ color: "#714DD9" }} />
+                ) : null}
               </NavLink>
             </Box>
           </>
@@ -145,7 +145,10 @@ export default function Dasboard() {
       })}
     </div>
   );
-  const [nav, setNav] = useState(false);
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -155,11 +158,12 @@ export default function Dasboard() {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          background: "#F6FAFB",
+          background: "#fff",
           color: "black",
-          borderBottom: "1px solid #E9F3F5"
+          borderBottom: "1px solid #E9F3F5",
+          padding: "20px"
         }}
-        className={styles.main__appbar}
+        // className={styles.main__appbar}
         elevation={0}
         position="fixed"
       >
@@ -179,40 +183,42 @@ export default function Dasboard() {
               <Typography
                 variant="h6"
                 mt={4}
-                sx={{ borderBottom: "3px solid #714DD9", width: "fit-content" }}
+                sx={{ width: "15vw", display: "inline" }}
               >
-                {" "}
-                {title}{" "}
+                Hello, Sandra
               </Typography>
+              <img
+                style={{ position: "relative", left: "10px", top: "2px" }}
+                src={hand}
+                alt="hand"
+              />
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
-                className={styles.main__span}
+                // className={styles.main__span}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center"
                 }}
               >
-                <span>
+                <span
+                  style={{ display: "flex", gap: "10px", alignItems: "center" }}
+                >
+                  <Link to="/virtualassistance/notifications">
+                    <img src={bell} style={{ height: "30px" }} alt="bell" />
+                  </Link>
                   <img src={VaImg} alt="client image" />
                 </span>
-                <Typography
+                {/* <Typography
                   component="span"
                   display={{ xs: "none", md: "block" }}
                 >
                   <Typography sx={{ textAlign: "right" }}>John A </Typography>
                 </Typography>
                 <span>
-                  <img
-                    className={`${styles.arrow_down} ${nav && styles.arrow_up}`}
-                    id="arrow_down"
-                    onClick={() => setNav(!nav)}
-                    src={arrowDown}
-                    alt="arrow down"
-                  />
-                </span>
-                {nav ? <Dropdown /> : ""}
+                  <img src={arrowDown} alt="arrow down" />
+                </span> */}
               </Box>
             </Grid>
           </Grid>
@@ -265,7 +271,9 @@ export default function Dasboard() {
           width: {
             sm: `calc(100% - ${drawerWidth}px)`,
             padding: "20px",
-            backgroundColor: "#F6FAFB"
+            backgroundColor: "#F9F7FF",
+            height: "100vh",
+            marginTop: "50px"
           }
         }}
       >
@@ -276,7 +284,7 @@ export default function Dasboard() {
               <Route
                 key={index}
                 exact
-                path={`/dasboard/${item.path}`}
+                path={`/virtualassistance/${item.path}`}
                 render={props => {
                   return (
                     <>
