@@ -132,7 +132,7 @@ function App() {
             <Route path="/pro" element={<ProPreferences />} />
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
-        ) : !VA ? (
+        ) : VA ? (
           <>
             <Route path="/va-signup" element={<VASignup />} />
             <Route path="/virtualassistance" element={<VADashboard />} />
