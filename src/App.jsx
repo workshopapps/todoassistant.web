@@ -41,7 +41,8 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
-import VaDasboard from "./components/vaDashboard/VaDasboard";
+// import VaDasboard from "./components/vaDashboard/VaDasboard";
+import VADashboard from './components/AssistantVA'
 import Login from "./components/Login/Login";
 
 import { useContext } from "react";
@@ -98,7 +99,7 @@ function App() {
               <Route path="profile" element={<VaProfile />} />
             </Route>
 
-            <Route path="/virtualassistance" element={<VaDasboard />}>
+            <Route path="/virtualassistance" element={<VADashboard />}>
               <Route path="" element={<Home />} />
               <Route path="notifications" element={<Notifications />} />
             </Route>

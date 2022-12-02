@@ -1,0 +1,254 @@
+.va_section_container,
+.va_home_title,
+.va_home_links,
+.task_view,
+.task_details_container,
+.taskDetail_title_con,
+.task_details,
+.client {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+}
+
+.va_section_container {
+    width: 100%;
+    gap: 0px;
+}
+
+.va_home_container,
+.va_home_header,
+.va_tasks,
+.task_container,
+.taskDetail_body_con,
+.taskDetail_body,
+.taskDetail_child {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.va_home_container {
+    width: 100%;
+    background: #F9F7FF;
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.va_home_container_active {
+    width: 70%;
+}
+
+.task_detail_slider {
+    width: 30%;
+    background: white;
+}
+
+.va_home_header {
+    gap: 2rem;
+    background: #FFFFFF;
+    border-width: 0px 1px 1px 0px;
+    border-style: solid;
+    border-color: #E9F3F5;
+    border-radius: 8px 8px 8px 9px;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.va_home_links {
+    gap: 2rem;
+}
+
+.va_home_typo {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color: #333333;
+}
+
+.va_home_link {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: #707070;
+    cursor: pointer;
+    padding: 1rem 0;
+}
+
+.active,
+.va_home_link:hover {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #714DD9;
+    border-bottom: 2px solid #714DD9;
+}
+
+.va_tasks {
+    background: white;
+    margin-top: 1rem;
+}
+
+.va_no_tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 1rem;
+    background: white;
+    width: 100%;
+    padding: 20%;
+ 
+
+    .va_no_tasks_title{
+        font-family: 'Open Sans';
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        color: #333333;
+    }
+    .va_no_tasks_sub{
+        font-family: 'Open Sans';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 180%;
+        color: #707070;
+        text-align: center;
+    }
+}
+
+.task_container {
+    padding: 2rem;
+    border-bottom: 1px solid #E9F3F5;
+    gap: 1.5rem;
+
+    .va_task_typo {
+        color: #714DD9;
+    }
+}
+
+.task_container:hover {
+    background: #714DD9;
+    .task_title,
+    .va_client_typo,
+    .va_task_typo,
+    .va_task_img {
+        color: white;
+    }
+    
+}
+
+.va_task_img {
+    color: #714DD9;
+}
+
+.task_title {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333333;
+}
+
+.task_details_container,
+.taskDetail_title_con {
+    justify-content: space-between;
+}
+
+.task_details {
+    gap: 3rem;
+}
+
+.client,
+.task_view {
+    align-items: center;
+}
+
+.task_view {
+    cursor: pointer;
+    
+    .va_task_img {
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.task_view:hover {
+    .va_task_img {
+        transform: TranslateX(0.5rem);
+    }
+}
+
+.taskDetail_container {
+    width: 100%;
+}
+
+.taskDetail_title_con {
+    padding: 1.5rem;
+    border-top: 1.5px solid #E9F3F5;
+    border-bottom: 1px solid #E9F3F5;
+
+    .taskDetail_title {
+        font-family: 'Open Sans';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #333333;
+    }
+
+    .cancel {
+        cursor: pointer;
+        color: #714DD9;
+    }
+
+    .cancel:hover {
+        color: red;
+    }
+}
+
+.taskDetail_body_con,
+.taskDetail_body {
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.taskDetail_body {
+    background: #FFFFFF;
+    border: 1px solid #D3D0D9;
+    border-radius: 8px;
+    gap: 2rem;
+
+    .child_sub_username {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.9rem;
+        line-height: 120%;
+        color: #714DD9;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.taskDetail_child {
+    gap: 0.5rem;
+}
+
+.child_title {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+.child_sub_typo {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 150%;
+    color: #707070;
+}
+
+.child_sub_img {
+    color: #F2A005;
+}
