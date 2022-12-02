@@ -5,12 +5,14 @@ import stuckAtHome from "../../assets/HowItWorks/Stuck at Home Mailing List.svg"
 import CroodsFriends from "../../assets/HowItWorks/Croods Friends.svg";
 import CroodsMobile from "../../assets/HowItWorks/Croods Mobile.svg";
 
-import { useState } from "react";
+import {useState } from "react";
 
 
 const HowSections = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
  
+  
   return (
   <div>
      <div className={style.how_container}>
@@ -29,7 +31,8 @@ const HowSections = () => {
                  </div>
             
                  {/*Right Side*/}
-                 <div  className={style.stepright_container1}>
+                 <div data-aos="fade-left" data-aos-duration="1500" 
+                       className={style.stepright_container1}>
                      <img src={stuckAtHome} className={style.steps_image1}/>
                  </div>
         </div>
@@ -38,7 +41,7 @@ const HowSections = () => {
        
         {/*Left Side 2*/}
        <div className={style.stepright_container2_background}>
-            <div className={style.step_container2}>
+            <div data-aos="fade-right" data-aos-duration="1500"  className={style.step_container2}>
                       <div className={style.stepright_container2}>
                            <img src={CroodsFriends} className={style.steps_image2}/>
                        </div>
@@ -54,7 +57,7 @@ const HowSections = () => {
      </div>
         
          {/*Left Side 3*/}
-         <div className={style.step_container3}>
+         <div data-aos="fade-left" data-aos-duration="1500"  className={style.step_container3}>
                  <div className={style.stepleft_container3}>
                       <p className={style.steps_header}>Step 3</p>
                       <p className={style.steps_paragraph13}>Get Ticked</p>
