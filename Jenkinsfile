@@ -1,35 +1,42 @@
-
 pipeline {
 
 	agent any
-	tools {
-		nodejs 'nodejs'
-	}
 	stages {
 		
 		
 
-		stage("Build"){
+		
+		stage("Build") {
 
-			steps {
-				
+			steps  {
+				sh "sudo rm -rf $WORKSPACE}/.[a-z]*"
 				sh "sudo yarn"
                                 sh "sudo yarn build"
         
 			} 
-    }
+    
         
-
+		}
 		stage("deploy") {
 		
+			
 			steps {
-				sh "sudo rm -rf /var/www/ticked-slack/*"
-				sh "sudo cp -rf ./... /var/www/ticked-final/"
+				sh "sudo rm -rf /home/samuraiaj/ticked-prod/*"
+				sh "sudo cp -rf * /home/samuraiaj/ticked-prod/"
+				sh "sudo su - samuraiaj && whoami"
+				sh "sudo yarn"
+				sh "sudo yarn build"
+				sh "sudo global add serve"
+				sh "sudo systemctl restart tickedfrontend.service"
+                		
 				
-				
-               
 			}
+			
 			
 }
 }
-}
+    }
+
+
+
+

@@ -55,8 +55,15 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
       );
 
       setTaskModal(0);
+      setSubmit(!submit);
+      data.title = "";
+      data.date1 = "";
+      data.date2 = "";
+      data.time = "";
+      data.repeat = "";
+      data.assistant = "";
     } catch (error) {
-      alert("Invalid input Check and try again");
+      alert("Server Error");
     }
   };
   return (
