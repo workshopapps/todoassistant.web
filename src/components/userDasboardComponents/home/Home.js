@@ -32,7 +32,7 @@ export default function Home() {
   //   { va: false, completed: true, todoName: "Learn Redux", id: "9" },
   //   { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
   // ];
-
+  const [taskModal, setTaskModal] = useState(0);
   const [completedDropdown, setCompletedDropdown] = useState(true);
   const [myTodos, setMyTodos] = useState(tasks);
   const [filterTodos, setFilterTodos] = useState(myTodos);
@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
-      <CreateTask />
+      <CreateTask taskModal={taskModal} setTaskModal={setTaskModal} />
       <div className={styles.todos}>
         <h1>To do's</h1>
         <div className={styles.searchWrapper}>

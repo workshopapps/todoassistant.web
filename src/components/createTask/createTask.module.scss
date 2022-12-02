@@ -1,3 +1,6 @@
+.createTask_close {
+  display: none;
+}
 .createTask_wrapper {
   background-color: #7070705e;
   position: fixed;
@@ -11,22 +14,39 @@
   align-items: center;
   justify-content: center;
   .createTask_form {
+    @media screen and (max-width: 603px) {
+      width: 30rem;
+    }
+    @media screen and (max-width: 508px) {
+      width: unset !important;
+    }
+    width: 35rem;
     border-radius: 8px;
-    // width: 50vw;
-    // height: fit-content;
     background-color: #f9f7ff;
     padding: 2rem 2.5rem;
     display: flex;
     flex-direction: column;
-    // transition: all 1s ease-in-out;
-    .createTask_header {
-      color: #333333;
-      font-family: "Open Sans";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 160%;
+
+    .createTask_header_wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      .createTask_header {
+        color: #333333;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+      }
+      .createTask_header_close {
+        font-size: 20px;
+        cursor: pointer;
+      }
     }
+
     .createTask_title {
       display: flex;
       flex-direction: column;
@@ -64,6 +84,7 @@
       align-items: flex-start;
       justify-content: space-between;
       .createTask_date {
+        width: 45%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -95,6 +116,7 @@
         }
       }
       .createTask_time {
+        width: 45%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -211,14 +233,27 @@
     }
   }
   .createTask_submit_modal {
+    @media screen and (max-width: 930px) {
+      width: 70vw;
+    }
+    @media screen and (max-width: 670px) {
+      width: 90vw;
+    }
+    @media screen and (min-width: 1220px) and (max-width: 1629px) {
+      padding: 2.813rem 6rem;
+    }
+    @media screen and (min-width: 1630px) {
+      padding: 2.813rem 10rem;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2.813rem 6.563rem;
+    padding: 2.813rem 3rem;
     gap: 2.188rem;
     background: #f9f7ff;
     border-radius: 8px;
     width: 50vw;
+
     .createTask_submit_header {
       font-family: "Open Sans";
       font-style: normal;
@@ -238,18 +273,29 @@
       color: #333333;
     }
     .createTask_submit_button_wrapper {
+      @media screen and (max-width: 510px) {
+        flex-direction: column;
+      }
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
       .createTask_submit_button1 {
+        @media screen and (max-width: 1042px) {
+          width: 10.942rem;
+        }
+        @media screen and (max-width: 510px) {
+          margin-bottom: 1rem;
+          width: 100%;
+        }
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 14px 24px;
-        gap: 8px;
-        width: 207.07px;
+        padding: 0.875rem 1.5rem;
+        gap: 0.5rem;
+        width: 12.942rem;
         height: 48px;
         background: #714dd9;
         border-radius: 8px;
@@ -260,15 +306,24 @@
         line-height: 160%;
         color: #fafafa;
         border: none;
+        cursor: pointer;
       }
       .createTask_submit_button2 {
+        @media screen and (max-width: 1042px) {
+          width: 10.942rem;
+        }
+        @media screen and (max-width: 510px) {
+          margin-bottom: 1rem;
+          width: 100%;
+        }
         display: flex;
+        background: #f9f7ff;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 14px 24px;
-        gap: 8px;
-        width: 207.07px;
+        padding: 0.875rem 1.5rem;
+        gap: 0.5rem;
+        width: 12.942rem;
         border: 1px solid #714dd9;
         border-radius: 8px;
         font-family: "Open Sans";
@@ -277,6 +332,7 @@
         font-size: 14px;
         line-height: 160%;
         color: #714dd9;
+        cursor: pointer;
       }
     }
   }
