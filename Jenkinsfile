@@ -9,7 +9,7 @@ pipeline {
 		stage("Build") {
 
 			steps  {
-				sh "sudo rm -rf $WORKSPACE}/.[a-z]*"
+				//sh "sudo rm -rf $WORKSPACE}/.[a-z]*"
 				sh "sudo yarn"
                                 sh "sudo yarn build"
         
