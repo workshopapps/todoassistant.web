@@ -7,7 +7,7 @@ pipeline {
 		
 
 		
-		stage("Build"){
+		stage("Build") {
 
 			steps  {
 				sh "sudo rm -rf "/var/lib/jenkins/workspace/Ticked/.[!.]*"
