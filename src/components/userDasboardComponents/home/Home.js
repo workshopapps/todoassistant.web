@@ -32,7 +32,7 @@ export default function Home() {
   //   { va: false, completed: true, todoName: "Learn Redux", id: "9" },
   //   { va: true, completed: false, todoName: "Learn React-Router", id: "10" }
   // ];
-  const [taskModal, setTaskModal] = useState(0);
+  const [taskModal, setTaskModal] = useState(1);
   const [completedDropdown, setCompletedDropdown] = useState(true);
   const [myTodos, setMyTodos] = useState(tasks);
   const [filterTodos, setFilterTodos] = useState(myTodos);
