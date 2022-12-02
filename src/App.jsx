@@ -34,7 +34,6 @@ import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 // import Login from "./components/Login/Login";
 import ErrorMain from "./components/404";
-import SettingsProfile from "./core/settings/profile/SettingsProfile";
 import Otp from "./core/auth/otp/Otp";
 import Sub from "./core/sub/Sub";
 
@@ -50,6 +49,11 @@ import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
+
+//userProfile
+import SettingsProfilee from "./core/settings/profile/SettingsProfile";
+//import Edit from "./core/settings/profile/Edit";
+//import ChangePassword from "./core/settings/profile/ChangePassword";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -83,7 +87,7 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        { user ? (
+        {user ? (
           <>
             <Route path="/dashboard" element={<Dasboard />}>
               <Route path="" element={<Home />} />
@@ -96,6 +100,12 @@ function App() {
               <Route path="notifications" element={<Notifications />} />
               <Route path="payment" element={<Payment />} />
               <Route path="profile" element={<VaProfile />} />
+              {/**
+               * <Route path="profile" element={<SettingsProfilee />} />
+               * <Route path="profile/edit" element={<Edit />} />
+               * <Route path="profile/change-password" element={<ChangePassword />} />
+               */}
+
             </Route>
 
             <Route path="/virtualassistance" element={<VaDasboard />}>
@@ -108,7 +118,7 @@ function App() {
             <Route path="/taskdetails" element={<TaskDetails />} />
             <Route path="/va1" element={<VaModal1 />} />
             <Route path="/CheckM" element={<CheckM />} />
-            <Route path="/settings/profile" element={<SettingsProfile />}>
+            <Route path="/settings/profile" element={<SettingsProfilee />}>
               <Route path="edit" element={<EditAccountPage />} />
             </Route>
 
@@ -128,7 +138,7 @@ function App() {
               <Route path="notification" element={<Login />} />
               <Route path="notifications" element={<Login />} />
               <Route path="payment" element={<Login />} />
-              <Route path="profile" element={<Login />} />
+              <Route path="profile" element={<SettingsProfilee />} />
             </Route>
 
             <Route path="/virtualassistance" element={<Login />}>

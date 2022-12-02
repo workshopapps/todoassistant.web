@@ -1,0 +1,302 @@
+.settings {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    max-width: 1000px;
+    height: fit-content;
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+
+        .profile-top {
+
+            .title {
+                font-size: 22px;
+                font-weight: 700;
+                color: #333333;
+                margin-bottom: 25px;
+            }
+        }
+
+        .profile-bottom {
+            display: flex;
+            flex-direction: column;
+
+
+            .head {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                justify-items: center;
+                @media screen and (min-width: 780px) {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .head-1 {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+
+                    @media screen and (min-width: 780px) {
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 1.2rem;
+                        text-align: left;
+                    }
+                    .user-name {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 8px;
+                        margin-bottom: 16px;
+
+                        .user {
+                            font-weight: 700;
+                            font-size: 18px;
+                            color: #333333;
+                        }
+
+                        .subtitle {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: #333333;
+                        }
+                    }
+
+                    .user-initial {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        position: relative;
+                        margin-bottom: 16px;
+                        @media screen and (min-width: 780px) {
+                            width: 110px;
+                            height: 110px;
+                        }
+
+                        .init {
+                            position: absolute;
+                            font-size: 34px;
+                            color: #714DD9;
+                            right: 2.15rem;
+                            bottom: 1.2rem;
+                            @media screen and (min-width: 780px) {
+                                font-size: 45px;
+                                right: 2.9rem;
+                                bottom: 1.65rem;
+                            }
+                        }
+                    }
+                }
+
+                .head-2 {
+                    .upgrade-btn {
+                        padding: 14px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        color: #fff;
+                        background-color: #714DD9;
+                        border: none;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .personal-info {
+                margin-top: 24.26px;
+
+                .heading-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    @media screen and (min-width: 780px) {
+                        margin-bottom: 16px;
+                    }
+
+                    .personal {
+                        font-size: 18px;
+                        color: #333333;
+                        font-weight: 700;
+
+                        @media screen and (min-width: 780px) {
+                            font-size: 22px;
+                        }
+                    }
+
+                    .edit {
+                        text-decoration: none;
+                        font-size: 14px;
+                        line-height: 22.4px;
+                        font-weight: 600;
+                        color: #714DD9;
+
+                        @media screen and (min-width: 780px) {
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                .details-card {
+                    background-color: #fff;
+                    padding: 24px 16px;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 25px;
+                    margin-bottom: 24px;
+
+                    @media screen and (min-width: 780px) {
+                        padding: 34px 26px;
+                        row-gap: 40px;
+                    }
+
+                    .name {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .name-name {
+                            font-size: 14px;
+                            font-weight: 600px;
+                            font-size: #707070;
+
+                            @media screen and (min-width: 780px) {
+                                font-size: 16px;
+                            }
+                        }
+
+                        .answer {
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: #333333;
+
+                            @media screen and (min-width: 780px) {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .Security {
+                display: flex;
+                flex-direction: column;
+
+                .heading-info {
+                    .personal {
+                        font-size: 18px;
+                        color: #333333;
+                        font-weight: 700;
+                        margin-bottom: 8px;
+
+                        @media screen and (min-width: 780px) {
+                            font-size: 22px;
+                        }
+                    }
+                }
+
+                .details-card-sec {
+                    background-color: #fff;
+                    padding: 24px 16px;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 25px;
+                    margin-bottom: 24px;
+
+                    @media screen and (min-width: 780px) {
+                        padding: 34px 26px;
+                        row-gap: 50px;
+                    }
+
+                    .tit {
+                        display: flex;
+                        color: #333333;
+                        font-size: 14px;
+                        line-height: 22.4px;
+                        justify-content: space-between;
+                        list-style: none;
+                        text-decoration: none;
+                        @media screen and (min-width: 780px) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .logout {
+                background-color: #fff;
+                padding: 24px 16px;
+                border-radius: 8px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+                margin-bottom: 24px;
+                row-gap: 40px;
+                @media screen and (min-width: 780px) {
+                    padding: 34px 26px;
+                }
+
+                .log {
+                    color: #DB0004;
+                    font-size: 14px;
+                    font-weight: 600;
+                    @media screen and (min-width: 780px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+                max-width: 600px;
+                align-self: center;
+                width: 100%;
+                .head{
+                    align-self: center;
+                }
+
+                .title {
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-bottom: 25px;
+                    line-height: 35px;
+                    color: #333333;
+                    align-self: center;
+                }
+
+                .btn-btn-btn {
+                    padding: 14px;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    color: #fff;
+                    background-color: #714DD9;
+                    border: none;
+                    font-weight: 600;
+                    margin-top: 12px;
+                }
+
+                .form-form {
+                    .form-field {
+                        input {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
