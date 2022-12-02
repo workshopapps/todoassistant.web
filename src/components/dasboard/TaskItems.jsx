@@ -58,7 +58,6 @@ const TaskItems = ({ status, myTasks }) => {
         });
         break;
     }
-    console.log("hi");
   }, [status]);
 
   const handleClick = (id, status) => {
@@ -70,8 +69,6 @@ const TaskItems = ({ status, myTasks }) => {
         }
       });
       setTasks(dummyTasks);
-      console.log(dummyTasks);
-      console.log("hey");
     }
   };
 
