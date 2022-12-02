@@ -83,7 +83,9 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        { user ? (
+        <Route path="/profilex" element={<VaProfile />} />
+
+        {user ? (
           <>
             <Route path="/dashboard" element={<Dasboard />}>
               <Route path="" element={<Home />} />
