@@ -10,7 +10,7 @@ pipeline {
 		stage("Build") {
 
 			steps  {
-				sh "sudo rm -rf "/var/lib/jenkins/workspace/Ticked/.[!.]*"
+				sh "sudo rm -rf "/var/lib/jenkins/workspace/Ticked/.[!.]*""
 				sh "sudo yarn"
                                 sh "sudo yarn build"
         
