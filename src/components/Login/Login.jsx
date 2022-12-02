@@ -10,7 +10,7 @@ import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
 import Navbar from "../../layout/header/Navbar";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const responseFacebook = response => {
   const navigate = useNavigate();
