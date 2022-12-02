@@ -23,8 +23,10 @@ pipeline {
 		stage("deploy") {
 		
 			steps {
-				sh "sudo cp -rf ./* /home/samuraiaj/ticked-final"
-				sh "sudo su - samuraiaj && whoami"
+				sh "sudo rm -rf /var/www/ticked-final/*
+				sh "sudo cp -rf ./* /var/www/ticked-final/"
+				//sh "sudo cp /home/samuraiaj/app.config.json /var/www/ticked-final/
+				
                
 			}
 			
