@@ -15,7 +15,7 @@ pipeline {
                                 sh "sudo yarn build"
         
 			} 
-    }
+    
         
 
 		stage("deploy") {
