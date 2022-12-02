@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import signupPicture from "../../../assets/thesignupimage.svg";
+import google from "../../../assets/google.png";
+import fb from "../../../assets/fb.png";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -56,7 +58,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://api.ticked.hng.tech/api/v1/user",
+        "/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
@@ -91,12 +93,11 @@ const Signup = () => {
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.eachContainer}>
-              <label htmlFor="name" className={styles.describer}>
+              <label htmlFor="first_name" className={styles.describer}>
                 First Name
               </label>
               <input
-                className={styles.input}
-                id="name"
+                id="first_name"
                 type="text"
                 placeholder="Enter first name"
                 value={first_name}
@@ -113,14 +114,13 @@ const Signup = () => {
             </div>
 
             <div className={styles.eachContainer}>
-              <label htmlFor="name" className={styles.describer}>
+              <label htmlFor="last_name" className={styles.describer}>
                 Last Name
               </label>
               <input
-                className={styles.input}
-                id="name"
+                id="last_name"
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter last name"
                 value={last_name}
                 required
                 onChange={e => setLastName(e.target.value)}
@@ -311,6 +311,17 @@ const Signup = () => {
               Sign In
             </Link>
           </p>
+
+          <div className={styles.continueWith}>
+            <div className={styles.continueWithLine}></div>
+            <span className={styles.continueWithText}>Or continue with</span>
+            <div className={styles.continueWithLine}></div>
+          </div>
+
+          <div className={styles.signupSocials}>
+              <img src={google} alt="google icon" style={{cursor: "pointer"}}/>
+              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
+          </div>
         </div>
 
         <div className={styles.signupImg}>
