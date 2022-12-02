@@ -33,7 +33,7 @@ const NavList = () => {
     <List>
       <NavLink
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        to={`/va-assistance`}
+        to={`/virtualassistance`}
       >
         <ListItem sx={styledListItem}>
           <ListItemIcon>

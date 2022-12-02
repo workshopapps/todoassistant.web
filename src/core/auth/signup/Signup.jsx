@@ -15,7 +15,7 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
-  // const [fullName, setFullName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,8 +37,7 @@ const Signup = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (
-      first_name.length == 0 ||
-      last_name.length == 0 ||
+      fullName.length == 0 ||
       email.length == 0 ||
       phone.length == 0 ||
       password.length < 6 ||
@@ -49,12 +48,10 @@ const Signup = () => {
     }
 
     //splitting the name into first_name and last_name
-    /*
-   if (fullName) {
+    if (fullName) {
       setFirstName(fullName.split(" ")[0]);
       setLastName(fullName.split(" ")[1]);
     }
-    */
 
     try {
       const response = await axios.post(
@@ -123,9 +120,9 @@ const Signup = () => {
                 placeholder="Enter last name"
                 value={last_name}
                 required
-                onChange={e => setLastName(e.target.value)}
+                onChange={e => setFullName(e.target.value)}
               />
-              {error && last_name.length <= 0 ? (
+              {error && fullName.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
                   Name does not match!
                 </div>
@@ -161,7 +158,7 @@ const Signup = () => {
                 Phone Number
               </label>
               <PhoneInput
-                className={styles.phone}
+                className={`${styles.phone} ${styles.phoneInputField}`}
                 international
                 defaultCountry="NG"
                 id="phone"
@@ -177,6 +174,34 @@ const Signup = () => {
               ) : (
                 ""
               )}
+            </div>
+            <div className={styles.eachContainer}>
+              <label htmlFor="gender" className={styles.describer}>
+                Gender
+              </label>
+              <input
+                id="gender"
+                className="emailInput"
+                type="text"
+                placeholder="Enter male or female"
+                value={gender}
+                required
+                onChange={e => setGender(e.target.value)}
+              />
+            </div>
+            <div className={styles.eachContainer}>
+              <label htmlFor="date_of_birth" className={styles.describer}>
+                Date of birth
+              </label>
+              <input
+                id="date_of_birth"
+                className="emailInput"
+                type="date"
+                placeholder="Enter Date of birth"
+                value={date_of_birth}
+                required
+                onChange={e => setDateofbirth(e.target.value)}
+              />
             </div>
 
             <div className={styles.eachContainer}>

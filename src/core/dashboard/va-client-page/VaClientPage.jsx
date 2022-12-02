@@ -3,12 +3,18 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Dashboardlayout from "../../../layout/dasboard-layout/Dashboardlayout";
 import Loader from "./Loader";
+import StatusBar from "./StatusBar";
 import VaClientHeader from "./VaClientHeader";
 import VaClientUserList from "./VaClientUserList";
 
 const VaClientPage = () => {
   const [loading, setLoading] = useState(false);
   const [vaUsers, setVaUsers] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  const close = () => {
+    setOpen(false);
+  };
 
   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtpbmdzbGV5QGdtYWlsLmNvbSIsIklkIjoiNzJkNzk0NGEtNjMwOS00YmZhLTg1NDUtMWM5NDc5OTE0YTRjIiwiU3RhdHVzIjoiVkEiLCJleHA`;
   const getUsers = async () => {
@@ -28,8 +34,8 @@ const VaClientPage = () => {
         setVaUsers(response.data.data);
       }
     } catch (error) {
-      setLoading(false); // Stop loading in case of error
-      console.error(error);
+      setLoading(false);
+      setOpen(true); // Stop loading in case of error
     }
   };
 
@@ -47,6 +53,7 @@ const VaClientPage = () => {
           </Box>
         </Container>
       </Box>
+      <StatusBar open={open} close={close} />;
     </Dashboardlayout>
   );
 };
