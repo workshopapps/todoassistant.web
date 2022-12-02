@@ -2,9 +2,15 @@ import React from "react";
 import './Settings.scss'
 import { Link } from "react-router-dom";
 import arrowLeft from "../../../assets/arrow-left-cj.svg"
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
 
 
 const Edit = () => {
+    const { user } = useContext(AuthContext)
+    const { first_name } = user
+    let FName = first_name
+    let initial = FName.charAt(0)
     return (
         <div>
             <div className="settings">
@@ -22,7 +28,7 @@ const Edit = () => {
                             <div className="head">
                                 <div className="head-1">
                                     <div className="user-initial">
-                                        <p className="init">J</p>
+                                        <p className="init">{initial}</p>
                                     </div>
                                 </div>
                             </div>
