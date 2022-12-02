@@ -1,5 +1,6 @@
 import { Box, Drawer, Stack } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import NavList from "../../core/dashboard/va-client-page/NavList";
 
 const drawerWidth = 240;
@@ -39,10 +40,12 @@ const NavDrawer = props => {
           alignItems={`center`}
           height={`120px`}
         >
-          <img
-            src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
-            alt="logo"
-          />
+          <Link to={`/`}>
+            <img
+              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
+              alt="logo"
+            />
+          </Link>
         </Stack>
         <NavList />
       </Box>

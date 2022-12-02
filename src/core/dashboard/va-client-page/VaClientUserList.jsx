@@ -1,18 +1,27 @@
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import ClientName from "./ClientName";
-import { Chip, Typography } from "@mui/material";
+import { Chip, styled, Typography } from "@mui/material";
 import ClientDropdown from "./ClientDropdown";
 
 const style = {
   fontWeight: 700
 };
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: `#714DD9`,
+    color: theme.palette.common.white
+  }
+  // [`&.${tableCellClasses.body}`]: {
+  //   fontSize: 14
+  // }
+}));
 
 export default function VaClientUserList({ vaUsers }) {
   const userList = vaUsers.map((user, index) => {
@@ -44,19 +53,16 @@ export default function VaClientUserList({ vaUsers }) {
   });
 
   return (
-    <TableContainer
-      sx={{ padding: `2rem 3.6rem` }}
-      elevation={0}
-      component={Paper}
-    >
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer sx={{borderRadius: `8px`}} className={`shadow`}>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={style}>Client's name</TableCell>
-            <TableCell sx={style}>Phone Number</TableCell>
-            <TableCell sx={style}>Email Address</TableCell>
-            <TableCell sx={style}>Status</TableCell>
-            <TableCell sx={style}></TableCell>
+            <StyledTableCell sx={style}>Client's name</StyledTableCell>
+            <StyledTableCell sx={style}>Phone Number</StyledTableCell>
+            <StyledTableCell sx={style}>Email Address</StyledTableCell>
+            <StyledTableCell colSpan={2} sx={style}>
+              Status
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>{userList}</TableBody>

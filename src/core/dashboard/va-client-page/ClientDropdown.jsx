@@ -1,11 +1,11 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+// import MenuItem from "@mui/material/MenuItem";
 import { IconButton } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-import TaskAltIcon from "@mui/icons-material/TaskAlt";
+// import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import UserProfileModal from "./UserProfileModal";
 // import ForumIcon from "@mui/icons-material/Forum";
 
@@ -52,12 +52,12 @@ const StyledMenu = styled(props => (
   }
 }));
 
-const styledMenuItem = {
-  padding: `1rem`,
-  "&:hover": {
-    background: `#714DD910`
-  }
-};
+// const styledMenuItem = {
+//   padding: `1rem`,
+//   "&:hover": {
+//     background: `#714DD910`
+//   }
+// };
 
 export default function ClientDropdown({ userID }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -92,10 +92,10 @@ export default function ClientDropdown({ userID }) {
         onClose={handleClose}
       >
         <UserProfileModal userID={userID} />
-        <MenuItem sx={styledMenuItem} onClick={handleClose} disableRipple>
+        {/* <MenuItem sx={styledMenuItem} onClick={handleClose} disableRipple>
           <TaskAltIcon />
           View Tasks
-        </MenuItem>
+        </MenuItem> */}
         {/* <MenuItem sx={styledMenuItem} onClick={handleClose} disableRipple>
           <ForumIcon />
           Chat

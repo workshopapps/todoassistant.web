@@ -13,6 +13,7 @@ function DrawerAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Navbar handleDrawerToggle={handleDrawerToggle} />
+
       <Box component="nav">
         <NavDrawer
           mobileOpen={mobileOpen}

@@ -43,6 +43,7 @@ const Navbar = ({ handleDrawerToggle }) => {
           sx={{
             flexGrow: 1,
             gap: 1,
+            ml: `1rem`,
             alignItems: `center`,
             display: { xs: "none", sm: "flex" }
           }}

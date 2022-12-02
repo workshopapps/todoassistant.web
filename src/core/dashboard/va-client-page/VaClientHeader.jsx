@@ -9,7 +9,7 @@ const VaClientHeader = () => {
       alignItems={`center`}
       bgcolor={`#fff`}
       borderRadius={`8px`}
-      px={`3.6rem`}
+      className={`shadow`}
       py={`2.25rem`}
     >
       <PersonIcon

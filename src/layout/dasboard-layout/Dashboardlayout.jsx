@@ -1,11 +1,9 @@
 import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
-import {
-  Box,
-  Stack
-} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
+import { Link } from "react-router-dom";
 
 const Dashboardlayout = ({ children }) => {
   return (
@@ -26,10 +24,12 @@ const Dashboardlayout = ({ children }) => {
             alignItems={`center`}
             height={`120px`}
           >
-            <img
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
-              alt="logo"
-            />
+            <Link to={`/`}>
+              <img
+                src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
+                alt="logo"
+              />
+            </Link>
           </Stack>
           <NavList />
         </Box>

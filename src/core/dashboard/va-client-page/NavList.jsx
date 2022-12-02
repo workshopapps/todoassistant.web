@@ -3,7 +3,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PeopleIcon from "@mui/icons-material/People";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
-import style from "./va.module.scss";
 import { NavLink } from "react-router-dom";
 import {
   List,
@@ -16,58 +15,63 @@ import {
 const styledListItem = {
   padding: `1rem`,
   borderRadius: `8px`,
+  margin: `1rem 0`,
   "&:hover": {
-    background: `#714DD950`
+    color: `#333333`,
+    background: `#714DD920`
   }
 };
 
 const NavList = () => {
+  let activeStyle = {
+    background: `#714DD980`,
+    borderRadius: `8px`,
+    color: `#fff`
+  };
+
   return (
     <List>
       <NavLink
-        className={[
-          `link`,
-          ({ isActive }) => (isActive ? style.active : style.inactive)
-        ]}
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
         to={`/va-assistance`}
       >
         <ListItem sx={styledListItem}>
           <ListItemIcon>
-            <HomeIcon />
+            <HomeIcon sx={{ color: `#714DD9` }} />
           </ListItemIcon>
           <ListItemText primary={`Home`} />
         </ListItem>
       </NavLink>
       <NavLink
-        className={({ isActive }) => (isActive ? style.active : style.inactive)}
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
         to={`/clients`}
       >
         <ListItem sx={styledListItem}>
           <ListItemIcon>
-            <PeopleIcon />
+            <PeopleIcon sx={{ color: `#714DD9` }} />
           </ListItemIcon>
           <ListItemText primary={`Clients`} />
         </ListItem>
       </NavLink>
       <NavLink
-        className={({ isActive }) => (isActive ? style.active : style.inactive)}
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
         to={`/tasks`}
       >
         <ListItem sx={styledListItem}>
           <ListItemIcon>
-            <TaskAltIcon />
+            <TaskAltIcon sx={{ color: `#714DD9` }} />
           </ListItemIcon>
           <ListItemText primary={`Tasks`} />
         </ListItem>
       </NavLink>
       <Divider sx={{ my: `1rem` }} />
       <NavLink
-        className={({ isActive }) => (isActive ? style.active : style.inactive)}
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
         to={`/settings`}
       >
         <ListItem sx={styledListItem}>
           <ListItemIcon>
-            <SettingsIcon />
+            <SettingsIcon sx={{ color: `#714DD9` }} />
           </ListItemIcon>
           <ListItemText primary={`Settings`} />
         </ListItem>

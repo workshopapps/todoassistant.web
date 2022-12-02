@@ -85,7 +85,7 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
 
-        {!user ? (
+        {user ? (
           <>
             <Route path="/dashboard" element={<Dasboard />}>
               <Route path="" element={<Home />} />
