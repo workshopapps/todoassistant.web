@@ -12,10 +12,31 @@
     // gap: 10rem;
   }
 
+.headerRow{
+display: flex;
+flex-direction: row;
+//justify-content: center;
+align-items: center;
+gap: 0.5rem;
+}
+
+.headerRow h1{
+  font-size: 1rem;
+  text-align: center;
+}
+.headerRow p{
+  text-align: center;
+}
   .headerTickedBox {
     flex: 1;
   }
-
+  
+.box{
+  border: 1px solid  #714DD9;
+  border-radius:8px;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+}
   .header {
     font-size: 27px;
     font-weight: 700;
