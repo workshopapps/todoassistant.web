@@ -2,7 +2,7 @@
   "name": "todoassistant.web",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.ticked.hng.tech/",
+  "proxy": "https://api.ticked.hng.tech/api/v1",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -30,6 +30,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-moment": "^1.1.2",
+    "react-phone-number-input": "^3.2.12",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-select": "^5.6.1",

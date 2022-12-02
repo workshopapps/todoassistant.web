@@ -15,7 +15,7 @@ const VaClientPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/api/v1/va/user/7525c523-d439-4e55-b3c8-310eb283a982`,
+        `/va/user/7525c523-d439-4e55-b3c8-310eb283a982`,
         {
           headers: {
             Authorization: `Bearer ${token}`

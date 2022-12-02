@@ -39,7 +39,7 @@ export default function UserProfileModal({ userID }) {
   const getUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`/api/v1/user/${userID}`, {
+      const response = await axios.get(`/user/${userID}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
