@@ -25,7 +25,7 @@ pipeline {
 			steps {
 				sh "sudo rm -rf /var/www/ticked-final/*
 				sh "sudo cp -rf ./... /var/www/ticked-final/"
-				//sh "sudo cp /home/samuraiaj/app.config.json /var/www/ticked-final/
+				
 				
                
 			}
