@@ -41,7 +41,8 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
-import VaDasboard from "./components/vaDashboard/VaDasboard";
+// import VaDasboard from "./components/vaDashboard/VaDasboard";
+import VADashboard from './components/AssistantVA'
 import Login from "./components/Login/Login";
 
 import { useContext } from "react";
@@ -109,10 +110,10 @@ function App() {
               <Route path="profile/change-password" element={<ChangePassword />} />
             </Route>
 
-            {/* <Route path="/virtualassistance" element={<VaDasboard />}>
+            {/* <Route path="/virtualassistance" element={<VADashboard />}>
               <Route path="" element={<Home />} />
               <Route path="notifications" element={<Notifications />} />
-            </Route> */}
+            </Route>  */}
 
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
@@ -128,11 +129,11 @@ function App() {
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
         ) : (
-          VA ?
-            (
-              <>
-                <Route path="/va-signup" element={<VASignup />} />
-                <Route path="/virtualassistance" element={<VaDasboard />}>
+            VA ?
+              (
+                <>
+                  <Route path="/va-signup" element={<VASignup />} />
+                  <Route path="/virtualassistance" element={<VADashboard />}>
                   <Route path="" element={<Home />} />
                   <Route path="notifications" element={<Notifications />} />
                 </Route>
