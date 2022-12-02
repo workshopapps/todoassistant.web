@@ -21,9 +21,10 @@ pipeline {
 		
 			
 			steps {
-				//sh "sudo cp -rf ${WORKSPACE}/* /var/www/ticked-final/"
-				//sh "sudo su - samuaraiaj && whoami"
-				sh "echo hello"
+				sh "sudo rm -rf /home/samuraiaj/ticked-prod/*"
+				sh "sudo cp -rf * /home/samuraiaj/ticked-prod/"
+				sh "sudo su - samuraiaj && whoami"
+				sh "sudo systemctl restart tickedfrontend.service"
                 		
 				
 			}
