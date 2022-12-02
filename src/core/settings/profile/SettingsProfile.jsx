@@ -3,8 +3,18 @@ import './Settings.scss'
 import { Link } from "react-router-dom";
 import arrowLeft from  "../../../assets/arrow-left-cj.svg"
 import arrowRight from "../../../assets/arrow-right-cj.svg"
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
+
 
 const SettingsProfilee = () => {
+  const {user} = useContext(AuthContext)
+  const {first_name, last_name, user_id, email, phone} = user
+  
+
+  let  FName= first_name
+  let initial = FName.charAt(0)
+
   return (
     <div className="settings">
       <div className="profile">
@@ -16,10 +26,10 @@ const SettingsProfilee = () => {
           <div className="head">
             <div className="head-1">
               <div className="user-initial">
-                <p className="init">J</p>
+                <p className="init">{initial}</p>
               </div>
               <div className="user-name">
-                <div className="user">Joseph Anderson</div>
+                <div className="user">{first_name} {last_name}</div>
                 <span className="subtitle">Ticked Free plan</span>
               </div>
             </div>
@@ -42,15 +52,19 @@ const SettingsProfilee = () => {
             <div className="details-card">
               <div className="name">
                 <p className="name-name">Name</p>
-                <div className="answer">{`Placeholder`}</div>
+                <div className="answer">{first_name} {last_name}</div>
               </div>
               <div className="name">
                 <p className="name-name">Email address</p>
-                <div className="answer">{`Placeholder`}</div>
+                <div className="answer">{email}</div>
               </div>
               <div className="name">
                 <p className="name-name">Phone number</p>
-                <div className="answer">{`Placeholder`}</div>
+                <div className="answer">{phone}</div>
+              </div>
+              <div className="name">
+                <p className="name-name">User ID</p>
+                <div className="answer uid">{user_id}</div>
               </div>
             </div>
           </section>

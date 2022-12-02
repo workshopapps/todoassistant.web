@@ -89,11 +89,11 @@
                             font-size: 34px;
                             color: #714DD9;
                             right: 2.15rem;
-                            bottom: 1.2rem;
+                            bottom: 1rem;
                             @media screen and (min-width: 780px) {
                                 font-size: 45px;
                                 right: 2.9rem;
-                                bottom: 1.65rem;
+                                bottom: 1.4rem;
                             }
                         }
                     }
@@ -182,6 +182,12 @@
                             color: #333333;
 
                             @media screen and (min-width: 780px) {
+                                font-size: 16px;
+                            }
+                        }
+                        .uid{
+                            font-size: .7rem;
+                            @media screen and (min-width: 456px) {
                                 font-size: 16px;
                             }
                         }

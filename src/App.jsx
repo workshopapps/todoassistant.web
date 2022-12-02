@@ -30,7 +30,7 @@ import Payment from "./core/payment/Payment";
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-import VaProfile from "./components/VA-Profile/VaProfile";
+//import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 // import Login from "./components/Login/Login";
 import ErrorMain from "./components/404";
@@ -52,8 +52,8 @@ import EditAccountPage from "./components/accountSettingPages/account-setting-su
 
 //userProfile
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
-//import Edit from "./core/settings/profile/Edit";
-//import ChangePassword from "./core/settings/profile/ChangePassword";
+import Edit from "./core/settings/profile/Edit";
+import ChangePassword from "./core/settings/profile/ChangePassword";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -99,12 +99,12 @@ function App() {
               <Route path="notification" element={<Notification />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="payment" element={<Payment />} />
-              <Route path="profile" element={<VaProfile />} />
-              {/**
-               * <Route path="profile" element={<SettingsProfilee />} />
+              <Route path="profile" element={<SettingsProfilee/>} />
+              
+                <Route path="profile" element={<SettingsProfilee />} />
                * <Route path="profile/edit" element={<Edit />} />
                * <Route path="profile/change-password" element={<ChangePassword />} />
-               */}
+               
 
             </Route>
 
