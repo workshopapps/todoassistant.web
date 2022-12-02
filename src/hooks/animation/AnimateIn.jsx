@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import useElementOnScreen from "./useElementOnScreen";
-import animate from './animate.module.scss'
+import animate from "./animate.module.scss";
 
 const AnimateIn = ({ from, to, children }) => {
   const ref = useRef(null);
@@ -47,9 +47,7 @@ const ScaleIn = ({ children }) => (
   </AnimateIn>
 );
 const float = ({ children }) => (
-  <AnimateIn from={animate.sprite}>
-    {children}
-  </AnimateIn>
+  <AnimateIn from={animate.sprite}>{children}</AnimateIn>
 );
 
 export const Animate = {
