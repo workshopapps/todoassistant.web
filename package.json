@@ -5,7 +5,7 @@
   "private": true,
   "proxy": "https://api.ticked.hng.tech/api/v1",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -30,6 +30,7 @@
     "pusher-js": "^7.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.6.0",
     "react-moment": "^1.1.2",
