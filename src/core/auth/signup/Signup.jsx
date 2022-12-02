@@ -270,7 +270,7 @@ const Signup = () => {
 
               {error && password.length < 6 ? (
                 <div className={styles.inputFieldErrorText}>
-                  Password must be up to 6 characters!
+                  <small>Password must be up to 6 characters!</small>
                 </div>
               ) : (
                 ""
@@ -344,8 +344,8 @@ const Signup = () => {
           </div>
 
           <div className={styles.signupSocials}>
-              <img src={google} alt="google icon" style={{cursor: "pointer"}}/>
-              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
+            <img src={google} alt="google icon" style={{ cursor: "pointer" }} />
+            <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} />
           </div>
         </div>
 
