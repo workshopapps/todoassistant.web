@@ -39,7 +39,7 @@ const toggle = () => setShow(!show);
    googleSignIn((res?.profileObj))
  };
  const onFailure = (err) => {
-   console.log('failed:', err);
+   console.log('failed login:', err);
  };
 
  const googleSignIn = async (body) => {
@@ -47,14 +47,10 @@ const toggle = () => setShow(!show);
     const response = await axios.post(`${baseurl}/googlelogin`, 
       body
     );
-    if (response.status == 200) {
+    if (response.status == 200 && response.data) {
         localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
-        // const login_token = JSON.parse(localStorage.getItem("google_login_token"));
-        // const token = JSON.parse( localStorage.getItem("token") );
-        // if (token && login_token === token){
           localStorage.setItem("user", JSON.stringify(response?.data));
            navigate("/dashboard", { replace: true });  
-      // }
     }
   } catch (error) {
     console.error(error);
