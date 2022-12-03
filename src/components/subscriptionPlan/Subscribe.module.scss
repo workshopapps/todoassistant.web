@@ -1,0 +1,84 @@
+.container {
+  background: linear-gradient(
+    0.25turn,
+    rgba(253, 168, 88, 0.512),
+    5%,
+    rgba(255, 255, 255, 0.82)
+  );
+  padding-bottom: 9rem;
+
+  h1 {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .cards {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+
+    .card {
+      padding: 3rem;
+      border-radius: 0.4rem;
+      border: 3px solid rgba(211, 208, 217, 1);
+      background-color: #fff;
+
+      h2 {
+        margin: 2rem 0;
+        text-align: center;
+        position: relative;
+        font-size: 4rem;
+
+        small {
+          position: absolute;
+          top: 1.2rem;
+          left: 2rem;
+          font-weight: normal;
+          font-size: 1rem;
+          color: rgba(112, 112, 112, 1);
+        }
+        small.year {
+          left: 1.3rem;
+        }
+
+        span {
+          font-size: 1.2rem;
+          font-weight: normal;
+          color: rgba(112, 112, 112, 1);
+        }
+      }
+
+      h2.basic {
+        color: rgba(55, 226, 136, 1);
+      }
+      h2.premium {
+        color: rgba(113, 77, 217, 1);
+      }
+      h2.yearly {
+        color: rgba(253, 167, 88, 1);
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        margin: 3rem 0 0 2.2rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        background-color: rgba(113, 77, 217, 1);
+        color: #fff;
+        border-radius: 0.4rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
