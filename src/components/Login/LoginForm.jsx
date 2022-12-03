@@ -56,6 +56,7 @@ const LoginForm = () => {
   };
 
   const onSuccess = res => {
+    console.log(res)
     googleSignIn((res?.profileObj))
 
   };
