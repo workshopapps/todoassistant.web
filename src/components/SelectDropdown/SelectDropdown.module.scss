@@ -1,0 +1,14 @@
+
+.chevron{
+                       transform: rotate(-90deg);
+                       transition: all 0.5s ease;
+}
+.chevron.rotate{
+                      transform: rotate(00deg);
+}
+
+.dropdown.rotate{
+                      visibility: visible;
+                      scale: 1;
+                      opacity: 1;
+}

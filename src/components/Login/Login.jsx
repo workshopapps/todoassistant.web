@@ -1,59 +1,73 @@
 // import React, { useContext, useState, useEffect } from "react";
-// import { GoogleLogin } from "react-google-login";
-// import { gapi } from "gapi-script";
-// import { useNavigate } from "react-router-dom";
+// import { GoogleLogin } from 'react-google-login';
+// import { gapi } from 'gapi-script';
+// import axios from "axios";
 // import styles from "./style.module.scss";
 // import google from "../../assets/google.png";
 // import fb from "../../assets/fb.png";
 // import visibility from "../../assets/eye.svg";
 // import visibilityOff from "../../assets/eye-off.svg";
-// import { Link } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../contexts/authContext/AuthContext";
 // import { login } from "../../contexts/authContext/apiCalls";
 // import loginPic from "../../assets/loginPicture.svg";
-// // import Navbar from "../../layout/header/Navbar";
+// import Navbar from "../../layout/header/Navbar";
 
 // const Login = () => {
-//   const clientId =
-//     "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
+//   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
+//   const baseurl = "https://api.ticked.hng.tech/api/v1";
 //   const navigate = useNavigate();
 
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [show, setShow] = React.useState(false);
-//   const toggle = () => setShow(!show);
+// const [email, setEmail] = useState("");
+// const [password, setPassword] = useState("");
+// const [show, setShow] = React.useState(false);
+// const toggle = () => setShow(!show);
 
 //   const { dispatch } = useContext(AuthContext);
 
 //   useEffect(() => {
 //     const initClient = () => {
-//       gapi.client.init({
-//         clientId: clientId,
-//         scope: ""
-//       });
-//     };
-//     gapi.load("client:auth2", initClient);
-//   });
+//           gapi.client.init({
+//           clientId: clientId,
+//           scope: ''
+//         });
+//      };
+//      gapi.load('client:auth2', initClient);
+//  });
+ 
+//  const onSuccess = (res) => {
+//    googleSignIn((res?.profileObj))
+//  };
+//  const onFailure = (err) => {
+//    console.log('failed login:', err);
+//  };
 
-//   const onSuccess = res => {
-//     localStorage.setItem("user", JSON.stringify(res?.profileObj));
-//     localStorage.setItem("token", res?.tokenId);
-
-//     navigate("/dashboard", { replace: true });
-//   };
-//   const onFailure = err => {
-//     console.log("failed:", err);
-//   };
+//  const googleSignIn = async (body) => {
+//    try {
+//     const response = await axios.post(`${baseurl}/googlelogin`, 
+//       body
+//     );
+//     if (response.status == 200 && response.data) {
+//         localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
+//           localStorage.setItem("user", JSON.stringify(response?.data));
+//            navigate("/dashboard", { replace: true });  
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+//  }
 
 //   const handleLogin = e => {
 //     e.preventDefault();
+
 //     login({ email, password }, dispatch);
 //   };
 
 //   return (
 //     <React.Fragment>
-//       {/* <Navbar /> */}
+//       <Navbar />
 //       <div className={styles.login__main}>
+
 //         <div className={styles.login__formWrapper}>
 //           <h2 className={styles.login__title}>Login</h2>
 
@@ -115,28 +129,6 @@
 //               <span className={styles.login__line} />
 //             </div>
 //             <div className={styles.login__socials}>
-// <<<<<<< HEAD
-//               {/* <Link to="/CheckM">
-//                 <img src={google} alt="google_login" />
-//               </Link> */}
-//               <GoogleLogin
-//                 clientId={clientId}
-//                 render={renderProps => (
-//                   <button
-//                     onClick={renderProps.onClick}
-//                     className={styles.login__googleButton}
-//                   >
-//                     {" "}
-//                     <img src={google} alt="google_login" />
-//                   </button>
-//                 )}
-//                 buttonText="Sign in with Google"
-//                 onSuccess={onSuccess}
-//                 onFailure={onFailure}
-//                 cookiePolicy={"single_host_origin"}
-//                 isSignedIn={false}
-//               />
-// =======
 //             <GoogleLogin
 //           clientId={clientId}
 //           render={renderProps => (
@@ -148,7 +140,6 @@
 //           cookiePolicy={'single_host_origin'}
 //           isSignedIn={false}
 //       />
-// >>>>>>> 9f434e0db57178e5e2ccb2cae7df0a63731dd00e
 //               <img src={fb} alt="fb_login" />
 //             </div>
 //             <div className={styles.login__createAccount}>
@@ -163,6 +154,7 @@
 //         <div className={styles.loginImg}>
 //           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
 //         </div>
+        
 //       </div>
 //     </React.Fragment>
 //   );

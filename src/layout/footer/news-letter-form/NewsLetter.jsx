@@ -127,7 +127,7 @@ const NewsLetter = () => {
   const handleNewsLetter = async () => {
     if (email !== "" && validateEmail(email)) {
       try {
-        const response = await axios.post("/subscribe", {
+        const response = await axios.post("https://api.ticked.hng.tech/api/v1/subscribe", {
           email: `"${email}"`
         });
         if (response.status == 200) {

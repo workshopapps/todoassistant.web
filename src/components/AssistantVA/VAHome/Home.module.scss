@@ -129,6 +129,20 @@
     }
 }
 
+.va_client_img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    color: white;
+    background: #714DD9;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
 .task_container:hover {
     background: #714DD9;
     .task_title,
@@ -136,6 +150,11 @@
     .va_task_typo,
     .va_task_img {
         color: white;
+    }
+
+    .va_client_img {
+        color: #714DD9;
+        background: white;
     }
     
 }

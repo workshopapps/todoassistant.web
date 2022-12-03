@@ -2,10 +2,10 @@ import React from 'react'
 import moment from "moment";
 import styles from './Home.module.scss'
 import { BsArrowRight, BsAlarm, BsPatchCheck } from "react-icons/bs";
-import profile from '../../../assets/VADashboard/profile.svg'
 
 const Task = ({ details, handleClick }) => {
     const format_time = moment(details.end_time).format("LT")
+    const UserName = details.user.name.slice(0, 1)
 
   return (
     <div className = {styles.task_container} >
@@ -15,7 +15,7 @@ const Task = ({ details, handleClick }) => {
         <div className = {styles.task_details_container}>
             <div className = {styles.task_details}>
                 <div className = {styles.client}>
-                    <img className = {styles.va_client_img} src={profile} alt="vaArrow" />
+                    <div className = {styles.va_client_img}>{UserName}</div>
                     <p className = {styles.va_client_typo}>{details.user.name}</p>                    
                 </div>
                 {details.assigned ?
