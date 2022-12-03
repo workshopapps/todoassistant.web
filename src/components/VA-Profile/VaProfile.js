@@ -11,9 +11,10 @@ import Dashboardlayout from "../../layout/dasboard-layout/Dashboardlayout";
 function VAProfile() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  var va_id = JSON.parse(localStorage.getItem("VA"));
 
   useEffect(() => {
-    Axios.get("2022/api/v1/va/user/task/436a5272-f911-4d8f-adf0-656c41ef8fb6")
+    Axios.get(`api/v1/va/${va_id}`)
       .then(response => {
         setData(response.data);
       })
