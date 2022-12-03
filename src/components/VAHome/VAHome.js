@@ -34,11 +34,14 @@ const VAHome = () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
-      const response = await axios.get(`/task/all/va`, {
-        headers: {
-          Authorization: `Bearer ${vaUser.extra.token}`
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/task/all/va`,
+        {
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-      });
+      );
 
       const vaTasks = response.data.data;
 

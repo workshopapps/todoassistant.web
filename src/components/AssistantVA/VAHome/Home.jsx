@@ -17,7 +17,7 @@ const Home = () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
-      const response = await axios.get(`/task/all/va`, {
+      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/task/all/va`, {
         headers: {
           Authorization: `Bearer ${vaUser.extra.token}`
         }

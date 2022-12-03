@@ -14,7 +14,7 @@ function VAProfile() {
   var va_id = JSON.parse(localStorage.getItem("VA"));
 
   useEffect(() => {
-    Axios.get(`api/v1/va/${va_id}`)
+    Axios.get(`https://api.ticked.hng.tech/api/v1/api/v1/va/${va_id}`)
       .then(response => {
         setData(response.data);
       })
