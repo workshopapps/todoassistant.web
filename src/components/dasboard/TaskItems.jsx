@@ -19,20 +19,20 @@ const TaskItems = ({ status, myTasks }) => {
       "linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF"
   });
 
-  const taskCount = () => {
-    let count = 0;
-    const noOfCompleted = myTasks.filter(i => i.status === "DONE");
-    const noOfPending = myTasks.filter(i => i.status === "PENDING");
-    const noOfExpired = myTasks.filter(i => i.status === "EXPIRED");
-    if (status === "EXPIRED") {
-      count = noOfExpired.length;
-    } else if (status === "PENDING") {
-      count = noOfPending.length;
-    } else {
-      count = noOfCompleted.length;
-    }
-    return count;
-  };
+  // const taskCount = () => {
+  //   let count = 0;
+  //   const noOfCompleted = myTasks.filter(i => i.status === "DONE");
+  //   const noOfPending = myTasks.filter(i => i.status === "PENDING");
+  //   const noOfExpired = myTasks.filter(i => i.status === "EXPIRED");
+  //   if (status === "EXPIRED") {
+  //     count = noOfExpired.length;
+  //   } else if (status === "PENDING") {
+  //     count = noOfPending.length;
+  //   } else {
+  //     count = noOfCompleted.length;
+  //   }
+  //   return count;
+  // };
 
   useEffect(() => {
     switch (status) {
@@ -98,7 +98,7 @@ const TaskItems = ({ status, myTasks }) => {
               {status}
             </p>
           </div>
-          <p className={styles.noOfTasks}>{`${taskCount()} TASKS`}</p>
+          <p className={styles.noOfTasks}>{`TASKS`}</p>
         </div>
         <p className={styles.asign}>ASSIGN</p>
         <p className={styles.date}>DUE DATE</p>
