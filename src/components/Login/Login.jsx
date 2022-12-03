@@ -36,8 +36,6 @@ const toggle = () => setShow(!show);
  });
  
  const onSuccess = (res) => {
-   localStorage.setItem('user',JSON.stringify(res?.profileObj));
-   localStorage.setItem('token',res?.tokenId);
    googleSignIn((res?.profileObj))
  };
  const onFailure = (err) => {
