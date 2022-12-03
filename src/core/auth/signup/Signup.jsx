@@ -45,8 +45,6 @@ const Signup = () => {
  });
 
  const onSuccess = (res) => {
-   localStorage.setItem('user',JSON.stringify(res?.profileObj));
-   localStorage.setItem('token',res?.tokenId);
    googleSignUp(res?.profileObj)
  };
  const onFailure = (err) => {
