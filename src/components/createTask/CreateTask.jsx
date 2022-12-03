@@ -3,7 +3,13 @@ import styles from "./createTask.module.scss";
 import VALogo from "../../assets/createTaskVa.png";
 import axios from "axios";
 import { CgClose } from "react-icons/cg";
+
 const CreateTask = ({ taskModal, setTaskModal }) => {
+//   if (localStorage.getItem("myTasks")) {
+//     console.log(".");
+//   } else {
+//     localStorage.setItem("myTasks", "[]");
+//   }
   //   const modal1 = useRef(0);
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
@@ -37,7 +43,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-      await axios.post(
+     await axios.post(
         `/task`,
         {
           title: data.title,
@@ -48,11 +54,28 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
           end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
           repeat: "daily",
           va_option: data.assistant,
-          status: "pending",
+          status: "PENDING",
           reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
         },
         { headers: { Authorization: "Bearer " + token } }
       );
+
+      //   const res = {
+      //     task_id: Math.random(),
+      //     title: data.title,
+      //     end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
+      //     repeat: "daily",
+      //     va_option: data.assistant,
+      //     status: "PENDING",
+      //     reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
+      //   };
+
+    //   console.log(res);
+    //   //   res.data.completed = false;
+    //   console.log(res.data);
+    //   const tasks = JSON.parse(localStorage.getItem("myTasks"));
+    //   tasks.push(res.data);
+    //   localStorage.setItem("myTasks", JSON.stringify(tasks));
 
       setTaskModal(0);
       setSubmit(!submit);
