@@ -367,7 +367,16 @@ const Signup = () => {
               fields="name,email,picture"
               callback={responseFacebook}
               render={renderProps => (
-                <img src={fb} alt="fb_login" onClick={renderProps.onClick} />
+                <img
+                  src={fb}
+                  alt="fb_login"
+                  style={{
+                    cursor: "pointer",
+                    width: "3rem",
+                    height: "3.125rem"
+                  }}
+                  onClick={renderProps.onClick}
+                />
               )}
               icon={<img src={fb} alt="fb_login" />}
             />

@@ -156,7 +156,7 @@ const Login = () => {
                 fields="name,email,picture"
                 callback={responseFacebook}
                 render={renderProps => (
-                  <img src={fb} alt="fb_login" onClick={renderProps.onClick} />
+                  <img src={fb} style={{cursor:'pointer',width:'3rem',height:'3.125rem'}} alt="fb_login" onClick={renderProps.onClick} />
                 )}
                 icon={<img src={fb} alt="fb_login" />}
               />
