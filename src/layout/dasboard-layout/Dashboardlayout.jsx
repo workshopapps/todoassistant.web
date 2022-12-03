@@ -3,9 +3,9 @@ import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-const Dashboardlayout = ({ children }) => {
+const Dashboardlayout = () => {
   return (
     <Grid2 height={`100vh`} container>
       <Grid2 xs={0} md={3}>
@@ -36,7 +36,7 @@ const Dashboardlayout = ({ children }) => {
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
         <DashboardNav />
-        {children}
+        <Outlet/>
       </Grid2>
     </Grid2>
   );

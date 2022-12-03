@@ -9,8 +9,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import ProfileAvatar from "./Avatar";
 
-const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IjJAYS5jb20iLCJJZCI6Ijc1MjVjNTIzLWQ0MzktNGU1NS1iM2M4LTMxMGViMjgzYTk4MiIsIlN0YXR1cyI6IlZBIiwiZXhwIjoxNjcwMTEzNTgzfQ.J4bLyxsZj-zWGEqs_AR1yxpOEg8Enum7Cod42b4oLb0`;
-
 const style = {
   position: "relative",
   display: `flex`,
@@ -38,8 +36,10 @@ const styledMenuItem = {
 };
 
 export default function UserProfileModal({ userID }) {
+  let vaUser = JSON.parse(localStorage.getItem("VA"));
+
   const [loading, setLoading] = React.useState(false);
-  const [userDetails, setUserDetails] = React.useState(null);
+  const [userDetails, setUserDetails] = React.useState({});
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -48,14 +48,11 @@ export default function UserProfileModal({ userID }) {
   const getUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `/user/${`5b43e22b-acb5-49b3-8753-f1ecdf32947d`}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+      const response = await axios.get(`/va/user/profile/${userID}`, {
+        headers: {
+          Authorization: `Bearer ${vaUser.extra.token}`
         }
-      );
+      });
       if (response.status === 200) {
         setLoading(false);
         console.log(response);
@@ -101,11 +98,14 @@ export default function UserProfileModal({ userID }) {
               }}
             />
             <ProfileAvatar
-              image={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1664896536/webtech/motion_fx99tl.png`}
+              fontSize={`48px`}
+              fullName={[userDetails.first_name, userDetails.last_name]
+                .join(" ")
+                .toUpperCase()}
               size={{ width: 150, height: 150 }}
             />
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Kingsley Solomon
+              {[userDetails.first_name, userDetails.last_name].join(" ")}
             </Typography>
             <Chip color="primary" label="Ticked Free Plan" variant="outlined" />
             <Box width={{ xs: `90%`, md: `70%` }}>
@@ -128,7 +128,7 @@ export default function UserProfileModal({ userID }) {
                     fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
                     fontWeight={700}
                   >
-                    Kingsley Solomon
+                    {[userDetails.first_name, userDetails.last_name].join(" ")}
                   </Typography>
                 </Stack>
                 <Stack
@@ -144,7 +144,7 @@ export default function UserProfileModal({ userID }) {
                     fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
                     fontWeight={700}
                   >
-                    kinxly@gmail.com
+                    {userDetails.email}
                   </Typography>
                 </Stack>
                 <Stack
@@ -160,7 +160,7 @@ export default function UserProfileModal({ userID }) {
                     fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
                     fontWeight={700}
                   >
-                    08100792853
+                    {userDetails.phone}
                   </Typography>
                 </Stack>
               </Stack>

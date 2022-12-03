@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
@@ -60,15 +60,27 @@ import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 import Edit from "./core/settings/profile/Edit";
 import ChangePassword from "./core/settings/profile/ChangePassword";
 import UserLogin from "./components/Login/UserLogin";
+import Dashboardlayout from "./layout/dasboard-layout/Dashboardlayout";
+// import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (VA && location.pathname === "/va-login") {
+      console.log(true);
+      location.pathname.replace(/[^/]*$/, "/virtual-assistance/");
+    }
+  }, [location.pathname]);
+
   return (
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
+        {/* external pages */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/contact" element={<Contact />} />
@@ -78,13 +90,17 @@ function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
 
-        <Route
+        {/* <Route
           path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
-        />
+          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
+        /> */}
         <Route
           path="/login"
           element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
+        />
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
         />
         {/* <Route
           path="/login"
@@ -97,7 +113,6 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
-        <Route path="/va-login" element={<VALogin />} />
 
         {user ? (
           <>
@@ -119,11 +134,6 @@ function App() {
               />
             </Route>
 
-            {/* <Route path="/virtualassistance" element={<VADashboard />}>
-              <Route path="" element={<Home />} />
-              <Route path="notifications" element={<Notifications />} />
-            </Route>  */}
-
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
@@ -137,27 +147,26 @@ function App() {
             <Route path="/pro" element={<ProPreferences />} />
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
-        ) : !VA ? (
+        ) : VA ? (
           <>
-            <Route path="" element={<Home />} />
-            <Route
-              path="/virtual-assistance/clients"
-              element={<VaClientPage />}
-            />
-            <Route path="/virtual-assistance" element={<VADashboard />} />
-            <Route path="notifications" element={<Notifications />} />
             <Route path="/va-signup" element={<VASignup />} />
+            <Route path="/va-login" element={<Dashboardlayout />} />
+            <Route path="/virtual-assistance" element={<Dashboardlayout />}>
+              <Route path="" element={<VADashboard />} />
+              <Route path="clients" element={<VaClientPage />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="tasks" element={<VADashboard />} />
+              <Route path="notifications" element={<Notifications />} />
+            </Route>
           </>
         ) : (
-          // : VA ? (
-          //   <>
-          //     <Route path="/va-signup" element={<VASignup />} />
-          //     <Route path="/virtual-assistance" element={<VADashboard />} />
-          //     <Route path="" element={<Home />} />
-          //     <Route path="notifications" element={<Notifications />} />
-          //   </>
-          // )
           <>
+            <Route path="/va-login" element={<VALogin />} />
+            <Route path="/virtual-assistance" element={<VALogin />}>
+              <Route path="" element={<VALogin />} />
+              <Route path="notifications" element={<VALogin />} />
+            </Route>
+
             <Route path="/dashboard" element={<Login />}>
               <Route path="" element={<Login />} />
               <Route path="assistant" element={<Login />} />
@@ -169,11 +178,6 @@ function App() {
               <Route path="notifications" element={<Login />} />
               <Route path="payment" element={<Login />} />
               <Route path="profile" element={<SettingsProfilee />} />
-            </Route>
-
-            <Route path="/virtualassistance" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
             </Route>
 
             <Route path="/newtask" element={<Login />} />
@@ -190,11 +194,6 @@ function App() {
             <Route path="/account/edit" element={<Login />} />
           </>
         )}
-
-        {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
-
-        {/* 404-error handler */}
-        {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
         <Route path="*" element={<ErrorMain />} />
       </Routes>
     </Suspense>
