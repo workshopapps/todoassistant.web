@@ -1,12 +1,11 @@
-
 @import "../../../scss//mixins";
 @import "../../../scss/variables";
 
-.page{
+.page {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin:1rem 2rem;
+  margin: 1rem 2rem;
   // padding: 0 2rem;
   font-size: 0.875rem;
   font-family: "Open Sans", sans-serif;
@@ -35,21 +34,21 @@
   color: #333333;
 }
 
-.formContainer{
+.formContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30rem;
 }
 
-.contactFormLabel{
+.contactFormLabel {
   font-size: 0.6875rem;
   color: #707070;
   font-weight: 700;
   display: block;
 }
 
-.contactFormInput{
+.contactFormInput {
   margin-top: 0.5rem;
   font-family: inherit;
   margin-bottom: 1rem;
@@ -64,7 +63,7 @@
 .contactFormInput:focus {
   @include hover;
 }
-.contactFormTextarea{
+.contactFormTextarea {
   height: 150px;
   margin-top: 0.5rem;
   font-family: inherit;
@@ -86,9 +85,11 @@ button[type="submit"] {
   width: 100%;
   background-color: $activeColor;
   color: $white;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
-.report{
+.report {
   border: 1px solid #181818;
   color: white;
   padding: 10px 10px;
@@ -97,67 +98,66 @@ button[type="submit"] {
 }
 
 @media (max-width: 768px) {
-  .page{
-  display: flex;
-  flex-direction: column;
-  width: 25rem;
-  margin:1rem 2rem;
-  // padding: 0 2rem;
-  font-size: 0.875rem;
-  font-family: "Open Sans", sans-serif;
-  cursor: default;
-  --primary: #714dd9;
-  height: 100vh;
-  align-items: center;
-}
-  .formContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 23rem;
-  height: 100%;
-}
+  .page {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: 1rem 2rem;
+    // padding: 0 2rem;
+    font-size: 0.875rem;
+    font-family: "Open Sans", sans-serif;
+    cursor: default;
+    --primary: #714dd9;
+    height: 100vh;
+    align-items: center;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 23rem;
+    height: 100%;
+  }
 
-.contactFormInput{
-  margin-top: 0.5rem;
-  font-family: inherit;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  display: block;
-  border-radius: 0.5rem;
-  border: 1px solid lightgray;
-  width: 23rem;
-  resize: none;
-}
+  .contactFormInput {
+    margin-top: 0.5rem;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: block;
+    border-radius: 0.5rem;
+    border: 1px solid lightgray;
+    width: 23rem;
+    resize: none;
+  }
 
-.contactFormTextarea{
-  height: 150px;
-  margin-top: 0.5rem;
-  font-family: inherit;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  display: block;
-  border-radius: 0.5rem;
-  border: 1px solid lightgray;
-  width: 23rem;
-  resize: none;
-}
+  .contactFormTextarea {
+    height: 150px;
+    margin-top: 0.5rem;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: block;
+    border-radius: 0.5rem;
+    border: 1px solid lightgray;
+    width: 23rem;
+    resize: none;
+  }
 
-.mainHeading {
-  font-size: 2.3125rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: $black;
-  text-align: center;
-}
+  .mainHeading {
+    font-size: 2.3125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $black;
+    text-align: center;
+  }
 
-.firstPara {
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #707070;
-  text-align: center;
-}
-
+  .firstPara {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #707070;
+    text-align: center;
+  }
 }

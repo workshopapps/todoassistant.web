@@ -1,0 +1,100 @@
+.checkmail_cont {
+  background: #ffffff;
+  border-radius: 6px;
+  max-width: 598px;
+  //   max-height: 520px;
+  margin: 140px auto;
+  padding: 40px;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    margin: 10px auto;
+  }
+  img {
+    margin: 6px 0px 32px;
+  }
+
+  div.checkmail_header {
+    margin: 0px 0px 40px;
+    h1 {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 39px;
+      line-height: 160%;
+      color: #333333;
+      margin-bottom: 24px;
+    }
+    p {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      color: #333333;
+    }
+  }
+  button.btn_link {
+    padding: 12px 14px 14px;
+    background: #714dd9;
+    border-radius: 8px;
+    display: block;
+    margin: 0px auto 24px;
+    border: 1px solid #714dd9;
+    transition: 0.3s ease;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 4px #714dd970;
+    }
+    a {
+      text-decoration: none;
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  }
+  div {
+    margin: 0 0 60px;
+    a.resend_not {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      color: #714dd9;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: #333333;
+    margin: 0px;
+
+    a {
+      color: #714dd9;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

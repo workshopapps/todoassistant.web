@@ -160,6 +160,18 @@ const Login = () => {
                 )}
                 icon={<img src={fb} alt="fb_login" />}
               />
+            <GoogleLogin
+          clientId={clientId}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} className={styles.login__googleButton}> <img src={google} alt="google_login" /></button>
+          )}
+          buttonText="Sign in with Google"
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+          isSignedIn={false}
+      />
+              <img src={fb} alt="fb_login" />
             </div>
             <div className={styles.login__createAccount}>
               <p>Don't have an account?</p>
