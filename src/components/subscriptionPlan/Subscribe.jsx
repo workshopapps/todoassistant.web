@@ -18,8 +18,8 @@ const Subscribe = () => {
         }
       ],
       mode: "subscription",
-      successUrl: "http://localhost:3000",
-      cancelUrl: "http://localhost:3000/cancel"
+      successUrl: "https://ticked.hng.tech/success",
+      cancelUrl: "https://ticked.hng.tech/cancel"
     });
 
     console.log(error);
@@ -38,8 +38,8 @@ const Subscribe = () => {
         }
       ],
       mode: "subscription",
-      successUrl: "http://localhost:3000/success",
-      cancelUrl: "http://localhost:3000/cancel"
+      successUrl: "https://ticked.hng.tech/success",
+      cancelUrl: "https://ticked.hng.tech/cancel"
     });
 
     console.log(error);
