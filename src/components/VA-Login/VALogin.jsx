@@ -4,7 +4,6 @@ import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
 import { Link, useNavigate } from "react-router-dom";
 import loginPic from "../../assets/va-login-image.svg";
-import Navbar from "../../layout/header/Navbar";
 import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
 import { login } from "../../contexts/VAContexts/apiCalls";
 
@@ -25,7 +24,6 @@ const VALogin = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
       <div className={styles.login__main}>
         <div className={styles.login__formWrapper}>
           <h2 className={styles.login__title}>Welcome Back</h2>
@@ -79,7 +77,7 @@ const VALogin = () => {
               </button>
             </div>
           </form>
-          <div className={styles.login__bottomContent}>
+          {/* <div className={styles.login__bottomContent}>
             {/* <div className={styles.login__others}>
               <span className={styles.login__line} />
               <span className={styles.login__continueText}>
@@ -92,14 +90,14 @@ const VALogin = () => {
                 <img src={google} alt="google_login" />
               </Link>
               <img src={fb} alt="fb_login" />
-            </div> */}
-            <div className={styles.login__createAccount}>
+            </div> 
+            {/* <div className={styles.login__createAccount}>
               <p>Don't have an account?</p>
               <p>
                 <Link to="/va-signup">Create account</Link>
               </p>
-            </div>
-          </div>
+            </div> 
+          </div> */}
         </div>
         <div className={styles.loginImg}>
           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
