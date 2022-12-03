@@ -1,13 +1,12 @@
-import React, {useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./style.module.scss";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
 import { Link, useNavigate } from "react-router-dom";
-import loginPic from "../../assets/va-login-image.svg"
+import loginPic from "../../assets/va-login-image.svg";
 import Navbar from "../../layout/header/Navbar";
 import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
 import { login } from "../../contexts/VAContexts/apiCalls";
-
 
 const VALogin = () => {
   const navigate = useNavigate();
@@ -20,19 +19,14 @@ const VALogin = () => {
 
   const handleLogin = e => {
     e.preventDefault();
-
     login({ email, password }, dispatch);
-    navigate("/virtualassistance")
-
+    navigate("/virtual-assistance");
   };
-
-
 
   return (
     <React.Fragment>
       <Navbar />
       <div className={styles.login__main}>
-
         <div className={styles.login__formWrapper}>
           <h2 className={styles.login__title}>Welcome Back</h2>
 

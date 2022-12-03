@@ -7,7 +7,7 @@ import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
 import visibility from "../../assets/eye.svg";
 import visibilityOff from "../../assets/eye-off.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
@@ -16,7 +16,7 @@ import Navbar from "../../layout/header/Navbar";
 const Login = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
   const baseurl = "https://api.ticked.hng.tech/api/v1";
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -48,8 +48,13 @@ const toggle = () => setShow(!show);
       body
     );
     if (response.status == 200) {
-
-    login({ email, password }, dispatch);
+        localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
+        // const login_token = JSON.parse(localStorage.getItem("google_login_token"));
+        // const token = JSON.parse( localStorage.getItem("token") );
+        // if (token && login_token === token){
+          localStorage.setItem("user", JSON.stringify(response?.data));
+           navigate("/dashboard", { replace: true });  
+      // }
     }
   } catch (error) {
     console.error(error);
