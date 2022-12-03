@@ -20,23 +20,13 @@ import { useForm } from "react-hook-form"
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
   const { register, handleSubmit, trigger, formState: { errors } } = useForm();
-  //const [fullName, setFullName] = useState("");
-  //const [first_name, setFirstName] = useState("");
-  //const [last_name, setLastName] = useState("");
-  //const [email, setEmail] = useState("");
-  //const [phone, setPhone] = useState("");
-  //const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [active, setActive] = useState(true)
   const [passwordShown, setPasswordShown] = useState(false);
   const [phone, setPhone] = useState()
-  // const [error, setError] = useState(false);
-  //const [gender, setGender] = useState("");
-  //const [date_of_birth, setDateofbirth] = useState("");
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  console.log(isChecked)
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
@@ -70,7 +60,7 @@ const Signup = () => {
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
       console.log(response);
-      login({}, dispatch);
+      login({ email, password }, dispatch);
     } catch (err) {
       console.log(err);
     }
