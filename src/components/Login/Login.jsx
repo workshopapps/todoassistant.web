@@ -47,13 +47,20 @@ const Login = () => {
   };
 
   const responseFacebook = response => {
-    localStorage.setItem("token", response);
-    navigate("/dashboard");
+    localStorage.setItem("facebook_login_token", JSON.stringify(response));
+    const login_token = JSON.parse(localStorage.getItem("facebook_login_token"));
+    const signup_token = JSON.parse( localStorage.getItem("facebook_token") );
+    if (login_token?.id === signup_token?.id){
+      localStorage.setItem("user", JSON.stringify(response?.name));
+       navigate("/dashboard", { replace: true });
+    }
+    else{
+       navigate("/login");
+    }
   };
 
   const handleLogin = e => {
     e.preventDefault();
-
     login({ email, password }, dispatch);
   };
 
@@ -144,8 +151,8 @@ const Login = () => {
               />
 
               <FacebookLogin
-                appId="1161513141464646"
-                autoLoad={true}
+                appId="2413014048856094"
+                autoLoad={false}
                 fields="name,email,picture"
                 callback={responseFacebook}
                 render={renderProps => (

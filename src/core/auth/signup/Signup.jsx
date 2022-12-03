@@ -12,7 +12,9 @@ import Navbar from "../../../layout/header/Navbar";
 import { login } from "../../../contexts/authContext/apiCalls";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import 'react-phone-number-input/style.css'
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import PhoneInput from 'react-phone-number-input'
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
@@ -79,13 +81,19 @@ const Signup = () => {
     date_of_birth
   );
   /*Later, if you want to, you add/use the default validation by making the input fields and textarea "required". */
+ const navigate = useNavigate();
+
+  const responseFacebook = response => {
+   localStorage.setItem("facebook_token",  JSON.stringify(response));
+   navigate("/login");
+ };
+
 
   return (
     <>
       {/* <Header /> */}
       <Navbar />
       <div className={styles.signupContainer}>
-
         <div className={styles.signupLeft}>
           <h2 className={styles.createAccountText}>Create Account</h2>
           <form onSubmit={handleSubmit}>
@@ -208,8 +216,17 @@ const Signup = () => {
               <label htmlFor="gender" className={styles.describer}>
                 Gender
               </label>
-              <select name="isSeries" id="gender" value={gender} required className={styles.select} onChange={(e) => setGender(e.target.value)}>
-                <option value="" disabled>Select Gender</option>
+              <select
+                name="isSeries"
+                id="gender"
+                value={gender}
+                required
+                className={styles.select}
+                onChange={e => setGender(e.target.value)}
+              >
+                <option value="" disabled>
+                  Select Gender
+                </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -222,7 +239,6 @@ const Signup = () => {
               )}
             </div>
 
-
             <div className={styles.eachContainer}>
               <label htmlFor="date_of_birth" className={styles.describer}>
                 Date of birth
@@ -234,7 +250,7 @@ const Signup = () => {
                 placeholder="Enter Date of birth"
                 value={date_of_birth}
                 required
-                onChange={(e) => setDateofbirth(e.target.value)}
+                onChange={e => setDateofbirth(e.target.value)}
               />
               {error && first_name.length <= 0 ? (
                 <div className={styles.inputFieldErrorText}>
@@ -314,14 +330,14 @@ const Signup = () => {
               !date_of_birth ||
               !password ||
               !isChecked) && (
-                <button
-                  id="btn__submit"
-                  className={styles.buttonDisabled}
-                  disabled
-                >
-                  Sign Up
-                </button>
-              )}
+              <button
+                id="btn__submit"
+                className={styles.buttonDisabled}
+                disabled
+              >
+                Sign Up
+              </button>
+            )}
           </form>
           <p className={styles.toLogin}>
             Already have an account?,{" "}
@@ -344,15 +360,23 @@ const Signup = () => {
           </div>
 
           <div className={styles.signupSocials}>
-              <img src={google} alt="google icon" style={{cursor: "pointer"}}/>
-              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
+            <img src={google} alt="google icon" style={{ cursor: "pointer" }} />
+            <FacebookLogin
+              appId="2413014048856094"
+              autoLoad={false}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              render={renderProps => (
+                <img src={fb} alt="fb_login" onClick={renderProps.onClick} />
+              )}
+              icon={<img src={fb} alt="fb_login" />}
+            />
           </div>
         </div>
 
         <div className={styles.signupImg}>
           <img src={signupPicture} alt="signupPicture" />
         </div>
-
       </div>
     </>
   );
