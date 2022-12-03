@@ -1,0 +1,76 @@
+.taskList:first-child {
+    border-radius: 13px 15px 0px 0px;
+}
+@media screen and (max-width:1030px) {
+    .taskList{
+        display: none !important;
+    }
+}
+@media screen and (min-width:1030px) {
+    .taskListMobile{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .taskList,.taskListMobile{
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}
+
+.task__status{
+             padding: 10px;  
+//              background-color:#53c41a1c ;   
+             background-color:#52C41A ;   
+             border-radius: 5px;  
+             color: #fff;  
+             width:100px;
+             margin-bottom: 10px;
+}
+.task__status, .task__total, .due__date{
+                      font-size: 12px;
+}
+.due__date{
+           margin-right: 70px;           
+}
+.task__name{
+                      padding: 9px 10px;
+                     font-size: 14px;
+                     font-weight: 700;
+                     color: 714DD9;
+}
+.task__name.darker,.task__date.darker {
+                 
+                     color: #000;
+}
+.task__date{
+                       color: #714DD9;  
+                       font-size: 14px;
+                      //  margin-right: 50px;
+}
+
+
+
+@media screen and (max-width:1037px) {
+                      .view {
+                                            
+                                            margin-right: 5px !important;
+                                        }
+                                        .task__date {
+                                         
+                                            font-size: 12px;
+                                        }
+}
+@media screen and (max-width:708px) {
+                .info{
+                      flex-direction: column;
+                      align-items: flex-start !important;
+                      margin-left: 00 !important ; 
+                }
+                .task__name__v1{
+                       margin-left: 00 !important ; 
+                       padding: 0 !important;
+                       margin-bottom: 10px !important;
+                }
+}
