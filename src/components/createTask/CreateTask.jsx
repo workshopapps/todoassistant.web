@@ -39,25 +39,23 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-      await axios
-        .post(
-          `/task`,
-          {
-            title: data.title,
-            description: data.title,
-            start_time: new Date(
-              new Date().setMinutes(new Date().getMinutes() + 10)
-            ).toISOString(),
-            end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
-            repeat: "daily",
-            va_option: data.assistant,
-            status: "pending",
-            reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
-          },
-          { headers: { Authorization: "Bearer " + token } }
-        )
-        .then(() => getTasks());
-
+      await axios.post(
+        `/task`,
+        {
+          title: data.title,
+          description: data.title,
+          start_time: new Date(
+            new Date().setMinutes(new Date().getMinutes() + 10)
+          ).toISOString(),
+          end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
+          repeat: "daily",
+          va_option: data.assistant,
+          status: "pending",
+          reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      );
+      await getTasks();
       setTaskModal(0);
       setSubmit(!submit);
       data.title = "";
