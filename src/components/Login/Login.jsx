@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { GoogleLogin } from 'react-google-login';
-import { gapi } from 'gapi-script';
-import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.scss";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
@@ -14,39 +14,39 @@ import loginPic from "../../assets/loginPicture.svg";
 // import Navbar from "../../layout/header/Navbar";
 
 const Login = () => {
-  const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
+  const clientId =
+    "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
   const navigate = useNavigate();
 
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [show, setShow] = React.useState(false);
-const toggle = () => setShow(!show);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [show, setShow] = React.useState(false);
+  const toggle = () => setShow(!show);
 
   const { dispatch } = useContext(AuthContext);
 
   useEffect(() => {
     const initClient = () => {
-          gapi.client.init({
-          clientId: clientId,
-          scope: ''
-        });
-     };
-     gapi.load('client:auth2', initClient);
- });
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
 
- const onSuccess = (res) => {
-   localStorage.setItem('user',JSON.stringify(res?.profileObj));
-   localStorage.setItem('token',res?.tokenId);
+  const onSuccess = res => {
+    localStorage.setItem("user", JSON.stringify(res?.profileObj));
+    localStorage.setItem("token", res?.tokenId);
 
-   navigate('/dashboard', { replace: true });
- };
- const onFailure = (err) => {
-   console.log('failed:', err);
- };
+    navigate("/dashboard", { replace: true });
+  };
+  const onFailure = err => {
+    console.log("failed:", err);
+  };
 
   const handleLogin = e => {
     e.preventDefault();
-
     login({ email, password }, dispatch);
   };
 
@@ -54,7 +54,6 @@ const toggle = () => setShow(!show);
     <React.Fragment>
       {/* <Navbar /> */}
       <div className={styles.login__main}>
-
         <div className={styles.login__formWrapper}>
           <h2 className={styles.login__title}>Login</h2>
 
@@ -119,17 +118,23 @@ const toggle = () => setShow(!show);
               {/* <Link to="/CheckM">
                 <img src={google} alt="google_login" />
               </Link> */}
-                <GoogleLogin
-          clientId={clientId}
-          render={renderProps => (
-            <button onClick={renderProps.onClick} className={styles.login__googleButton}> <img src={google} alt="google_login" /></button>
-          )}
-          buttonText="Sign in with Google"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={'single_host_origin'}
-          isSignedIn={false}
-      />
+              <GoogleLogin
+                clientId={clientId}
+                render={renderProps => (
+                  <button
+                    onClick={renderProps.onClick}
+                    className={styles.login__googleButton}
+                  >
+                    {" "}
+                    <img src={google} alt="google_login" />
+                  </button>
+                )}
+                buttonText="Sign in with Google"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+                isSignedIn={false}
+              />
               <img src={fb} alt="fb_login" />
             </div>
             <div className={styles.login__createAccount}>
@@ -144,7 +149,6 @@ const toggle = () => setShow(!show);
         <div className={styles.loginImg}>
           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
         </div>
-
       </div>
     </React.Fragment>
   );

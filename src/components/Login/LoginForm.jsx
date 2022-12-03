@@ -1,6 +1,7 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import google from "../../assets/google.png";
 import facebook from "../../assets/fb.png";
+import { login } from "../../contexts/authContext/apiCalls";
 import {
   Box,
   Button,
@@ -14,23 +15,31 @@ import {
   Stack,
   Typography
 } from "@mui/material";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { gapi } from "gapi-script";
+import { GoogleLogin } from "react-google-login";
+
+const clientId =
+  "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
 
 const LoginForm = () => {
-  const [values, setValues] = React.useState({
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
     email: "",
-    password: "",
-    showPassword: false
+    password: ""
   });
 
   const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
+    setFormData({ ...formData, [prop]: event.target.value });
   };
 
   const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword
+    setShowPassword(prevState => {
+      return (prevState = !prevState);
     });
   };
 
@@ -38,10 +47,36 @@ const LoginForm = () => {
     event.preventDefault();
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(formData);
+    login(formData, dispatch);
+  };
+
+  const onSuccess = res => {
+    localStorage.setItem("user", JSON.stringify(res?.profileObj));
+    localStorage.setItem("token", res?.tokenId);
+
+    navigate("/dashboard", { replace: true });
+  };
+  const onFailure = err => {
+    console.log("failed:", err);
+  };
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
+
   return (
     <Container
       sx={{
-        padding: { xs: `1.5rem`, md: `1.5rem 7rem` },
+        padding: { xs: `1.5rem`, md: `1.5rem 3rem`, lg: `1.5rem 7rem` },
         marginTop: { md: `3rem` }
       }}
     >
@@ -57,15 +92,23 @@ const LoginForm = () => {
         </Typography>
       </Box>
 
-      <Stack gap={3} component="form" noValidate autoComplete="off">
+      {/* Form fields */}
+      <Stack
+        onSubmit={handleSubmit}
+        gap={3}
+        component="form"
+        noValidate
+        autoComplete="off"
+      >
         {/* email address */}
         <Stack>
           <InputLabel htmlFor="email-address">Email Address</InputLabel>
           <OutlinedInput
+            required
             sx={{ borderRadius: `8px` }}
             id="email-address"
             type="email"
-            value={values.email}
+            value={formData.email}
             onChange={handleChange("email")}
           />
         </Stack>
@@ -73,10 +116,11 @@ const LoginForm = () => {
         <Stack>
           <InputLabel htmlFor="password">Password</InputLabel>
           <OutlinedInput
+            required
             sx={{ borderRadius: `8px` }}
             id="outlined-adornment-password"
-            type={values.showPassword ? "text" : "password"}
-            value={values.password}
+            type={showPassword ? "text" : "password"}
+            value={formData.password}
             onChange={handleChange("password")}
             endAdornment={
               <InputAdornment position="end">
@@ -86,7 +130,7 @@ const LoginForm = () => {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
@@ -107,16 +151,18 @@ const LoginForm = () => {
                     color: `#714DD9`
                   }
                 }}
-                defaultChecked
               />
             }
             label="Remember me"
           />
-          <Typography color={`#714DD9`}>Forgot Password ?</Typography>
+          <Link to="/resetpassword">
+            <Typography color={`#714DD9`}>Forgot Password ?</Typography>
+          </Link>
         </Stack>
         {/* call to action btn */}
         <Stack>
           <Button
+            type="submit"
             disableElevation
             size="large"
             variant="contained"
@@ -139,9 +185,11 @@ const LoginForm = () => {
             gap={1}
           >
             <Typography>Don't have an account ? </Typography>
-            <Typography color="#714DD9" fontWeight={700}>
-              Create Account
-            </Typography>
+            <Link to="/signup">
+              <Typography color="#714DD9" fontWeight={700}>
+                Create Account
+              </Typography>
+            </Link>
           </Stack>
           {/* continue with */}
           <Stack
@@ -151,7 +199,17 @@ const LoginForm = () => {
             gap={1}
           >
             <IconButton sx={{ width: `fit-content` }} color="secondary">
-              <img src={google} alt="" />
+              <GoogleLogin
+                clientId={clientId}
+                render={renderProps => (
+                  <img onClick={renderProps.onClick} src={google} alt="" />
+                )}
+                buttonText="Sign in with Google"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+                isSignedIn={false}
+              />
             </IconButton>
             <IconButton sx={{ width: `fit-content` }} color="secondary">
               <img src={facebook} alt="" />

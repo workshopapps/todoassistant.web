@@ -86,6 +86,10 @@ function App() {
           path="/login"
           element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
         />
+        {/* <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/dashboard" />}
+        /> */}
 
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
