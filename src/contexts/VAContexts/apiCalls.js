@@ -17,6 +17,7 @@ export const login = async (VA, dispatch) => {
       header
     );
     dispatch(loginSuccess(res.data));
+    location.replace("/virtual-assistance");
   } catch (err) {
     dispatch(loginFailure());
   }
