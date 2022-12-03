@@ -154,7 +154,8 @@ const LoginForm = () => {
         </Stack>
         {/* forgot password text */}
         <Stack
-          direction="row"
+          direction={`row`}
+          // direction={{ xs: `column`, sm: `row` }}
           alignItems={`center`}
           justifyContent={`space-between`}
         >
@@ -162,6 +163,7 @@ const LoginForm = () => {
             control={
               <Checkbox
                 sx={{
+                  fontSize: `12px`,
                   color: `#714DD9`,
                   "&.Mui-checked": {
                     color: `#714DD9`
@@ -172,7 +174,12 @@ const LoginForm = () => {
             label="Remember me"
           />
           <Link to="/resetpassword">
-            <Typography color={`#714DD9`}>Forgot Password ?</Typography>
+            <Typography
+              fontSize={{ xs: `12px`, sm: `initial` }}
+              color={`#714DD9`}
+            >
+              Forgot Password ?
+            </Typography>
           </Link>
         </Stack>
         {/* call to action btn */}
@@ -196,13 +203,20 @@ const LoginForm = () => {
           <Stack
             margin={`1rem 0`}
             direction={`row`}
+            // direction={{ xs: `column`, sm: `row` }}
             alignItems={`center`}
             justifyContent={`center`}
             gap={1}
           >
-            <Typography>Don't have an account ? </Typography>
+            <Typography fontSize={{ xs: `12px`, sm: `initial` }}>
+              Don't have an account ?{" "}
+            </Typography>
             <Link to="/signup">
-              <Typography color="#714DD9" fontWeight={700}>
+              <Typography
+                fontSize={{ xs: `12px`, sm: `initial` }}
+                color="#714DD9"
+                fontWeight={700}
+              >
                 Create Account
               </Typography>
             </Link>
