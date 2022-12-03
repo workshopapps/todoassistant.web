@@ -65,6 +65,8 @@ import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 import Edit from "./core/settings/profile/Edit";
 import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
+import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
+import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -80,6 +82,8 @@ function App() {
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
         <Route path="/subscribe" element={<Subscription />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
         <Route path="/policy" element={<PrivatePolicy />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
