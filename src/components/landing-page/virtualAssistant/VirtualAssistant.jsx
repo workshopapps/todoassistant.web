@@ -5,18 +5,6 @@ import Banner from "./Banner";
 import styles from "./virtualAssistant.module.scss";
 
 const assistants = [
-  // {
-  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1661799624/portfolio/Screenshot_2022-08-29_195059_vuwyvz.png`
-  // },
-  // {
-  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669422674/hng/todoAppVirtualAssistant/Ellipse_164_a4gc7d.png`
-  // },
-  // {
-  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_161_dsawpm.png`
-  // },
-  // {
-  //   profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_158_k04pxx.png`
-  // },
   {
     profilePicture: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1669159250/hng/todoAppVirtualAssistant/Ellipse_162_llvoex.png`
   },
@@ -65,20 +53,6 @@ const VirtualAssistant = () => {
   return (
     <section className={styles.vr}>
       <div className={styles.vr_header}>
-        <h3>You Need Ticked App</h3>
-        <p>
-          The world's most successful and productive people schedule everything
-          and rely on their calendars. If you are a CEO, Manager, Politician,
-          Therapist, Doctor, Customer Care Representative, Realtor, Freelancer,
-          Virtual Assistant, into business or you have busy schedules and need
-          to execute all set tasks with the help of an Assistant to be more
-          productive and get more work done, you are in the right space and
-          TICKED APP is the solution you seek with 24/7 support system.
-        </p>
-      </div>
-      <Carousel settings={settings}>{AssistantsList}</Carousel>
-
-      <div className={styles.vr_header}>
         <h3>Virtual Assistant</h3>
         <p>
           A Virtual Assistant will be available for you. Get the opportunity to
@@ -94,8 +68,8 @@ const VirtualAssistant = () => {
             title={`Get Started`}
           />
         </div>
+        <Carousel settings={settings}>{AssistantsList}</Carousel>
       </div>
-
       <article className={styles.banner}>
         <Banner />
       </article>

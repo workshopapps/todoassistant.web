@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+.va_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.va_slider {
+  width: 20%;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e9f3f5;
+}
+
+.va_main {
+  width: 100%;
+}
