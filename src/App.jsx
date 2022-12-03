@@ -39,7 +39,7 @@ import Otp from "./core/auth/otp/Otp";
 import Sub from "./core/sub/Sub";
 
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
-import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
+// import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
 // import VaDasboard from "./components/vaDashboard/VaDasboard";
 import VADashboard from "./components/AssistantVA";
@@ -51,7 +51,14 @@ import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
+import Dashboardlayout from "./layout/dasboard-layout/Dashboardlayout";
+import UserLogin from "./components/Login/UserLogin";
 import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
+
+import MainResetPage from "./components/ResetPasswordPages/MainPage/MainResetPage";
+import CheckMail from "./components/ResetPasswordPages/CheckMail/CheckMail";
+import NewPasswordPage from "./components/ResetPasswordPages/NewPasswordPage/NewPasswordPage";
+import ResetPasswordPage from "./components/ResetPasswordPages/ResetPage/ResetPasswordPage";
 
 // import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
@@ -59,9 +66,9 @@ import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 import Edit from "./core/settings/profile/Edit";
 import ChangePassword from "./core/settings/profile/ChangePassword";
-import UserLogin from "./components/Login/UserLogin";
-import Dashboardlayout from "./layout/dasboard-layout/Dashboardlayout";
-// import UserSignUp from "./core/auth/signup/UserSignUp";
+import Subscription from "./pages/Subscription/Subscription";
+import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
+import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -86,10 +93,12 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
+        <Route path="/subscribe" element={<Subscription />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
         <Route path="/policy" element={<PrivatePolicy />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
-
         {/* <Route
           path="/signup"
           element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
@@ -105,15 +114,20 @@ function App() {
         {/* <Route
           path="/login"
           element={!user ? <Login /> : <Navigate to="/dashboard" />}
-        /> */}
-
+        />
         <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
+        {/* <Route path="/resetpassword" element={<ResetPassword />} /> */}
+        {/* <Route path="/resetpassword" element={<ResetPassword />} /> */}
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
-
+        <Route path="/va-login" element={<VALogin />} />
+        <Route path="/resetpassword" element={<MainResetPage />}>
+          <Route path="" element={<ResetPasswordPage />} />
+          <Route path="checkmail" element={<CheckMail />} />
+          <Route path="putnewpassword" element={<NewPasswordPage />} />
+        </Route>
+        ;
         {user ? (
           <>
             <Route path="/dashboard" element={<Dasboard />}>
