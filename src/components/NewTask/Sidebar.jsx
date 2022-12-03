@@ -9,7 +9,7 @@ function Sidebar() {
     <div className={styles.sidebar}>
       <img src={logo} alt="logo" />
       <div className={styles.backContainer}>
-        <Link to="/home">
+        <Link to=".." relative="path">
           <img src={back} alt="logo" />
         </Link>{" "}
         Back
