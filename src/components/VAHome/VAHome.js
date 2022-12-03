@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import styles from "./VAHome.module.scss";
 import Accordian from "../Accordion/Accordion";
-
+import axios from "axios";
 import Dashboardlayout from "../../layout/dasboard-layout/Dashboardlayout";
 import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
-import tasks from "../Accordion/_mock";
+//import tasks from "../Accordion/_mock";
 import { AiOutlineDown } from "react-icons/ai";
 import assign from "../../assets/autobrightnessassignicon.svg";
 import clock from "../../assets/clockclockiicon.svg";
@@ -14,21 +14,44 @@ import comment from "../../assets/Frame24comment.svg";
 import smile from "../../assets/Subtractsmile.svg";
 
 const VAHome = () => {
-  const [data, setData] = useState(tasks);
+
+
+
+  const [data, setData] = useState([]);
   const [num, setNum] = useState(tasks.length);
   const [title, setTitle] = useState("ALL");
   const [singleDate, setSingleData] = useState({
     title: data[0]?.title,
-    date: data[0]?.date,
-    time: data[0]?.time,
-    description: data[0]?.description,
+    date: '12 Oct',
+    time: '5pm',
+    description: 'I cannot Wait to Finish',
     status: data[0]?.status,
-    client: data[0]?.client,
-    number: data[0]?.number,
-    comment: data[0]?.comment
+    client: data[0]?.username,
+    number: '+234797463389',
+    comment: 6
   });
   const [hidden, setHidden] = useState(true);
   const [dissapear, setDissapear] = useState(true);
+
+const fetchTasks = async () => {
+    let vaUser = JSON.parse(localStorage.getItem("VA"));
+
+    if (vaUser) {
+      const response = await axios.get(`/task/all/va`, {
+        headers: {
+          Authorization: `Bearer ${vaUser.extra.token}`
+        }
+      });
+
+      const vaTasks = response.data.data;
+
+      setData(vaTasks);
+    }
+  };
+
+useEffect(() => {
+    fetchTasks();
+  }, []);
 
   const handleSideBar = () => {
     setHidden(true);
