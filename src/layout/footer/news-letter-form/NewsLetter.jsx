@@ -126,7 +126,7 @@ const NewsLetter = () => {
             <input
               className={`${style.input}`}
               style={{ outline: "none" }}
-              autoComplete
+              autoComplete="true"
               onChange={e => setEmail(e.target.value)}
               type="email"
               value={email}
