@@ -16,7 +16,6 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import 'react-phone-number-input/style.css'
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import PhoneInput from 'react-phone-number-input'
-import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
@@ -104,7 +103,7 @@ const Signup = () => {
     date_of_birth
   );
   /*Later, if you want to, you add/use the default validation by making the input fields and textarea "required". */
- const navigate = useNavigate();
+ 
 
   const responseFacebook = response => {
    localStorage.setItem("facebook_token",  JSON.stringify(response));
