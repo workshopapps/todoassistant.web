@@ -22,9 +22,7 @@ const Home = () => {
           Authorization: `Bearer ${vaUser.extra.token}`
         }
       });
-
       const vaTasks = response.data.data;
-
       setTasks(vaTasks);
     }
   };
@@ -41,6 +39,7 @@ const Home = () => {
     setTaskDetail(false);
   };
 
+  fetchTasks();
   useEffect(() => {
     fetchTasks();
   }, []);
