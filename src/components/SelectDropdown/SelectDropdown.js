@@ -21,15 +21,15 @@ export const SelectDropdown = ({
       value: 0
     },
     {
-      name: "Done",
+      name: "DONE",
       value: 1
     },
     {
-      name: "Pending",
+      name: "PENDING",
       value: 2
     },
     {
-      name: "Overdue",
+      name: "EXPIRED",
       value: 3
     }
   ];
@@ -43,14 +43,14 @@ export const SelectDropdown = ({
     setDisplay(name);
 
     setRotate(!rotate);
-    if (name === "Done") {
+    if (name === "DONE") {
       const filteredData = mockData.filter(task => task.status === "Done");
       // setMockData(filteredData)
       // console.log(filteredData);
       setMockData(filteredData);
       setNumTask(filteredData.length);
       setTaskTitle("DONE");
-    } else if (name === "Pending") {
+    } else if (name === "PENDING") {
       const filteredData = mockData.filter(task => task.status === "Pending");
       setMockData(filteredData);
       setNumTask(filteredData.length);
