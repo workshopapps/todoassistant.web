@@ -44,6 +44,7 @@ import NewPassword from "./components/resetPassword and newPassword pages/NewPas
 // import VaDasboard from "./components/vaDashboard/VaDasboard";
 import VADashboard from "./components/AssistantVA";
 import Login from "./components/Login/Login";
+import VATasks from './components/VAHome/VAHome'
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
@@ -169,7 +170,7 @@ function App() {
               <Route path="" element={<VADashboard />} />
               <Route path="clients" element={<VaClientPage />} />
               <Route path="notifications" element={<Notifications />} />
-              <Route path="tasks" element={<VADashboard />} />
+              <Route path="tasks" element={<VATasks />} />
               <Route path="notifications" element={<Notifications />} />
             </Route>
           </>
