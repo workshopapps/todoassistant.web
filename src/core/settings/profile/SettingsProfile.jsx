@@ -1,14 +1,20 @@
 import React from "react";
 import './Settings.scss'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import arrowLeft from  "../../../assets/arrow-left-cj.svg"
 import arrowRight from "../../../assets/arrow-right-cj.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import { logout } from "../../../contexts/authContext/AuthActions";
 
 
 const SettingsProfilee = () => {
-  const {user} = useContext(AuthContext)
+  const {user,dispatch} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
   const {first_name, last_name, user_id, email, phone} = user
   
 
@@ -85,7 +91,7 @@ const SettingsProfilee = () => {
             </div>
           </section>
 
-          <Link className="logout">
+          <Link className="logout" onClick={handleLogout}>
             <p className="log">Logout</p>
             <img src={arrowRight} alt="arrow" />
           </Link>
