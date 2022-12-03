@@ -20,9 +20,11 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
+import axios from "axios";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
+const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -54,14 +56,27 @@ const LoginForm = () => {
   };
 
   const onSuccess = res => {
-    localStorage.setItem("user", JSON.stringify(res?.profileObj));
-    localStorage.setItem("token", res?.tokenId);
+    googleSignIn((res?.profileObj))
 
-    navigate("/dashboard", { replace: true });
   };
   const onFailure = err => {
     console.log("failed:", err);
   };
+
+  const googleSignIn = async (body) => {
+    try {
+     const response = await axios.post(`${baseurl}/googlelogin`, 
+       body
+     );
+     if (response.status == 200 && response.data) {
+         localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
+          localStorage.setItem("user", JSON.stringify(response?.data));
+            navigate("/dashboard", { replace: true });  
+     }
+   } catch (error) {
+     console.error(error);
+   }
+  }
 
   useEffect(() => {
     const initClient = () => {
