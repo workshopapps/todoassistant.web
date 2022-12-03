@@ -47,7 +47,7 @@ const Signup = () => {
    localStorage.setItem('user',JSON.stringify(res?.profileObj));
    localStorage.setItem('token',res?.tokenId);
 
-   navigate('/dashboard', { replace: true });
+   navigate('/settings/profile/edit', { replace: true });
  };
  const onFailure = (err) => {
    console.log('failed:', err);
