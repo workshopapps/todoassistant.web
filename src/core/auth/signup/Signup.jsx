@@ -59,7 +59,7 @@ const Signup = () => {
  
   const googleSignUp = async (body) => {
     try {
-     const response = await axios.post(`${baseurl}/googlesignup`, body);
+     const response = await axios.post(`${baseurl}/googlelogin`, body);
      if (response.status == 200) {
      login({ email, password }, dispatch);
      }
