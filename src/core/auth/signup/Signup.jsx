@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import signupPicture from "../../../assets/thesignupimage.svg";
@@ -13,6 +13,8 @@ import { login } from "../../../contexts/authContext/apiCalls";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { requestForToken } from "../../../firebase";
+
 
 const Signup = () => {
   // const [fullName, setFullName] = useState("");
@@ -26,8 +28,16 @@ const Signup = () => {
   const [error, setError] = useState(false);
   const [gender, setGender] = useState("");
   const [date_of_birth, setDateofbirth] = useState("");
+  
+  
 
-  const { dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    (user !== null) && requestForToken();
+  },[user]);
+
+  
 
 
   const handleOnChange = () => {
@@ -63,10 +73,18 @@ const Signup = () => {
       );
       console.log(response);
       login({ email, password }, dispatch);
+      
+      
     } catch (err) {
       console.log(err);
     }
+    
+
   };
+
+  
+
+
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);

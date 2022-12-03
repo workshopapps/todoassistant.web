@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
@@ -9,6 +9,7 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
 import Navbar from "../../layout/header/Navbar";
+import { requestForToken } from "../../firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,11 @@ const Login = () => {
   const [show, setShow] = React.useState(false);
   const toggle = () => setShow(!show);
 
-  const { dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    (user !== null) && requestForToken();
+  },[user]);
 
   const handleLogin = e => {
     e.preventDefault();
