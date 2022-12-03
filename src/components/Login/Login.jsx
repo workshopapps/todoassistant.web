@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import styles from "./style.module.scss";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
@@ -15,7 +15,8 @@ import Navbar from "../../layout/header/Navbar";
 
 const Login = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
-  const navigate = useNavigate();
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
+  // const navigate = useNavigate();
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -37,12 +38,25 @@ const toggle = () => setShow(!show);
  const onSuccess = (res) => {
    localStorage.setItem('user',JSON.stringify(res?.profileObj));
    localStorage.setItem('token',res?.tokenId);
-
-   navigate('/dashboard', { replace: true });
+   googleSignIn((res?.profileObj))
  };
  const onFailure = (err) => {
    console.log('failed:', err);
  };
+
+ const googleSignIn = async (body) => {
+   try {
+    const response = await axios.post(`${baseurl}/googlelogin`, 
+      body
+    );
+    if (response.status == 200) {
+
+    login({ email, password }, dispatch);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+ }
 
   const handleLogin = e => {
     e.preventDefault();

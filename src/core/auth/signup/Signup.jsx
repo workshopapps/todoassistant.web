@@ -4,7 +4,7 @@ import { gapi } from 'gapi-script';
 import google from "../../../assets/google.png";
 import fb from "../../../assets/fb.png";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import signupPicture from "../../../assets/thesignupimage.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
@@ -18,6 +18,7 @@ import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
 
   const [fullName, setFullName] = useState("");
   const [first_name, setFirstName] = useState("");
@@ -31,7 +32,7 @@ const Signup = () => {
   const [gender, setGender] = useState("");
   const [date_of_birth, setDateofbirth] = useState("");
   const { dispatch } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const initClient = () => {
@@ -46,8 +47,7 @@ const Signup = () => {
  const onSuccess = (res) => {
    localStorage.setItem('user',JSON.stringify(res?.profileObj));
    localStorage.setItem('token',res?.tokenId);
-
-   navigate('/settings/profile/edit', { replace: true });
+   googleSignUp(res?.profileObj)
  };
  const onFailure = (err) => {
    console.log('failed:', err);
@@ -56,6 +56,17 @@ const Signup = () => {
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
+ 
+  const googleSignUp = async (body) => {
+    try {
+     const response = await axios.post(`${baseurl}/googlesignup`, body);
+     if (response.status == 200) {
+     login({ email, password }, dispatch);
+     }
+   } catch (error) {
+     console.error(error);
+   }
+  }
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -378,6 +389,11 @@ const Signup = () => {
           cookiePolicy={'single_host_origin'}
           isSignedIn={false}
       />
+       {/* <Link to="/CheckM">
+                <img src={google} alt="google_login" />
+              </Link>
+      <Link to={{ pathname: "https://example.zendesk.com/hc/en-us/articles/123456789-Privacy-Policies" }} target="_blank" /> */}
+
               <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
           </div>
         </div>
