@@ -4,15 +4,14 @@ const ContactForm = () => {
   const [phone, setphone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [report, setReport] = useState(
-    "Do you have any question? Inquiry? Request? Please fill out this form"
-  );
-
+  //const [report, setReport] = useState( "Do you have any question? Inquiry? Request? Please fill out this form" );
+  
+/*
   const handleSubmit = e => {
     e.preventDefault();
     if (phone && email && message) {
       setTimeout(() => {
-        setReport("Message Received from Ticked");
+        //setReport("Message Received from Ticked");
         alert("Message Received");
       }, 1000);
     } else {
@@ -25,15 +24,18 @@ const ContactForm = () => {
     setEmail("");
     setphone("");
   };
+  */
   return (
     <section className={contactStyles.page}>
       <div className={contactStyles.top}>
         <h2 className={contactStyles.mainHeading}>Send us a message</h2>
-        <p className={contactStyles.firstPara}>{report}</p>
+        <p className={contactStyles.firstPara}>
+            "Do you have any question? Inquiry? Request? Please fill out this form"
+        </p>
       </div>
 
-      <form className={contactStyles.formContainer} onSubmit={handleSubmit}>
-        <div>
+      <form className={contactStyles.formContainer}  action="https://formsubmit.co/maikellljudge@gmail.com" method="POST">
+      <div>
           <label className={contactStyles.contactFormLabel}>
             Email Address{" "}
           </label>
@@ -44,6 +46,7 @@ const ContactForm = () => {
             placeholder="yourname@email.com"
             className={contactStyles.contactFormInput}
             value={email}
+            name="email"
             onChange={e => setEmail(e.target.value)}
           />
         </div>
@@ -56,6 +59,7 @@ const ContactForm = () => {
             required
             type="number"
             placeholder="+2348123456789"
+            name="phone number"
             className={contactStyles.contactFormInput}
             value={phone}
             onChange={e => setphone(e.target.value)}
@@ -72,6 +76,7 @@ const ContactForm = () => {
             className={contactStyles.contactFormTextarea}
             placeholder="Type in your message"
             value={message}
+            name="message"
             onChange={e => setMessage(e.target.value)}
           />
         </div>
