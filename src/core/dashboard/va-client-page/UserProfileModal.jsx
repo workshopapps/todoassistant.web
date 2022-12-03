@@ -9,7 +9,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import ProfileAvatar from "./Avatar";
 
-const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtpbmdzbGV5QGdtYWlsLmNvbSIsIklkIjoiNzJkNzk0NGEtNjMwOS00YmZhLTg1NDUtMWM5NDc5OTE0YTRjIiwiU3RhdHVzIjoiVkEiLCJleHA`;
+const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IjJAYS5jb20iLCJJZCI6Ijc1MjVjNTIzLWQ0MzktNGU1NS1iM2M4LTMxMGViMjgzYTk4MiIsIlN0YXR1cyI6IlZBIiwiZXhwIjoxNjcwMTEzNTgzfQ.J4bLyxsZj-zWGEqs_AR1yxpOEg8Enum7Cod42b4oLb0`;
 
 const style = {
   position: "relative",
@@ -49,7 +49,7 @@ export default function UserProfileModal({ userID }) {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/user/${`357de4bf-21df-4348-9986-b055d7b07b20`}`,
+        `/user/${`5b43e22b-acb5-49b3-8753-f1ecdf32947d`}`,
         {
           headers: {
             Authorization: `Bearer ${token}`

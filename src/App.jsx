@@ -59,6 +59,7 @@ import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 import Edit from "./core/settings/profile/Edit";
 import ChangePassword from "./core/settings/profile/ChangePassword";
+import UserLogin from "./components/Login/UserLogin";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -83,7 +84,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={!user ? <Login /> : <Navigate to="/dashboard" />}
+          element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
         />
 
         <Route path="/newpassword" element={<NewPassword />} />
@@ -134,22 +135,24 @@ function App() {
           </>
         ) : !VA ? (
           <>
-            <Route path="/va-signup" element={<VASignup />} />
             <Route path="" element={<Home />} />
-            <Route path="/virtualassistance" element={<VADashboard />} />
-            <Route path="/clients" element={<VaClientPage />} />
+            <Route
+              path="/virtual-assistance/clients"
+              element={<VaClientPage />}
+            />
+            <Route path="/virtual-assistance" element={<VADashboard />} />
             <Route path="notifications" element={<Notifications />} />
+            <Route path="/va-signup" element={<VASignup />} />
           </>
-        )
-        // : VA ? (
-        //   <>
-        //     <Route path="/va-signup" element={<VASignup />} />
-        //     <Route path="/virtualassistance" element={<VADashboard />} />
-        //     <Route path="" element={<Home />} />
-        //     <Route path="notifications" element={<Notifications />} />
-        //   </>
-        // )
-        : (
+        ) : (
+          // : VA ? (
+          //   <>
+          //     <Route path="/va-signup" element={<VASignup />} />
+          //     <Route path="/virtual-assistance" element={<VADashboard />} />
+          //     <Route path="" element={<Home />} />
+          //     <Route path="notifications" element={<Notifications />} />
+          //   </>
+          // )
           <>
             <Route path="/dashboard" element={<Login />}>
               <Route path="" element={<Login />} />

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { login } from "../../contexts/authContext/apiCalls";
 import loginPic from "../../assets/loginPicture.svg";
-import Navbar from "../../layout/header/Navbar";
+// import Navbar from "../../layout/header/Navbar";
 
 const Login = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
@@ -33,7 +33,7 @@ const toggle = () => setShow(!show);
      };
      gapi.load('client:auth2', initClient);
  });
- 
+
  const onSuccess = (res) => {
    localStorage.setItem('user',JSON.stringify(res?.profileObj));
    localStorage.setItem('token',res?.tokenId);
@@ -52,7 +52,7 @@ const toggle = () => setShow(!show);
 
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.login__main}>
 
         <div className={styles.login__formWrapper}>
@@ -144,7 +144,7 @@ const toggle = () => setShow(!show);
         <div className={styles.loginImg}>
           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
         </div>
-        
+
       </div>
     </React.Fragment>
   );

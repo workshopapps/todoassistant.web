@@ -16,7 +16,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export function AlertDialogSlide({open,handleClose }) {
- 
+
 
   return (
     <div>
@@ -58,7 +58,7 @@ const NewsLetter = () => {
     if(email !== "") {
       try {
         const response = await axios.post(
-          "https://api.ticked.hng.tech/api/v1/subscribe", 
+          "https://api.ticked.hng.tech/api/v1/subscribe",
           {"email":  `"${email}"`},
           )
           if (response.status == 200 ) {
@@ -79,7 +79,7 @@ const NewsLetter = () => {
           Email Address
         </label>
         <div className={style.input_container}>
-           <input className={`${style.input} hover`} style={{outline: "none"}} autoComplete onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
+           <input className={`${style.input} hover`} style={{outline: "none"}} autoComplete="true" onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder="Enter email" />
            <input onClick={handleNewsLetter} className={style.subscribe_button} type="button" value="Subscribe"/>
         </div>
       </form>

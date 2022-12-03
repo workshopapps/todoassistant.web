@@ -16,7 +16,7 @@ const VaClientPage = () => {
     setOpen(false);
   };
 
-  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtpbmdzbGV5QGdtYWlsLmNvbSIsIklkIjoiNzJkNzk0NGEtNjMwOS00YmZhLTg1NDUtMWM5NDc5OTE0YTRjIiwiU3RhdHVzIjoiVkEiLCJleHA`;
+  const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IjJAYS5jb20iLCJJZCI6Ijc1MjVjNTIzLWQ0MzktNGU1NS1iM2M4LTMxMGViMjgzYTk4MiIsIlN0YXR1cyI6IlZBIiwiZXhwIjoxNjcwMTEzNTgzfQ.J4bLyxsZj-zWGEqs_AR1yxpOEg8Enum7Cod42b4oLb0`;
   const getUsers = async () => {
     try {
       setLoading(true);
