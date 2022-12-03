@@ -17,7 +17,9 @@ const ProfileNav = () => {
 
     const handleLogout = ()=>{
         dispatch(logout());
-
+        localStorage.removeItem("user");
+        localStorage.removeItem("facebook_token");
+        localStorage.removeItem("facebook_login_token");
         navigate("/login");
     }
 
