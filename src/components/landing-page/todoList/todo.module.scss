@@ -1,48 +1,32 @@
 @import "../../../scss/variables";
-
-// ===================
-// MIXINS
-// ===================
-@mixin img_fluid {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-// ====================
-// END OF MIXINS
-// ====================
-
-// using the BEM system
-.container {
-  //   border: 1px solid red;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  padding: 0 1.25rem;
-}
+@import "../../../scss/mixins";
 
 .img {
   @include img_fluid;
 }
 
 .vr {
+  @include container;
   display: flex;
   flex-direction: column;
+  .container {
+    flex: 1;
+  }
 
   @media screen and (min-width: 992px) {
-    margin: 0 0 5rem;
     flex-direction: row-reverse;
-    max-width: 80vw;
-    margin: 30px auto;
+    align-items: center;
+    margin: 30px auto 5rem;
   }
   &_header {
     text-align: center;
     margin-bottom: 3rem;
     @media screen and (min-width: 992px) {
+      text-align: left;
       padding: 0 5rem;
     }
     h3 {
-      font-size: 24px;
+      font-size: 34px;
       margin: 1rem 0;
       @media screen and (min-width: 992px) {
         font-size: 48px;
@@ -62,7 +46,7 @@
       margin: 2rem 0;
       @media screen and (min-width: 992px) {
         flex-direction: row;
-        justify-content: end;
+        justify-content: flex-start;
       }
     }
   }

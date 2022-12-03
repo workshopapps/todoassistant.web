@@ -116,10 +116,7 @@ const toggle = () => setShow(!show);
               <span className={styles.login__line} />
             </div>
             <div className={styles.login__socials}>
-              {/* <Link to="/CheckM">
-                <img src={google} alt="google_login" />
-              </Link> */}
-                <GoogleLogin
+            <GoogleLogin
           clientId={clientId}
           render={renderProps => (
             <button onClick={renderProps.onClick} className={styles.login__googleButton}> <img src={google} alt="google_login" /></button>
