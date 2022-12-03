@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 import {
   Routes,
@@ -38,6 +40,8 @@ import bell from "../../assets/dashboard/bell.png";
 const drawerWidth = 240;
 
 export default function VaDasboard() {
+  const { user } = useContext(AuthContext);
+  const { first_name } = user;
   const location = useLocation();
   const { window } = location;
 
@@ -185,7 +189,7 @@ export default function VaDasboard() {
                 mt={4}
                 sx={{ width: "15vw", display: "inline" }}
               >
-                Hello, Sandra
+                Hello, {first_name}
               </Typography>
               <img
                 style={{ position: "relative", left: "10px", top: "2px" }}
@@ -208,7 +212,9 @@ export default function VaDasboard() {
                   <Link to="/virtualassistance/notifications">
                     <img src={bell} style={{ height: "30px" }} alt="bell" />
                   </Link>
-                  <img src={VaImg} alt="client image" />
+                  <Link to="profile">
+                    <img src={VaImg} alt="client image" />
+                  </Link>
                 </span>
                 {/* <Typography
                   component="span"

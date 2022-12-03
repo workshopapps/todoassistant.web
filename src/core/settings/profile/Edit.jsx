@@ -34,15 +34,15 @@ const Edit = () => {
                             </div>
                             <div className="form-form">
                                 <div className="form-field">
-                                    <label htmlFor="FullName">Full name</label>
+                                    <label htmlFor="FullName" className="lab">Full name</label>
                                     <input type="text" id="FullName" />
                                 </div>
                                 <div className="form-field">
-                                    <label htmlFor="Email">Email address</label>
+                                    <label htmlFor="Email" className="lab">Email address</label>
                                     <input type="text" id="Email" />
                                 </div>
                                 <div className="form-field">
-                                    <label htmlFor="phone">Phone number</label>
+                                    <label htmlFor="phone" className="lab">Phone number</label>
                                     <input type="text" id="phone" />
                                 </div>
                             </div>
