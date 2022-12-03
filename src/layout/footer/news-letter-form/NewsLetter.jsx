@@ -65,7 +65,7 @@ const NewsLetter = () => {
       );
   };
 
-
+// console.log("changes")
   const handleNewsLetter = async () => {
     if(email !== "" && validateEmail(email)) {
       try {
