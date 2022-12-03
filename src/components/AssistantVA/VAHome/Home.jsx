@@ -45,7 +45,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setAssigned(tasks.filter(task => task.assigned === true));
+    setAssigned(tasks?.filter(task => task.assigned === true));
   }, [tasks]);
 
   return (
@@ -66,7 +66,7 @@ const Home = () => {
               className={[styles.va_home_link, nav && styles.active].join(" ")}
               onClick={() => setNav(true)}
             >
-              All Tasks ({tasks.length})
+              All Tasks ({tasks?.length})
             </div>
             <div
               className={[styles.va_home_link, !nav && styles.active].join(" ")}
@@ -87,7 +87,7 @@ const Home = () => {
                   handleClick={handleClick}
                 />
               ))
-            ) : assigned.length <= 0 ? (
+            ) : assigned?.length <= 0 ? (
               <div className={styles.va_no_tasks}>
                 <span className={styles.va_no_tasks_title}>
                   No Assigned Tasks Yet
