@@ -62,10 +62,7 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                 alignItems="center"
                 marginLeft={"30px"}
               >
-                <Box
-                  bgcolor={activeState === task ? "#fff" : task.colorDark}
-                  sx={{ width: "9px", height: "9px", borderRadius: "4px" }}
-                ></Box>
+                
                 <h6
                   className={styles.task__name}
                   style={{
@@ -202,10 +199,7 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                 alignItems="center"
                 marginLeft={"30px"}
               >
-                <Box
-                  bgcolor={activeState === task ? "#fff" : task.colorDark}
-                  sx={{ width: "9px", height: "9px", borderRadius: "4px" }}
-                ></Box>
+                
                 <h6
                   className={styles.task__name}
                   style={{
