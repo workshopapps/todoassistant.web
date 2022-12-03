@@ -72,7 +72,8 @@ const LoginForm = () => {
      if (response.status == 200 && response.data) {
          localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
           localStorage.setItem("user", JSON.stringify(response?.data));
-            navigate("/dashboard", { replace: true });  
+            navigate("/dashboard", { replace: true });
+            navigate(0);  
      }
    } catch (error) {
      console.error(error);
