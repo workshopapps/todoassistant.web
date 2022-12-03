@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import signupPicture from "../../../assets/thesignupimage.svg";
+import React, { useContext, useState, useEffect } from "react";
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
 import google from "../../../assets/google.png";
 import fb from "../../../assets/fb.png";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import signupPicture from "../../../assets/thesignupimage.svg";
 import styles from "./Signup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -15,6 +17,8 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
 const Signup = () => {
+  const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
+
   const [fullName, setFullName] = useState("");
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -26,9 +30,28 @@ const Signup = () => {
   const [error, setError] = useState(false);
   const [gender, setGender] = useState("");
   const [date_of_birth, setDateofbirth] = useState("");
-
   const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const initClient = () => {
+          gapi.client.init({
+          clientId: clientId,
+          scope: ''
+        });
+     };
+     gapi.load('client:auth2', initClient);
+ });
+
+ const onSuccess = (res) => {
+   localStorage.setItem('user',JSON.stringify(res?.profileObj));
+   localStorage.setItem('token',res?.tokenId);
+
+   navigate('/dashboard', { replace: true });
+ };
+ const onFailure = (err) => {
+   console.log('failed:', err);
+ };
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -323,7 +346,7 @@ const Signup = () => {
                 </button>
               )}
           </form>
-          <p className={styles.toLogin}>
+          <p className={styles.tosignup}>
             Already have an account?,{" "}
             <Link
               to="/login"
@@ -344,8 +367,18 @@ const Signup = () => {
           </div>
 
           <div className={styles.signupSocials}>
-            <img src={google} alt="google icon" style={{ cursor: "pointer" }} />
-            <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} />
+          <GoogleLogin
+          clientId={clientId}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} className={styles.signup__googleButton}> <img src={google} alt="google_login" /></button>
+          )}
+          buttonText="Sign in with Google"
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={'single_host_origin'}
+          isSignedIn={false}
+      />
+              <img src={fb} alt="facebook icon" style={{cursor: "pointer"}}/>
           </div>
         </div>
 

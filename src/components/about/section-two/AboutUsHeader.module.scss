@@ -10,6 +10,7 @@
     padding-top: 3rem;
     flex-direction: row;
     // gap: 10rem;
+    
   }
 
 .headerRow{
@@ -27,9 +28,7 @@ gap: 0.5rem;
 .headerRow p{
   text-align: center;
 }
-  .headerTickedBox {
-    flex: 1;
-  }
+
   
 .box{
   border: 1px solid  #714DD9;
@@ -52,12 +51,34 @@ gap: 0.5rem;
     }
   }
 
+@media (min-width:992px){
+  .headerTickedBox {
+    flex: 1;
+    padding-left: 120px;
+    @media(max-width:768px){
+      padding-left: 0px;
+  }
+}
+}
+    .button_getstarted {
+      @include button;
+      background-color: $activeColor;
+      color: $white;
+    }
+    
+    .button_login {
+      @include button;
+      border: 1px solid $activeColor;
+      background-color: transparent;
+      color: $activeColor;
+    }
+    
   .headerImageBox {
     flex: 1;
     .img {
-      border: 1px dashed $activeColor;
-      padding: 3px;
+      padding-left: 3px;
       @include img_fluid;
+      width:100%;
     }
   }
 

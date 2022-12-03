@@ -13,7 +13,7 @@ const SettingsProfilee = () => {
   
 
   let  FName= first_name
-  let initial = FName.charAt(0)
+  let initial = FName.charAt(0).toUpperCase()
 
   return (
     <div className="settings">

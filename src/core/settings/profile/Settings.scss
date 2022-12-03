@@ -7,7 +7,7 @@
     list-style: none;
     width: 100%;
     max-width: 1000px;
-    height: fit-content;
+    height: max-content;
 
     .profile {
         display: flex;
@@ -78,6 +78,9 @@
                         border-radius: 50%;
                         background-color: #fff;
                         position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         margin-bottom: 16px;
                         @media screen and (min-width: 780px) {
                             width: 110px;
@@ -88,11 +91,10 @@
                             position: absolute;
                             font-size: 34px;
                             color: #714DD9;
-                            right: 2.15rem;
                             bottom: 1rem;
                             @media screen and (min-width: 780px) {
                                 font-size: 45px;
-                                right: 2.9rem;
+                            
                                 bottom: 1.4rem;
                             }
                         }

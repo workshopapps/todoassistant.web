@@ -10,7 +10,7 @@ const Edit = () => {
     const { user } = useContext(AuthContext)
     const { first_name } = user
     let FName = first_name
-    let initial = FName.charAt(0)
+    let initial = FName.charAt(0).toUpperCase()
     return (
         <div>
             <div className="settings">

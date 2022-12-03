@@ -1,0 +1,66 @@
+.va_slider_container {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 60px;
+    padding: 1rem;
+}
+.slider_top,
+.va_navLink {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+}
+
+.slider_top {
+    justify-content: center;
+}
+
+.va_title {
+    font-family: 'Manrope';
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0.04em;
+    color: #333333;
+}
+
+.slider_nav {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.va_navLink:hover {
+    background: linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF;
+    border-radius: 8px;
+    cursor: pointer;
+    .va_typo, .va_img {
+        color: #714DD9;
+    }
+    
+}
+
+.va_typo {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #333333;
+}
+
+.clients {
+    color: #714DD9;
+    background: linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF;
+    border-radius: 8px;
+    padding: 2px 4px;
+}
+
+.va_navLink:last-child {
+    margin-top: 2rem;
+    border-top: 1px solid #D3D0D9;
+}
