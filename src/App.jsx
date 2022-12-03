@@ -64,6 +64,7 @@ import ResetPasswordPage from "./components/ResetPasswordPages/ResetPage/ResetPa
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
 import Edit from "./core/settings/profile/Edit";
 import ChangePassword from "./core/settings/profile/ChangePassword";
+import Subscription from "./pages/Subscription/Subscription";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -78,6 +79,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/career" element={<Career />} />
         <Route path="/about" element={<About />} />
+        <Route path="/subscribe" element={<Subscription />} />
         <Route path="/policy" element={<PrivatePolicy />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
