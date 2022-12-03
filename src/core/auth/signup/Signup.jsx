@@ -93,7 +93,7 @@ const Signup = () => {
                   {...register("first_name", {
                     required: "This field is required"
                   })} />
-                {errors.first_name && (<small>{errors.first_name.message}</small>)}
+                {errors.first_name && (<small className={styles.error_state}>{errors.first_name.message}</small>)}
               </div>
 
               <div className={styles.eachContainer}>
@@ -109,7 +109,7 @@ const Signup = () => {
                     required: "This field is required"
                   })}
                 />
-                {errors.last_name && (<small>{errors.last_name.message}</small>)}
+                {errors.last_name && (<small className={styles.error_state}>{errors.last_name.message}</small>)}
               </div>
 
               <div className={styles.eachContainer}>
@@ -130,7 +130,7 @@ const Signup = () => {
                   onKeyUp={() => {
                     trigger('email')
                   }} />
-                {errors.email && (<small>{errors.email.message}</small>)}
+                {errors.email && (<small className={styles.error_state}>{errors.email.message}</small>)}
               </div>
 
               <div className={styles.eachContainer}>
@@ -158,7 +158,7 @@ const Signup = () => {
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
-                {errors.gender && (<small>{errors.gender.message}</small>)}
+                {errors.gender && (<small className={styles.error_state}>{errors.gender.message}</small>)}
               </div>
 
               <div className={styles.eachContainer}>
@@ -171,7 +171,7 @@ const Signup = () => {
                   type="date"
                   placeholder="Enter Date of birth"
                   {...register("date_of_birth", { required: "Pick a date" })} />
-                {errors.date_of_birth && (<small>{errors.date_of_birth.message}</small>)}
+                {errors.date_of_birth && (<small className={styles.error_state}>{errors.date_of_birth.message}</small>)}
               </div>
 
               <div className={styles.eachContainer}>
@@ -203,7 +203,7 @@ const Signup = () => {
 
                   </div>
                 </div>
-                {errors.password && (<small>{errors.password.message}</small>)}
+                {errors.password && (<small className={styles.error_state}>{errors.password.message}</small>)}
               </div>
 
               <div className={styles.permission}>
