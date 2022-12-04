@@ -7,9 +7,11 @@ import commentlight from "../../assets/message-2messagelight.svg";
 import right from "../../assets/arrow-rightright.svg";
 import stopwatch from "../../assets/timer-startstopclock.svg";
 import stopwatchlight from "../../assets/timer-startclocklight.svg";
+import moment from "moment";
 
 const Accordion = ({ data, setData, setHidden, setDissapear }) => {
   const [activeState, setActiveState] = useState(data[0]);
+  console.log(data);
   return (
     <Box>
       <Box
@@ -174,12 +176,11 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             onClick={() => {
               setData({
                 title: task.title,
-                date: task.date,
-                time: task.time,
+                date: moment(task.end_time).format("lll"),
                 description: task.description,
                 status: task.status,
-                client: task.client,
-                number: task.number,
+                client: task.user.name,
+                number: task.user.phone,
                 comment: task.comment
               });
               setDissapear(false);
@@ -223,14 +224,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                   />
                   <span
                     style={{
-                      fontSize: "13px",
+                      fontSize: "15px",
                       paddingRight: "30px",
                       borderRight: "1px solid #D3D0D9",
                       whiteSpace: "nowrap",
                       color: `${(activeState === task && "#fff") || "#333"}`
                     }}
                   >
-                    {task.client}{" "}
+                    {task.user.name}{" "}
                   </span>
                 </Box>
                 <Box display="flex" alignItems={"center"} gap="5px">
@@ -241,11 +242,11 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                   />
                   <span
                     style={{
-                      fontSize: "12px",
+                      fontSize: "15px",
                       color: `${(activeState === task && "#fff") || "#333"}`
                     }}
                   >
-                    {task.time}{" "}
+                    {moment(task.end_time).format("lll")}{" "}
                   </span>
                 </Box>
                 <Box display="flex" alignItems={"center"} gap="5px">
@@ -357,9 +358,6 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                   <span
                     style={{
                       fontSize: "13px",
-                      paddingRight: "30px",
-                      borderRight: "1px solid #D3D0D9",
-                      whiteSpace: "nowrap",
                       color: `${(activeState === task && "#fff") || "#333"}`
                     }}
                   >

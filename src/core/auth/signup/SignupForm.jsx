@@ -60,6 +60,7 @@ const SignupForm = () => {
         );
         localStorage.setItem("user", JSON.stringify(response?.data));
         navigate("/dashboard", { replace: true });
+        navigate(0);
       }
     } catch (error) {
       console.error(error);
@@ -94,7 +95,7 @@ const SignupForm = () => {
     setPasswordShown(!passwordShown);
   };
   return (
-    <div className={styles.signupContainer}>
+    <div className={styles.signupCcontainer}>
       <div className={styles.signupLeft}>
         <div className={styles.abeg}>
           <h2 className={styles.createAccountText}>Create Account</h2>
