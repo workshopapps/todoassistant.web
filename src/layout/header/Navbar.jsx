@@ -22,7 +22,10 @@ export default function Navbar() {
     dispatch(logout());
     navigate("/login");
   };
-
+  
+const handleDashboard = () => {
+    navigate("/dashboard");
+  };
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
@@ -32,7 +35,7 @@ export default function Navbar() {
   ) : (
     // <Button style={logOutBtn} title="Log out" />
     <>
-        <button className={style.logoutBtn} onClick={handleLogout}>
+        <button className={style.logoutBtn} onClick={handleDashboard}>
       Dashboard
     </button>
     
@@ -83,6 +86,10 @@ const NavDrawer = ({ toggleSidebar }) => {
     dispatch(logout());
     navigate("/login");
   };
+  
+  const handleDashboard = () => {
+    navigate("/login");
+  };
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
@@ -92,7 +99,7 @@ const NavDrawer = ({ toggleSidebar }) => {
   ) : (
     // <Button style={logOutBtn} title="Log out" />
     <>
-    <button className={style.logoutBtn} onClick={handleLogout} style={{marginBottom:"1rem"}}>
+    <button className={style.logoutBtn} onClick={handleDashboard} style={{marginBottom:"1rem"}}>
       Dashboard
     </button>
     <button className={style.logoutBtn} onClick={handleLogout}>

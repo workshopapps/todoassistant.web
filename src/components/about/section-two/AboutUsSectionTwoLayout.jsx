@@ -22,7 +22,7 @@ Describe your task, set the date and time for your task deadline
           </p>
         </div>
 
-        <div>
+        <div className= {styles.headerCol}>
         <div className={styles.headerRow}>
         <img src={icon2} alt="tick"/>
         <h1>Personalized Virtual Assistant</h1>
@@ -32,7 +32,7 @@ Describe your task, set the date and time for your task deadline
           </p>
         </div>
 
-        <div>
+        <div className= {styles.headerCol}>
         <div className={styles.headerRow}>
         <img src={icon3} alt="tick"/>
         <h1>Get Ticked</h1>
