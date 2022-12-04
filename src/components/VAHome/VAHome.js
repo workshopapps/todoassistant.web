@@ -3,9 +3,10 @@ import { Box, Typography } from "@mui/material";
 import styles from "./VAHome.module.scss";
 import Accordian from "../Accordion/Accordion";
 import axios from "axios";
+import moment from "moment";
 
-import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
-//import tasks from "../Accordion/_mock";
+// import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
+// import tasks from "../Accordion/_mock";
 import { AiOutlineDown } from "react-icons/ai";
 import assign from "../../assets/autobrightnessassignicon.svg";
 import clock from "../../assets/clockclockiicon.svg";
@@ -15,17 +16,17 @@ import smile from "../../assets/Subtractsmile.svg";
 
 const VAHome = () => {
   const [data, setData] = useState([]);
-  const [num, setNum] = useState(data.length);
-  const [title, setTitle] = useState("ALL");
-  const [activeClass, setActiveClass] = useState(`All Tasks (${num})`);
+  const time = moment(data[0]?.end_time).format("111");
+  // const [num, setNum] = useState(data?.length);
+  // const [title, setTitle] = useState("ALL");
+  const [activeClass, setActiveClass] = useState(2);
   const [singleDate, setSingleData] = useState({
     title: data[0]?.title,
-    date: "12 Oct",
-    time: "5pm",
-    description: "I cannot Wait to Finish",
+    date: time,
+    description: data[0]?.description,
     status: data[0]?.status,
-    client: data[0]?.username,
-    number: "+234797463389",
+    client: data[0]?.user.name,
+    number: data[0]?.user.phone,
     comment: 6
   });
   const [hidden, setHidden] = useState(true);
@@ -45,13 +46,16 @@ const VAHome = () => {
       );
 
       const vaTasks = response.data.data;
+      console.log(vaTasks);
 
       setData(vaTasks);
+      // console.log(tasks);
     }
   };
 
   useEffect(() => {
     fetchTasks();
+    // console.log(tasks);
   }, []);
 
   const handleSideBar = () => {
@@ -79,13 +83,11 @@ const VAHome = () => {
         className={styles.upperTittle}
         alignItems={"center"}
         sx={{
-          width: `${
-            (data.length === 0 && "100% !important") || "63.6% !important"
-          }`,
+          width: `${"100%"}`,
           backgroundColor: "#fff",
           padding: "14px 22px",
           borderRadius: "8px",
-          gap: "10px"
+          gap: "20px"
         }}
       >
         <Box display={"flex"} width="100%" justifyContent={"space-between"}>
@@ -96,19 +98,12 @@ const VAHome = () => {
             </Typography>
             <AiOutlineDown className={`${styles.chevron} `} />
           </Box>
-
-          <SelectDropdown
-            mockData={data}
-            setMockData={setData}
-            setNumTask={setNum}
-            setTaskTitle={setTitle}
-          />
         </Box>
 
         <Box display={"flex"} width="100%" gap={"50px"}>
           <Typography
             onClick={() => {
-              setActiveClass(`All Tasks (${num})`);
+              setActiveClass(2);
             }}
             sx={{
               fontSize: "15px",
@@ -116,15 +111,15 @@ const VAHome = () => {
               textAlign: "center",
               cursor: "pointer"
             }}
-            color={activeClass === `All Tasks (${num})` && " #714DD9"}
-            className={activeClass === `All Tasks (${num})` && styles.active}
+            color={activeClass === 2 && " #714DD9"}
+            className={activeClass === 2 && styles.active}
           >
-            All Tasks {`(${num})`}
+            All Tasks {`(${data?.length})`}
           </Typography>
           <Typography
             onClick={() => {
               setActiveClass(1);
-              console.log(activeClass);
+              // console.log(activeClass);
             }}
             sx={{
               fontSize: "15px",
@@ -139,7 +134,7 @@ const VAHome = () => {
         </Box>
       </Box>
       <Box display={"flex"} width="100%" gap={"20px"}>
-        {data.length === 0 && (
+        {data?.length === 0 && (
           // /* TASKS EMPTY STATE */
           <Box
             minHeight={"69vh"}
@@ -155,14 +150,20 @@ const VAHome = () => {
             }}
           >
             <h4 style={{ fontSize: "24px" }}>No Clients</h4>
-            <p style={{ fontSize: "17px" }}>
+            <p
+              style={{
+                fontSize: "17px",
+                textAlign: "center",
+                marginTop: "10px"
+              }}
+            >
               You will be notified when a user has been assigned to you
             </p>
           </Box>
         )}
 
         <Box
-          style={{ display: `${(data.length === 0 && "none") || "block"}` }}
+          style={{ display: `${(data?.length === 0 && "none") || "block"}` }}
           className={styles.Accordian__v11}
           display={"flex"}
           flexDirection="column"
@@ -176,10 +177,9 @@ const VAHome = () => {
           {data && (
             <Accordian
               data={data}
-              numTask={num}
+              numTask={data?.length}
               setDissapear={setDissapear}
               setHidden={setHidden}
-              title={title}
               setData={setSingleData}
             />
           )}{" "}
@@ -188,7 +188,7 @@ const VAHome = () => {
         {/* //SIDE BAR */}
 
         <Box
-          style={{ display: `${(data.length === 0 && "none ") || "block"}` }}
+          style={{ display: `${(data?.length === 0 && "none ") || "block"}` }}
           className={`${styles.sidebar} ${hidden && styles.hidden} ${
             dissapear && styles.dissapear
           }`}
@@ -198,20 +198,19 @@ const VAHome = () => {
         >
           <Box
             style={{
-              display: `${(data.length === 0 && "none ") || "block"}`
+              display: `${(data?.length === 0 && "none ") || "block"}`
             }}
             position={"relative"}
             top="-27px"
-            height={"100vh"}
             className={`${styles.saviour__relative} ${
               hidden && styles.hidden
             } ${dissapear && styles.dissapear}`}
           >
             <Box
               style={{
-                display: `${(data.length === 0 && "none ") || "block"}`
+                display: `${(data?.length === 0 && "none ") || "block"}`
               }}
-              width={"26.55%"}
+              width={"42%"}
               height="100%"
               marginTop={"50px"}
               position="fixed"
@@ -276,9 +275,7 @@ const VAHome = () => {
                   <h6 style={{ fontSize: "12px", fontWeight: "700" }}>
                     DUE TIME
                   </h6>
-                  <p>
-                    {singleDate.date} at {singleDate.time}{" "}
-                  </p>
+                  <p>{singleDate.date}</p>
                   <h6
                     style={{
                       marginTop: "15px",
@@ -323,11 +320,12 @@ const VAHome = () => {
               className={`${styles.comment} ${hidden && styles.hidden} ${
                 dissapear && styles.dissapear
               }`}
-              width={"24.5%"}
+              width={"37%"}
               borderRadius="10px"
               border="1px solid #D3D0D9"
               position={"fixed"}
               bottom="10px"
+              padding="10px"
               right="36px"
               display={"flex"}
               gap="7px"
