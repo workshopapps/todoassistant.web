@@ -1,6 +1,6 @@
-import React, { createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 import axios from "axios";
-import { AuthContext } from "../authContext/AuthContext";
+// import { AuthContext } from "../authContext/AuthContext";
 
 export const taskCtxDefaultValues = {
   tasks: [],
@@ -21,11 +21,11 @@ const TaskContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  // const { user } = useContext(AuthContext);
+  // console.log(user);
   let token = "";
-  if (user) {
-    token = user.access_token;
+  if (JSON.parse(localStorage.getItem("user"))) {
+    token = JSON.parse(localStorage.getItem("user")).access_token;
   }
 
   const getTasks = useCallback(() => {
