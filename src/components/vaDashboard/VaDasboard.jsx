@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "./VaDashboard.module.scss";
 
-import { Routes, Route, NavLink, useLocation, Outlet, Link } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  NavLink,
+  useLocation,
+  Outlet,
+  Link
+} from "react-router-dom";
 // import {useHistory} from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
@@ -25,7 +32,6 @@ import VaImg from "../../assets/dashboard/vaImg.png";
 // import arrowDown from "../../assets/dashboard/arrow-down.png";
 import hand from "../../assets/dashboard/hand.png";
 import bell from "../../assets/dashboard/bell.png";
-
 
 // import add from "../../assets/dashboard/add.png";
 
@@ -59,7 +65,7 @@ export default function VaDasboard() {
         background: "#fff",
         borderRight: "1px solid #E9F3F5",
         minHeight: "100vh",
-        padding: "0px 10px",
+        padding: "0px 10px"
       }}
     >
       <Toolbar>
@@ -129,7 +135,9 @@ export default function VaDasboard() {
                   <img src={item.icon} alt={`${item.title}_icon`} />
                   <Typography ml={1}>{item.title}</Typography>
                 </Box>
-                {item.title === "clients" ? <Divider sx={{color: "#714DD9"}}  /> : null}
+                {item.title === "clients" ? (
+                  <Divider sx={{ color: "#714DD9" }} />
+                ) : null}
               </NavLink>
             </Box>
           </>
@@ -153,7 +161,7 @@ export default function VaDasboard() {
           background: "#fff",
           color: "black",
           borderBottom: "1px solid #E9F3F5",
-          padding:  "20px"
+          padding: "20px"
         }}
         className={styles.main__appbar}
         elevation={0}
@@ -175,12 +183,15 @@ export default function VaDasboard() {
               <Typography
                 variant="h6"
                 mt={4}
-                sx={{  width: "15vw", display: "inline"}}
+                sx={{ width: "15vw", display: "inline" }}
               >
-                
                 Hello, Sandra
               </Typography>
-              <img style={{position: "relative", left: "10px", top: "2px"}} src={hand} alt="hand" />
+              <img
+                style={{ position: "relative", left: "10px", top: "2px" }}
+                src={hand}
+                alt="hand"
+              />
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
@@ -191,12 +202,15 @@ export default function VaDasboard() {
                   alignItems: "center"
                 }}
               >
-                <span style={{display: "flex", gap: "10px", alignItems: "center"}}>
-                  <Link to="/virtualassistance/notifications">
-                  <img src={bell} style={{height: "30px"}} alt="bell" />
+                <span
+                  style={{ display: "flex", gap: "10px", alignItems: "center" }}
+                >
+                  <Link to="/virtual-assistance/notifications">
+                    <img src={bell} style={{ height: "30px" }} alt="bell" />
                   </Link>
-                  <img src={VaImg} alt="client image" />
 
+                  <Link to="/virtual-assistance/profile"></Link>
+                  <img src={VaImg} alt="client image" />
                 </span>
                 {/* <Typography
                   component="span"
