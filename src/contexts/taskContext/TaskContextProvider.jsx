@@ -22,7 +22,7 @@ const TaskContextProvider = ({ children }) => {
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useContext(AuthContext);
-  console.log(user);
+  
   let token = "";
   if (user) {
     token = user.access_token;
