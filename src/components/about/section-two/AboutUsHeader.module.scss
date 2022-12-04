@@ -12,13 +12,27 @@
     // gap: 10rem;
     
   }
-
+  
 .headerRow{
 display: flex;
 flex-direction: row;
 //justify-content: center;
 align-items: center;
 gap: 0.5rem;
+}
+
+.headerCol{
+  display: flex;
+  flex-direction:  column;
+  border: 1px solid #fff;
+  border-radius:8px;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.headerCol:hover{
+border: 1px solid  #714DD9;
+border-radius:8px;
 }
 
 .headerRow h1{
@@ -29,7 +43,6 @@ gap: 0.5rem;
   text-align: center;
 }
 
-  
 .box{
   border: 1px solid  #714DD9;
   border-radius:8px;
@@ -41,16 +54,18 @@ gap: 0.5rem;
     font-weight: 700;
   }
 
-  .tickedText {
+    .tickedText {
     line-height: 180%;
-    margin: 1.5rem 0;
-    margin-right: 0;
+    padding-top: 1rem;
+   // margin: 1.5rem 0;
+    //margin-right: 0;
     text-align: justify;
+    font-size: 1rem;
     @media (min-width: 992px) {
-      margin-right: 10rem;
+      //margin-right: 10rem;
     }
   }
-
+  
 @media (min-width:992px){
   .headerTickedBox {
     flex: 1;
