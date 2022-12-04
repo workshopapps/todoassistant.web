@@ -42,3 +42,10 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 865px) {
+  .modal {
+    width: 90vw;
+    left: 5%;
+  }
+}
