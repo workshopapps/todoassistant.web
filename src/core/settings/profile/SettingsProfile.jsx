@@ -1,7 +1,7 @@
 import React from "react";
 import './Settings.scss'
 import { Link } from "react-router-dom";
-import arrowLeft from  "../../../assets/arrow-left-cj.svg"
+import arrowLeft from "../../../assets/arrow-left-cj.svg"
 import arrowRight from "../../../assets/arrow-right-cj.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
@@ -9,13 +9,17 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 
 
 const SettingsProfilee = () => {
-  const {user} = useContext(AuthContext)
-  
- 
-  const {first_name, last_name, user_id, email, phone} = user
-  
+  const { user } = useContext(AuthContext)
+  const { first_name, last_name, user_id, email, phone } = user
 
-  let  FName= first_name
+
+
+
+
+
+
+
+  let FName = first_name
   let initial = FName.charAt(0).toUpperCase()
 
   return (
@@ -77,7 +81,7 @@ const SettingsProfilee = () => {
               <p className="personal">Security</p>
             </div>
             <div className="details-card-sec">
-              <Link  to="change-password" className="tit">
+              <Link to="change-password" className="tit">
                 <p className="tit-tit">Change password</p>
                 <img src={arrowRight} alt="arrow" />
               </Link>
