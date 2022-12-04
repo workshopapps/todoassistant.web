@@ -17,6 +17,7 @@ const VAHome = () => {
   const [data, setData] = useState([]);
   const [num, setNum] = useState(data.length);
   const [title, setTitle] = useState("ALL");
+  const [activeClass, setActiveClass] = useState(`All Tasks (${num})`);
   const [singleDate, setSingleData] = useState({
     title: data[0]?.title,
     date: "12 Oct",
@@ -34,11 +35,14 @@ const VAHome = () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
-      const response = await axios.get(`/task/all/va`, {
-        headers: {
-          Authorization: `Bearer ${vaUser.extra.token}`
+      const response = await axios.get(
+        "https://api.ticked.hng.tech/api/v1/task/all/va",
+        {
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-      });
+      );
 
       const vaTasks = response.data.data;
 
@@ -67,7 +71,7 @@ const VAHome = () => {
   }, [hidden]);
 
   return (
-    <Box minHeight={"100vh"}>
+    <Box minHeight={"100vh"} padding="33px" bgcolor={"#F9F7FF"}>
       <Box
         display={"flex"}
         justifyContent="space-between"
@@ -79,14 +83,20 @@ const VAHome = () => {
             (data.length === 0 && "100% !important") || "63.6% !important"
           }`,
           backgroundColor: "#fff",
-          padding: "10px 30px"
+          padding: "14px 22px",
+          borderRadius: "8px",
+          gap: "10px"
         }}
       >
         <Box display={"flex"} width="100%" justifyContent={"space-between"}>
-          <Typography variant="h4" className={styles.tittle}>
-            Today
+          <Box display={"flex"} sx={{ alignItems: "center", gap: "10px" }}>
+            {" "}
+            <Typography variant="h4" className={styles.tittle}>
+              Today
+            </Typography>
             <AiOutlineDown className={`${styles.chevron} `} />
-          </Typography>
+          </Box>
+
           <SelectDropdown
             mockData={data}
             setMockData={setData}
@@ -97,26 +107,35 @@ const VAHome = () => {
 
         <Box display={"flex"} width="100%" gap={"50px"}>
           <Typography
+            onClick={() => {
+              setActiveClass(`All Tasks (${num})`);
+            }}
             sx={{
               fontSize: "15px",
               fontWeight: "600",
-              color: "#714DD9",
-              textAlign: "center"
+              textAlign: "center",
+              cursor: "pointer"
             }}
-            className={styles.active}
+            color={activeClass === `All Tasks (${num})` && " #714DD9"}
+            className={activeClass === `All Tasks (${num})` && styles.active}
           >
             All Tasks {`(${num})`}
           </Typography>
-          {/* <Typography
-              sx={{
-                fontSize: "15px",
-               
-              
-                textAlign: "center"
-              }}
-            >
-             Assigned to Me
-            </Typography> */}
+          <Typography
+            onClick={() => {
+              setActiveClass(1);
+              console.log(activeClass);
+            }}
+            sx={{
+              fontSize: "15px",
+              cursor: "pointer",
+              textAlign: "center",
+              color: `${activeClass === 1 && " #714DD9"}`
+            }}
+            className={activeClass === 1 && styles.active}
+          >
+            Assigned to Me
+          </Typography>
         </Box>
       </Box>
       <Box display={"flex"} width="100%" gap={"20px"}>
