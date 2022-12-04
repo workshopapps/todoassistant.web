@@ -17,11 +17,14 @@ const Home = () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
-      const response = await axios.get(`/task/all/va`, {
-        headers: {
-          Authorization: `Bearer ${vaUser.extra.token}`
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/task/all/va`,
+        {
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-      });
+      );
       const vaTasks = response.data.data;
       setTasks(vaTasks);
     }
@@ -31,7 +34,9 @@ const Home = () => {
     setTaskDetail(true);
     const id = e.target.id;
 
-    const currentTask = tasks.filter(task => task.task_id === id);
+    const currentTask = tasks.filter(
+      task => task.task_id === id || id === "arrow"
+    );
     setShowDetail(currentTask[0]);
   };
 
@@ -45,7 +50,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setAssigned(tasks.filter(task => task.assigned === true));
+    setAssigned(tasks?.filter(task => task.assigned === true));
   }, [tasks]);
 
   return (
@@ -66,7 +71,7 @@ const Home = () => {
               className={[styles.va_home_link, nav && styles.active].join(" ")}
               onClick={() => setNav(true)}
             >
-              All Tasks ({tasks.length})
+              All Tasks ({tasks?.length})
             </div>
             <div
               className={[styles.va_home_link, !nav && styles.active].join(" ")}
@@ -80,14 +85,10 @@ const Home = () => {
         <div className={styles.va_tasks}>
           {tasks?.length > 0 ? (
             nav ? (
-              tasks.map(task => (
-                <Task
-                  details={task}
-                  key={task.task_id}
-                  handleClick={handleClick}
-                />
+              tasks.map((task, index) => (
+                <Task details={task} key={index} handleClick={handleClick} />
               ))
-            ) : assigned.length <= 0 ? (
+            ) : assigned?.length <= 0 ? (
               <div className={styles.va_no_tasks}>
                 <span className={styles.va_no_tasks_title}>
                   No Assigned Tasks Yet
@@ -97,13 +98,9 @@ const Home = () => {
                 </span>
               </div>
             ) : (
-              tasks.map(task =>
+              tasks.map((task, index) =>
                 task.assigned ? (
-                  <Task
-                    details={task}
-                    key={task.task_id}
-                    handleClick={handleClick}
-                  />
+                  <Task details={task} key={index} handleClick={handleClick} />
                 ) : null
               )
             )

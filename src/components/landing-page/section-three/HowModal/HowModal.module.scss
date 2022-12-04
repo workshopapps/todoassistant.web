@@ -1,0 +1,206 @@
+
+
+.darkBG {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+   } 
+   
+   .centered {
+     position: fixed; 
+     top: 50%; 
+     left: 50%;
+     transform: translate(-50%, -50%); 
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     overflow-x: hidden;
+     overflow-y: auto;
+     z-index: 50;
+     outline: none;
+   } 
+   
+     .modal { 
+          @media screen and (max-width: 768px)  {
+             position: relative;
+             width: 375px;
+             height: 400px; 
+             background: white; 
+             color: white; 
+             border-radius: 16px;
+             z-index: 10; 
+             box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+             display: flex;
+             flex-direction: column;
+             margin-top: 1.5rem;
+             margin-bottom: 1.5rem;
+             margin: auto;
+          }
+       position: relative;
+       width: 560px;
+       height: 500px; 
+       background: white; 
+       color: white; 
+       border-radius: 16px;
+       z-index: 10; 
+       box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin-top: 1.5rem;
+       margin-bottom: 1.5rem;
+       margin: auto;
+     }
+     
+     .header_logo {
+       display: inline;
+     }
+     
+     .modalHeaderContainer {
+        @media screen and (max-width: 768px) {
+                 flex-direction: column;
+                 align-items: flex-start;
+                 padding: 12px 20px;
+                 width: 375px;
+                 height: 56.81px;
+                 border-bottom: 1px solid #714dd9;
+                 margin-bottom: 30px
+        }
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       padding: 12px 20px;
+       width: 560px;
+       height: 56.81px;
+       border-bottom: 1px solid #714dd9;
+       margin-bottom: 30px;
+     }
+     
+      .modalHeader {
+         @media screen and (max-width: 768px) {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 0px;
+                  gap: 50px;
+                  width: 335px;
+                  height: 32.81px;
+         }        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        gap: 50px;
+        width: 520px;
+        height: 32.81px;
+      }
+      
+      .header_content {
+         @media screen and (max-width: 768px) {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 8px;
+                    width: 105.29px;
+                    height: 32.81px;
+         }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 105.29px;
+        height: 32.81px;
+      }
+      
+      .header_name {
+        @media screen and (max-width: 768px) {
+                    display: inline;
+                    width: 69px;
+                    height: 25px;
+                    font-family: "Manrope";
+                    font-style: normal;
+                    font-weight: 800;
+                    font-size: 18px;
+                    letter-spacing: 0.04em;
+                    color: #333333;
+                    margin-bottom: 14px;
+        }
+        display: inline;
+        width: 69px;
+        height: 25px;
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: #333333;
+        margin-bottom: 14px;
+      }
+
+       .modalContent {
+         @media screen and (max-width: 768px) {
+                  padding: 10px; 
+                   font-size: 20px; 
+                   color: #707070;
+                   text-align: center;
+                   margin-bottom: 30px;
+                   margin-top: 0rem;
+                  line-height: 30px;
+                  padding-left: 10px; 
+                  padding-right: 10px;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+         }
+         padding-left: 40px; 
+         padding-right: 40px;
+         padding-top: 10px;
+         padding-bottom: 10px;
+         line-height: 40px;
+         font-size: 25px; 
+         color: #707070;
+         text-align: center;
+         margin-top: 3rem;
+         margin-bottom: 3rem;
+         } 
+         
+     
+           .actionsContainer { 
+          @media screen and (max-width: 768px) {
+                 width: 183.94px;
+                 height: 304px;
+                 gap: 40px;
+                 display: flex;
+                 flex-direction: column;
+                 padding: 0px;
+            }
+         height: 304px;
+         gap: 40px;
+         display: flex;
+         flex-direction: row;
+         padding: 0px;
+           }
+           
+           .closeBtn {
+             cursor: pointer;
+             font-weight: 700;
+             font-size: 30px; 
+             border: none;
+             color: #333333;
+             background: white; 
+             transition: all 0.25s ease;
+             } 
+             
+             .closeBtn:hover { 
+                 color: #714dd9;
+               } 
+               

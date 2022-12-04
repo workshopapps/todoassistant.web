@@ -11,8 +11,9 @@ function Sidebar() {
       <div className={styles.backContainer}>
         <Link to=".." relative="path">
           <img src={back} alt="logo" />
-        </Link>{" "}
-        Back
+          {" "} Back
+          
+        </Link>
       </div>
     </div>
   );
