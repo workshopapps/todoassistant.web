@@ -6,7 +6,6 @@ import mainProfileImage from "../../assets/Ellipse 2.svg";
 import style from "./VaProfile.module.scss";
 import { useEffect, useState } from "react";
 import raw from "./raw.json";
-import Dashboardlayout from "../../layout/dasboard-layout/Dashboardlayout";
 
 function VAProfile() {
   const [data, setData] = useState(null);
