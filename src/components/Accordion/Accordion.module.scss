@@ -1,18 +1,8 @@
-.taskList:first-child {
+.taskListMobile:first-child {
     border-radius: 13px 15px 0px 0px;
 }
-@media screen and (max-width:1030px) {
-    .taskList{
-        display: none !important;
-    }
-}
-@media screen and (min-width:1030px) {
-    .taskListMobile{
-        display: none !important;
-    }
-}
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:720px) {
     .taskList,.taskListMobile{
         padding-left: 40px !important;
         padding-right: 40px !important;
@@ -29,7 +19,7 @@
              margin-bottom: 10px;
 }
 .task__status, .task__total, .due__date{
-                      font-size: 12px;
+                      font-size: 14px;
 }
 .due__date{
            margin-right: 70px;           
@@ -46,7 +36,7 @@
 }
 .task__date{
                        color: #714DD9;  
-                       font-size: 14px;
+                       font-size: 16px;
                       //  margin-right: 50px;
 }
 
@@ -59,7 +49,7 @@
                                         }
                                         .task__date {
                                          
-                                            font-size: 12px;
+                                            font-size: 14px;
                                         }
 }
 @media screen and (max-width:708px) {

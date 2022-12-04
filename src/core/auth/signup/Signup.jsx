@@ -48,14 +48,14 @@ const Signup = () => {
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
- 
+
   const googleSignUp = async (body) => {
     try {
      const response = await axios.post(`${baseurl}/googlelogin`, body);
      if (response.status == 200 && response.data) {
        localStorage.setItem("token", JSON.stringify(response.data.access_token));
         localStorage.setItem("user", JSON.stringify(response?.data));
-         navigate("/dashboard", { replace: true });  
+         navigate("/dashboard", { replace: true });
      }
    } catch (error) {
      console.error(error);
@@ -83,7 +83,6 @@ const Signup = () => {
 
   return (
     <>
-      {/* <Header /> */}
       <Navbar />
       <div className={styles.signupContainer}>
 
