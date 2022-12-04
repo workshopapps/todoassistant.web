@@ -6,6 +6,8 @@ import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
 import DashboardTabs from "../../dasboard/DashboardTabs";
 import TaskItems from "../../dasboard/TaskItems";
 import CreateTask from "../../createTask/CreateTask";
+import EmptyState from "./EmptyState";
+
 export default function Home() {
   const [taskModal, setTaskModal] = useState(0);
 
@@ -35,9 +37,15 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.allTasks}>
-        <TaskItems status="PENDING" myTasks={tasks} />
-        <TaskItems status="DONE" myTasks={tasks} />
-        <TaskItems status="EXPIRED" myTasks={tasks} />
+        {tasks == 0 ? (
+          <EmptyState />
+        ) : (
+          <>
+            <TaskItems status="PENDING" myTasks={tasks} />
+            <TaskItems status="DONE" myTasks={tasks} />
+            <TaskItems status="EXPIRED" myTasks={tasks} />
+          </>
+        )}
       </div>
     </div>
   );
