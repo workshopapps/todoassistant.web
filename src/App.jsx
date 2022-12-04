@@ -67,6 +67,7 @@ import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 import Signup from "./core/auth/signup/Signup";
+import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
 // import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
@@ -117,6 +118,7 @@ function App() {
         <Route path="/resetpassword" element={<MainResetPage />}>
           <Route path="" element={<ResetPasswordPage />} />
           <Route path="checkmail" element={<CheckMail />} />
+          <Route path="otp" element={<OTPPage />} />
           <Route path="putnewpassword" element={<NewPasswordPage />} />
         </Route>
         ;
