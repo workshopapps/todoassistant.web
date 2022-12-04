@@ -1,8 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 import styles from "./TaskItems.module.scss";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskItems = ({ status, myTasks }) => {
+  const notify = () => {
+    status === "PENDING" && toast.success(`Moved to Done`, { icon: false });
+    status === "DONE" && toast.info(`Moved to Pending`, { icon: false });
+  };
   const { setTasks } = useContext(TaskCtx);
   const [showTasks, setShowTasks] = useState(false);
   const dateFormat = taskdate => {
@@ -75,6 +81,7 @@ const TaskItems = ({ status, myTasks }) => {
 
   return (
     <div className={styles.wrapper}>
+      <ToastContainer />
       <div className={styles.header}>
         <div className={styles.status}>
           <div className={styles.statusName}>
@@ -140,6 +147,7 @@ const TaskItems = ({ status, myTasks }) => {
                             }}
                             onClick={() => {
                               handleClick(i.task_id, i.status);
+                              notify();
                             }}
                           ></div>
                           <p
