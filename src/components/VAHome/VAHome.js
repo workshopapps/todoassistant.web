@@ -36,7 +36,7 @@ const VAHome = () => {
 
     if (vaUser) {
       const response = await axios.get(
-        "https://api.ticked.hng.tech/api/v1/task/all/va",
+        `https://api.ticked.hng.tech/api/v1/task/all/va`,
         {
           headers: {
             Authorization: `Bearer ${vaUser.extra.token}`

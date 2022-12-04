@@ -14,7 +14,7 @@ const UserLogin = () => {
     <Stack height={`100vh`} direction={{ xs: `column-reverse`, md: `row` }}>
       <Box height={{ xs: `90%`, md: `100%` }} flex={{ md: 1 }}>
         <Stack alignItems={{ xs: `center`, lg: `start` }}>
-          <Box padding={`1.5rem 7rem`}>
+          <Box padding={{ xs: `1.5rem 3rem`, sm: `1.5rem 7rem` }}>
             <img
               src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
               alt="LOGO"

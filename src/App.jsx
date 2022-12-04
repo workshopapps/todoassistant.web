@@ -30,7 +30,7 @@ import Payment from "./core/payment/Payment";
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-//import VaProfile from "./components/VA-Profile/VaProfile";
+import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import VASignup from "./components/va-signup/auth/signup/VASignup";
 // import Login from "./components/Login/Login";
@@ -43,8 +43,8 @@ import NewPassword from "./components/resetPassword and newPassword pages/NewPas
 
 // import VaDasboard from "./components/vaDashboard/VaDasboard";
 import VADashboard from "./components/AssistantVA";
-import Login from "./components/Login/Login";
-import VATasks from './components/VAHome/VAHome'
+import Login from "./components/Login/UserLogin";
+import VATasks from "./components/VAHome/VAHome";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
@@ -172,6 +172,7 @@ function App() {
               <Route path="notifications" element={<Notifications />} />
               <Route path="tasks" element={<VATasks />} />
               <Route path="notifications" element={<Notifications />} />
+              <Route path="profile" element={<VaProfile />} />
             </Route>
           </>
         ) : (
