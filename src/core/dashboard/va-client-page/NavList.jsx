@@ -10,7 +10,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  // Button,
+  Button,
   Stack
 } from "@mui/material";
 
@@ -25,7 +25,7 @@ const styledListItem = {
 };
 
 const NavList = () => {
-  // let vaUser = JSON.parse(localStorage.getItem("VA"));
+  let vaUser = JSON.parse(localStorage.getItem("VA"));
 
   let activeStyle = {
     background: `#714DD980`,
@@ -33,17 +33,17 @@ const NavList = () => {
     color: `#fff`
   };
 
-  // const showButton =
-  //   vaUser.data.account_type === "MASTER" ? (
-  //     <NavLink
-  //       style={({ isActive }) => (isActive ? activeStyle : undefined)}
-  //       to={`/va-signup`}
-  //     >
-  //       <Button sx={{ bgcolor: `#714DD9` }} variant={`contained`}>
-  //         Sign up A new Virtual assistant
-  //       </Button>
-  //     </NavLink>
-  //   ) : null;
+  const showButton =
+    vaUser?.data.account_type === "MASTER" ? (
+      <NavLink
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        to={`/va-signup`}
+      >
+        <Button sx={{ bgcolor: `#714DD9` }} variant={`contained`}>
+          Sign up A new Virtual assistant
+        </Button>
+      </NavLink>
+    ) : null;
 
   return (
     <Stack height={`calc(99vh - 120px)`} justifyContent={`space-between`}>
@@ -94,7 +94,7 @@ const NavList = () => {
           </ListItem>
         </NavLink>
       </List>
-      {/* {showButton} */}
+      {showButton}
     </Stack>
   );
 };

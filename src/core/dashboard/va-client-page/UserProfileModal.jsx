@@ -48,7 +48,7 @@ export default function UserProfileModal({ userID }) {
   const getUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`/va/user/profile/${userID}`, {
+      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/va/user/profile/${userID}`, {
         headers: {
           Authorization: `Bearer ${vaUser.extra.token}`
         }

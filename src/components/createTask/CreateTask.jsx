@@ -40,7 +40,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
 
     try {
       await axios.post(
-        `/task`,
+        `https://api.ticked.hng.tech/api/v1/task`,
         {
           title: data.title,
           description: data.title,

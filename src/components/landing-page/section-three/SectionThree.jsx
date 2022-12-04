@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Animate } from "../../../hooks/animation/AnimateIn";
-import Button from "../../button/ButtonComponent";
+//import Button from "../../button/ButtonComponent";
 import SectionThreeList from "./section-three-list/SectionThreeList";
+import HowModal from "./HowModal/HowModal";
 import styles from "./SectionThree.module.scss";
 
 const SectionThree = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [img, setImg] = useState(
     "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
   );
@@ -63,7 +65,8 @@ const SectionThree = () => {
             />
           </div>
           <div className={styles.steps}>
-            <Button link={`/signup`} style={{ width: `50%` }} title={`get started`} />
+            <button className={styles.getStarted} onClick={() => setIsOpen(true)}>Get started</button>
+            {isOpen && <HowModal setIsOpen={setIsOpen} />}
             <button className={styles.download}>Download App</button>
           </div>
         </div>
