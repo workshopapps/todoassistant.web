@@ -66,7 +66,8 @@ import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
-import UserSignUp from "./core/auth/signup/UserSignUp";
+import Signup from "./core/auth/signup/Signup";
+// import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -101,14 +102,14 @@ function App() {
           path="/login"
           element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
         />
-        <Route
-          path="/signup"
-          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
-        />
         {/* <Route
           path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
         /> */}
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+        />
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
@@ -171,7 +172,7 @@ function App() {
             <Route path="/virtual-assistance" element={<VALogin />}>
               <Route path="" element={<VALogin />} />
               <Route path="tasks" element={<VATasks />} />
-              <Route path="clients" element={<VaClientPage />} />
+              <Route path="clients" element={<VALogin />} />
               <Route path="notifications" element={<VALogin />} />
               <Route path="profile" element={<VaProfile />} />
             </Route>
