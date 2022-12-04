@@ -10,12 +10,32 @@
     padding-top: 3rem;
     flex-direction: row;
     // gap: 10rem;
+    
   }
 
-  .headerTickedBox {
-    flex: 1;
-  }
+.headerRow{
+display: flex;
+flex-direction: row;
+//justify-content: center;
+align-items: center;
+gap: 0.5rem;
+}
 
+.headerRow h1{
+  font-size: 1rem;
+  text-align: center;
+}
+.headerRow p{
+  text-align: center;
+}
+
+  
+.box{
+  border: 1px solid  #714DD9;
+  border-radius:8px;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+}
   .header {
     font-size: 27px;
     font-weight: 700;
@@ -31,12 +51,34 @@
     }
   }
 
+@media (min-width:992px){
+  .headerTickedBox {
+    flex: 1;
+    padding-left: 120px;
+    @media(max-width:768px){
+      padding-left: 0px;
+  }
+}
+}
+    .button_getstarted {
+      @include button;
+      background-color: $activeColor;
+      color: $white;
+    }
+    
+    .button_login {
+      @include button;
+      border: 1px solid $activeColor;
+      background-color: transparent;
+      color: $activeColor;
+    }
+    
   .headerImageBox {
     flex: 1;
     .img {
-      border: 1px dashed $activeColor;
-      padding: 3px;
+      padding-left: 3px;
       @include img_fluid;
+      width:100%;
     }
   }
 

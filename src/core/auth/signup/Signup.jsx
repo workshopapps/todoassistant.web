@@ -21,6 +21,7 @@ import { requestForToken } from "../../../firebase";
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
   const { register, handleSubmit, trigger, formState: { errors } } = useForm();
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
   const [isChecked, setIsChecked] = useState(false);
   const [active, setActive] = useState(true)
   const [passwordShown, setPasswordShown] = useState(false);
@@ -37,8 +38,11 @@ const Signup = () => {
 
 
 
+  useEffect(() => {
+    (user !== null) && requestForToken();
+  },[user]);
 
-  
+
   
   useEffect(() => {
     const initClient = () => {
@@ -50,26 +54,32 @@ const Signup = () => {
     gapi.load('client:auth2', initClient);
   });
 
-  const onSuccess = (res) => {
-    localStorage.setItem('user', JSON.stringify(res?.profileObj));
-    localStorage.setItem('token', res?.tokenId);
+ const onSuccess = (res) => {
+   googleSignUp(res?.profileObj)
+ };
+ const onFailure = (err) => {
+   console.log('failed:', err);
+ };
 
-    navigate('/dashboard', { replace: true });
-  };
-  const onFailure = (err) => {
-    console.log('failed:', err);
-  };
-
-
-  useEffect(() => {
-    (user !== null) && requestForToken();
-  },[user]);
 
 
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
   };
+ 
+  const googleSignUp = async (body) => {
+    try {
+     const response = await axios.post(`${baseurl}/googlelogin`, body);
+     if (response.status == 200 && response.data) {
+       localStorage.setItem("token", JSON.stringify(response.data.access_token));
+        localStorage.setItem("user", JSON.stringify(response?.data));
+         navigate("/dashboard", { replace: true });  
+     }
+   } catch (error) {
+     console.error(error);
+   }
+  }
 
 
 

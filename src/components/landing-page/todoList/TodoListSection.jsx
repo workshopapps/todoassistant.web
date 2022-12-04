@@ -16,16 +16,22 @@ const TodoListSection = () => {
         <div className={styles.vr_header}>
           <h3>To-do list</h3>
           <p>
-            TICKED is the easiest way to organise and schedule your individual tasks. It makes it easy for you and your clients to be clear on what to do, when to do it, and how to
-            get it done in a lively and exciting way.
+            TICKED is the easiest way to organise and schedule your individual
+            tasks. It makes it easy for you to be clear on what to do, when to
+            do it, and how to get it done in a lively and exciting way. DON’T
+            forget to carry out your next task, your Assistant will call you.
           </p>
           <div className={styles.vr_header_buttons}>
-            <Button link={`/signup`} style={{ width: `184px` }} title={`Get Started`} />
+            <Button
+              link={`/signup`}
+              style={{ width: `184px` }}
+              title={`Get Started`}
+            />
             <Button link={``} style={btnStyleOutline} title={`Download App`} />
           </div>
         </div>
       </section>
-      <div>
+      <div className={styles.container}>
         <div>
           <Animate.FadeIn>
             <img

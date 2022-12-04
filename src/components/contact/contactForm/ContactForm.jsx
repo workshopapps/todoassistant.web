@@ -1,119 +1,86 @@
 import contactStyles from "./ContactForm.module.scss";
-import * as Checkbox from "@radix-ui/react-checkbox";
+import { useState } from "react";
+const ContactForm = () => {
+  const [phone, setphone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [report, setReport] = useState(
+    "Do you have any question? Inquiry? Request? Please fill out this form"
+  );
 
-const CheckIcon = () => (
-  <svg
-    width="15"
-    height="15"
-    viewBox="0 0 15 15"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
-      fill="currentColor"
-      fillRule="evenodd"
-      clipRule="evenodd"
-    ></path>
-  </svg>
-);
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (phone && email && message) {
+      setTimeout(() => {
+        setReport("Message Received from Ticked");
+        alert("Message Received");
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        alert("Please Enter All Fields");
+      }, 1000);
+    }
 
-const ContactForm = () => (
-  <div className={contactStyles.page}>
-    <section className={contactStyles.formSection}>
+    setMessage("");
+    setEmail("");
+    setphone("");
+  };
+  return (
+    <section className={contactStyles.page}>
       <div className={contactStyles.top}>
-        <h2 className={contactStyles.mainHeading}>Reach <span>Out</span></h2>
-        <p className={contactStyles.firstPara}>
-          Our lovely team will love to hear from you, we will respond
-          within 12 hours
-        </p>
-        <p>
-          Do you have any question? Inquiry? Request?{" "}
-          <span className={contactStyles.emphasis}>
-            Please fill out this form
-          </span>
-        </p>
+        <h2 className={contactStyles.mainHeading}>Send us a message</h2>
+        <p className={contactStyles.firstPara}>{report}</p>
       </div>
-      <form>
-        <div className={contactStyles.inputRow}>
-          <div>
-            <label>
-              Your full name{" "}
-              <input
-                className={contactStyles.outline}
-                required
-                type="text"
-                placeholder="Goodluck"
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Email{" "}
-              <input
-                className={contactStyles.outline}
-                required
-                type="text"
-                placeholder="gabrielmark@gmail.com"
-              />
-            </label>
-          </div>
-          <div className={contactStyles.spanCol2}>
-            <label>
-              Phone number{" "}
-              <input
-                className={contactStyles.outline}
-                required
-                type="text"
-                placeholder="08123456789"
-              />
-            </label>
-          </div>
-        </div>
-        <label>
-          Your message{" "}
-          <textarea
-            className={contactStyles.outline1}
+
+      <form className={contactStyles.formContainer} onSubmit={handleSubmit}>
+        <div>
+          <label className={contactStyles.contactFormLabel}>
+            Email Address{" "}
+          </label>
+
+          <input
             required
-            placeholder="Hi, I love your product so much, it really helped me stop procrastinating"
-          ></textarea>
-        </label>
-        <div className={contactStyles.bottom}>
-          <h3 className={contactStyles.subHeading}>
-            How will you like to communicate with us?
-          </h3>
-          <div className={contactStyles.radioCollection}>
-            <label>
-              <Checkbox.Root
-                className={contactStyles.checkboxRoot}
-                value="phoneCall"
-              >
-                <Checkbox.Indicator>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <span>Phone call</span>
-            </label>
-            <label>
-              <Checkbox.Root
-                className={contactStyles.checkboxRoot}
-                defaultChecked
-                value="email"
-              >
-                <Checkbox.Indicator>
-                  <CheckIcon />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <span>Email</span>
-            </label>
-          </div>
-          <button className="hover" type="submit">
-            Submit Message
-          </button>
+            type="text"
+            placeholder="yourname@email.com"
+            className={contactStyles.contactFormInput}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
         </div>
+
+        <div>
+          <label className={contactStyles.contactFormLabel}>
+            Phone Number{" "}
+          </label>
+          <input
+            required
+            type="number"
+            placeholder="+2348123456789"
+            className={contactStyles.contactFormInput}
+            value={phone}
+            onChange={e => setphone(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className={contactStyles.contactFormLabel}>
+            Your Message{" "}
+          </label>
+          <input
+            required
+            type="text"
+            className={contactStyles.contactFormTextarea}
+            placeholder="Type in your message"
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+          />
+        </div>
+
+        <button type="submit" className={`${contactStyles.buttom} hover`}>
+          Submit Message
+        </button>
       </form>
     </section>
-  </div>
-);
-
+  );
+};
 export default ContactForm;

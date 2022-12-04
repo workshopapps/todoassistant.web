@@ -1,0 +1,424 @@
+@media screen and (max-width: 768px) {
+  .how_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.header_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.how_header {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.125rem;
+    color: #333333;
+    width: 15.25rem;
+    height: 3.375rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #333333;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.how_paragraph {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #707070;
+    width: 11.625rem;
+    height: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #707070;
+}
+
+.orange {
+  color: #fda758;
+}
+
+/*******************  STEPS 1      **********************/
+
+.step_container1 {
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    width: 23.438rem;
+    height: 30.563rem;
+    margin-top: 10rem;
+    background: none;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12.5rem;
+  margin: auto;
+  background: #efebfb;
+}
+
+.stepleft_container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.steps_header {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #714dd9;
+    width: 3.063rem;
+    height: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.563rem;
+  color: #714dd9;
+}
+
+.steps_paragraph1 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333333;
+    width: 20.938rem;
+    height: 2.375rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.438rem;
+  color: #333333;
+}
+
+.steps_paragraph2 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #707070;
+    width: 20.938rem;
+    height: 5.438rem;
+    line-height: 1.813rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #707070;
+  width: 36.313rem;
+  height: 4.125rem;
+  line-height: 1.375rem;
+}
+
+.steps_image1 {
+  @media screen and (max-width: 768px) {
+    width: 20.5rem;
+    height: 20.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 10rem;
+  }
+  width: 32.5rem;
+  height: 43.75rem;
+}
+
+/*******************  STEPS 2      **********************/
+
+.step_container2 {
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    background: none;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12.5rem;
+  margin: auto;
+}
+
+.stepleft_container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.steps_header {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #714dd9;
+    width: 3.063rem;
+    height: 1.25rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.563rem;
+  color: #714dd9;
+}
+
+.steps_paragraph12 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333333;
+    width: 20.938rem;
+    height: 4.75rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.438rem;
+  color: #333333;
+}
+
+.steps_paragraph22 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #707070;
+    width: 20.938rem;
+    height: 5.438rem;
+    line-height: 1.813rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #707070;
+  width: 36.313rem;
+  height: 4.125rem;
+  line-height: 1.375rem;
+}
+
+.steps_image2 {
+  @media screen and (max-width: 768px) {
+    width: 20.5rem;
+    height: 25.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  width: 32.5rem;
+  height: 43.75rem;
+}
+
+/*******************  STEPS 3      **********************/
+
+.step_container3 {
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    margin-top: 5rem;
+    background: none;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12.5rem;
+  margin: auto;
+  background: #efebfb;
+}
+
+.stepleft_container3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.steps_header {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #714dd9;
+    width: 3.063rem;
+    height: 1.25rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.563rem;
+  color: #714dd9;
+}
+
+.steps_paragraph13 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333333;
+    width: 20.938rem;
+    height: 2.375rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.438rem;
+  color: #333333;
+}
+
+.steps_paragraph23 {
+  @media screen and (max-width: 768px) {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #707070;
+    width: 20.938rem;
+    height: 5.438rem;
+    line-height: 1.813rem;
+  }
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #707070;
+  width: 36.313rem;
+  height: 4.125rem;
+  line-height: 1.375rem;
+}
+
+.steps_image3 {
+  @media screen and (max-width: 768px) {
+    width: 20.5rem;
+    height: 25.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  width: 32.5rem;
+  height: 43.75rem;
+}
+
+/*******************  LAST    **********************/
+
+.last_container {
+  @media screen and (max-width: 768px) {
+    width: 23.438rem;
+    height: 30.563rem;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(6.125rem);
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40rem;
+  height: 36rem;
+  margin: auto;
+}
+
+.last_header {
+  @media screen and (max-width: 768px) {
+    width: 20.938rem;
+    height: 13.5rem;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.125rem;
+    line-height: 3.375rem;
+    text-align: center;
+    color: #333333;
+  }
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #333333;
+  line-height: 4.813rem;
+  text-align: center;
+  width: 45rem;
+  height: 14.438rem;
+}
+
+.last_button {
+  background: #714dd9;
+  border-radius: 0.5rem;
+  border: none;
+  width: 11.5rem;
+  height: 3rem;
+  padding: 0.875rem;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  cursor: pointer;
+}

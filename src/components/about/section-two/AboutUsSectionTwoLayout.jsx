@@ -1,39 +1,62 @@
 import styles from "./AboutUsHeader.module.scss";
 import React from "react";
-import img from "../../../assets/ticked_about_header2.png";
-import Button from "../../button/ButtonComponent";
+//import img from "https://asset.cloudinary.com/dlst0ec4h/11f5441940f9826db27b7eb558f216eb";
+import icon1 from "../../../assets/task-square.png";
+import icon2 from "../../../assets/profile-2user.png";
+import icon3 from "../../../assets/tick-circle.png";
+//import Button from "../../button/ButtonComponent";
+import { Link } from "react-router-dom";
 
 const AboutUsSectionTwoLayout = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerTickedBox}>
-        <div>
+      
+        <div className={styles.box}>
+        <div className={styles.headerRow}>
+        <img src={icon1} alt="tick"/>
+        <h1>Get on your dashboard</h1>
+        </div>
           <p className={styles.tickedText}>
-            Ticked is a to-do list management app that helps you be more
-            organized and productive.
+Describe your task, set the date and time for your task deadline
           </p>
         </div>
-        <p className={styles.tickedText}>
-          We understand how important it is to stay on top of your work, but
-          sometimes the number of things we have to do can get overwhelming.
-          That’s where Ticked comes in.
-        </p>
-        <p className={styles.tickedText}>
-          Ticked allows users to create tasks, track and manage their tasks, get
-          reminders, organize their tasks, and therefore help improve
-          motivation, productivity and mental capacity.
-        </p>
-        <p className={styles.tickedText}>
-          The app has a simple interface that makes it easy for anyone to use.
-          No matter what you’re working on at the moment, Ticked will help you
-          prioritize and stay in control of your workload!
-        </p>
-        <div className={styles.btn}>
-          <Button link={`/`} title={`get Started`} style={{ width: `207px` }} />
+
+        <div>
+        <div className={styles.headerRow}>
+        <img src={icon2} alt="tick"/>
+        <h1>Personalized Virtual Assistant</h1>
+        </div>
+          <p className={styles.tickedText}>
+          The in-app chat feature available allows you to communicate and assign tasks to personalized Assistant.
+          </p>
+        </div>
+
+        <div>
+        <div className={styles.headerRow}>
+        <img src={icon3} alt="tick"/>
+        <h1>Get Ticked</h1>
+        </div>
+          <p className={styles.tickedText}>
+          Receive notifications when you complete your tasks and get a call when deadlines are fast approaching.
+          </p>
+        </div>
+
+        <div className={styles.headerRow}>
+        
+          <Link to="/signup">
+            <button className={`${styles.button_getstarted} hover`}>
+              GET STARTED
+            </button>
+          </Link>
+          <button className={`${styles.button_login} hover`}>
+            DOWNLOAD APP
+          </button>
         </div>
       </div>
+      
       <div className={styles.headerImageBox}>
-        <img className={styles.img} src={img} alt="" />
+      <img className={styles.img} src="https://res.cloudinary.com/dlst0ec4h/image/upload/v1670062708/group_26086241_cr1jsi.png" alt="" />
       </div>
     </div>
   );
