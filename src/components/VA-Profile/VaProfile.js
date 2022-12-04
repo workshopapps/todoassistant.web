@@ -9,16 +9,15 @@ import raw from "./raw.json";
 
 function VAProfile() {
   const [data, setData] = useState(null);
+  const vaUser = JSON.parse(localStorage.getItem("VA"));
 
   const fetchTasks = async () => {
-    let va_id = JSON.parse(localStorage.getItem("VA"));
-
-    if (va_id) {
+    if (vaUser) {
       const response = await axios.get(
         `https://api.ticked.hng.tech/api/v1/api/v1/va`,
         {
           headers: {
-            Authorization: `Bearer ${va_id}`
+            Authorization: `Bearer ${vaUser.data.va_id}`
           }
         }
       );
@@ -35,6 +34,8 @@ function VAProfile() {
   if (data == null) {
     setData(raw);
   }
+
+  console.log(vaUser);
 
   return (
     <div className={style.app}>
@@ -60,10 +61,10 @@ function VAProfile() {
             <div className={style.profile_container_items}>
               <div className={style.profile_container_details1}>
                 <p className={style.profile_container_items_header}>
-                  {data?.data.firstname + " " + data?.data.lastname}
+                  {vaUser?.data.first_name + " " + vaUser?.data.last_name}
                 </p>
                 <p className={style.profile_container_items_id}>
-                  ID: {data?.data.vaid}
+                  ID: {vaUser?.data.va_id}
                 </p>
               </div>
 
@@ -78,7 +79,7 @@ function VAProfile() {
                     Phone
                   </p>
                   <p className={style.profile_container_num}>
-                    {data?.data.phone}
+                    {vaUser?.data.phone}
                   </p>
                 </div>
                 <div>
@@ -86,7 +87,7 @@ function VAProfile() {
                     Email Address
                   </p>
                   <p className={style.profile_container_items_header}>
-                    {data?.data.email}
+                    {vaUser?.data.email}
                   </p>
                 </div>
               </div>
