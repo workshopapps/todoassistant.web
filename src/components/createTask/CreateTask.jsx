@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./createTask.module.scss";
 import VALogo from "../../assets/createTaskVa.png";
 import axios from "axios";
 import { CgClose } from "react-icons/cg";
-
+import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CreateTask = ({ taskModal, setTaskModal }) => {
-//   if (localStorage.getItem("myTasks")) {
-//     console.log(".");
-//   } else {
-//     localStorage.setItem("myTasks", "[]");
-//   }
+  const { getTasks } = useContext(TaskCtx);
   //   const modal1 = useRef(0);
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
@@ -28,7 +26,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
 
   const handle = e => {
     const newData = { ...data };
-    newData[e.target.id] = e.target.value;
+    newData[e.target.name] = e.target.value;
     setData(newData);
   };
 
@@ -43,8 +41,8 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-     await axios.post(
-        `/task`,
+      await axios.post(
+        `https://api.ticked.hng.tech/api/v1/task`,
         {
           title: data.title,
           description: data.title,
@@ -59,24 +57,10 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
         },
         { headers: { Authorization: "Bearer " + token } }
       );
-
-      //   const res = {
-      //     task_id: Math.random(),
-      //     title: data.title,
-      //     end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
-      //     repeat: "daily",
-      //     va_option: data.assistant,
-      //     status: "PENDING",
-      //     reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
-      //   };
-
-    //   console.log(res);
-    //   //   res.data.completed = false;
-    //   console.log(res.data);
-    //   const tasks = JSON.parse(localStorage.getItem("myTasks"));
-    //   tasks.push(res.data);
-    //   localStorage.setItem("myTasks", JSON.stringify(tasks));
-
+      await getTasks();
+      toast.success("Task Created", {
+        position: toast.POSITION.TOP_RIGHT
+      });
       setTaskModal(0);
       setSubmit(!submit);
       data.title = "";
@@ -86,7 +70,10 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
       data.repeat = "";
       data.assistant = "";
     } catch (error) {
-      alert("Server Error");
+      // alert("Server Error");
+      toast.error("Server Error", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   };
   return (
@@ -95,6 +82,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
         taskModal ? styles.createTask_wrapper : styles.createTask_close
       }
     >
+      <ToastContainer />
       {submit ? (
         <form
           className={styles.createTask_form}
@@ -121,6 +109,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               className={styles.createTask_input}
               type="text"
               id="title"
+              name="title"
               placeholder="What do you want to do?"
               value={data.title}
               onChange={e => {
@@ -138,6 +127,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
                 className={styles.createTask_input}
                 type="Date"
                 id="date1"
+                name="date1"
                 onChange={e => {
                   handle(e);
                 }}
@@ -150,6 +140,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               <input
                 required
                 id="time"
+                name="time"
                 className={styles.createTask_input}
                 type="time"
                 placeholder="What do you want to do?"
@@ -166,28 +157,30 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               <li className={styles.createTask_va_list1}>
                 <input
                   required
-                  name="va"
                   type="radio"
-                  id="assistant"
+                  id="assign"
+                  name="assistant"
                   value="assign task"
                   onChange={e => {
                     handle(e);
                   }}
                 />
-                <label htmlFor="">Assign the task to virtual assitant</label>
+                <label htmlFor="assign">
+                  Assign the task to virtual assitant
+                </label>
               </li>
               <li className={styles.createTask_va_list2}>
                 <input
                   required
-                  name="va"
                   type="radio"
-                  id="assistant"
+                  id="call"
+                  name="assistant"
                   value="get call"
                   onChange={e => {
                     handle(e);
                   }}
                 />
-                <label htmlFor="">
+                <label htmlFor="call">
                   Get a call from an asistant to remind you
                 </label>
               </li>
@@ -217,14 +210,18 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
           <div className={styles.createTask_submit_button_wrapper}>
             <button
               id="remind me"
-              onClick={e => handleSubmit(e)}
+              onClick={e => {
+                handleSubmit(e);
+              }}
               className={styles.createTask_submit_button1}
             >
               Remind me
             </button>
             <button
               id="no"
-              onClick={e => handleSubmit(e)}
+              onClick={e => {
+                handleSubmit(e);
+              }}
               className={styles.createTask_submit_button2}
             >
               No, Thanks

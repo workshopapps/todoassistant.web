@@ -15,7 +15,7 @@ const ErrorMain = () => {
               This page doesn't exist, we suggest you go back to home.
             </p>
           </div>
-          <Link to="/" className="error_btn">
+          <Link to="/" className={`error_btn hover`}>
             Back to home
           </Link>
         </section>

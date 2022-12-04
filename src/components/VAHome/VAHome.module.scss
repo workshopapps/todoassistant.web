@@ -1,0 +1,161 @@
+.tittle {
+                      
+                      font-size: 20px !important;
+                      font-weight: 700 !important;
+                      cursor: pointer;
+                  }
+                  .active{
+                    position: relative;
+                  }
+
+                  .active::after{
+                    content: '';
+                    width: 110px;
+                    height: 3px;
+                    background-color:   #714DD9;
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                  }
+
+                  .chevron{
+                    height:13px
+                  }
+                  .closeIcon{
+                    display: none;
+                  }
+
+                  // @media screen and ( max-width:1023px ){
+                  //   .comment{
+                  //      width: 54.5% !important
+                  //   }
+                  // }
+
+                  // @media screen and ( max-width:1012px ){
+                  //   .comment{
+                  //       width:52.5% !important
+                  //   }
+                  // }
+                  // @media screen and ( max-width:953px ){
+                  //   .comment{
+                  //       width:50.5% !important
+                  //   }
+                  // }
+
+                  
+                  //sidebar
+                  @media screen and ( max-width:1440px ){
+                    .closeIcon{
+                      display: block;
+                    }
+                    .Accordian__v11, .upperTittle{
+                        width: 100% !important;
+                    }
+                    .sidebar{
+                       
+                            margin-top: -145px !important;  
+                            position: absolute !important; 
+                            width: 61% !important; 
+                          
+                            background-color: #fff !important;
+                            right: 1px !important; 
+                            z-index: 99999 !important; 
+                            top: 0px !important; 
+                            transition: all 0.7s ease-in-out;
+                        }
+                 .saviour__relative.hidden,
+                  .sidebar.hidden {
+                            right: -700px !important; 
+                        }
+                        .sidebar.dissapear .saviour__relative.dissapear{
+                            display: none !important; 
+                        }
+                        
+                    .sidebar__fixed{
+                      height: 300vh !important; 
+                        right:0;
+                            background-color: white !important;
+                            top: -45px !important;
+                          
+                        
+                        }
+                        .comment {
+                         
+                            visibility: visible;
+                            transition: all 1.7s ease-in-out;
+                            
+
+                        }
+                      
+                       
+                        .closeIcon{
+                            position: absolute;
+                            right: 32px;
+                            cursor: pointer;
+                            height: 31px;
+                            top: 44px;
+                        }
+                    
+                  }
+                  @media screen and ( max-width:1010px ){  
+                    .saviour__relative{
+                  
+                   
+                    top: 138px !important;
+              }
+            
+              .title__hi{
+                padding-top: 28px !important;
+              }
+            } 
+            @media screen and ( max-width:900px ){ 
+              .sidebar__fixed{
+                width:67%
+              }
+              .comment{
+                width: 57%;
+              }
+            }
+            @media screen and ( max-width:874px ){ 
+               .comment{
+                width: 53%;
+              }
+            }
+                  @media screen and ( max-width:600px ){
+                    .comment{
+                      width: 87% !important;
+                    }
+                    .sidebar{
+                        
+                      width: 100% !important; 
+                      
+                      
+                    }
+                    .sidebar__fixed{
+                        
+                            width: 100% !important;
+                            
+                            
+                        
+                        }
+                       
+                        .comment.hidden {
+                           right: -300px !important;
+                          }
+                          
+                      //     .comment{
+                      //     width: 90.5% !important
+                      //  }
+                       
+                    
+                  }
+                      //  @media screen and ( max-width:400px ){
+                      //   .comment{
+                      //     width: 85.5% !important
+                      //  }
+                      //  } 
+                      
+                      @media screen and ( max-width:400px ){
+                    .comment{
+                      width: 80% !important;
+                    }}

@@ -1,0 +1,150 @@
+
+.darkBG {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+   } 
+   
+   .centered {
+     position: fixed; 
+     top: 50%; 
+     left: 50%;
+     transform: translate(-50%, -50%); 
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     overflow-x: hidden;
+     overflow-y: auto;
+     z-index: 50;
+     outline: none;
+   } 
+   
+     .modal { 
+          @media screen and (max-width: 768px)  {
+             position: relative;
+             width: 350px;
+             height: 200px; 
+             background: white; 
+             color: white; 
+             z-index: 10; 
+             border-radius: 16px;
+             box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+             display: flex;
+             flex-direction: column;
+             margin-top: 1.5rem;
+             margin-bottom: 1.5rem;
+             margin: auto;
+          }
+       position: relative;
+       width: 500px;
+       height: 300px; 
+       background: white; 
+       color: white; 
+       z-index: 10; 
+       border-radius: 16px;
+       box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin-top: 1.5rem;
+       margin-bottom: 1.5rem;
+       margin: auto;
+     }
+     
+     .modalHeader {
+       height: 50px; 
+       background: white; 
+       overflow: hidden;
+       border-top-left-radius: 16px; 
+       border-top-right-radius: 16px; 
+       padding: 1rem 2rem;
+       border-bottom: 2px solid #714DD9;
+     }
+     
+     .heading { 
+       margin: 0;
+       padding: 10px; 
+       color: #714DD9; 
+       font-weight: 500; 
+       font-size: 18px;
+       text-align: center;
+       } 
+       
+       .modalContent {
+         padding: 10px; 
+         font-size: 14px; 
+         color: #2c3e50;
+         text-align: center;
+         margin-bottom: 30px;
+         } 
+         
+         .modalActions { 
+            @media screen and (max-width: 768px) {
+                         position: absolute;
+                         bottom: 20px;
+                         margin-bottom: 5px;
+                         width: 100%;
+            }
+           position: absolute;
+           bottom: 20px;
+           margin-bottom: 50px;
+           width: 100%;
+           } 
+           
+           .actionsContainer { 
+             display: flex; 
+             justify-content: center;
+             align-items: center; 
+             margin: auto;
+           }
+           
+           .closeBtn {
+             cursor: pointer;
+             font-weight: 500;
+             padding: 4px 8px; 
+             border-radius: 8px; 
+             border: 1px solid #714DD9; 
+             font-size: 18px; 
+             color: #714DD9;
+             background: white; 
+             transition: all 0.25s ease;
+             box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06); position: absolute; 
+             right: 0; 
+             top: 0; 
+             align-self: flex-end; 
+             margin-top: -7px; margin-right: -7px;
+             } 
+             
+             .closeBtn:hover { 
+               box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04); transform: translate(-4px, 4px);
+               } 
+               
+               .loginBtn { 
+                 cursor: pointer;
+                 font-weight: 500; 
+                 padding: 11px 28px;
+                 border-radius: 12px; 
+                 font-size: 0.8rem;
+                 border: none;
+                 color: #fff;
+                 background: #714DD9; 
+                 transition: all 0.25s ease; 
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 
+               } 
+               .loginBtn:hover {
+                 background: #fff;
+                 color: #714DD9;
+                 border: 1px solid #714DD9 ;
+               } 
+          

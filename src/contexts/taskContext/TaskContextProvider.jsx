@@ -1,11 +1,13 @@
 import React, { createContext, useCallback, useState } from "react";
 import axios from "axios";
+// import { AuthContext } from "../authContext/AuthContext";
 
 export const taskCtxDefaultValues = {
   tasks: [],
   task: {},
   isLoading: false,
   getTasks: () => null,
+  setTasks: () => null,
   getClickedTask: () => null,
   getTaskById: () => null,
   updateTask: () => null,
@@ -19,11 +21,20 @@ const TaskContextProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  // const { user } = useContext(AuthContext);
+  // console.log(user);
+  let token = "";
+  if (JSON.parse(localStorage.getItem("user"))) {
+    token = JSON.parse(localStorage.getItem("user")).access_token;
+  }
+
   const getTasks = useCallback(() => {
     setIsLoading(true);
     axios
-      .get(`${base_url}/task`)
-      .then(res => setTasks(res))
+      .get(`${base_url}/task/`, {
+        headers: { Authorization: "Bearer " + token }
+      })
+      .then(res => setTasks(res.data))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
   }, [setTasks]);
@@ -70,6 +81,7 @@ const TaskContextProvider = ({ children }) => {
         task,
         isLoading,
         getTasks,
+        setTasks,
         getTaskById,
         updateTask,
         deleteTask,

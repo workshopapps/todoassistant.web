@@ -1,0 +1,51 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.modal {
+  width: 33.5rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  position: fixed;
+  top: 28vh;
+  left: 32%;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+
+  img {
+    margin: 2rem 0;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0.8rem;
+    border-radius: 0.9rem;
+    font-size: 1rem;
+    border: none;
+    background-color: rgba(113, 77, 217, 1);
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 865px) {
+  .modal {
+    width: 90vw;
+    left: 5%;
+  }
+}

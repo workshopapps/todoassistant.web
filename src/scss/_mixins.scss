@@ -21,8 +21,14 @@
   max-width: 1340px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 1rem 1.5rem;
 }
+
+@mixin container-md {
+  @include container;
+  max-width: 900px;
+}
+
 @mixin container-fluid {
   width: 100%;
   margin: 0 auto;
@@ -30,7 +36,7 @@
 }
 
 @mixin header-font {
-  font-size: 24px;
+  font-size: 34px;
   @media (min-width: 992px) {
     font-size: 48px;
   }

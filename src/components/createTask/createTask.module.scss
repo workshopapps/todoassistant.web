@@ -1,5 +1,8 @@
 .createTask_close {
-  display: none;
+  // display: none;
+  height: 0px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .createTask_wrapper {
   background-color: #7070705e;
@@ -98,6 +101,7 @@
           line-height: 100%;
         }
         .createTask_input {
+          cursor: pointer;
           margin-top: 0.5rem;
           align-self: stretch;
           border-radius: 8px;
@@ -130,6 +134,7 @@
           line-height: 100%;
         }
         .createTask_input {
+          cursor: pointer;
           margin-top: 0.5rem;
           align-self: stretch;
           border-radius: 8px;

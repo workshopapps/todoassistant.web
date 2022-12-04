@@ -1,23 +1,22 @@
 .news__letter {
   .header {
-   @media screen and (max-width: 486px) {
-     margin-bottom: 2rem;
-   }
-    
+    @media screen and (max-width: 486px) {
+      margin-bottom: 2rem;
+    }
+
     color: #fff;
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
   }
 
   .form {
     display: flex;
     flex-direction: column;
 
-
     .label {
-      @media screen and (max-width: 486px)  {
-       margin-left: -14px;
+      @media screen and (max-width: 486px) {
+        margin-left: -3px;
       }
       text-align: left !important;
       font-size: 12px;
@@ -29,59 +28,59 @@
 
   .input {
     @media screen and (max-width: 486px) {
-    width: 311.89px;
-    height: 48px
+      width: 311.89px;
+      height: 48px;
     }
     width: 100%;
     background-color: #fff;
-    outline: no;
     height: 48px;
     border: 1px solid #e9f3f5;
     border-radius: 8px;
     padding: 0 2rem;
     margin: 0 0 1rem 0;
   }
-  
-  .input_container{
+
+  .input_container {
     @media screen and (max-width: 486px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
     }
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 16px;
   }
-  
-  .subscribe_btn {
+
+  .subscribe_button {
     @media screen and (max-width: 486px) {
-    font-size: 14px;
-    background: #714DD9;
-    border-radius: 8px;
-    padding: 14px;
-    width: 311.89px;
-    height: 48px;
-    border: none;
-    color: #FAFAFA;
-    
+      font-size: 14px;
+      background: #714dd9;
+      border-radius: 8px;
+      padding: 14px;
+      width: 311.89px;
+      height: 48px;
+      border: none;
+      color: #fafafa;
+      margin-bottom: 2rem;
     }
-    
+
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-    background: #714DD9;
+    background: #714dd9;
     border-radius: 8px;
     padding: 14px;
     width: 103px;
     height: 48px;
     border: none;
-    color: #FAFAFA;
-    margin-top: -1px;
+    color: #fafafa;
+    margin-top: -15px;
+    cursor: pointer;
+    transition: 0.3s ease;
   }
-  
 }
