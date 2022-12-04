@@ -20,11 +20,14 @@ const VaClientPage = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/va/user/${vaUser.data.va_id}`, {
-        headers: {
-          Authorization: `Bearer ${vaUser.extra.token}`
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/va/user/${vaUser.data.va_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-      });
+      );
       if (response.data.code === 200) {
         setLoading(false);
         console.log(response.data.data);
