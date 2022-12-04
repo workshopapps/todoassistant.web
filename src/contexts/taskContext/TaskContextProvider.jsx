@@ -21,7 +21,7 @@ const TaskContextProvider = ({ children }) => {
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   let token = "";
-  if (JSON.parse(localStorage.getItem("user")).access_token) {
+  if (JSON.parse(localStorage.getItem("user"))) {
     token = JSON.parse(localStorage.getItem("user")).access_token;
   }
 
