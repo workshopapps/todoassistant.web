@@ -170,7 +170,10 @@ function App() {
             <Route path="/va-login" element={<VALogin />} />
             <Route path="/virtual-assistance" element={<VALogin />}>
               <Route path="" element={<VALogin />} />
+              <Route path="tasks" element={<VATasks />} />
+              <Route path="clients" element={<VaClientPage />} />
               <Route path="notifications" element={<VALogin />} />
+              <Route path="profile" element={<VaProfile />} />
             </Route>
 
             <Route path="/dashboard" element={<Login />}>

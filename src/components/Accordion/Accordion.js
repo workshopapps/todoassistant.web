@@ -20,14 +20,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
         alignItems="center"
       >
         {" "}
-        {data.map(task => (
+        {data.map((task, index) => (
           // DESKTOP
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskList}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -153,14 +153,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             {/* <p className= {`${styles.task__date} ${title==='PENDING' && styles.darker ||title==='OVERDUE' && styles.darker }`} >{`${task.date} at ${task.time}`}</p> */}
           </Box>
         ))}
-        {data.map(task => (
+        {data.map((task, index) => (
           // MOBILEVIEW
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskListMobile}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -289,14 +289,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             {/* <p className= {`${styles.task__date} ${title==='PENDING' && styles.darker ||title==='OVERDUE' && styles.darker }`} >{`${task.date} at ${task.time}`}</p> */}
           </Box>
         ))}
-        {data.map(task => (
+        {data.map((task, index) => (
           // DESKTOP
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskList}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -422,14 +422,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             {/* <p className= {`${styles.task__date} ${title==='PENDING' && styles.darker ||title==='OVERDUE' && styles.darker }`} >{`${task.date} at ${task.time}`}</p> */}
           </Box>
         ))}
-        {data.map(task => (
+        {data.map((task, index) => (
           // MOBILEVIEW
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskListMobile}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -558,14 +558,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             {/* <p className= {`${styles.task__date} ${title==='PENDING' && styles.darker ||title==='OVERDUE' && styles.darker }`} >{`${task.date} at ${task.time}`}</p> */}
           </Box>
         ))}
-        {data.map(task => (
+        {data.map((task, index) => (
           // DESKTOP
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskList}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -691,14 +691,14 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             {/* <p className= {`${styles.task__date} ${title==='PENDING' && styles.darker ||title==='OVERDUE' && styles.darker }`} >{`${task.date} at ${task.time}`}</p> */}
           </Box>
         ))}
-        {data.map(task => (
+        {data.map((task, index) => (
           // MOBILEVIEW
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskListMobile}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task.id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
