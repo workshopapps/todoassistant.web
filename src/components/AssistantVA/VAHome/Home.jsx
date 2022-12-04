@@ -17,7 +17,7 @@ const Home = () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
-      const response = await axios.get(`/task/all/va`, {
+      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/task/all/va`, {
         headers: {
           Authorization: `Bearer ${vaUser.extra.token}`
         }
@@ -45,7 +45,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setAssigned(tasks.filter(task => task.assigned === true));
+    setAssigned(tasks?.filter(task => task.assigned === true));
   }, [tasks]);
 
   return (
@@ -66,7 +66,7 @@ const Home = () => {
               className={[styles.va_home_link, nav && styles.active].join(" ")}
               onClick={() => setNav(true)}
             >
-              All Tasks ({tasks.length})
+              All Tasks ({tasks?.length})
             </div>
             <div
               className={[styles.va_home_link, !nav && styles.active].join(" ")}
@@ -87,7 +87,7 @@ const Home = () => {
                   handleClick={handleClick}
                 />
               ))
-            ) : assigned.length <= 0 ? (
+            ) : assigned?.length <= 0 ? (
               <div className={styles.va_no_tasks}>
                 <span className={styles.va_no_tasks_title}>
                   No Assigned Tasks Yet

@@ -48,7 +48,7 @@ const VASignup = () => {
 
     try {
       const response = await axios.post(
-        "/va/signup",
+        "https://api.ticked.hng.tech/api/v1/va/signup",
         { first_name, last_name, email, phone, password, account_type },
         config
       );

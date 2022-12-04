@@ -20,7 +20,7 @@ const VaClientPage = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get(`/va/user/${vaUser.data.va_id}`, {
+      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/va/user/${vaUser.data.va_id}`, {
         headers: {
           Authorization: `Bearer ${vaUser.extra.token}`
         }
