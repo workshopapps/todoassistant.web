@@ -5,6 +5,7 @@ import { BsStarHalf, BsStar, BsStarFill } from "react-icons/bs";
 import mainProfileImage from "../../assets/Ellipse 2.svg";
 import style from "./VaProfile.module.scss";
 import { useState, useEffect } from "react";
+import raw from "./raw.json";
 
 function VAProfile() {
   const [data, setData] = useState(null);
@@ -21,8 +22,8 @@ function VAProfile() {
           }
         }
       );
-      const data = response.data;
-      setData(data);
+      const rawdata = response.data.data;
+      setData(rawdata);
     }
   };
 
@@ -30,6 +31,10 @@ function VAProfile() {
     fetchTasks();
     // console.log(tasks);
   }, []);
+  console.log(data);
+  if (data == null) {
+    setData(raw);
+  }
 
   return (
     <div className={style.app}>
@@ -55,16 +60,16 @@ function VAProfile() {
             <div className={style.profile_container_items}>
               <div className={style.profile_container_details1}>
                 <p className={style.profile_container_items_header}>
-                  {data?.firstname + " " + data?.lastname}
+                  {data?.data.firstname + " " + data?.data.lastname}
                 </p>
                 <p className={style.profile_container_items_id}>
-                  ID: {data?.vaid}
+                  ID: {data?.data.vaid}
                 </p>
               </div>
 
               <div className={style.profile_container_details3}>
                 <p className={style.profile_container_items_paragraph1}>Bio</p>
-                <p className={style.profile_container_bio}>{data?.bio}</p>
+                <p className={style.profile_container_bio}>{data?.data.bio}</p>
               </div>
 
               <div className={style.profile_container_details4}>
@@ -72,14 +77,16 @@ function VAProfile() {
                   <p className={style.profile_container_items_paragraph1}>
                     Phone
                   </p>
-                  <p className={style.profile_container_num}>{data?.phone}</p>
+                  <p className={style.profile_container_num}>
+                    {data?.data.phone}
+                  </p>
                 </div>
                 <div>
                   <p className={style.profile_container_items_paragraph1}>
                     Email Address
                   </p>
                   <p className={style.profile_container_items_header}>
-                    {data?.email}
+                    {data?.data.email}
                   </p>
                 </div>
               </div>
@@ -102,7 +109,9 @@ function VAProfile() {
             <div className={style.rating_container}>
               <p className={style.rating_header}>Ratings</p>
               <div>
-                <span className={style.rating_star_header}>{data?.rating}</span>
+                <span className={style.rating_star_header}>
+                  {data?.data.rating}
+                </span>
                 <span>
                   <BsStarFill className={style.star} />
                   <BsStarFill className={style.star} />
@@ -118,7 +127,7 @@ function VAProfile() {
               <div className={style.profile_stats_items_container}>
                 <div className={style.profile_stats_items}>
                   <p className={style.profile_stats_items_header1}>
-                    {data?.completedtasks}
+                    {data?.data.completedtasks}
                   </p>
                   <p className={style.profile_stats_items_paragraph1}>
                     Completed Task
@@ -127,7 +136,7 @@ function VAProfile() {
 
                 <div className={style.profile_stats_items}>
                   <p className={style.profile_stats_items_header2}>
-                    {data?.assigned}
+                    {data?.data.assigned}
                   </p>
                   <p className={style.profile_stats_items_paragraph2}>
                     Assigned Client
