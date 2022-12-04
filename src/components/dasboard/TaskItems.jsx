@@ -121,7 +121,7 @@ const TaskItems = ({ status, myTasks }) => {
             .map(i => {
               if (i.status === status) {
                 return (
-                  <div key={i.task_id}>
+                  <>
                     {showTasks && (
                       <div
                         className={styles.task}
@@ -250,7 +250,7 @@ const TaskItems = ({ status, myTasks }) => {
                         </p>
                       </div>
                     )}
-                  </div>
+                  </>
                 );
               }
             })}
