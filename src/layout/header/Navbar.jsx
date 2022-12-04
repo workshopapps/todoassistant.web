@@ -31,9 +31,15 @@ export default function Navbar() {
     </>
   ) : (
     // <Button style={logOutBtn} title="Log out" />
+    <>
+        <button className={style.logoutBtn} onClick={handleLogout}>
+      Dashboard
+    </button>
+    
     <button className={style.logoutBtn} onClick={handleLogout}>
       Log out
     </button>
+    </>
   );
 
   const toggleSidebar = () => {
@@ -85,9 +91,15 @@ const NavDrawer = ({ toggleSidebar }) => {
     </>
   ) : (
     // <Button style={logOutBtn} title="Log out" />
+    <>
+    <button className={style.logoutBtn} onClick={handleLogout} style={{marginBottom:"1rem"}}>
+      Dashboard
+    </button>
     <button className={style.logoutBtn} onClick={handleLogout}>
       Log out
     </button>
+    
+    </>
   );
   return (
     <nav className={style.sidebar}>

@@ -8,6 +8,7 @@
   text-align: center;
   h2 {
     @include header-font;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -19,6 +20,7 @@
   text-align: center;
   h2 {
     @include header-font;
+    margin: 1rem;
   }
 }
 }
