@@ -58,7 +58,7 @@ export default function UserProfileModal({ userID }) {
       );
       if (response.status === 200) {
         setLoading(false);
-        console.log(response);
+
         setUserDetails(response.data.data);
       }
     } catch (error) {
@@ -69,7 +69,6 @@ export default function UserProfileModal({ userID }) {
 
   React.useEffect(() => {
     getUserDetails();
-    console.log(userDetails);
   }, []);
 
   return (
@@ -168,9 +167,6 @@ export default function UserProfileModal({ userID }) {
                 </Stack>
               </Stack>
             </Box>
-            <Typography fontSize={`small`} color={`success`}>
-              {userID}
-            </Typography>
           </Box>
         )}
       </Modal>
