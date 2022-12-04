@@ -1,33 +1,29 @@
 import { CgProfile } from "react-icons/cg";
-import Axios from "axios";
+import axios from "axios";
 
 import { BsStarHalf, BsStar, BsStarFill } from "react-icons/bs";
 import mainProfileImage from "../../assets/Ellipse 2.svg";
 import style from "./VaProfile.module.scss";
-import { useEffect, useState } from "react";
-import raw from "./raw.json";
+import { useState } from "react";
 
 function VAProfile() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+
   var va_id = JSON.parse(localStorage.getItem("VA"));
+   
+  if (va_id) {
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/api/v1/va`,
+        {
+          headers: {
+            Authorization: `Bearer ${va_id}`
+          }
+        }
+      );
 
-  useEffect(() => {
-    Axios.get(`https://api.ticked.hng.tech/api/v1/api/v1/va/${va_id}`)
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.log("Error fetching data:", error);
-        setError(error);
-        setData(raw.data);
-      });
-  }, []);
-
-  console.log(data);
-  console.log(raw);
-  console.log(error);
-
+  const data = response.data;
+  
   return (
     
       <div className={style.app}>
