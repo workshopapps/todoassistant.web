@@ -209,8 +209,9 @@ export default function VaDasboard() {
                     <img src={bell} style={{ height: "30px" }} alt="bell" />
                   </Link>
 
-                  <Link to="/virtual-assistance/profile"></Link>
-                  <img src={VaImg} alt="client image" />
+                  <Link to="/virtual-assistance/profile">
+                    <img src={VaImg} alt="client image" />
+                  </Link>
                 </span>
                 {/* <Typography
                   component="span"
