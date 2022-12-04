@@ -39,6 +39,9 @@ import bell from "../../assets/dashboard/bell.png";
 const drawerWidth = 240;
 
 export default function VaDasboard() {
+  const userName = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user")).first_name
+    : "";
   const location = useLocation();
   const { window } = location;
 
@@ -187,7 +190,7 @@ export default function VaDasboard() {
                 mt={4}
                 sx={{ width: "15vw", display: "inline" }}
               >
-                Hello, Sandra
+                Hello, {userName}
               </Typography>
               <img
                 style={{ position: "relative", left: "10px", top: "2px" }}
