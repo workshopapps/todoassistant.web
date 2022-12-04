@@ -123,7 +123,7 @@
             }
                   @media screen and ( max-width:600px ){
                     .comment{
-                      width: 87%;
+                      width: 87% !important;
                     }
                     .sidebar{
                         
@@ -153,4 +153,9 @@
                       //   .comment{
                       //     width: 85.5% !important
                       //  }
-                      //  }
+                      //  } 
+                      
+                      @media screen and ( max-width:400px ){
+                    .comment{
+                      width: 80% !important;
+                    }}
