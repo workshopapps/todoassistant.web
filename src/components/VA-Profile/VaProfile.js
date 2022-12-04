@@ -30,7 +30,7 @@ function VAProfile() {
   console.log(error);
 
   return (
-    <Dashboardlayout>
+    
       <div className={style.app}>
         <div className={style.major_container}>
           <div className={style.edit_container}>
@@ -142,7 +142,7 @@ function VAProfile() {
           </div>
         </div>
       </div>
-    </Dashboardlayout>
+    
   );
 }
 
