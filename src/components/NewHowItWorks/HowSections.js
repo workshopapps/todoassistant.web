@@ -97,7 +97,10 @@ const HowSections = () => {
             Get Your Tasks Completed With The Support Of A{" "}
             <span className={style.orange}>Personal Assitant</span>
           </p>
-          <button className={style.last_button} onClick={() => setIsOpen(true)}>
+          <button
+            className={`${style.last_button} hover`}
+            onClick={() => setIsOpen(true)}
+          >
             Get started
           </button>
           {isOpen && <HowModal setIsOpen={setIsOpen} />}

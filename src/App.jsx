@@ -1,10 +1,10 @@
-import { Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
-import Signup from "./core/auth/signup/Signup";
+// import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 
 import Ticked from "./pages/Ticked/Ticked";
@@ -30,20 +30,19 @@ import Payment from "./core/payment/Payment";
 import Client from "./components/va-clients/Client";
 import Notification from "./components/notification/Notification";
 import Notifications from "./pages/Notifications/Notifications";
-//import VaProfile from "./components/VA-Profile/VaProfile";
+import VaProfile from "./components/VA-Profile/VaProfile";
 import VaModal1 from "./components/VA-modal/VaModal1";
 import VASignup from "./components/va-signup/auth/signup/VASignup";
-// import Login from "./components/Login/Login";
+
 import ErrorMain from "./components/404";
 import Otp from "./core/auth/otp/Otp";
 import Sub from "./core/sub/Sub";
 
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
-// import ResetPassword from "./components/resetPassword and newPassword pages/ResetPassword";
 
-// import VaDasboard from "./components/vaDashboard/VaDasboard";
 import VADashboard from "./components/AssistantVA";
-import Login from "./components/Login/Login";
+import Login from "./components/Login/UserLogin";
+import VATasks from "./components/VAHome/VAHome";
 
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
@@ -51,14 +50,14 @@ import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
+import Dashboardlayout from "./layout/dasboard-layout/Dashboardlayout";
+import UserLogin from "./components/Login/UserLogin";
 import { VAAuthContext } from "./contexts/VAContexts/AuthContext";
 
 import MainResetPage from "./components/ResetPasswordPages/MainPage/MainResetPage";
 import CheckMail from "./components/ResetPasswordPages/CheckMail/CheckMail";
 import NewPasswordPage from "./components/ResetPasswordPages/NewPasswordPage/NewPasswordPage";
 import ResetPasswordPage from "./components/ResetPasswordPages/ResetPage/ResetPasswordPage";
-
-// import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 
 //userProfile
 import SettingsProfilee from "./core/settings/profile/SettingsProfile";
@@ -67,15 +66,28 @@ import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
+import Signup from "./core/auth/signup/Signup";
+import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
+// import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (VA && location.pathname === "/va-login") {
+      console.log(true);
+      location.pathname.replace(/[^/]*$/, "/virtual-assistance/");
+    }
+  }, [location.pathname]);
+
   return (
     // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
       <Routes>
+        {/* external pages */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/contact" element={<Contact />} />
@@ -88,16 +100,17 @@ function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
         <Route
+          path="/login"
+          element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
+        />
+        {/* <Route
+          path="/signup"
+          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
+        /> */}
+        <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/dashboard" />}
         />
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/dashboard" />}
-        />
-        <Route path="/newpassword" element={<NewPassword />} />
-        {/* <Route path="/resetpassword" element={<ResetPassword />} /> */}
-        {/* <Route path="/resetpassword" element={<ResetPassword />} /> */}
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
@@ -105,6 +118,7 @@ function App() {
         <Route path="/resetpassword" element={<MainResetPage />}>
           <Route path="" element={<ResetPasswordPage />} />
           <Route path="checkmail" element={<CheckMail />} />
+          <Route path="otp" element={<OTPPage />} />
           <Route path="putnewpassword" element={<NewPasswordPage />} />
         </Route>
         ;
@@ -128,11 +142,6 @@ function App() {
               />
             </Route>
 
-            {/* <Route path="/virtualassistance" element={<VADashboard />}>
-              <Route path="" element={<Home />} />
-              <Route path="notifications" element={<Notifications />} />
-            </Route>  */}
-
             <Route path="/newtask" element={<NewTask />} />
             <Route path="/edittask" element={<NewTask />} />
             <Route path="/taskdetails" element={<TaskDetails />} />
@@ -146,24 +155,30 @@ function App() {
             <Route path="/pro" element={<ProPreferences />} />
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
-        ) : !VA ? (
+        ) : VA ? (
           <>
             <Route path="/va-signup" element={<VASignup />} />
-            <Route path="" element={<Home />} />
-            <Route path="/virtualassistance" element={<VADashboard />} />
-            <Route path="/clients" element={<VaClientPage />} />
-            <Route path="notifications" element={<Notifications />} />
+            <Route path="/va-login" element={<Dashboardlayout />} />
+            <Route path="/virtual-assistance" element={<Dashboardlayout />}>
+              <Route path="" element={<VADashboard />} />
+              <Route path="clients" element={<VaClientPage />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="tasks" element={<VATasks />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="profile" element={<VaProfile />} />
+            </Route>
           </>
         ) : (
-          // : VA ? (
-          //   <>
-          //     <Route path="/va-signup" element={<VASignup />} />
-          //     <Route path="/virtualassistance" element={<VADashboard />} />
-          //     <Route path="" element={<Home />} />
-          //     <Route path="notifications" element={<Notifications />} />
-          //   </>
-          // )
           <>
+            <Route path="/va-login" element={<VALogin />} />
+            <Route path="/virtual-assistance" element={<VALogin />}>
+              <Route path="" element={<VALogin />} />
+              <Route path="tasks" element={<VATasks />} />
+              <Route path="clients" element={<VALogin />} />
+              <Route path="notifications" element={<VALogin />} />
+              <Route path="profile" element={<VaProfile />} />
+            </Route>
+
             <Route path="/dashboard" element={<Login />}>
               <Route path="" element={<Login />} />
               <Route path="assistant" element={<Login />} />
@@ -175,11 +190,6 @@ function App() {
               <Route path="notifications" element={<Login />} />
               <Route path="payment" element={<Login />} />
               <Route path="profile" element={<SettingsProfilee />} />
-            </Route>
-
-            <Route path="/virtualassistance" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
             </Route>
 
             <Route path="/newtask" element={<Login />} />
@@ -196,9 +206,6 @@ function App() {
             <Route path="/account/edit" element={<Login />} />
           </>
         )}
-        {/* <Route path="/settings/profile" element={<SettingsProfile />} /> */}
-        {/* 404-error handler */}
-        {/* <Route path="*" element={<GeneralLoading text="PAGE NOT FOUND" />} /> */}
         <Route path="*" element={<ErrorMain />} />
       </Routes>
     </Suspense>

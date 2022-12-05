@@ -24,7 +24,7 @@ function stringAvatar(name = "user name") {
   };
 }
 
-const ProfileAvatar = ({ fullName, size, image }) => {
+const ProfileAvatar = ({ fullName, size, image, fontSize }) => {
   return (
     <Avatar
       {...stringAvatar(fullName)}
@@ -34,7 +34,7 @@ const ProfileAvatar = ({ fullName, size, image }) => {
         width: size.width,
         height: size.height,
         background: `#714DD980`,
-        fontSize: `14px`,
+        fontSize: fontSize,
         fontWeight: 700,
         color: `#714DD9`
       }}

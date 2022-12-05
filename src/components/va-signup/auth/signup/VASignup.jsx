@@ -5,7 +5,7 @@ import signupPicture from "../../../../assets/thesignupimage.svg";
 import styles from "./VASignup.module.scss";
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
-import Navbar from "../../../../layout/header/Navbar";
+// import Navbar from "../../../../layout/header/Navbar";
 
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
@@ -48,12 +48,13 @@ const VASignup = () => {
 
     try {
       const response = await axios.post(
-        "/va/signup",
+        "https://api.ticked.hng.tech/api/v1/va/signup",
         { first_name, last_name, email, phone, password, account_type },
         config
       );
       console.log(response);
       login({ email, password }, dispatch);
+
     } catch (err) {
       console.log(err);
     }
@@ -78,7 +79,7 @@ const VASignup = () => {
   return (
     <>
       {/* <Header /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.signupContainer}>
 
         <div className={styles.signupLeft}>

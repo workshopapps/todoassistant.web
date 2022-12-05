@@ -1,159 +1,126 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Task from './Task'
-import TaskDetail from './TaskDetail'
-import styles from './Home.module.scss'
-import vaArrowDown from '../../../assets/VADashboard/va-arrowDown.svg'
-import profile from '../../../assets/VADashboard/profile.svg'
+import Task from "./Task";
+import TaskDetail from "./TaskDetail";
+import styles from "./Home.module.scss";
+import vaArrowDown from "../../../assets/VADashboard/va-arrowDown.svg";
+// import profile from "../../../assets/VADashboard/profile.svg";
 
 const Home = () => {
+  const [nav, setNav] = useState(true);
+  const [taskDetail, setTaskDetail] = useState(false);
+  const [showDetail, setShowDetail] = useState({});
+  const [tasks, setTasks] = useState([]);
+  const [assigned, setAssigned] = useState([]);
 
-    const Tasks = [
+  const fetchTasks = async () => {
+    let vaUser = JSON.parse(localStorage.getItem("VA"));
+
+    if (vaUser) {
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/task/all/va`,
         {
-            task_id: "1",
-            title: "Resolve frontend bugs",
-            assigned: true,
-            end_time: "2022-11-21T12:56:04+01:00",
-            status: "PENDING",
-            description: "This task is very important for a presentation I will be having tomorrow I want it ready before the meeting.",
-            user: {
-                name: "Sandra Davids",
-                phone: "+2349043567891",
-                img: profile,
-            },
-        },
-        {
-            task_id: "2",
-            title: "Call Bigheart",
-            assigned: false,
-            end_time: "2022-11-21T12:56:04+01:00",
-            status: "PENDING",
-            description: "This task is very important for a presentation.",
-            user: {
-                name: "Sandra Davids",
-                phone: "+2349043567891",
-                img: profile,
-            }
-        },
-        {
-            task_id: "3",
-            title: "Resolve frontend bugs",
-            assigned: false,
-            end_time: "2022-11-21T12:56:04+01:00",
-            status: "PENDING",
-            description: "This task is very important for a presentation I will be having tomorrow I want it ready before the meeting.",
-            user: {
-                name: "Sandra Davids",
-                phone: "+2349043567891",
-                img: profile,
-            }
-        },
-        {
-            task_id: "4",
-            title: "Resolve frontend bugs",
-            assigned: true,
-            end_time: "2022-11-21T12:56:04+01:00",
-            status: "PENDING",
-            description: "This task is very important for a presentation I will be having tomorrow I want it ready before the meeting.",
-            user: {
-                name: "Sandra Davids",
-                phone: "+2349043567891",
-                img: profile,
-            }
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-    ]
-
-    const [nav, setNav] = useState(true);
-    const [taskDetail, setTaskDetail] = useState(false);
-    const [showDetail, setShowDetail] = useState({});
-    const [tasks, setTasks] = useState(Tasks);
-    const [assigned, setAssigned] = useState([]);
-
-    const fetchTasks = async () => {
-        let vaUser = JSON.parse(localStorage.getItem("VA"));
-        if (vaUser) {
-          const response = await axios.get(
-            `task/all/va`,
-            {
-              headers: {
-                Authorization: `Bearer ${vaUser.token}`
-              }
-            }
-          );
-    
-          const vaTasks = response.data.data 
-    
-          setTasks(vaTasks);
-        }
-    };
-
-    const handleClick = (e) => {
-        setTaskDetail(true)
-        const id = e.target.id;
-
-        const currentTask = tasks.filter(
-            task => task.task_id === id
-        )
-
-        setShowDetail(currentTask[0])
+      );
+      const vaTasks = response.data.data;
+      setTasks(vaTasks);
     }
+  };
 
-    const handleClose = () => {
-        setTaskDetail(false)
-    }
+  const handleClick = e => {
+    setTaskDetail(true);
+    const id = e.target.id;
 
+    const currentTask = tasks.filter(
+      task => task.task_id === id || id === "arrow"
+    );
+    setShowDetail(currentTask[0]);
+  };
 
-    useEffect(() => {
-        fetchTasks();
-        
-    }, []);
+  const handleClose = () => {
+    setTaskDetail(false);
+  };
 
-    useEffect(() => {
-        setAssigned(tasks.filter(task => task.assigned === true))
-        
-    }, [tasks]);
+  fetchTasks();
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
-    
+  useEffect(() => {
+    setAssigned(tasks?.filter(task => task.assigned === true));
+  }, [tasks]);
+
   return (
-    <section className = {styles.va_section_container}>
-        <div className = {[styles.va_home_container, taskDetail && styles.va_home_container_active].join(" ")} >
-            <div className = {styles.va_home_header}>
-                <div className = {styles.va_home_title}>
-                    <p className = {styles.va_home_typo}>Today</p>
-                    <img className = {styles.va_img} src={vaArrowDown} alt="vaArrow" />                
-                </div> 
-                <div className = {styles.va_home_links}>
-                    <div className = {[styles.va_home_link, nav && styles.active].join(" ")} onClick={() => setNav(true)}>All Tasks ({tasks.length})</div>
-                    <div className = {[styles.va_home_link, !nav && styles.active].join(" ")} onClick={() => setNav(false)}>Assigned to me</div>                
-                </div>   
+    <section className={styles.va_section_container}>
+      <div
+        className={[
+          styles.va_home_container,
+          taskDetail && styles.va_home_container_active
+        ].join(" ")}
+      >
+        <div className={styles.va_home_header}>
+          <div className={styles.va_home_title}>
+            <p className={styles.va_home_typo}>Today</p>
+            <img className={styles.va_img} src={vaArrowDown} alt="vaArrow" />
+          </div>
+          <div className={styles.va_home_links}>
+            <div
+              className={[styles.va_home_link, nav && styles.active].join(" ")}
+              onClick={() => setNav(true)}
+            >
+              All Tasks ({tasks?.length})
             </div>
-
-            <div className = {styles.va_tasks}>
-                {tasks.length > 0 ?
-                nav ? tasks.map((task) => (
-                    <Task details={task} key={task.task_id} handleClick = {handleClick} />
-                )) : assigned.length <= 0 ?
-                <div className = {styles.va_no_tasks}>
-                    <span className = {styles.va_no_tasks_title}>No Assigned Tasks Yet</span>
-                    <span className = {styles.va_no_tasks_sub}>You will be notified when a user assigned a task to you</span>
-                </div>
-                 : tasks.map((task) => (
-                    task.assigned ? <Task details={task} key={task.task_id} handleClick = {handleClick} /> : null
-                )) :
-                <div className = {styles.va_no_tasks}>
-                    <span className = {styles.va_no_tasks_title}>No Clients</span>
-                    <span className = {styles.va_no_tasks_sub}>You will be notified when a user has been assigned to you</span>
-                </div>     
-                }  
-            </div> 
+            <div
+              className={[styles.va_home_link, !nav && styles.active].join(" ")}
+              onClick={() => setNav(false)}
+            >
+              Assigned to me
+            </div>
+          </div>
         </div>
-        { taskDetail ? 
-            <div className = {styles.task_detail_slider}>
-                <TaskDetail taskDetails = {showDetail} handleClose = {handleClose} />
-            </div>
-        : null}
-    </section>
-  )
-}
 
-export default Home
+        <div className={styles.va_tasks}>
+          {tasks?.length > 0 ? (
+            nav ? (
+              tasks.map((task, index) => (
+                <Task details={task} key={index} handleClick={handleClick} />
+              ))
+            ) : assigned?.length <= 0 ? (
+              <div className={styles.va_no_tasks}>
+                <span className={styles.va_no_tasks_title}>
+                  No Assigned Tasks Yet
+                </span>
+                <span className={styles.va_no_tasks_sub}>
+                  You will be notified when a user assigned a task to you
+                </span>
+              </div>
+            ) : (
+              tasks.map((task, index) =>
+                task.assigned ? (
+                  <Task details={task} key={index} handleClick={handleClick} />
+                ) : null
+              )
+            )
+          ) : (
+            <div className={styles.va_no_tasks}>
+              <span className={styles.va_no_tasks_title}>No Clients</span>
+              <span className={styles.va_no_tasks_sub}>
+                You will be notified when a user has been assigned to you
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+      {taskDetail ? (
+        <div className={styles.task_detail_slider}>
+          <TaskDetail taskDetails={showDetail} handleClose={handleClose} />
+        </div>
+      ) : null}
+    </section>
+  );
+};
+
+export default Home;

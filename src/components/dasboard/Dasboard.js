@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.scss";
+import Dropdown from "./Dropdown";
 
 import {
   Routes,
@@ -28,20 +29,24 @@ import { userRoutes } from "../../router/user";
 
 //Images
 import tick from "../../assets/home/tick.png";
-import VaImg from "../../assets/dashboard/vaImg.png";
-// import arrowDown from "../../assets/dashboard/arrow-down.png";
+import VaImg from "../../assets/dashboard/user.png";
+import arrowDown from "../../assets/dashboard/arrow-down.png";
 import hand from "../../assets/dashboard/hand.png";
-import bell from "../../assets/dashboard/bell.png";
+import bell from "../../assets/dashboard/notif.png";
 
 // import add from "../../assets/dashboard/add.png";
 
 const drawerWidth = 240;
 
 export default function VaDasboard() {
+  const userName = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user")).first_name
+    : "";
   const location = useLocation();
   const { window } = location;
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [nav, setNav] = useState(false);
 
   // const [title, setTitle] = useState("home");
 
@@ -185,7 +190,7 @@ export default function VaDasboard() {
                 mt={4}
                 sx={{ width: "15vw", display: "inline" }}
               >
-                Hello, Sandra
+                Hello, {userName}
               </Typography>
               <img
                 style={{ position: "relative", left: "10px", top: "2px" }}
@@ -205,11 +210,29 @@ export default function VaDasboard() {
                 <span
                   style={{ display: "flex", gap: "10px", alignItems: "center" }}
                 >
-                  <Link to="/virtualassistance/notifications">
+                  <Link
+                    to="/dashboard/notifications"
+                    style={{ display: "flex" }}
+                  >
                     <img src={bell} style={{ height: "30px" }} alt="bell" />
                   </Link>
-                  <img src={VaImg} alt="client image" />
+                  <img
+                    src={VaImg}
+                    style={{ height: "30px" }}
+                    alt="client image"
+                  />
+                  <span
+                    className={[styles.arrow_down, nav && styles.arrow_up].join(
+                      " "
+                    )}
+                    onClick={() => {
+                      setNav(!nav);
+                    }}
+                  >
+                    <img src={arrowDown} alt="arrow down" />
+                  </span>
                 </span>
+                {nav ? <Dropdown /> : null}
                 {/* <Typography
                   component="span"
                   display={{ xs: "none", md: "block" }}

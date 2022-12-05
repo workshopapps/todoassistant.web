@@ -11,6 +11,7 @@ const ClientName = ({ fullName, align }) => {
       gap={2}
     >
       <ProfileAvatar
+        fontSize={`14px`}
         size={{ width: 40, height: 40 }}
         fullName={fullName.toUpperCase()}
       />

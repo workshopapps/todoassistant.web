@@ -57,11 +57,11 @@
 
 // const Notifications = () => {
 // //   const [ value, setValue ] = useState(null)
-     
+
 //     // const handleChange = (val) => {
 //     //         setValue(val.target.value)
 //     // }
-      
+
 //     return (
 //       <div className={cssClasses.padding}>
 //        <RouteHeaders name="Notifications" user="Joseph A"/>
@@ -82,7 +82,7 @@
 //             action = {notList.action}
 //             description={notList.description} time = {notList.time}/>
 //             </>
-            
+
 //         ))}
 //       </div>
 //     );
@@ -90,9 +90,11 @@
 
 // export default Notifications
 
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Box, Typography } from '@mui/material'
+import { requestForToken, onMessageListener  } from '../../firebaseNotification'
 
+// import toast, { Toaster } from 'react-hot-toast';
 
 import more from "../../assets/dashboard/more.png"
 import overdue from "../../assets/dashboard/overdue.png"
@@ -134,10 +136,29 @@ const notification = [
 
 export default function Notifications() {
     const [ active, setActive ] = useState("All")
-    
+    const [vaNotification, setVaNotification] = useState({title: '', body: ''});
+
+   
+    // checking for new notification
+    useEffect(() => {
+        // if (vaNotification?.title ){
+        //  notify()
+        // }
+      }, [vaNotification])
+
+// Requesting for va permision to send notification
+    requestForToken()
+
+// Updating notification state on in-coming notification
+    onMessageListener()
+    .then((payload) => {
+      setVaNotification({title: payload?.notification?.title, body: payload?.notification?.body});     
+    })
+    .catch((err) => console.log('failed: ', err));
+
   return (
     <Box maxWidth={"100vw"}>
-        <Typography 
+        <Typography
         sx={{
             fontWeight: "700",
             color: "#2B363B",
@@ -146,13 +167,14 @@ export default function Notifications() {
         >
             Notifications
         </Typography>
+
         <Box mt={2} sx={{background: "#fff", padding: "30px 40px", borderRadius: "8px"}}>
             <Box sx={{display: "flex", justifyContent:  "space-between"}}>
                 <Box sx={{display: "flex", gap: "30px", padding: "0px 30px"}}>
-                    <Typography 
+                    <Typography
                         sx={{
-                            borderBottom: active === "All" ? "2px solid #714DD9" : null, 
-                            padding: "0px 20px", 
+                            borderBottom: active === "All" ? "2px solid #714DD9" : null,
+                            padding: "0px 20px",
                             cursor: "pointer",
                             color: active === "All" ? "#714DD9": null
                         }}
@@ -160,9 +182,9 @@ export default function Notifications() {
                     >
                         All
                     </Typography>
-                    <Typography 
+                    <Typography
                         sx={{
-                            cursor: "pointer", 
+                            cursor: "pointer",
                             borderBottom: active === "Unread" ? "2px solid #714DD9" : null,
                             color: active === "Unread" ? "#714DD9": null
 
@@ -179,14 +201,14 @@ export default function Notifications() {
             </Box>
             </Box>
         <Box mt={2} sx={{background: "#fff"}} p={2}>
-           
+
             <Box sx={{display: "flex", justifyContent: "space-between", padding: {xs: "20px 10px", md: "0px 30px"}}}>
                 <Typography sx={{fontSize: "12px"}}>2 UNREAD NOTIFICATIONS</Typography>
                 <Typography sx={{fontSize: "12px", color: "#FF4D4F"}}>Clear all</Typography>
 
             </Box>
             {notification.map((item) => (
-                
+
             <Box key={item.title} mt={1} p={1} sx={{ background: item.bg, borderRadius: "8px", padding: {xs: "20px 10px", md: "20px 50px"}}}>
                 <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                    <Box sx={{display: "flex"}}>

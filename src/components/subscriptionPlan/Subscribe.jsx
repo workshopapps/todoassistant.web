@@ -68,7 +68,7 @@ const Subscribe = () => {
             </li>
           </ul>
           <Link to="/signup">
-            <button className={styles.btn}>Get Started</button>
+            <button className={`${styles.btn} hover`}>Get Started</button>
           </Link>
         </div>
         <div className={styles.card}>
@@ -97,7 +97,7 @@ const Subscribe = () => {
               <img src={tickCircle} alt="ticked" />4 weeks activity history
             </li>
           </ul>
-          <button onClick={monthlySubHandler} className={styles.btn}>
+          <button onClick={monthlySubHandler} className={`${styles.btn} hover`}>
             Get Started
           </button>
         </div>
@@ -131,7 +131,7 @@ const Subscribe = () => {
               Premium Support
             </li>
           </ul>
-          <button onClick={yearlySubHandler} className={styles.btn}>
+          <button onClick={yearlySubHandler} className={`${styles.btn} hover`}>
             Get Started
           </button>
         </div>
