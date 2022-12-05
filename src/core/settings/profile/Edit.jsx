@@ -30,11 +30,36 @@ const Edit = () => {
         setForm({ ...form, [name]: value })
     }
     
- 
+  const editRequest = async (formValue) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    try {
+	if (user) {
+	      const res = await axios.put(
+	        `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+	        {
+	        "first_name":formValue.first_Name,
+	        "last_name":formValue.last_name,
+	        "email":formValue.email,
+	        "phone":formValue.phone
+	        },
+	        {
+	          headers: {
+	            Authorization: `Bearer ${user.access_token}`
+	          }
+	        }
+	      );
+	        console.log(res);
+	    }
+	
+} catch (error) {
+	console.log(error);
+}
+  }
 const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(form);
-    // editRequest(form)
+    editRequest(form)
 }
 
     let FName = first_name

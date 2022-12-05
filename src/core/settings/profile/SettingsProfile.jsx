@@ -1,11 +1,13 @@
 import React from "react";
 import './Settings.scss'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import arrowRight from "../../../assets/arrow-right-cj.svg"
 import { useContext,useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import axios from "axios";
 
 const SettingsProfilee = () => {
+  const navigate = useNavigate()
   const { user } = useContext(AuthContext)
   const { first_name, last_name, user_id, email, phone } = user
   let FName = first_name
@@ -13,6 +15,33 @@ const SettingsProfilee = () => {
 
   const [modal, setModal] = useState(false)
 
+   const deleteRequest = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    try {
+	if (user) {
+	      const res = await axios.delete(
+	        `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+	        {
+	          headers: {
+	            Authorization: `Bearer ${user.access_token}`
+	          }
+	        }
+	      );
+	        console.log(res);
+	    }
+	
+} catch (error) {
+	console.log(error);
+}
+  }
+  const handleDelete = async ()=>{
+     
+    await deleteRequest()
+    localStorage.setItem("user", null);
+    navigate('/')
+    navigate(0)
+  } 
  
 
   return (
@@ -20,7 +49,7 @@ const SettingsProfilee = () => {
       <div className={modal ? "delete_modal" : "delete_hidden"}>
         <div className="con">
           <p className="delete_head">Delete your account</p>
-          <button className="delete_btn">Delete Account</button>
+          <button className="delete_btn" onClick={handleDelete}>Delete Account</button>
           <button className="delete_btn delete_alt" onClick={()=>setModal(()=>false)}>Cancel</button>
         </div>
       </div>
