@@ -1,6 +1,6 @@
 import React from "react";
 import './Settings.scss'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import arrowLeft from "../../../assets/arrow-left-cj.svg"
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
@@ -8,6 +8,8 @@ import axios from "axios";
 
 
 const Edit = () => {
+
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { first_name, user_id } = user
 
@@ -52,6 +54,7 @@ const Edit = () => {
 	        console.log(res);
             if ((res.status == 200 && res.data)) {
                 localStorage.setItem("user", JSON.stringify(res?.data));
+                navigate('/dahboard/profile')
             }
 	    }
 	
