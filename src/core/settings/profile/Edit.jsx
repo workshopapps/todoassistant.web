@@ -54,7 +54,8 @@ const Edit = () => {
 	        console.log(res);
             if ((res.status == 200 && res.data)) {
                 localStorage.setItem("user", JSON.stringify(res?.data));
-                navigate('/dahboard/profile')
+                navigate('/dashboard/profile')
+                navigate(0)
             }
 	    }
 	
