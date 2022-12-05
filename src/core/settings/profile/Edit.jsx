@@ -50,6 +50,9 @@ const Edit = () => {
 	        }
 	      );
 	        console.log(res);
+            if ((res.status == 200 && res.data)) {
+                localStorage.setItem("user", JSON.stringify(res?.data));
+            }
 	    }
 	
 } catch (error) {
@@ -60,6 +63,7 @@ const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(form);
     editRequest(form)
+
 }
 
     let FName = first_name

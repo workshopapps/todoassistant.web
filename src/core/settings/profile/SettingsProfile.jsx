@@ -29,6 +29,11 @@ const SettingsProfilee = () => {
 	        }
 	      );
 	        console.log(res);
+          if ((res.status == 200 && res.data)) {
+	localStorage.setItem("user", null);
+	          navigate('/')
+	          
+} 
 	    }
 	
 } catch (error) {
@@ -38,9 +43,7 @@ const SettingsProfilee = () => {
   const handleDelete = async ()=>{
      
     await deleteRequest()
-    localStorage.setItem("user", null);
-    navigate('/')
-    navigate(0)
+  
   } 
  
 
