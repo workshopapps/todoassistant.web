@@ -29,6 +29,13 @@ const Edit = () => {
         const { name, value } = e.target
         setForm({ ...form, [name]: value })
     }
+    
+ 
+const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(form);
+    // editRequest(form)
+}
 
     let FName = first_name
     let initial = FName.charAt(0).toUpperCase()
@@ -44,7 +51,7 @@ const Edit = () => {
                     <div className="profile-bottom">
 
 
-                        <form className="form">
+                        <form className="form" onSubmit={handleSubmit}>
                             <p className="title">Edit profile</p>
                             <div className="head">
                                 <div className="head-1">
@@ -68,11 +75,11 @@ const Edit = () => {
                                 </div>
                                 <div className="form-field">
                                     <label htmlFor="phone" className="lab">Phone number</label>
-                                    <input type="password" id="phone" required name="phone" value={phone} onChange={onChange} />
+                                    <input type="text" id="phone" required name="phone" value={phone} onChange={onChange} />
                                 </div>
                             </div>
 
-                            <button className="btn-btn-btn">
+                            <button className="btn-btn-btn" type="submit">
                                 Save changes
                             </button>
                         </form>

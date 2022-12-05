@@ -5,6 +5,7 @@ import { useContext} from "react";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 const Links = ({ isMobile }) => {
+  const { user } = useContext(AuthContext)
   return (
     <div
       className={[style.links, isMobile ? null : style.navbarLink].join(" ")}

@@ -62,7 +62,7 @@ p {
   }
 }
 
- @ @media (max-width: 768px) {
+ @media (max-width: 768px) {
    .header{
  @include container;
   display: flex;
@@ -79,3 +79,4 @@ p {
  }
  }
    }
+  }
