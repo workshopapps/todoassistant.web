@@ -5,7 +5,6 @@ import { getMessaging, getToken, onMessage } from "firebase/messaging";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB11d-CF7hi7_bKzhsDxBlV90O1ZWi9gsE",
@@ -21,6 +20,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
+//initiazing notification
 const messaging = getMessaging();
 
 export const requestForToken = () => {
