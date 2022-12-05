@@ -44,7 +44,7 @@ background:rgba(113,77,217,0.1);
         color: #FEA759;
       }
     }
-    p {
+p {
       font-size: 18px;
       margin: 1rem 0 3rem;
       text-align: justify;
@@ -62,7 +62,7 @@ background:rgba(113,77,217,0.1);
   }
 }
 
- @media (max-width: 768px) {
+ @ @media (max-width: 768px) {
    .header{
  @include container;
   display: flex;
@@ -70,15 +70,12 @@ background:rgba(113,77,217,0.1);
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8rem;
+  margin-top: 1rem;
   height: 100vh;
   margin-bottom: 5rem;
   .text{ 
     p{
-     padding:1rem 2rem;
      text-align: center;
  }
  }
    }
-   
- }
