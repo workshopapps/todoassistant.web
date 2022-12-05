@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./NewPasswordPage.module.scss";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useFormik } from "formik";
 import Modal from "../ModalSuccessReset/ModalSuccessReset";
 import * as Yup from "yup";
+import axios from "axios";
+const base_url = "https://api.ticked.hng.tech/api/v1";
 
 /* eslint-disable */
 const passwordRegExp =
@@ -20,10 +22,28 @@ const validatePasswordSchema = Yup.object().shape({
     .required("Password is required"),
   confirmpassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm password is required"),
+    .required("Confirm password is required")
 });
 
 function NewPasswordPage() {
+  const [isFetching, setIsFetching] = useState(false);
+
+  // get token from the header
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  }, []);
+
+  const [userId, setUserId] = useState("");
+  // get userid from the header
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    setUserId(userId);
+  }, []);
+
   // open and close modal
   const [openModal, setOpenModal] = useState(false);
   if (openModal) {
@@ -35,9 +55,26 @@ function NewPasswordPage() {
   //   let navigate = useNavigate();
 
   // action after submitting button
-  const onSubmit = (values) => {
-    console.log(values.password);
-    setOpenModal(true);
+  const onSubmit = async values => {
+    const data = { password: values.password };
+    setIsFetching(true);
+    try {
+      await axios
+        .post(
+          `${base_url}/user/reset-password-token?token=${token}&user_id=${userId}`,
+          data
+        )
+        .then(res => {
+          console.log(res);
+          setIsFetching(false);
+          setOpenModal(true);
+          localStorage.removeItem("token");
+          localStorage.removeItem("userId");
+        });
+    } catch (e) {
+      alert(e);
+      setIsFetching(false);
+    }
   };
 
   // toggle password states
@@ -56,10 +93,10 @@ function NewPasswordPage() {
     useFormik({
       initialValues: {
         password: "",
-        confirmpassword: "",
+        confirmpassword: ""
       },
       validationSchema: validatePasswordSchema,
-      onSubmit,
+      onSubmit
     });
 
   return (
@@ -71,7 +108,7 @@ function NewPasswordPage() {
       </p>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div className={style.rsp_input_field}>
-          <label>
+          <label htmlFor="password">
             New Password
             <input
               type={passwordShown ? "text" : "password"}
@@ -99,7 +136,7 @@ function NewPasswordPage() {
           )}
         </div>
         <div className={style.rsp_input_field}>
-          <label>
+          <label htmlFor="confirmpassword">
             Confirm Password
             <input
               type={passwordShown2 ? "text" : "password"}
@@ -128,9 +165,16 @@ function NewPasswordPage() {
             <span className={style.error}>{errors.confirmpassword}</span>
           )}
         </div>
-        <button className={style.btn_npsw} type="submit">
-          Continue
-        </button>
+        {isFetching ? (
+          <button className={style.btn_npsw} disabled={true}>
+            Wait please...
+          </button>
+        ) : (
+          <button className={style.btn_npsw} type="submit">
+            Continue
+          </button>
+        )}
+
         <Modal
           openState={openModal}
           onClose={() => {

@@ -75,7 +75,12 @@ const VAHome = () => {
   }, [hidden]);
 
   return (
-    <Box minHeight={"100vh"} padding="33px" bgcolor={"#F9F7FF"}>
+    <Box
+      minHeight={"100vh"}
+      padding="33px"
+      bgcolor={"#F9F7FF"}
+      className={styles.main}
+    >
       <Box
         display={"flex"}
         justifyContent="space-between"
