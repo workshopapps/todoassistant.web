@@ -3,29 +3,71 @@ import style from "./ResetPasswordPage.module.scss";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import Axios from "axios";
+import { Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+
+const base_url = "https://api.ticked.hng.tech/api/v1";
 
 // validate email
 const validateEmailSchema = Yup.object().shape({
-  email: Yup.string().email("Email is not valid").required("Email is required"),
+  email: Yup.string().email("Email is not valid").required("Email is required")
 });
 
 function ResetPasswordPage() {
   let navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  // toast message displayed when user does not exist
+  /* eslint-disable */
+  const showToastMessage = () => {
+    toast.error("User does not exist", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      transition: Slide,
+      draggable: false,
+      closeButton: false,
+      className: style.toast_classname
+    });
+  };
+
   // action after submitting button
-  const onSubmit = (values) => {
-    console.log(values);
-    navigate("/resetpassword/checkmail", { state: { email: values.email } });
+  const onSubmit = async values => {
+    const data = { email: values.email };
+    setIsLoading(true);
+    try {
+      await Axios.post(base_url + "/user/reset-password", data).then(res => {
+        console.log(res.data.data);
+        localStorage.setItem("userId", res.data.data.user_id);
+        localStorage.setItem("token", res.data.data.token);
+        setIsLoading(false);
+        navigate("/resetpassword/checkmail", {
+          state: {
+            email: values.email
+          }
+        });
+      });
+    } catch (res) {
+      showToastMessage();
+      setIsLoading(false);
+    }
   };
 
   // formik handling
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
-        email: "",
+        email: ""
       },
       validationSchema: validateEmailSchema,
-      onSubmit,
+      onSubmit
     });
 
   return (
@@ -54,7 +96,11 @@ function ResetPasswordPage() {
             <span className={style.error}>{errors.email}</span>
           )}
         </div>
-        <button type="submit">Continue</button>
+        {isLoading ? (
+          <button disabled={true}>Wait please...</button>
+        ) : (
+          <button type="submit">Continue</button>
+        )}
       </form>
     </div>
   );
