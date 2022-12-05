@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Task from "./Task";
 import TaskDetail from "./TaskDetail";
+import Preloader from "./Preloader";
 import styles from "./Home.module.scss";
 import vaArrowDown from "../../../assets/VADashboard/va-arrowDown.svg";
-// import profile from "../../../assets/VADashboard/profile.svg";
 
 const Home = () => {
   const [nav, setNav] = useState(true);
@@ -12,11 +12,12 @@ const Home = () => {
   const [showDetail, setShowDetail] = useState({});
   const [tasks, setTasks] = useState([]);
   const [assigned, setAssigned] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchTasks = async () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
-
-    if (vaUser) {
+    try {
+      setLoading(true)
       const response = await axios.get(
         `https://api.ticked.hng.tech/api/v1/task/all/va`,
         {
@@ -25,17 +26,23 @@ const Home = () => {
           }
         }
       );
-      const vaTasks = response.data.data;
-      setTasks(vaTasks);
+      if (response.status === 200) {
+        setLoading(false);
+        const vaTasks = response.data.data;
+        setTasks(vaTasks);
+      }
+
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
     }
   };
 
   const handleClick = e => {
     setTaskDetail(true);
     const id = e.target.id;
-
     const currentTask = tasks.filter(
-      task => task.task_id === id || id === "arrow"
+      task => task.task_id === id
     );
     setShowDetail(currentTask[0]);
   };
@@ -44,7 +51,6 @@ const Home = () => {
     setTaskDetail(false);
   };
 
-  fetchTasks();
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -81,7 +87,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-
+        {loading ? <Preloader /> :
+        (
         <div className={styles.va_tasks}>
           {tasks?.length > 0 ? (
             nav ? (
@@ -113,6 +120,7 @@ const Home = () => {
             </div>
           )}
         </div>
+         ) }
       </div>
       {taskDetail ? (
         <div className={styles.task_detail_slider}>
