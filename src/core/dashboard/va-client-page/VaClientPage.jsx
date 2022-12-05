@@ -30,7 +30,6 @@ const VaClientPage = () => {
       );
       if (response.data.code === 200) {
         setLoading(false);
-        console.log(response.data.data);
         setVaUsers(response.data.data);
       }
     } catch (error) {

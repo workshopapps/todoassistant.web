@@ -101,6 +101,11 @@
         line-height: 1.25rem;
         margin-top: 5rem;
         border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #7b5ed3;
+        }
       }
 
       .tosignup {

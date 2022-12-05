@@ -70,15 +70,13 @@ const ContactForm = () => {
           <label className={contactStyles.contactFormLabel}>
             Your Message{" "}
           </label>
-          <input
-            required
-            type="text"
-            className={contactStyles.contactFormTextarea}
-            placeholder="Type in your message"
-            value={message}
-            name="message"
-            onChange={e => setMessage(e.target.value)}
-          />
+              <textarea
+                required
+                type="text"
+          className={contactStyles.contactFormTextarea}
+                name="message"
+value={message} onChange={(e)=> setMessage(e.target.value)}>
+</textarea>
         </div>
 
         <button type="submit" className={`${contactStyles.buttom} hover`}>
