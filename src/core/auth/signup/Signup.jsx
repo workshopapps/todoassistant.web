@@ -16,7 +16,7 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useForm } from "react-hook-form";
-import { requestForToken } from "../../../firebase";
+
 
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
@@ -26,7 +26,7 @@ const Signup = () => {
   const [active, setActive] = useState(true)
   const [passwordShown, setPasswordShown] = useState(false);
   const [phone, setPhone] = useState()
-  const { user, dispatch } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
   // const [first_name, setFirstName] = useState("");
   // const [last_name, setLastName] = useState("");
@@ -38,9 +38,7 @@ const Signup = () => {
 
 
 
-  useEffect(() => {
-    (user !== null) && requestForToken();
-  },[user]);
+  
 
 
   

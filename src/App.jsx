@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
@@ -70,12 +70,43 @@ import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
+import './messaging_init_in_sw';
+import axios from "axios";
+
 
 function App() {
+  const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
+
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
   const location = useLocation();
+  
+
+  
+  const sendNotification = async () =>{
+    const user_id = user.user_id;
+    try {
+      const response = await axios.post(
+        'https://api.ticked.hng.tech/api/v1/notification',
+        { user_id, device_id }
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  
+  
+  useEffect(()=>{
+    if (user !== null){
+      setDevice_Id(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
+     sendNotification();
+    } 
+  },[user, device_id]);
+
+
 
   useEffect(() => {
     if (VA && location.pathname === "/va-login") {
