@@ -90,9 +90,11 @@
 
 // export default Notifications
 
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Box, Typography } from '@mui/material'
+import { requestForToken, onMessageListener  } from '../../firebaseNotification'
 
+// import toast, { Toaster } from 'react-hot-toast';
 
 import more from "../../assets/dashboard/more.png"
 import overdue from "../../assets/dashboard/overdue.png"
@@ -134,6 +136,25 @@ const notification = [
 
 export default function Notifications() {
     const [ active, setActive ] = useState("All")
+    const [vaNotification, setVaNotification] = useState({title: '', body: ''});
+
+   
+    // checking for new notification
+    useEffect(() => {
+        // if (vaNotification?.title ){
+        //  notify()
+        // }
+      }, [vaNotification])
+
+// Requesting for va permision to send notification
+    requestForToken()
+
+// Updating notification state on in-coming notification
+    onMessageListener()
+    .then((payload) => {
+      setVaNotification({title: payload?.notification?.title, body: payload?.notification?.body});     
+    })
+    .catch((err) => console.log('failed: ', err));
 
   return (
     <Box maxWidth={"100vw"}>
@@ -146,6 +167,7 @@ export default function Notifications() {
         >
             Notifications
         </Typography>
+
         <Box mt={2} sx={{background: "#fff", padding: "30px 40px", borderRadius: "8px"}}>
             <Box sx={{display: "flex", justifyContent:  "space-between"}}>
                 <Box sx={{display: "flex", gap: "30px", padding: "0px 30px"}}>
