@@ -5,11 +5,6 @@ import { BsArrowRight } from "react-icons/bs";
 import SMS from "../../../assets/images/sms.jpg";
 
 function CheckMail() {
-  // change url after 5 secs
-
-  //   setTimeout(function () {
-  //     window.location.replace("/newpassword");
-  //   }, 5000);
   const location = useLocation();
 
   return (
@@ -22,7 +17,7 @@ function CheckMail() {
         </p>
       </div>
       <button className={style.btn_link}>
-        <Link to="/resetpassword/putnewpassword">
+        <Link to="/resetpassword/otp">
           Go to Email App <BsArrowRight />
         </Link>
       </button>
@@ -34,7 +29,7 @@ function CheckMail() {
 
       <p>
         Did you receive the email? Check your spam filter <br />
-        or <Link to="/"> try another email address</Link>
+        or <Link to="/resetpassword"> try another email address</Link>
       </p>
     </div>
   );
