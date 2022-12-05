@@ -40,7 +40,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     and will hear from us soon.
   </Typography>
 </Box>;
-export function AlertDialogSlide({ open, handleClose, error }) {
+export function AlertDialogSlide({ open, handleClose, error, email }) {
   let content;
   if (error !== "error") {
     if (error === "new") {
@@ -81,7 +81,7 @@ export function AlertDialogSlide({ open, handleClose, error }) {
         </Box>
       );
     } else if (error === "exist") {
-      content = <Typography>Email already Exist</Typography>;
+      content = <Typography> {email} email already exist</Typography>;
     }
   } else {
     content = (
@@ -155,7 +155,7 @@ const NewsLetter = () => {
   };
   return (
     <>
-      <AlertDialogSlide handleClose={handleClose} open={open} error={error} />
+      <AlertDialogSlide handleClose={handleClose} open={open} error={error} email={email} />
       <section className={style.news__letter}>
         <h3 className={style.header}>Newsletter</h3>
         <form className={style.form}>
