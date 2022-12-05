@@ -7,7 +7,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "Jack Doe",
+    username: "Jack Doe",
     comment: 5,
     number: +23454984847,
     description: "Research is good for the soul, You dont believe"
@@ -20,7 +20,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -34,7 +34,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -48,7 +48,7 @@ const tasks = [
     status: "Pending",
     color: "rgba(113, 77, 217, 0.11)",
     colorDark: "rgba(113, 77, 217)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -62,7 +62,7 @@ const tasks = [
     status: "Overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -76,7 +76,7 @@ const tasks = [
     status: "Pending",
     color: "rgba(113, 77, 217, 0.11)",
     colorDark: "rgba(113, 77, 217)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -90,7 +90,7 @@ const tasks = [
     status: "Overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -104,7 +104,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -118,7 +118,7 @@ const tasks = [
     status: "overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -132,7 +132,7 @@ const tasks = [
     status: "Overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -146,7 +146,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -160,7 +160,7 @@ const tasks = [
     status: "Pending",
     color: "rgba(113, 77, 217, 0.11)",
     colorDark: "rgba(113, 77, 217)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -174,7 +174,7 @@ const tasks = [
     status: "Overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -188,7 +188,7 @@ const tasks = [
     status: "Overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -202,7 +202,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -216,7 +216,7 @@ const tasks = [
     status: "overdue",
     color: "rgba(255, 77, 79, 0.11)",
     colorDark: "rgba(255, 77, 79)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -230,7 +230,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -244,7 +244,7 @@ const tasks = [
     status: "Pending",
     color: "rgba(113, 77, 217, 0.11)",
     colorDark: "rgba(113, 77, 217)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -258,7 +258,7 @@ const tasks = [
     status: "Pending",
     color: "rgba(113, 77, 217, 0.11)",
     colorDark: "rgba(113, 77, 217)",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:
@@ -272,7 +272,7 @@ const tasks = [
     status: "Done",
     color: "#53c41a1c",
     colorDark: "#53c41a",
-    client: "John Doe",
+    username: "John Doe",
     comment: 5,
     number: +23454984847,
     description:

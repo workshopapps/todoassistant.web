@@ -25,36 +25,26 @@
                     display: none;
                   }
 
-                  @media screen and ( max-width:1023px ){
-                    .comment{
-                       width: 54.5% !important
-                    }
-                  }
+                  // @media screen and ( max-width:1023px ){
+                  //   .comment{
+                  //      width: 54.5% !important
+                  //   }
+                  // }
 
-                  @media screen and ( max-width:1012px ){
-                    .comment{
-                        width:52.5% !important
-                    }
-                  }
-                  @media screen and ( max-width:953px ){
-                    .comment{
-                        width:50.5% !important
-                    }
-                  }
+                  // @media screen and ( max-width:1012px ){
+                  //   .comment{
+                  //       width:52.5% !important
+                  //   }
+                  // }
+                  // @media screen and ( max-width:953px ){
+                  //   .comment{
+                  //       width:50.5% !important
+                  //   }
+                  // }
 
-                  @media screen and ( max-width:1010px ){  
-                    .saviour__relative{
                   
-                   
-                    top: 138px !important;
-              }
-            
-              .title__hi{
-                padding-top: 28px !important;
-              }
-            }
                   //sidebar
-                  @media screen and ( max-width:1029px ){
+                
                     .closeIcon{
                       display: block;
                     }
@@ -83,11 +73,11 @@
                         
                     .sidebar__fixed{
                       height: 300vh !important; 
-                            width: 61% !important;
+                        right:0;
                             background-color: white !important;
                             top: -45px !important;
                           
-                        
+                            transition: all 0.7s ease-in-out;
                         }
                         .comment {
                          
@@ -100,14 +90,41 @@
                        
                         .closeIcon{
                             position: absolute;
-                            right: 46px;
+                            right: 32px;
                             cursor: pointer;
                             height: 31px;
-                            top: 23px;
+                            top: 44px;
                         }
                     
-                  }
+                 
+                  @media screen and ( max-width:1010px ){  
+                    .saviour__relative{
+                  
+                   
+                    top: 138px !important;
+              }
+            
+              .title__hi{
+                padding-top: 28px !important;
+              }
+            } 
+            @media screen and ( max-width:900px ){ 
+              .sidebar__fixed{
+                width:67%
+              }
+              .comment{
+                width: 57%;
+              }
+            }
+            @media screen and ( max-width:874px ){ 
+               .comment{
+                width: 53%;
+              }
+            }
                   @media screen and ( max-width:600px ){
+                    .comment{
+                      width: 87% !important;
+                    }
                     .sidebar{
                         
                       width: 100% !important; 
@@ -125,15 +142,25 @@
                         .comment.hidden {
                            right: -300px !important;
                           }
+
+
+                          .main{
+                            padding: 33px 12px !important;
+                          }
                           
-                          .comment{
-                          width: 90.5% !important
-                       }
+                      //     .comment{
+                      //     width: 90.5% !important
+                      //  }
                        
                     
                   }
-                       @media screen and ( max-width:400px ){
-                        .comment{
-                          width: 85.5% !important
-                       }
-                       }
+                      //  @media screen and ( max-width:400px ){
+                      //   .comment{
+                      //     width: 85.5% !important
+                      //  }
+                      //  } 
+                      
+                      @media screen and ( max-width:400px ){
+                    .comment{
+                      width: 80% !important;
+                    }}

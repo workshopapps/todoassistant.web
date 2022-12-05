@@ -71,18 +71,21 @@ const Navbar = ({ handleDrawerToggle }) => {
                 />
               </Badge>
             </Link>
-            <Avatar
-              // {...stringAvatar("Kingsley Solomon")}
-              alt="Remy Sharp"
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
-              sx={{
-                width: 40,
-                height: 40,
-                fontSize: `14px`,
-                fontWeight: 700,
-                color: `#714DD9`
-              }}
-            />
+
+            <Link to={`/virtual-assistance/profile`}>
+              <Avatar
+                // {...stringAvatar("Kingsley Solomon")}
+                alt="Remy Sharp"
+                src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
+                sx={{
+                  width: 40,
+                  height: 40,
+                  fontSize: `14px`,
+                  fontWeight: 700,
+                  color: `#714DD9`
+                }}
+              />
+            </Link>
           </Stack>
         </Box>
       </Toolbar>

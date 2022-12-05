@@ -24,7 +24,7 @@ const Dashboardlayout = () => {
             alignItems={`center`}
             height={`120px`}
           >
-            <Link to={`/`}>
+            <Link to={`/virtual-assistance/profile`}>
               <img
                 src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
                 alt="logo"
@@ -36,7 +36,7 @@ const Dashboardlayout = () => {
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
         <DashboardNav />
-        <Outlet/>
+        <Outlet />
       </Grid2>
     </Grid2>
   );

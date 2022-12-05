@@ -127,9 +127,12 @@ const NewsLetter = () => {
   const handleNewsLetter = async () => {
     if (email !== "" && validateEmail(email)) {
       try {
-        const response = await axios.post("https://api.ticked.hng.tech/api/v1/subscribe", {
-          email: `"${email}"`
-        });
+        const response = await axios.post(
+          "https://api.ticked.hng.tech/api/v1/subscribe",
+          {
+            email: `"${email}"`
+          }
+        );
         if (response.status == 200) {
           handleClickOpen();
           setError("new");
@@ -163,7 +166,7 @@ const NewsLetter = () => {
             <input
               className={`${style.input}`}
               style={{ outline: "none" }}
-              autoComplete
+              autoComplete="true"
               onChange={e => setEmail(e.target.value)}
               type="email"
               value={email}

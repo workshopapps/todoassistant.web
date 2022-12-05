@@ -48,14 +48,17 @@ export default function UserProfileModal({ userID }) {
   const getUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://api.ticked.hng.tech/api/v1/va/user/profile/${userID}`, {
-        headers: {
-          Authorization: `Bearer ${vaUser.extra.token}`
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/va/user/profile/${userID}`,
+        {
+          headers: {
+            Authorization: `Bearer ${vaUser.extra.token}`
+          }
         }
-      });
+      );
       if (response.status === 200) {
         setLoading(false);
-        console.log(response);
+
         setUserDetails(response.data.data);
       }
     } catch (error) {
@@ -66,7 +69,6 @@ export default function UserProfileModal({ userID }) {
 
   React.useEffect(() => {
     getUserDetails();
-    console.log(userDetails);
   }, []);
 
   return (
@@ -165,9 +167,6 @@ export default function UserProfileModal({ userID }) {
                 </Stack>
               </Stack>
             </Box>
-            <Typography fontSize={`small`} color={`success`}>
-              {userID}
-            </Typography>
           </Box>
         )}
       </Modal>
