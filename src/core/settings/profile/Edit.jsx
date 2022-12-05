@@ -1,6 +1,6 @@
 import React from "react";
 import './Settings.scss'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import arrowLeft from "../../../assets/arrow-left-cj.svg"
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
@@ -8,6 +8,8 @@ import axios from "axios";
 
 
 const Edit = () => {
+
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { first_name, user_id } = user
 
@@ -30,11 +32,42 @@ const Edit = () => {
         setForm({ ...form, [name]: value })
     }
     
- 
+  const editRequest = async (formValue) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    try {
+	if (user) {
+	      const res = await axios.put(
+	        `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+	        {
+	        "first_name":formValue.first_Name,
+	        "last_name":formValue.last_name,
+	        "email":formValue.email,
+	        "phone":formValue.phone
+	        },
+	        {
+	          headers: {
+	            Authorization: `Bearer ${user.access_token}`
+	          }
+	        }
+	      );
+	        console.log(res);
+            if ((res.status == 200 && res.data)) {
+                localStorage.setItem("user", JSON.stringify(res?.data));
+                navigate('/dashboard/profile')
+                navigate(0)
+            }
+	    }
+	
+} catch (error) {
+	console.log(error);
+}
+  }
 const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(form);
-    // editRequest(form)
+    editRequest(form)
+
 }
 
     let FName = first_name
