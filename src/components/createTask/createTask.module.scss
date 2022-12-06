@@ -1,5 +1,8 @@
 .createTask_close {
-  display: none;
+  // display: none;
+  height: 0px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .createTask_wrapper {
   background-color: #7070705e;
@@ -53,11 +56,14 @@
       align-items: flex-start;
       margin-top: 1rem;
       .createTask_label {
+        @media screen and (max-width: 414px) {
+          font-size: 12px;
+        }
         color: #333333;
         font-family: "Open Sans";
         font-style: normal;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 15.2px;
         line-height: 100%;
       }
       .createTask_input {
@@ -90,14 +96,18 @@
         align-items: flex-start;
         margin-top: 1rem;
         .createTask_label {
+          @media screen and (max-width: 414px) {
+            font-size: 12px;
+          }
           color: #333333;
           font-family: "Open Sans";
           font-style: normal;
           font-weight: 700;
-          font-size: 12px;
+          font-size: 15.2px;
           line-height: 100%;
         }
         .createTask_input {
+          cursor: pointer;
           margin-top: 0.5rem;
           align-self: stretch;
           border-radius: 8px;
@@ -122,14 +132,18 @@
         align-items: flex-start;
         margin-top: 1rem;
         .createTask_label {
+          @media screen and (max-width: 414px) {
+            font-size: 12px;
+          }
           color: #333333;
           font-family: "Open Sans";
           font-style: normal;
           font-weight: 700;
-          font-size: 12px;
+          font-size: 15.2px;
           line-height: 100%;
         }
         .createTask_input {
+          cursor: pointer;
           margin-top: 0.5rem;
           align-self: stretch;
           border-radius: 8px;
@@ -151,10 +165,13 @@
     .createTask_va {
       margin-top: 1rem;
       .createTask_va_title {
+        @media screen and (max-width: 414px) {
+          font-size: 12px;
+        }
         font-family: "Open Sans";
         font-style: normal;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 15.2px;
         line-height: 100%;
         color: #333333;
       }
@@ -167,34 +184,34 @@
         .createTask_va_list1,
         .createTask_va_list2,
         .createTask_va_list3 {
-          //   input[type="radio"]:after {
-          //     width: 16px;
-          //     height: 16px;
-          //     border-radius: 15px;
-          //     top: -2px;
-          //     left: -1px;
-          //     position: relative;
-          //     background-color: white;
-          //     content: "";
-          //     display: inline-block;
-          //     visibility: visible;
-          //     border: 1px solid #d3d0d9;
-          //   }
+          input[type="radio"]:after {
+            width: 16px;
+            height: 16px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: white;
+            content: "";
+            display: inline-block;
+            visibility: visible;
+            border: 1px solid #d3d0d9;
+          }
 
-          //   input[type="radio"]:checked:after {
-          //     width: 16px;
-          //     height: 16px;
-          //     border-radius: 15px;
-          //     top: -2px;
-          //     left: -1px;
-          //     position: relative;
-          //     background-color: #714dd9;
-          //     content: "";
-          //     display: inline-block;
-          //     visibility: visible;
-          //     // border: 2px solid white;
-          //     border: 1px solid #d3d0d9;
-          //   }
+          input[type="radio"]:checked:after {
+            width: 16px;
+            height: 16px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #714dd9;
+            content: "";
+            display: inline-block;
+            visibility: visible;
+            // border: 2px solid white;
+            border: 1px solid #d3d0d9;
+          }
 
           display: flex;
           flex-direction: row;
@@ -279,7 +296,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       width: 100%;
       .createTask_submit_button1 {
         @media screen and (max-width: 1042px) {
