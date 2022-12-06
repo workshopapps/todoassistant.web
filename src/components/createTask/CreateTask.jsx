@@ -28,6 +28,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const newData = { ...data };
     newData[e.target.name] = e.target.value;
     setData(newData);
+    console.log(newData);
   };
 
   const handleClose1 = e => {
@@ -71,9 +72,17 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
       data.assistant = "";
     } catch (error) {
       // alert("Server Error");
-      toast.error("Server Error", {
+      toast.error("Server Error! Unable to create task. Try again later.", {
         position: toast.POSITION.TOP_RIGHT
       });
+      setTaskModal(0);
+      setSubmit(!submit);
+      data.title = "";
+      data.date1 = "";
+      data.date2 = "";
+      data.time = "";
+      data.repeat = "";
+      data.assistant = "";
     }
   };
   return (
