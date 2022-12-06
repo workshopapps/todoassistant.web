@@ -1,6 +1,7 @@
 import { Box, Divider, Stack } from "@mui/material";
 import React from "react";
-import SignupForm from "./SignupForm";
+import MySignUpForm from "./MySignUpForm";
+// import SignupForm from "./SignupForm";
 
 const imgStyle = {
   objectFit: `cover`,
@@ -22,7 +23,8 @@ const UserSignUp = () => {
         </Stack>
         <Divider />
         {/* sign up form goes here */}
-        <SignupForm />
+        {/* <SignupForm /> */}
+        <MySignUpForm />
       </Box>
       <Box height={{ xs: `15%`, md: `100%` }} flex={{ md: 1 }}>
         <img
