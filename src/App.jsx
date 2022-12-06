@@ -66,9 +66,9 @@ import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
-import Signup from "./core/auth/signup/Signup";
+// import Signup from "./core/auth/signup/Signup";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
-// import UserSignUp from "./core/auth/signup/UserSignUp";
+import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -103,14 +103,14 @@ function App() {
           path="/login"
           element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
         />
-        {/* <Route
-          path="/signup"
-          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
-        /> */}
         <Route
           path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
         />
+        {/* <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+        /> */}
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
@@ -155,7 +155,7 @@ function App() {
             <Route path="/pro" element={<ProPreferences />} />
             <Route path="/account/edit" element={<PreferenceSettingEdit />} />
           </>
-        ) : VA ? (
+        ) : !VA ? (
           <>
             <Route path="/va-signup" element={<VASignup />} />
             <Route path="/va-login" element={<Dashboardlayout />} />
