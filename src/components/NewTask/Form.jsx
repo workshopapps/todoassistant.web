@@ -12,7 +12,7 @@ import axios from "axios";
 
 function Form({ value }) {
   if (localStorage.getItem("myTasks")) {
-    console.log("");
+    console.log("lsdjj");
   } else {
     localStorage.setItem("myTasks", "[]");
   }
