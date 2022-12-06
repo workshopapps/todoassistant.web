@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
 .otp_cont {
   max-width: 464px;
   margin: 0 auto;
@@ -85,12 +87,25 @@
   }
 }
 .toast_error {
-  color: red;
-  border: 1px solid red;
+  font-family: "Roboto", sans-serif;
+  color: #b30e16;
+  border: 1px solid #e49393;
+  background: #ffe4e4;
   border-radius: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  // color: #7a1212;
 }
 .toast_success {
-  color: green;
-  border: 1px solid green;
+  font-family: "Roboto", sans-serif;
+  color: #327411;
   border-radius: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
 }
