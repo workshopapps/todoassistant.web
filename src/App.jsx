@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react";
 import { Suspense, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
@@ -244,4 +245,4 @@ function App() {
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);
