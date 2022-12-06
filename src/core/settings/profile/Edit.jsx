@@ -14,7 +14,7 @@ const Edit = () => {
     const { first_name, user_id } = user
 
     useEffect(() => {
-        axios.get(`api/v1/va/${user_id}').then((res)=> console.log(res)`)
+        axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
     }, [])
 
 
@@ -51,21 +51,20 @@ const Edit = () => {
 	          }
 	        }
 	      );
-	        console.log(res);
+	        
             if ((res.status == 200 && res.data)) {
                 localStorage.setItem("user", JSON.stringify(res?.data));
                 navigate('/dashboard/profile')
                 navigate(0)
+                alert('Details changed')
             }
 	    }
-	
 } catch (error) {
-	console.log(error);
+	alert(error);
 }
   }
 const handleSubmit = (e)=>{
     e.preventDefault()
-    console.log(form);
     editRequest(form)
 
 }

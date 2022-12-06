@@ -28,16 +28,15 @@ const SettingsProfilee = () => {
             }
           }
         );
-        console.log(res);
         if ((res.status == 200 && res.data)) {
           localStorage.setItem("user", null);
           navigate('/')
-
+          alert('account deleted')
         }
       }
 
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   }
   const handleDelete = async () => {
