@@ -214,7 +214,9 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
             Hello, my name is Michael and I am your virtual assistant.
           </p>
           <p className={styles.createTask_submit_item}>
-            I would make sure you do not forget your tasks by giving you a call.
+            {data.assistant === "get call"
+              ? "I would make sure you do not forget your tasks by giving you a call."
+              : "I will ensure I handle your task you assigned to me"}
           </p>
           <div className={styles.createTask_submit_button_wrapper}>
             <button
@@ -224,9 +226,9 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               }}
               className={styles.createTask_submit_button1}
             >
-              Remind me
+              Done
             </button>
-            <button
+            {/* <button
               id="no"
               onClick={e => {
                 handleSubmit(e);
@@ -234,7 +236,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               className={styles.createTask_submit_button2}
             >
               No, Thanks
-            </button>
+            </button> */}
           </div>
         </div>
       ) : (
