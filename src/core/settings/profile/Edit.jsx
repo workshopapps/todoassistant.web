@@ -1,6 +1,6 @@
 import React from "react";
 import './Settings.scss'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import arrowLeft from "../../../assets/arrow-left-cj.svg"
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
@@ -8,11 +8,13 @@ import axios from "axios";
 
 
 const Edit = () => {
+
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const { first_name, user_id } = user
 
     useEffect(() => {
-        axios.get(`api/v1/va/${user_id}').then((res)=> console.log(res)`)
+        axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
     }, [])
 
 
@@ -29,6 +31,43 @@ const Edit = () => {
         const { name, value } = e.target
         setForm({ ...form, [name]: value })
     }
+    
+  const editRequest = async (formValue) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    try {
+	if (user) {
+	      const res = await axios.put(
+	        `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+	        {
+	        "first_name":formValue.first_Name,
+	        "last_name":formValue.last_name,
+	        "email":formValue.email,
+	        "phone":formValue.phone
+	        },
+	        {
+	          headers: {
+	            Authorization: `Bearer ${user.access_token}`
+	          }
+	        }
+	      );
+	        
+            if ((res.status == 200 && res.data)) {
+                localStorage.setItem("user", JSON.stringify(res?.data));
+                navigate('/dashboard/profile')
+                navigate(0)
+                alert('Details changed')
+            }
+	    }
+} catch (error) {
+	alert(error);
+}
+  }
+const handleSubmit = (e)=>{
+    e.preventDefault()
+    editRequest(form)
+
+}
 
     let FName = first_name
     let initial = FName.charAt(0).toUpperCase()
@@ -44,7 +83,7 @@ const Edit = () => {
                     <div className="profile-bottom">
 
 
-                        <form className="form">
+                        <form className="form" onSubmit={handleSubmit}>
                             <p className="title">Edit profile</p>
                             <div className="head">
                                 <div className="head-1">
@@ -68,11 +107,11 @@ const Edit = () => {
                                 </div>
                                 <div className="form-field">
                                     <label htmlFor="phone" className="lab">Phone number</label>
-                                    <input type="password" id="phone" required name="phone" value={phone} onChange={onChange} />
+                                    <input type="text" id="phone" required name="phone" value={phone} onChange={onChange} />
                                 </div>
                             </div>
 
-                            <button className="btn-btn-btn">
+                            <button className="btn-btn-btn" type="submit">
                                 Save changes
                             </button>
                         </form>
