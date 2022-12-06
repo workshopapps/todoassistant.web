@@ -10,6 +10,8 @@ import { VAAuthContextProvider } from "./contexts/VAContexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
+import reportWebVitals from './reportWebVitals';
+
 
 
 Sentry.init({
