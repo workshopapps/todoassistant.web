@@ -114,14 +114,15 @@ const TaskItems = ({ status, myTasks }) => {
             </p>
           </div>
           <p className={styles.noOfTasks}>{`${
-            myTasks.length === 0 ? 0 : taskCount()
+            myTasks ? (myTasks.length === 0 ? 0 : taskCount()) : 0
           } TASKS`}</p>
         </div>
         {/* <p className={styles.asign}>ASSIGN</p> */}
         <p className={styles.date}>DUE DATE</p>
       </div>
       <div className={styles.tasks}>
-        {myTasks.length !== 0 &&
+        {myTasks &&
+          myTasks.length !== 0 &&
           myTasks
             .slice(0)
             .reverse()

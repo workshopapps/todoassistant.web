@@ -11,7 +11,6 @@ const DashboardTabs = ({ tabNames, setActiveTab }) => {
     })
   );
   const [tabs, setTabs] = useState(defaultTabs);
-  console.log(tabs);
   const handleClick = id => {
     const dummyTabs = [...tabs];
     dummyTabs.map(i => (i.active = i.id === id ? true : false));
