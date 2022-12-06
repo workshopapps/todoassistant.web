@@ -91,6 +91,7 @@ function App() {
         { user_id, device_id }
       );
       console.log(response);
+      console.log(device_id);
     } catch (err) {
       console.log(err);
     }
