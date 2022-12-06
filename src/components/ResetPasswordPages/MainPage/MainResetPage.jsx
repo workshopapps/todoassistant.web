@@ -6,6 +6,8 @@ import CheckMail from "../CheckMail/CheckMail";
 import { Route, Routes } from "react-router-dom";
 import resetPswImg from "../../../assets/images/reset-psw-img.svg";
 import TickedLogo from "../../../assets/images/reset_logo.jpg";
+import OTPPage from "../otpPage/OTPPage";
+
 function MainResetPage() {
   return (
     <>
@@ -18,6 +20,7 @@ function MainResetPage() {
             <Routes>
               <Route path="/" element={<ResetPasswordPage />} />
               <Route path="/checkmail" element={<CheckMail />} />
+              <Route path="/otp" element={<OTPPage />} />
               <Route path="/putnewpassword" element={<NewPasswordPage />} />
             </Routes>
           </div>

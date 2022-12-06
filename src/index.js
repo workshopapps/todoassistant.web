@@ -7,6 +7,7 @@ import { AuthContextProvider } from "./contexts/authContext/AuthContext";
 import TaskContextProvider from "./contexts/taskContext/TaskContextProvider";
 import ScrollToTop from "./hooks/scroll-to-top/ScrollToTop";
 import { VAAuthContextProvider } from "./contexts/VAContexts/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
       <AuthContextProvider>
         <TaskContextProvider>
           <ScrollToTop />
+          <ToastContainer />
           <App />
         </TaskContextProvider>
       </AuthContextProvider>

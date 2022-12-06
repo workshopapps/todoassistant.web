@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./navbar.module.scss";
+import { useContext} from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
 
 const Links = ({ isMobile }) => {
+  const { user } = useContext(AuthContext)
   return (
     <div
       className={[style.links, isMobile ? null : style.navbarLink].join(" ")}
@@ -31,6 +34,13 @@ const Links = ({ isMobile }) => {
       >
         Subscription Plan
       </NavLink>
+      
+      { user ? <NavLink
+        to={`/dashboard`}
+        className={({ isActive }) => (isActive ? style.active : style.inactive)}
+      >
+        Dashboard
+      </NavLink> : null }
     </div>
   );
 };

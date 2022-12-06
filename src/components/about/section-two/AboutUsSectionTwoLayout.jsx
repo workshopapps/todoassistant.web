@@ -1,65 +1,80 @@
+
+import React, { useState } from "react";
+import { Animate } from "../../../hooks/animation/AnimateIn";
+import Button from "../../button/ButtonComponent";
+import SectionThreeList from "../../../components/landing-page/section-three/section-three-list/SectionThreeList";
+//import SectionThreeList from "./section-three-list/SectionThreeList";
 import styles from "./AboutUsHeader.module.scss";
-import React from "react";
-//import img from "https://asset.cloudinary.com/dlst0ec4h/11f5441940f9826db27b7eb558f216eb";
-import icon1 from "../../../assets/task-square.png";
-import icon2 from "../../../assets/profile-2user.png";
-import icon3 from "../../../assets/tick-circle.png";
-//import Button from "../../button/ButtonComponent";
-import { Link } from "react-router-dom";
 
 const AboutUsSectionTwoLayout = () => {
+  const [img, setImg] = useState(
+    "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+  );
+  const onHover = e => {
+    let name = e.target.dataset.name;
+    if (name === "step-2") {
+      setImg(
+        `https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644176/hng/todoAppVirtualAssistant/Frame_34492_bci6bq.svg`
+      );
+    } else {
+      setImg(
+        "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
+      );
+    }
+  };
+
   return (
-    <div className={styles.headerContainer}>
-      <div className={styles.headerTickedBox}>
-      
-        <div className={styles.box}>
-        <div className={styles.headerRow}>
-        <img src={icon1} alt="tick"/>
-        <h1>Get on your dashboard</h1>
-        </div>
-          <p className={styles.tickedText}>
-Describe your task, set the date and time for your task deadline
-          </p>
-        </div>
+    <div className={styles.main}>
+      <img
+        className={styles.float_icon}
+        src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-4_fj6sl7.svg"
+        alt="float-icon"
+      />
+      <section className={styles.container}>
+        <div className={styles.main__tick}>
+          <header>
+            <h3 className={styles.section__three_title}>Why Ticked</h3>
+          </header>
+          <div className={styles.steps}>
+            <SectionThreeList
+              hover={onHover}
+              name={`step-1`}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670551/hng/todoAppVirtualAssistant/task-square_bmrtgd.svg"
+              title="Get on your dashboard"
+              desc="Describe your task, set the date and time for your task deadline."
+            />
+          </div>
 
-        <div>
-        <div className={styles.headerRow}>
-        <img src={icon2} alt="tick"/>
-        <h1>Personalized Virtual Assistant</h1>
+          <div className={styles.steps}>
+            <SectionThreeList
+              hover={onHover}
+              name={`step-2`}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670567/hng/todoAppVirtualAssistant/timer-pause_zksz2j.svg"
+              title="Personalized Virtual Assistant"
+              desc="The in-app chat feature available allows you to communicate and assign tasks to a personalized Assistant."
+            />
+          </div>
+          <div>
+            <SectionThreeList
+              hover={onHover}
+              icon="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668670583/hng/todoAppVirtualAssistant/tick-circle_cw0mdk.svg"
+              title="Get TICKED"
+              desc="Receive notifications when you complete your tasks and a call when deadlines are fast approaching.
+"
+            />
+          </div>
+          <div className={styles.steps}>
+            <Button link={`/`} style={{ width: `50%` }} title={`get ticked`} />
+            <button className={styles.download}>Download App</button>
+          </div>
         </div>
-          <p className={styles.tickedText}>
-          The in-app chat feature available allows you to communicate and assign tasks to personalized Assistant.
-          </p>
-        </div>
-
-        <div>
-        <div className={styles.headerRow}>
-        <img src={icon3} alt="tick"/>
-        <h1>Get Ticked</h1>
-        </div>
-          <p className={styles.tickedText}>
-          Receive notifications when you complete your tasks and get a call when deadlines are fast approaching.
-          </p>
-        </div>
-
-        <div className={styles.headerRow}>
-        
-          <Link to="/signup">
-            <button className={`${styles.button_getstarted} hover`}>
-              GET STARTED
-            </button>
-          </Link>
-          <button className={`${styles.button_login} hover`}>
-            DOWNLOAD APP
-          </button>
-        </div>
-      </div>
-      
-      <div className={styles.headerImageBox}>
-      <img className={styles.img} src="https://res.cloudinary.com/dlst0ec4h/image/upload/v1670062708/group_26086241_cr1jsi.png" alt="" />
+      </section>
+      <div>
+        <Animate.FadeIn>
+          <img className={styles.img} src={img} alt="section-three-img" />
+        </Animate.FadeIn>
       </div>
     </div>
   );
 };
-
 export default AboutUsSectionTwoLayout;

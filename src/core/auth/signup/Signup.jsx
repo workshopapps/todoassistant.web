@@ -17,6 +17,7 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useForm } from "react-hook-form";
 
+
 const Signup = () => {
   const clientId = '407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com';
   const { register, handleSubmit, trigger, formState: { errors } } = useForm();
@@ -27,7 +28,20 @@ const Signup = () => {
   const [phone, setPhone] = useState()
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
+  // const [first_name, setFirstName] = useState("");
+  // const [last_name, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [error, setError] = useState(false);
+  // const [gender, setGender] = useState("");
+  // const [date_of_birth, setDateofbirth] = useState("");
 
+
+
+  
+
+
+  
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
@@ -44,6 +58,9 @@ const Signup = () => {
  const onFailure = (err) => {
    console.log('failed:', err);
  };
+
+
+
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -62,6 +79,8 @@ const Signup = () => {
    }
   }
 
+
+
   const HandleSubmit = async data => {
     const { first_name, last_name, email, password, gender, date_of_birth } = data
 
@@ -76,6 +95,10 @@ const Signup = () => {
       console.log(err);
     }
   };
+
+
+
+  
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);

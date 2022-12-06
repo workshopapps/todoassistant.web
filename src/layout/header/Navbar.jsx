@@ -22,7 +22,7 @@ export default function Navbar() {
     dispatch(logout());
     navigate("/login");
   };
-
+  
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
@@ -77,6 +77,7 @@ const NavDrawer = ({ toggleSidebar }) => {
     dispatch(logout());
     navigate("/login");
   };
+  
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>

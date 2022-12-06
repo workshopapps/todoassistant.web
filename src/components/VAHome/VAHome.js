@@ -46,16 +46,13 @@ const VAHome = () => {
       );
 
       const vaTasks = response.data.data;
-      console.log(vaTasks);
 
       setData(vaTasks);
-      // console.log(tasks);
     }
   };
 
   useEffect(() => {
     fetchTasks();
-    // console.log(tasks);
   }, []);
 
   const handleSideBar = () => {
@@ -75,7 +72,12 @@ const VAHome = () => {
   }, [hidden]);
 
   return (
-    <Box minHeight={"100vh"} padding="33px" bgcolor={"#F9F7FF"}>
+    <Box
+      minHeight={"100vh"}
+      padding="33px"
+      bgcolor={"#F9F7FF"}
+      className={styles.main}
+    >
       <Box
         display={"flex"}
         justifyContent="space-between"
@@ -119,7 +121,6 @@ const VAHome = () => {
           <Typography
             onClick={() => {
               setActiveClass(1);
-              // console.log(activeClass);
             }}
             sx={{
               fontSize: "15px",

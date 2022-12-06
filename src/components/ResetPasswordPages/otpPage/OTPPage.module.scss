@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+.otp_cont {
+  max-width: 464px;
+  margin: 0 auto;
+  text-align: center;
+
+  .otp_header {
+    max-width: 335px;
+    margin: 0 auto 40px;
+
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 160%;
+      color: #333333;
+      margin: 0 0 40px;
+    }
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      color: #333333;
+    }
+  }
+  .otp_boxes {
+    margin: 0 0 40px;
+
+    input.one_otp {
+      width: 160px;
+      padding: 10px;
+    }
+
+    input {
+      width: 50px;
+      height: 50px;
+      outline: none;
+      padding: 10px;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #d3d0d9;
+      border-radius: 4px;
+      font-size: 32px;
+      color: #333333;
+      transition: all 0.2s;
+      font-weight: 400;
+      margin: 0 0 40px;
+
+      &:focus {
+        border: 1px solid #714dd9;
+        box-shadow: 0 0 2px 3px #714dd950;
+      }
+    }
+    button.otp_btn {
+      align-items: center;
+      padding: 14px;
+      width: 100%;
+      height: 48px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      outline: none;
+      // text style
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: #fafafa;
+      cursor: pointer;
+      background: #714dd9;
+      border: 1px solid #714dd9;
+
+      &:hover {
+        box-shadow: 0px 0px 0px 4px #714dd950;
+      }
+
+      &:disabled {
+        background: #d3d0d9;
+        border: 1px solid #d3d0d9;
+        cursor: default;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+.toast_error {
+  font-family: "Roboto", sans-serif;
+  color: #b30e16;
+  border: 1px solid #e49393;
+  background: #ffe4e4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  // color: #7a1212;
+}
+.toast_success {
+  font-family: "Roboto", sans-serif;
+  color: #327411;
+  border-radius: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
