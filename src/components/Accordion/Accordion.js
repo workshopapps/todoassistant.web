@@ -11,7 +11,7 @@ import moment from "moment";
 
 const Accordion = ({ data, setData, setHidden, setDissapear }) => {
   const [activeState, setActiveState] = useState(data[0]);
-  console.log(data);
+
   return (
     <Box>
       <Box
@@ -54,8 +54,6 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                 setHidden(false);
               }, 50);
               setActiveState(task);
-
-              // console.log(activeState);
             }}
           >
             <Box display={"flex"} flexDirection="column">

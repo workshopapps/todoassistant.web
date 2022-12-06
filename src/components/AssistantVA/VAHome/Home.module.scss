@@ -32,7 +32,7 @@
     background: #F9F7FF;
     padding: 1.5rem;
     transition: all 0.3s ease-in-out;
-    height: 80vh;
+    height: 85vh;
     overflow-y: scroll;
 }
 
@@ -99,7 +99,7 @@
     gap: 1rem;
     background: white;
     width: 100%;
-    padding: 20%;
+    padding: 18%;
  
 
     .va_no_tasks_title{
@@ -186,7 +186,9 @@
 }
 
 .task_view {
-    cursor: pointer;
+    .va_task_typo{
+        cursor: pointer;
+    }
     
     .va_task_img {
         transition: all 0.3s ease-in-out;
