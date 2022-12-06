@@ -29,9 +29,6 @@ const ChangePassword = () => {
 
         let user = JSON.parse(localStorage.getItem("user"));
 
-        // 'old_password':"workshop"
-        //"new_password":"workshop123"
-
         try {
             if (user) {
                 const res = await axios.put(
@@ -46,16 +43,16 @@ const ChangePassword = () => {
                         }
                     }
                 );
-                console.log(res);
+                //console.log(res);
                 if ((res.status == 200 && res.data)) {
                     navigate('/dashboard/profile')
                     navigate(0)
+                    alert("password changed")
                 }
-
             }
 
         } catch (error) {
-            console.log(error);
+            alert(error);
         }
     }
 
