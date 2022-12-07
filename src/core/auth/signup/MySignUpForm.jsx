@@ -6,17 +6,21 @@ import {
   FormControl,
   FormControlLabel,
   Grid,
+  IconButton,
   InputLabel,
   MenuItem,
   Select,
+  Stack,
   TextField,
   Typography
 } from "@mui/material";
+import google from "../../../assets/google.png";
+import { GoogleLogin } from "react-google-login";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 // import { AuthContext } from "../../../contexts/authContext/AuthContext";
-// import { gapi } from "gapi-script";
+import { gapi } from "gapi-script";
 import axios from "axios";
 // import { login } from "../../../contexts/VAContexts/apiCalls";
 import MuiPhoneNumber from "material-ui-phone-number";
@@ -24,7 +28,8 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-// import { useContext } from "react";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const style = {
   border: `1px solid #d3d0d905`,
@@ -42,7 +47,12 @@ const style = {
   }
 };
 
+const clientId =
+  "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
+const baseurl = "https://api.ticked.hng.tech/api/v1";
+
 const MySignUpForm = () => {
+  const navigate = useNavigate();
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required("first_name is required"),
     last_name: Yup.string().required("last name is required"),
@@ -83,6 +93,40 @@ const MySignUpForm = () => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
+
+  const googleSignUp = async body => {
+    try {
+      const response = await axios.post(`${baseurl}/googlelogin`, body);
+      if (response.status == 200 && response.data) {
+        localStorage.setItem(
+          "token",
+          JSON.stringify(response.data.access_token)
+        );
+        localStorage.setItem("user", JSON.stringify(response?.data));
+        navigate("/dashboard", { replace: true });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onSuccess = res => {
+    googleSignUp(res?.profileObj);
+  };
+
+  const onFailure = err => {
+    console.log("failed:", err);
   };
 
   return (
@@ -320,6 +364,51 @@ const MySignUpForm = () => {
             Sign up
           </Button>
         </Box>
+        <Stack textAlign={`center`} gap={1}>
+          <Typography>
+            Already have an account?,{" "}
+            <Link
+              to="/login"
+              style={{
+                textDecoration: "none",
+                marginLeft: "0.3rem",
+                fontWeight: "700"
+              }}
+            >
+              Sign In
+            </Link>
+          </Typography>
+
+          <Box>
+            <div></div>
+            <span>Or continue with</span>
+            <div></div>
+          </Box>
+        </Stack>
+        {/* continue with */}
+        <Stack
+          direction={`row`}
+          alignItems={`center`}
+          justifyContent={`center`}
+          gap={1}
+        >
+          <IconButton sx={{ width: `fit-content` }} color="secondary">
+            <GoogleLogin
+              clientId={clientId}
+              render={renderProps => (
+                <img onClick={renderProps.onClick} src={google} alt="" />
+              )}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={false}
+            />
+          </IconButton>
+          <IconButton sx={{ width: `fit-content` }} color="secondary">
+            {/* <img src={facebook} alt="" /> */}
+          </IconButton>
+        </Stack>
       </Box>
     </Container>
   );
