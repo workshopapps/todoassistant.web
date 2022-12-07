@@ -1,16 +1,13 @@
-.signupContainer {
+// .PhoneInputInput {
+//   border: none;
+
+//   @media screen and (max-width: 600px) {
+//     padding-bottom: 3.625rem;
+//   }
+.signupContainer{
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 2rem;
-  gap: 7rem;
   background-color: #f9f7ff;
-  width: 100%;
-
-  @media screen and (max-width: 600px) {
-    padding-bottom: 3.625rem;
-  }
-
-  .signupLeft {
+  .signupLeft {  //styling for the left part of signup page
     margin-top: 2.5rem;
     margin-left: 4rem;
     display: flex;
@@ -301,6 +298,7 @@
     }
   }
 }
+//}
 
 /*
   .eachContainer{
@@ -410,8 +408,11 @@
 
         }
 */
-
-
+//   &:focus,
+//   &:active {
+//     border: none;
+//   }
+// }
 // .signupContainer {
 //   display: flex;
 //   justify-content: space-between;
