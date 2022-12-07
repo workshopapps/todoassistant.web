@@ -3,8 +3,9 @@ import axios from "axios";
 import Task from "./Task";
 import TaskDetail from "./TaskDetail";
 import Preloader from "./Preloader";
+import Clock from "./Clock";
 import styles from "./Home.module.scss";
-import vaArrowDown from "../../../assets/VADashboard/va-arrowDown.svg";
+// import vaArrowDown from "../../../assets/VADashboard/va-arrowDown.svg";
 
 const Home = () => {
   const [nav, setNav] = useState(true);
@@ -26,10 +27,11 @@ const Home = () => {
           }
         }
       );
-      if (response.status === 200) {
-        setLoading(false);
+      if (response.status === 200) {       
         const vaTasks = response.data.data;
         setTasks(vaTasks);
+        console.log(vaTasks);
+        setLoading(false); 
       }
 
     } catch (error) {
@@ -68,10 +70,6 @@ const Home = () => {
         ].join(" ")}
       >
         <div className={styles.va_home_header}>
-          <div className={styles.va_home_title}>
-            <p className={styles.va_home_typo}>Today</p>
-            <img className={styles.va_img} src={vaArrowDown} alt="vaArrow" />
-          </div>
           <div className={styles.va_home_links}>
             <div
               className={[styles.va_home_link, nav && styles.active].join(" ")}
@@ -85,6 +83,11 @@ const Home = () => {
             >
               Assigned to me
             </div>
+          </div>
+          <div className={styles.va_home_title}>
+            {/* <p className={styles.va_home_typo}>Today</p>
+            <img className={styles.va_img} src={vaArrowDown} alt="vaArrow" /> */}
+            <Clock />
           </div>
         </div>
         {loading ? <Preloader /> :
