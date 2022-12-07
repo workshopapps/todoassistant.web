@@ -141,7 +141,7 @@ function App() {
         /> */}
         <Route
           path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />} //conditional routing to signup
         />
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
