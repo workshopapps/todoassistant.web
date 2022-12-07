@@ -24,7 +24,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 export default function VaClientUserList({ vaUsers }) {
-  const userList = vaUsers.map((user, index) => {
+  const userList = vaUsers?.map((user, index) => {
     return (
       <TableRow
         key={index}
