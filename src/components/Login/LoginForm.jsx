@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import axios from "axios";
+ import styles from "./loginForm.module.scss";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -28,12 +29,26 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
+  const { isFetching, errMessage, dispatch } = useContext(AuthContext);
+   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+
+  useEffect(() => {
+    if (errMessage){
+      setSpecificErrorMessage(errMessage);
+      setIsAlertVisible(true);
+      
+      setTimeout(() => {
+        setIsAlertVisible(false);
+        }, 2000);
+    }
+  },[errMessage]);
+
 
   const handleChange = prop => event => {
     setFormData({ ...formData, [prop]: event.target.value });
@@ -56,29 +71,29 @@ const LoginForm = () => {
   };
 
   const onSuccess = res => {
-    console.log(res)
-    googleSignIn((res?.profileObj))
-
+    console.log(res);
+    googleSignIn(res?.profileObj);
   };
   const onFailure = err => {
     console.log("failed:", err);
   };
 
-  const googleSignIn = async (body) => {
+  const googleSignIn = async body => {
     try {
-     const response = await axios.post(`${baseurl}/googlelogin`, 
-       body
-     );
-     if (response.status == 200 && response.data) {
-         localStorage.setItem("google_login_token", JSON.stringify(response.data.access_token));
-          localStorage.setItem("user", JSON.stringify(response?.data));
-            navigate("/dashboard", { replace: true });
-            navigate(0);  
-     }
-   } catch (error) {
-     console.error(error);
-   }
-  }
+      const response = await axios.post(`${baseurl}/googlelogin`, body);
+      if (response.status == 200 && response.data) {
+        localStorage.setItem(
+          "google_login_token",
+          JSON.stringify(response.data.access_token)
+        );
+        localStorage.setItem("user", JSON.stringify(response?.data));
+        navigate("/dashboard", { replace: true });
+        navigate(0);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     const initClient = () => {
@@ -94,7 +109,8 @@ const LoginForm = () => {
     <Container
       sx={{
         padding: { xs: `1.5rem`, md: `1.5rem 3rem`, lg: `1.5rem 7rem` },
-        marginTop: { md: `3rem` }
+        marginTop: { md: `3rem` },
+        maxWidth: `40rem !important`
       }}
     >
       <Box m={`2rem 0`}>
@@ -183,8 +199,28 @@ const LoginForm = () => {
             </Typography>
           </Link>
         </Stack>
+
+        {isAlertVisible &&
+        <div className={styles.errorMessage}>{errMessage && specificErrorMessage}</div>
+        }
+
         {/* call to action btn */}
         <Stack>
+          { isFetching ?
+          <Button
+            type="submit"
+            disableElevation
+            size="large"
+            variant="contained"
+            sx={{
+              bgcolor: `#d3d0d9`,
+              padding: `1rem 0`,
+              borderRadius: `8px`,
+            }}
+          >
+            Signing in...
+          </Button>
+          :
           <Button
             type="submit"
             disableElevation
@@ -195,12 +231,13 @@ const LoginForm = () => {
               padding: `1rem 0`,
               borderRadius: `8px`,
               "&:hover": {
-                bgcolor: `#714DD9`
+                bgcolor: `#7b5ed3`,
               }
             }}
           >
             Sign in
           </Button>
+          }
           <Stack
             margin={`1rem 0`}
             direction={`row`}
@@ -253,3 +290,61 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+{
+  /* <div className={styles.eachContainer}>
+  <label htmlFor="phone" className={styles.describer}>
+    Phone Number
+  </label>
+  <PhoneInput
+    className={styles.phone}
+    international
+    defaultCountry="NG"
+    id="phone"
+    required
+    value={phone}
+    onChange={setPhone}
+  />
+</div>; */
+}
+
+//  <div className={styles.eachContainer}>
+//    <label htmlFor="date_of_birth" className={styles.describer}>
+//      Date of birth
+//    </label>
+//    <input
+//      className={errors.date_of_birth ? styles.Err : styles.inpuT}
+//      id="date_of_birth"
+//      type="date"
+//      placeholder="Enter Date of birth"
+//      {...register("date_of_birth", { required: "Pick a date" })}
+//    />
+//    {errors.date_of_birth && (
+//      <small className={styles.error_state}>
+//        {errors.date_of_birth.message}
+//      </small>
+//    )}
+//  </div>;
+
+{
+  /* <div className={styles.eachContainer}>
+  <label htmlFor="gender" className={styles.describer}>
+    Gender
+  </label>
+  <select
+    name="isSeries"
+    id="gender"
+    className={errors.gender ? styles.Err : styles.inpuT}
+    {...register("gender", { required: "Select a gender" })}
+  >
+    <option value="" disabled>
+      Select Gender
+    </option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  {errors.gender && (
+    <small className={styles.error_state}>{errors.gender.message}</small>
+  )}
+</div>; */
+}
