@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import axios from "axios";
+ import styles from "./loginForm.module.scss";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -28,12 +29,26 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { dispatch } = useContext(AuthContext);
+  const { isFetching, errMessage, dispatch } = useContext(AuthContext);
+   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+
+  useEffect(() => {
+    if (errMessage){
+      setSpecificErrorMessage(errMessage);
+      setIsAlertVisible(true);
+      
+      setTimeout(() => {
+        setIsAlertVisible(false);
+        }, 2000);
+    }
+  },[errMessage]);
+
 
   const handleChange = prop => event => {
     setFormData({ ...formData, [prop]: event.target.value });
@@ -184,8 +199,28 @@ const LoginForm = () => {
             </Typography>
           </Link>
         </Stack>
+
+        {isAlertVisible &&
+        <div className={styles.errorMessage}>{errMessage && specificErrorMessage}</div>
+        }
+
         {/* call to action btn */}
         <Stack>
+          { isFetching ?
+          <Button
+            type="submit"
+            disableElevation
+            size="large"
+            variant="contained"
+            sx={{
+              bgcolor: `#d3d0d9`,
+              padding: `1rem 0`,
+              borderRadius: `8px`,
+            }}
+          >
+            Signing in...
+          </Button>
+          :
           <Button
             type="submit"
             disableElevation
@@ -196,12 +231,13 @@ const LoginForm = () => {
               padding: `1rem 0`,
               borderRadius: `8px`,
               "&:hover": {
-                bgcolor: `#714DD9`
+                bgcolor: `#7b5ed3`,
               }
             }}
           >
             Sign in
           </Button>
+          }
           <Stack
             margin={`1rem 0`}
             direction={`row`}

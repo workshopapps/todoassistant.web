@@ -30,8 +30,15 @@ const Signup = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [active, setActive] = useState(true);
   const [passwordShown, setPasswordShown] = useState(false);
-  const [phone, setPhone] = useState();
-  const { dispatch } = useContext(AuthContext);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [phone, setPhone] = useState()
+  const { isFetching, dispatch } = useContext(AuthContext);
+
+
   const navigate = useNavigate();
   // const [first_name, setFirstName] = useState("");
   // const [last_name, setLastName] = useState("");
@@ -79,9 +86,10 @@ const Signup = () => {
   };
 
   const HandleSubmit = async data => {
-    const { first_name, last_name, email, password, gender, date_of_birth } =
-      data;
 
+    const { first_name, last_name, email, password, gender, date_of_birth } = data
+    setIsLoading(true);
+    
     try {
       const response = await axios.post(
         "https://api.ticked.hng.tech/api/v1/user",
@@ -89,11 +97,21 @@ const Signup = () => {
       );
       console.log(response);
       login({ email, password }, dispatch);
+      setIsLoading(false);
+      setError(false);
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
+      setError(true);
+      setErrMessage(err.response.data.message);
+      setIsAlertVisible(true);
+      
+      setTimeout(() => {
+        setIsAlertVisible(false);
+        }, 2000);
     }
   };
-
+  
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
@@ -284,16 +302,30 @@ const Signup = () => {
                 </span>
               </div>
 
+              {isAlertVisible &&
+              <div className={styles.errMessage}>{error && errMessage}</div>
+              }
+              
+            {(isFetching || isLoading) ?
+              <button
+                id="btn__submitagain"
+                className={styles.buttonDisabled} disabled={active}
+              >
+                Signing Up...
+              </button>
+              : 
               <button
                 id="btn__submit"
-                className={
-                  isChecked ? styles.buttonEnabled : styles.buttonDisabled
-                }
-                disabled={active}
+
+                className={styles.buttonEnabled}
               >
                 Sign Up
               </button>
+            }
             </form>
+
+
+
             <p className={styles.tosignup}>
               Already have an account?,{" "}
               <Link
@@ -307,6 +339,7 @@ const Signup = () => {
                 Sign In
               </Link>
             </p>
+
 
             <div className={styles.continueWith}>
               <div className={styles.continueWithLine}></div>
