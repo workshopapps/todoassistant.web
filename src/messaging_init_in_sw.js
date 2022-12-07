@@ -31,7 +31,7 @@ export const requestForToken = () => {
   })
     .then(currentToken => {
       if (currentToken) {
-        // console.log("current token for client 1: ", currentToken);
+        console.log("current token for client 1: ", currentToken);
         localStorage.setItem(
           "firebaseNotification",
           JSON.stringify(currentToken)
