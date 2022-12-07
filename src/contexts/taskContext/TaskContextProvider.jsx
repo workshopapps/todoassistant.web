@@ -61,7 +61,7 @@ const TaskContextProvider = ({ children }) => {
     setIsLoading(true);
     axios
       .put(`${base_url}/task/${id}`, body)
-      .then(res => res)
+      .then(() => getTasks())
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
   };
@@ -70,7 +70,7 @@ const TaskContextProvider = ({ children }) => {
     setIsLoading(true);
     axios
       .delete(`${base_url}/task/${id}`)
-      .then(res => res)
+      .then(() => getTasks())
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
   };

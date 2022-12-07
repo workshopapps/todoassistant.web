@@ -189,13 +189,22 @@ export default function Dasboard() {
                 mt={4}
                 sx={{ width: "15vw", display: "inline" }}
               >
-                Hello, {userName}
+                Hello {userName},
               </Typography>
               <img
                 style={{ position: "relative", left: "10px", top: "2px" }}
                 src={hand}
                 alt="hand"
               />
+              <Typography
+                variant="h6"
+                mt={4}
+                ml={3}
+                sx={{ width: "15vw", display: "inline" }}
+              >
+                Welcome to Ticked
+              </Typography>
+              {/* fdf */}
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
@@ -287,6 +296,7 @@ export default function Dasboard() {
 
       {/* Right Sidebar */}
       <Container
+        style={{ display: "flex", flexDirection: "column" }}
         maxWidth={false}
         component="main"
         sx={{
