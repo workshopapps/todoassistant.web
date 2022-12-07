@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useEffect} from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
 import { Link, Outlet } from "react-router-dom";
 
+import axios from "axios";
+//messaginh
+import { requestForToken } from '../../messaging_init_in_sw'
+
+
 const Dashboardlayout = () => {
+  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
+  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"))  
+
+  // Request permission from user fro notification
+  requestForToken()
+
+  useEffect(() => {
+    const getNotification = async () =>  {
+           try {
+               await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+                   user_id: `${id}`,
+                   device_id: fbToken
+                   },
+               )
+           } catch (error) {
+               console.error(error)
+       }
+    }
+    getNotification()
+   }, [fbToken])
+
+
   return (
     <Grid2 height={`100vh`} container>
       <Grid2 xs={0} md={3}>

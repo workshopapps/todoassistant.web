@@ -10,7 +10,7 @@ import {
   Outlet,
   Link
 } from "react-router-dom";
-// import {useHistory} from "react-router-dom";
+import axios from "axios";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -26,6 +26,9 @@ import Typography from "@mui/material/Typography";
 
 //route
 import { userRoutes } from "../../router/user";
+
+//notification
+import { requestForToken } from "../../messaging_init_in_sw";
 
 //Images
 // import tick from "../../assets/home/tick.png";
@@ -48,7 +51,25 @@ export default function Dasboard() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [nav, setNav] = useState(false);
 
-  // const [title, setTitle] = useState("home");
+  //requestion notification permission from user
+  requestForToken();
+
+  const id = JSON.parse(localStorage.getItem("user")).user_id;
+  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
+
+  useEffect(() => {
+    const getNotification = async () => {
+      try {
+        await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+          user_id: `${id}`,
+          device_id: fbToken
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getNotification();
+  }, [fbToken]);
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
