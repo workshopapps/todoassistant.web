@@ -72,7 +72,7 @@ const MySignUpForm = () => {
       .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
     acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required")
   });
-  //   const { dispatch } = useContext(AuthContext);
+
   const {
     register,
     control,
@@ -92,8 +92,13 @@ const MySignUpForm = () => {
         "https://api.ticked.hng.tech/api/v1/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
+
       console.log(response);
-      login({ email, password }, dispatch);
+
+      if (response.data.code === 200) {
+        console.log(response);
+        login({ email, password }, dispatch);
+      }
     } catch (err) {
       console.log(err);
     }
