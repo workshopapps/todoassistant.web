@@ -107,7 +107,6 @@ export function AlertDialogSlide({ open, handleClose, error, email }) {
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  console.log(error);
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -123,7 +122,7 @@ const NewsLetter = () => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
-  // console.log("changes")
+
   const handleNewsLetter = async () => {
     if (email !== "" && validateEmail(email)) {
       try {
@@ -155,7 +154,12 @@ const NewsLetter = () => {
   };
   return (
     <>
-      <AlertDialogSlide handleClose={handleClose} open={open} error={error} email={email} />
+      <AlertDialogSlide
+        handleClose={handleClose}
+        open={open}
+        error={error}
+        email={email}
+      />
       <section className={style.news__letter}>
         <h3 className={style.header}>Newsletter</h3>
         <form className={style.form}>
