@@ -130,7 +130,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           {/* VA authentication */}
-          <Route path="/va-login" element={<Dashboardlayout />} />
+          <Route path="/va-login" element={<VALogin />} />
           <Route path="/va-signup" element={<VASignup />} />
 
           {/* ============================ */}
@@ -207,7 +207,7 @@ function App() {
           {/* =============================*/}
           {VA ? (
             <>
-              <Route path="/virtual-assistance" element={<Dashboardlayout />}>
+              <Route path="/virtual-assistance/" element={<Dashboardlayout />}>
                 <Route path="" element={<VADashboard />} />
                 <Route path="clients" element={<VaClientPage />} />
                 <Route path="notifications" element={<Notifications />} />
