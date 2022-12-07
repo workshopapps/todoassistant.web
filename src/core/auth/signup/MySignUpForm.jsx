@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import {
   Box,
   Button,
@@ -19,17 +20,17 @@ import { GoogleLogin } from "react-google-login";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-// import { AuthContext } from "../../../contexts/authContext/AuthContext";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import { gapi } from "gapi-script";
 import axios from "axios";
-// import { login } from "../../../contexts/VAContexts/apiCalls";
+import { login } from "../../../contexts/VAContexts/apiCalls";
 import MuiPhoneNumber from "material-ui-phone-number";
-import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const style = {
   border: `1px solid #d3d0d905`,
@@ -53,6 +54,8 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 const MySignUpForm = () => {
   const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required("first_name is required"),
     last_name: Yup.string().required("last name is required"),
@@ -69,7 +72,7 @@ const MySignUpForm = () => {
       .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
     acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required")
   });
-  //   const { dispatch } = useContext(AuthContext);
+
   const {
     register,
     control,
@@ -82,14 +85,20 @@ const MySignUpForm = () => {
   });
 
   const onSubmit = async data => {
-    console.log(data.email);
+    const date_of_birth = moment(data.date_of_birth).format("YYYY-MM-DD"); //instrument.ts:124 Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged.
+    const { first_name, last_name, email, phone, password, gender } = data;
     try {
       const response = await axios.post(
         "https://api.ticked.hng.tech/api/v1/user",
-        data
+        { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
+
       console.log(response);
-      //   login({ data.email, data.password }, dispatch);
+
+      if (response.data.code === 200) {
+        console.log(response);
+        login({ email, password }, dispatch);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -220,9 +229,9 @@ const MySignUpForm = () => {
                 labelId="gender"
                 id="gender"
               >
-                <MenuItem value={`male`}>Male</MenuItem>
-                <MenuItem value={`female`}>Female</MenuItem>
-                <MenuItem value={`other`}>other</MenuItem>
+                <MenuItem value={`Male`}>Male</MenuItem>
+                <MenuItem value={`Female`}>Female</MenuItem>
+                <MenuItem value={`Other`}>other</MenuItem>
               </Select>
             </FormControl>
             <Typography color={`red`} fontSize={`x-small`}>
@@ -260,6 +269,8 @@ const MySignUpForm = () => {
               render={({ field }) => (
                 <LocalizationProvider dateAdapter={AdapterMoment}>
                   <DatePicker
+                    // mask="__-__-____"
+                    // inputFormat="dd-mm-yyyy"
                     renderInput={params => (
                       <TextField
                         sx={style}

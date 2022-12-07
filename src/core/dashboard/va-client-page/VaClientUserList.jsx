@@ -18,9 +18,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     backgroundColor: `#714DD9`,
     color: theme.palette.common.white
   }
-  // [`&.${tableCellClasses.body}`]: {
-  //   fontSize: 14
-  // }
 }));
 
 export default function VaClientUserList({ vaUsers }) {
@@ -53,7 +50,7 @@ export default function VaClientUserList({ vaUsers }) {
   });
 
   return (
-    <TableContainer sx={{borderRadius: `8px`}} className={`shadow`}>
+    <TableContainer sx={{ borderRadius: `8px` }} className={`shadow`}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
