@@ -31,7 +31,7 @@ import { userRoutes } from "../../router/user";
 import { requestForToken } from "../../messaging_init_in_sw";
 
 //Images
-import tick from "../../assets/home/tick.png";
+// import tick from "../../assets/home/tick.png";
 import VaImg from "../../assets/dashboard/user.png";
 import arrowDown from "../../assets/dashboard/arrow-down.png";
 import hand from "../../assets/dashboard/hand.png";
@@ -95,7 +95,7 @@ export default function Dasboard() {
       }}
     >
       <Toolbar>
-        <NavLink to={`/`} style={{ textDecoration: "none" }}>
+        {/* <NavLink to={`/`} style={{ textDecoration: "none" }}>
           <Box
             sx={{
               display: "flex",
@@ -113,7 +113,7 @@ export default function Dasboard() {
               Ticked
             </Typography>
           </Box>
-        </NavLink>
+        </NavLink> */}
 
         <IconButton
           color="inherit"

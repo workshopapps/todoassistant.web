@@ -64,7 +64,11 @@ const AboutUsSectionTwoLayout = () => {
             />
           </div>
           <div className={styles.steps}>
-            <Button link={`/`} style={{ width: `50%` }} title={`get ticked`} />
+            <Button
+            link={`/login`}
+          title = {`Get Started`} 
+          style={{ width: `50%` }} 
+          />
             <button className={styles.download}>Download App</button>
           </div>
         </div>
