@@ -10,9 +10,7 @@ import { VAAuthContextProvider } from "./contexts/VAContexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
-import reportWebVitals from './reportWebVitals';
-
-
+import reportWebVitals from "./reportWebVitals";
 
 Sentry.init({
   dsn: "https://27853217d7d54bbfa34eb63e578376de@o4504281294176256.ingest.sentry.io/4504282186973184",
@@ -21,10 +19,8 @@ Sentry.init({
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
+  tracesSampleRate: 1.0
 });
-
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

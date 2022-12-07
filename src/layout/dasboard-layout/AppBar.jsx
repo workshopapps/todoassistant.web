@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   Avatar,
   Badge,
@@ -10,11 +11,20 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ handleDrawerToggle }) => {
   let vaUser = JSON.parse(localStorage.getItem("VA"));
+  let notifiLength;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      notifiLength = JSON.parse(localStorage.getItem("notificationLength"))
+    }, 10000);
+
+    return()=> clearInterval(interval)
+  }, [])
+  
   return (
     <AppBar
       sx={{
@@ -59,7 +69,7 @@ const Navbar = ({ handleDrawerToggle }) => {
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
             <Link to={`notifications`}>
-              <Badge color="secondary" badgeContent={1}>
+              <Badge color="secondary" badgeContent={notifiLength}>
                 <NotificationsNoneIcon
                   fontSize="large"
                   sx={{
