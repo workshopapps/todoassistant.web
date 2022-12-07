@@ -1,6 +1,6 @@
 .myWrapper {
   position: relative;
-  max-width: 100vh;
+  max-height: 100vh;
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -64,5 +64,6 @@
     border: 1px solid #e9f3f5;
     border-radius: 8px;
     overflow: scroll;
+    min-height: 65vh;
   }
 }

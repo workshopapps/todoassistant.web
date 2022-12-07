@@ -40,7 +40,7 @@ const drawerWidth = 240;
 
 export default function Dasboard() {
   const userName = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))?.first_name
+    ? JSON.parse(localStorage.getItem("user"))?.data.first_name
     : "";
   const location = useLocation();
   const { window } = location;

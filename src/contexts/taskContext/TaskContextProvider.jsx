@@ -25,7 +25,7 @@ const TaskContextProvider = ({ children }) => {
   // console.log(user);
   let token = "";
   if (JSON.parse(localStorage.getItem("user"))) {
-    token = JSON.parse(localStorage.getItem("user")).access_token;
+    token = JSON.parse(localStorage.getItem("user"))?.data.access_token;
   }
 
   const getTasks = useCallback(() => {
