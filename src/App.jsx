@@ -36,7 +36,8 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 import VADashboard from "./components/AssistantVA";
 import Login from "./components/Login/UserLogin";
-import SignUp from "./core/auth/signup/UserSignUp";
+// import SignUp from "./core/auth/signup/UserSignUp";
+import Signup from "./core/auth/signup/Signup";
 import VATasks from "./components/VAHome/VAHome";
 import TaskDetails from "./core/todo/TaskDetials";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
@@ -129,7 +130,7 @@ function App() {
           </Route>
           {/* user authentication */}
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<Signup />} />
           {/* VA authentication */}
           <Route path="/va-login" element={<VALogin />} />
           <Route path="/va-signup" element={<VASignup />} />

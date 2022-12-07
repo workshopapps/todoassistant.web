@@ -11,7 +11,7 @@ import { requestForToken } from '../../messaging_init_in_sw'
 
 
 const Dashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("user")).user_id
+  const id = JSON.parse(localStorage.getItem("VA")).data.va_id
   const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"))  
 
   // Request permission from user fro notification
