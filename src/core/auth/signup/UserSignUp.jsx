@@ -11,7 +11,11 @@ const imgStyle = {
 
 const UserSignUp = () => {
   return (
-    <Stack height={`100vh`} direction={{ xs: `column-reverse`, md: `row` }}>
+    <Stack
+      bgcolor={`#F9F7FF`}
+      height={`100vh`}
+      direction={{ xs: `column-reverse`, md: `row` }}
+    >
       <Box height={{ xs: `90%`, md: `100%` }} flex={{ md: 1 }}>
         <Stack alignItems={{ xs: `center`, lg: `start` }}>
           <Box padding={{ xs: `1.5rem 0`, sm: `1.5rem 7rem` }}>
