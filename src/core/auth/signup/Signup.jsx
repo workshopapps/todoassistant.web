@@ -103,7 +103,7 @@ const Signup = () => {
       console.log(err);
       setIsLoading(false);
       setError(true);
-      setErrMessage(err.message);
+      setErrMessage(err.response.data.message);
       setIsAlertVisible(true);
       
       setTimeout(() => {
