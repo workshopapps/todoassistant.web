@@ -23,13 +23,11 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
 
   //   const baseurl = "https://api.ticked.hng.tech/api/v1";
   const token = JSON.parse(localStorage.getItem("user"))?.data.access_token;
-  console.log(token);
 
   const handle = e => {
     const newData = { ...data };
     newData[e.target.name] = e.target.value;
     setData(newData);
-    console.log(newData);
   };
 
   const handleClose1 = e => {

@@ -28,7 +28,7 @@ const TaskItems = ({ status, myTasks }) => {
 
   const taskCount = () => {
     let count = 0;
-    console.log(myTasks);
+    // console.log(myTasks);
     const noOfCompleted = Array.isArray(myTasks)
       ? myTasks.filter(i => i.status === "DONE")
       : 0;
