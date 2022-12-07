@@ -1,0 +1,96 @@
+.skeleton_client_img,
+.skeleton_task_img,
+.skeleton_title,
+.skeleton_task_view,
+.skeleton_client_typo {
+    animation: skeleton_loading 1s linear infinite alternate;
+}
+
+.skeleton {
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background: white;
+}
+
+.skeleton_container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.skeleton_container {
+    padding: 2rem;
+    border-bottom: 1px solid #E9F3F5;
+    gap: 1.5rem;
+}
+
+.skeleton_client_img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+
+.skeleton_task_img {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+.skeleton_title {
+    width: 12rem;
+    height: 1.5rem;
+    border-radius: 5px;
+}
+
+.skeleton_task_view {
+    width: 5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+}
+
+.skeleton_details_container,
+.skeleton_details,
+.skeleton_client {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.skeleton_details_container {
+    justify-content: space-between;
+}
+
+.skeleton_client {
+    gap: 0.8rem;
+}
+
+.skeleton_details {
+    gap: 2.5rem;
+}
+
+.skeleton_client_typo {
+    width: 7rem;
+    height: 1rem;
+    border-radius: 5px;
+}
+
+.skeleton_client,
+.skeleton_task_view {
+    align-items: center;
+}
+// Tablet Screen Downwards
+@media screen and (max-width: 768px) {
+    .skeleton_details {
+        flex-flow: column;
+        gap: 0.5rem;
+    }
+}
+
+@keyframes skeleton_loading {
+    0% {
+        background: hsl(200, 20%, 70%);
+    }
+
+    100% {
+        background: hsl(200, 20%, 95%);
+    }
+}

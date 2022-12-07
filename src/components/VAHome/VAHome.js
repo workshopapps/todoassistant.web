@@ -46,16 +46,13 @@ const VAHome = () => {
       );
 
       const vaTasks = response.data.data;
-      console.log(vaTasks);
 
       setData(vaTasks);
-      // console.log(tasks);
     }
   };
 
   useEffect(() => {
     fetchTasks();
-    // console.log(tasks);
   }, []);
 
   const handleSideBar = () => {
@@ -124,7 +121,6 @@ const VAHome = () => {
           <Typography
             onClick={() => {
               setActiveClass(1);
-              // console.log(activeClass);
             }}
             sx={{
               fontSize: "15px",

@@ -17,6 +17,7 @@ const VaClientPage = () => {
 
   const getUsers = async () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
+    // let vaUser = JSON.parse(localStorage.getItem("MASTER"));
 
     try {
       setLoading(true);

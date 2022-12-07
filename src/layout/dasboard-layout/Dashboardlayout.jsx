@@ -51,7 +51,7 @@ const Dashboardlayout = () => {
             alignItems={`center`}
             height={`120px`}
           >
-            <Link to={`/virtual-assistance/profile`}>
+            <Link to={`/`}>
               <img
                 src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg"
                 alt="logo"

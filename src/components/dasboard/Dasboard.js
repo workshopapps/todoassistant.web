@@ -41,9 +41,9 @@ import bell from "../../assets/dashboard/notif.png";
 
 const drawerWidth = 240;
 
-export default function VaDasboard() {
+export default function Dasboard() {
   const userName = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user")).first_name
+    ? JSON.parse(localStorage.getItem("user"))?.first_name
     : "";
   const location = useLocation();
   const { window } = location;
@@ -95,7 +95,7 @@ export default function VaDasboard() {
       }}
     >
       <Toolbar>
-        <NavLink to={`/`} exact style={{ textDecoration: "none" }}>
+        <NavLink to={`/`} style={{ textDecoration: "none" }}>
           <Box
             sx={{
               display: "flex",
@@ -149,7 +149,6 @@ export default function VaDasboard() {
             <Box sx={{ marginTop: "20px !important" }}>
               <NavLink
                 to={`/dashboard/${item.path}`}
-                exact
                 key={index}
                 style={{ textDecoration: "none" }}
               >
@@ -327,7 +326,6 @@ export default function VaDasboard() {
             return (
               <Route
                 key={index}
-                exact
                 path={`/dashboard/${item.path}`}
                 render={props => {
                   return (

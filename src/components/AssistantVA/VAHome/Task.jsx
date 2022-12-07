@@ -30,13 +30,11 @@ const Task = ({ details, handleClick }) => {
         </div>
         <div
           className={styles.task_view}
-          id={details.task_id}
-          onClick={handleClick}
         >
-          <p className={styles.va_task_typo} id={details.task_id}>
+          <p className={styles.va_task_typo} id={details.task_id} onClick={handleClick}>
             View
           </p>
-          <BsArrowRight className={styles.va_task_img} size={25} id="arrow" />
+          <BsArrowRight className={styles.va_task_img} size={25} />
         </div>
       </div>
     </div>
