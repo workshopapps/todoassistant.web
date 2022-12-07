@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Box, Typography } from '@mui/material'
-import { onMessageListener, requestForToken } from '../../messaging_init_in_sw';
-import axios from 'axios'
+import { onMessageListener } from '../../messaging_init_in_sw';
+// import axios from 'axios'
 
 export default function Notifications() {
     const [ active, setActive ] = useState("All")
@@ -19,10 +19,6 @@ export default function Notifications() {
        }
     });
 
-    const fbToken = JSON.parse(localStorage.getItem("firebaseNotifToken"))
-    const vaID = JSON.parse(localStorage.getItem("VA")).data.va_id
-   
-    requestForToken()
 
     onMessageListener()
         .then((payload) => {
@@ -35,22 +31,7 @@ export default function Notifications() {
     useEffect(() => {
         localStorage.setItem("notificationLength", JSON.stringify(Object.keys(notification).length))
     }, [notification])
-
-    useEffect(() => {
-     const getNotification = async () =>  {
-            try {
-                await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
-                    user_id: `${vaID}`,
-                    device_id: fbToken
-                    },
-                )
-            } catch (error) {
-                console.error(error)
-        }
-     }
-     getNotification()
-    }, [])
-    
+ 
   return (
     <Box maxWidth={"100vw"}>
         <Typography
