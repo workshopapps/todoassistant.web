@@ -4,7 +4,9 @@
 //   @media screen and (max-width: 600px) {
 //     padding-bottom: 3.625rem;
 //   }
-
+.signupContainer{
+  display: flex;
+  background-color: #f9f7ff;
   .signupLeft {  //styling for the left part of signup page
     margin-top: 2.5rem;
     margin-left: 4rem;
@@ -295,6 +297,7 @@
       object-fit: cover;
     }
   }
+}
 //}
 
 /*
