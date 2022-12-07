@@ -8,6 +8,23 @@ import TaskContextProvider from "./contexts/taskContext/TaskContextProvider";
 import ScrollToTop from "./hooks/scroll-to-top/ScrollToTop";
 import { VAAuthContextProvider } from "./contexts/VAContexts/AuthContext";
 import { ToastContainer } from "react-toastify";
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
+import reportWebVitals from './reportWebVitals';
+
+
+
+Sentry.init({
+  dsn: "https://27853217d7d54bbfa34eb63e578376de@o4504281294176256.ingest.sentry.io/4504282186973184",
+  integrations: [new BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 0.2,
+});
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,3 +40,8 @@ root.render(
     </VAAuthContextProvider>
   </BrowserRouter>
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
