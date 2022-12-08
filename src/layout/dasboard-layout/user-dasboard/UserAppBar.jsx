@@ -12,18 +12,23 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Dropdown from "../../../components/dasboard/Dropdown";
 
-const Navbar = ({ handleDrawerToggle }) => {
-  let vaUser = JSON.parse(localStorage.getItem("VA"));
+const UserNavbar = ({ handleDrawerToggle }) => {
+  const [nav, setNav] = useState(false);
+  const userName = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))?.data.first_name
+    : "";
   let notifiLength;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      notifiLength = JSON.parse(localStorage.getItem("notificationLength"))
+      notifiLength = JSON.parse(localStorage.getItem("notificationLength"));
     }, 10000);
 
-    return()=> clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <AppBar
@@ -55,16 +60,17 @@ const Navbar = ({ handleDrawerToggle }) => {
           sx={{
             flexGrow: 1,
             gap: 1,
-            ml: `1rem`,
+            // ml: `1rem`,
             alignItems: `center`,
             display: { xs: "none", sm: "flex" }
           }}
         >
-          Hello {vaUser?.data.first_name}
+          Hello {userName}
           <img
             src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669905647/hng/todoAppVirtualAssistant/twemoji_waving-hand_e1lc4q.svg"
             alt="wave"
           />
+          Welcome to Ticked
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
@@ -77,16 +83,18 @@ const Navbar = ({ handleDrawerToggle }) => {
                     padding: `5px`,
                     bgcolor: `#714DD930`,
                     color: `#714DD9`,
-                    "&:hover": {
+                    "&:hover":{
                       bgcolor: `#714DD970`
                     }
                   }}
                 />
               </Badge>
             </Link>
-
-            <Link to={`/virtual-assistance/profile`}>
+            <Box>
               <Avatar
+                onClick={() => {
+                  setNav(!nav);
+                }}
                 // {...stringAvatar("Kingsley Solomon")}
                 alt="Remy Sharp"
                 src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
@@ -95,10 +103,12 @@ const Navbar = ({ handleDrawerToggle }) => {
                   height: 40,
                   fontSize: `14px`,
                   fontWeight: 700,
-                  color: `#714DD9`
+                  color: `#714DD9`,
+                  cursor: `pointer`
                 }}
               />
-            </Link>
+              {nav ? <Dropdown /> : null}
+            </Box>
           </Stack>
         </Box>
       </Toolbar>
@@ -106,4 +116,4 @@ const Navbar = ({ handleDrawerToggle }) => {
   );
 };
 
-export default Navbar;
+export default UserNavbar;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
-import DashboardNav from "../DashboardNav";
+import UserDashboardNav from "../../dasboard-layout/user-dasboard/UserDashboardNav";
 import { Box, Stack } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
 
@@ -59,8 +59,10 @@ const UserDashboardlayout = () => {
         </Box>
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
-        <DashboardNav />
-        <Outlet />
+        <UserDashboardNav />
+        <Box padding={`24px`}>
+          <Outlet />
+        </Box>
       </Grid2>
     </Grid2>
   );
