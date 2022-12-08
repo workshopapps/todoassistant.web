@@ -7,7 +7,7 @@ import loginPic from "../../assets/va-login-image.svg";
 import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
 import { login } from "../../contexts/VAContexts/apiCalls";
 import { CircularProgress } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 // import toast from "react-hot-toast";
 
 const VALogin = () => {
@@ -19,21 +19,15 @@ const VALogin = () => {
 
   const toggle = () => setShow(!show);
 
-  const { dispatch, isFetching, error } = useContext(VAAuthContext);
+  const { dispatch, isFetching } = useContext(VAAuthContext);
 
   const handleLogin = e => {
     console.log(isFetching);
     e.preventDefault();
     login({ email, password }, dispatch);
 
-    if (error) {
-      console.log(`this  ${error}`);
-      toast.error("Something Went Wrong! Try Again.", {
-        position: toast.POSITION.TOP_RIGHT
-      });
-    } else {
       navigate("/virtual-assistance");
-    }
+    
   };
 
   return (
@@ -126,7 +120,7 @@ const VALogin = () => {
           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
         </div>
       </div>
-      <ToastContainer />
+      
     </React.Fragment>
   );
 };
