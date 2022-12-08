@@ -50,7 +50,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
             new Date().setMinutes(new Date().getMinutes() + 10)
           ).toISOString(),
           end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
-          repeat: "daily",
+          repeat: "never",
           va_option: data.assistant,
           status: "PENDING",
           reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
