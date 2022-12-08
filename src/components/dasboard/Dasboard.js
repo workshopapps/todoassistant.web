@@ -60,16 +60,48 @@ export default function Dasboard() {
   useEffect(() => {
     const getNotification = async () => {
       try {
-        await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
-          user_id: `${id}`,
-          device_id: fbToken
-        });
+        await axios.post(
+          "https://api.ticked.hng.tech/api/v1/notification",
+          {
+            user_id: `${id}`,
+            device_id: fbToken
+          },
+          { headers: { Authorization: "Bearer " + id } }
+        );
       } catch (error) {
         console.error(error);
       }
     };
     getNotification();
   }, [fbToken]);
+
+  // notification function for user
+  const getNotificationUser = async () => {
+    try {
+      await axios
+        .get("https://api.ticked.hng.tech/api/v1/notification", {
+          headers: { Authorization: "Bearer " + id }
+        })
+        .then(res => {
+          localStorage.setItem("userNotification", JSON.stringify(res.data));
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // calling notifcation function every 10 sec
+  useEffect(() => {
+    getNotificationUser();
+
+    const interval = setInterval(() => {
+      getNotificationUser();
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
