@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
 import PreferenceSettingEdit from "./components/PreferenceSetting/Preference";
-// import Signup from "./core/auth/signup/Signup";
+import Signup from "./core/auth/signup/Signup";
 import GeneralLoading from "./layout/general-loading/GeneralLoading";
 
 import Ticked from "./pages/Ticked/Ticked";
@@ -71,7 +71,7 @@ import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 
 // import Signup from "./core/auth/signup/Signup";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
-import Signup from "./core/auth/signup/UserSignUp";
+// import Signup from "./core/auth/signup/UserSignUp";
 import UserDashboardlayout from "./layout/dasboard-layout/user-dasboard/UserDashboardLayout";
 
 function App() {
