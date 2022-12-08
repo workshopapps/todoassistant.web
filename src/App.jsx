@@ -1,5 +1,5 @@
-import { Suspense, useEffect } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Suspense } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 // import ErrorBoundary from "./layout/error-boundary/ErrorBoundary";
 import AccountPreferences from "./components/accountPreferences/account/AccountPreferences";
 import ProPreferences from "./components/accountPreferences/pro/ProPreferences";
@@ -18,7 +18,7 @@ import {
   PrivatePolicy,
   HowItWorks
 } from "./pages";
-import Dasboard from "./components/dasboard/Dasboard";
+import UserDashboardlayout from "./components/dasboard/Dasboard";
 import Home from "./components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
 import NewTask from "./core/todo/NewTask";
@@ -41,7 +41,7 @@ import Sub from "./core/sub/Sub";
 import NewPassword from "./components/resetPassword and newPassword pages/NewPassword";
 
 import VADashboard from "./components/AssistantVA";
-import Login from "./components/Login/UserLogin";
+// import Login from "./components/Login/UserLogin";
 import VATasks from "./components/VAHome/VAHome";
 
 import { useContext } from "react";
@@ -69,9 +69,10 @@ import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 // import './messaging_init_in_sw';
 // import axios from "axios";
 
-import Signup from "./core/auth/signup/Signup";
+// import Signup from "./core/auth/signup/Signup";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
-// import UserSignUp from "./core/auth/signup/UserSignUp";
+import Signup from "./core/auth/signup/UserSignUp";
+// import UserDashboardlayout from "./layout/dasboard-layout/user-dasboard/UserDashboardLayout";
 
 function App() {
   // const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
@@ -79,10 +80,8 @@ function App() {
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
-  const location = useLocation();
-  
+  // const location = useLocation();
 
-  
   // const sendNotification = async () =>{
   //   const user_id = user.user_id;
   //   try {
@@ -97,27 +96,34 @@ function App() {
   //   }
   // }
 
-  
-  
   // useEffect(()=>{
   //   if (user !== null){
   //     setDevice_Id(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
   //    sendNotification();
-  //   } 
+  //   }
   // },[user, device_id]);
 
-
-
-  useEffect(() => {
-    if (VA && location.pathname === "/va-login") {
-      location.pathname.replace(/[^/]*$/, "/virtual-assistance/");
-    }
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   if (VA && location.pathname === "/va-login") {
+  //     console.log(true);
+  //     location.pathname.replace(/[^/]*$/, "/virtual-assistance/");
+  //   }
+  // }, [location.pathname]);
 
   return (
-    // <ErrorBoundary>
     <Suspense fallback={<GeneralLoading text={`LOADING...`} />}>
+      {/* AUTH ROUTES */}
       <Routes>
+        <Route
+          path="/login"
+          element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
+        />
+
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/dashboard" />} //conditional routing to signup
+        />
+
         {/* external pages */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
@@ -130,117 +136,136 @@ function App() {
         <Route path="/policy" element={<PrivatePolicy />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/marketing" element={<Ticked />} />
-        <Route
-          path="/login"
-          element={!user ? <UserLogin /> : <Navigate to="/dashboard" />}
-        />
-        {/* <Route
-          path="/signup"
-          element={!user ? <UserSignUp /> : <Navigate to="/dashboard" />}
-        /> */}
-        <Route
-          path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />} //conditional routing to signup
-        />
         <Route path="/otp" element={<Otp />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/va-login" element={<VALogin />} />
         <Route path="/resetpassword" element={<MainResetPage />}>
           <Route path="" element={<ResetPasswordPage />} />
           <Route path="checkmail" element={<CheckMail />} />
           <Route path="otp" element={<OTPPage />} />
           <Route path="putnewpassword" element={<NewPasswordPage />} />
         </Route>
-        ;
-        {user ? (
-          <>
-            <Route path="/dashboard" element={<Dasboard />}>
-              <Route path="" element={<Home />} />
-              <Route path="assistant" element={<ChatBox />} />
-              <Route path="task" element={<Task />}></Route>
-              <Route path="detail" element={<Detail />} />
-              <Route path="sub" element={<Sub />} />
-              <Route path="clients" element={<Client />} />
-              <Route path="notification" element={<Notification />} />
-              <Route path="notifications" element={<Notifications />} />
-              <Route path="payment" element={<Payment />} />
-              <Route path="profile" element={<SettingsProfilee />} />
-              <Route path="edit" element={<Edit />} />
-              <Route
-                path="profile/change-password"
-                element={<ChangePassword />}
-              />
-            </Route>
 
-            <Route path="/newtask" element={<NewTask />} />
-            <Route path="/edittask" element={<NewTask />} />
-            <Route path="/taskdetails" element={<TaskDetails />} />
-            <Route path="/va1" element={<VaModal1 />} />
-            <Route path="/CheckM" element={<CheckM />} />
-            <Route path="/settings/profile" element={<SettingsProfilee />}>
-              <Route path="edit" element={<EditAccountPage />} />
-            </Route>
+        {/* ================================ */}
+        {/* USER ROUTES */}
+        {/* ================================ */}
+        <>
+          <Route
+            path="/dashboard"
+            element={
+              user ? <UserDashboardlayout /> : <Navigate to="/login" replace />
+            }
+          >
+            <Route path="" element={<Home />} />
+            <Route path="assistant" element={<ChatBox />} />
+            <Route path="task" element={<Task />}></Route>
+            <Route path="detail" element={<Detail />} />
+            <Route path="sub" element={<Sub />} />
+            <Route path="clients" element={<Client />} />
+            <Route path="notification" element={<Notification />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="profile" element={<SettingsProfilee />} />
+            <Route path="profile/edit" element={<Edit />} />
+            <Route
+              path="profile/change-password"
+              element={<ChangePassword />}
+            />
+          </Route>
 
-            <Route path="/account" element={<AccountPreferences />} />
-            <Route path="/pro" element={<ProPreferences />} />
-            <Route path="/account/edit" element={<PreferenceSettingEdit />} />
-          </>
-        ) : VA ? (
-          <>
-            <Route path="/va-signup" element={<VASignup />} />
-            <Route path="/va-login" element={<Dashboardlayout />} />
-            <Route path="/virtual-assistance" element={<Dashboardlayout />}>
-              <Route path="" element={<VADashboard />} />
-              <Route path="clients" element={<VaClientPage />} />
-              <Route path="notifications" element={<Notifications />} />
-              <Route path="tasks" element={<VATasks />} />
-              <Route path="notifications" element={<Notifications />} />
-              <Route path="profile" element={<VaProfile />} />
-            </Route>
-          </>
-        ) : (
-          <>
-            <Route path="/va-login" element={<VALogin />} />
-            <Route path="/virtual-assistance" element={<VALogin />}>
-              <Route path="" element={<VALogin />} />
-              <Route path="tasks" element={<VATasks />} />
-              <Route path="clients" element={<VALogin />} />
-              <Route path="notifications" element={<VALogin />} />
-              <Route path="profile" element={<VaProfile />} />
-            </Route>
+          <Route
+            path="/newtask"
+            element={user ? <NewTask /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/edittask"
+            element={user ? <NewTask /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/taskdetails"
+            element={user ? <TaskDetails /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/va1"
+            element={user ? <VaModal1 /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/CheckM"
+            element={user ? <CheckM /> : <Navigate to="/login" replace />}
+          />
+          <Route
+            path="/settings/profile"
+            element={
+              user ? <SettingsProfilee /> : <Navigate to="/login" replace />
+            }
+          >
+            <Route
+              path="edit"
+              element={
+                user ? <EditAccountPage /> : <Navigate to="/login" replace />
+              }
+            />
+          </Route>
 
-            <Route path="/dashboard" element={<Login />}>
-              <Route path="" element={<Login />} />
-              <Route path="assistant" element={<Login />} />
-              <Route path="task" element={<Login />}></Route>
-              <Route path="detail" element={<Login />} />
-              <Route path="sub" element={<Login />} />
-              <Route path="clients" element={<Login />} />
-              <Route path="notification" element={<Login />} />
-              <Route path="notifications" element={<Login />} />
-              <Route path="payment" element={<Login />} />
-              <Route path="profile" element={<SettingsProfilee />} />
-            </Route>
+          <Route
+            path="/account"
+            element={
+              user ? <AccountPreferences /> : <Navigate to="/login" replace />
+            }
+          />
+          <Route
+            path="/pro"
+            element={
+              user ? <ProPreferences /> : <Navigate to="/login" replace />
+            }
+          />
+          <Route
+            path="/account/edit"
+            element={
+              user ? (
+                <PreferenceSettingEdit />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+        </>
 
-            <Route path="/newtask" element={<Login />} />
-            <Route path="/edittask" element={<Login />} />
-            <Route path="/taskdetails" element={<Login />} />
-            <Route path="/va1" element={<Login />} />
-            <Route path="/CheckM" element={<Login />} />
-            <Route path="/settings/profile" element={<Login />}>
-              <Route path="edit" element={<Login />} />
-            </Route>
+        {/* =================================== */}
+        {/* VA ROUTES */}
+        {/* =================================== */}
+        <>
+          <Route
+            path="/va-signup"
+            element={
+              !VA ? <VASignup /> : <Navigate to="/virtual-assistance/" />
+            }
+          />
+          <Route
+            path="/va-login"
+            element={
+              !VA ? <VALogin /> : <Navigate to="/virtual-assistance" replace />
+            }
+          />
 
-            <Route path="/account" element={<Login />} />
-            <Route path="/pro" element={<Login />} />
-            <Route path="/account/edit" element={<Login />} />
-          </>
-        )}
+          <Route
+            path="/virtual-assistance"
+            element={
+              VA ? <Dashboardlayout /> : <Navigate to="/va-login" replace />
+            }
+          >
+            <Route path="" element={<VADashboard />} />
+            <Route path="clients" element={<VaClientPage />} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="tasks" element={<VATasks />} />
+            {/* <Route path="notifications" element={<Notifications />} /> */}
+            <Route path="profile" element={<VaProfile />} />
+          </Route>
+        </>
+        {/* 404 PAGE NOT FOUND ROUTE */}
         <Route path="*" element={<ErrorMain />} />
       </Routes>
     </Suspense>
-    // </ErrorBoundary>
   );
 }
 
