@@ -47,6 +47,7 @@ import VATasks from "./components/VAHome/VAHome";
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
+import TaskDetail from "./components/taskDetails/TaskDetails";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
@@ -66,7 +67,7 @@ import ChangePassword from "./core/settings/profile/ChangePassword";
 import Subscription from "./pages/Subscription/Subscription";
 import Success from "./components/subscriptionPlan/ErrorPages/Success/Success";
 import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
-import './messaging_init_in_sw';
+import "./messaging_init_in_sw";
 import axios from "axios";
 
 import Signup from "./core/auth/signup/Signup";
@@ -74,38 +75,36 @@ import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
 // import UserSignUp from "./core/auth/signup/UserSignUp";
 
 function App() {
-  const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
+  const [device_id, setDevice_Id] = useState(
+    JSON.parse(localStorage.getItem("firebaseNotifToken")) || null
+  );
 
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
   const location = useLocation();
-  
 
-  
-  const sendNotification = async () =>{
+  const sendNotification = async () => {
     const user_id = user.user_id;
     try {
       const response = await axios.post(
-        'https://api.ticked.hng.tech/api/v1/notification',
+        "https://api.ticked.hng.tech/api/v1/notification",
         { user_id, device_id }
       );
       console.log(response);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
-  
-  
-  useEffect(()=>{
-    if (user !== null){
-      setDevice_Id(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
-     sendNotification();
-    } 
-  },[user, device_id]);
-
-
+  useEffect(() => {
+    if (user !== null) {
+      setDevice_Id(
+        JSON.parse(localStorage.getItem("firebaseNotifToken")) || null
+      );
+      sendNotification();
+    }
+  }, [user, device_id]);
 
   useEffect(() => {
     if (VA && location.pathname === "/va-login") {
@@ -157,6 +156,7 @@ function App() {
           <>
             <Route path="/dashboard" element={<Dasboard />}>
               <Route path="" element={<Home />} />
+              <Route path="taskdetail" element={<TaskDetail />} />
               <Route path="assistant" element={<ChatBox />} />
               <Route path="task" element={<Task />}></Route>
               <Route path="detail" element={<Detail />} />

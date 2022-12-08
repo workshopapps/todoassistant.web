@@ -62,6 +62,7 @@
     flex-direction: column;
     gap: 2px;
     .task {
+      cursor: pointer;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       // align-items: center;
