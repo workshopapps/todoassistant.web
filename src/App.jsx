@@ -18,7 +18,7 @@ import {
   PrivatePolicy,
   HowItWorks
 } from "./pages";
-import Dashboard from "./components/dasboard/Dasboard";
+import UserDashboardlayout from "./components/dasboard/Dasboard";
 import Home from "./components/userDasboardComponents/home/Home";
 import ChatBox from "./core/chatbox/ChatBox";
 import NewTask from "./core/todo/NewTask";
@@ -72,6 +72,7 @@ import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 // import Signup from "./core/auth/signup/Signup";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
 import Signup from "./core/auth/signup/UserSignUp";
+// import UserDashboardlayout from "./layout/dasboard-layout/user-dasboard/UserDashboardLayout";
 
 function App() {
   // const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
@@ -151,7 +152,9 @@ function App() {
         <>
           <Route
             path="/dashboard"
-            element={user ? <Dashboard /> : <Navigate to="/login" replace />}
+            element={
+              user ? <UserDashboardlayout /> : <Navigate to="/login" replace />
+            }
           >
             <Route path="" element={<Home />} />
             <Route path="assistant" element={<ChatBox />} />
