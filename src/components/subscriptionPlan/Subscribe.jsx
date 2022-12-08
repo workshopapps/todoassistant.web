@@ -1,10 +1,10 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Link } from "react-router-dom";
-
 import styles from "./Subscribe.module.scss";
 import tickCircle from "./tick-circle.png";
+import wtickCircle from "./white-tick-circle.png";
 
-const Subscribe = () => {
+const Subscribing = () => {
   const monthlySubHandler = async e => {
     e.preventDefault();
     const stripe = await loadStripe(
@@ -19,7 +19,7 @@ const Subscribe = () => {
       ],
       mode: "subscription",
       successUrl: "https://ticked.hng.tech/success",
-      cancelUrl: "https://ticked.hng.tech/cancel"
+      cancelUrl: "https://ticked.hng.tech/subscribe"
     });
 
     console.log(error);
@@ -50,94 +50,109 @@ const Subscribe = () => {
       <h1>Choose a plan to tailor your needs</h1>
       <div className={styles.cards}>
         <div className={styles.card}>
-          <strong>Basic Subscription Plan</strong>
-          <h2 className={styles.basic}>Free</h2>
-          <ul>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Max 5 To-do’s
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />1 hour reminder time
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />5 MB file upload
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />1 week activity history
-            </li>
-          </ul>
+          <div className={styles.top}>
+            <div className={styles.card_heading}>
+              <p>Basic</p>
+              <h2>Free</h2>
+              <p>For Everyone</p>
+            </div>
+            <ul>
+              <li>
+                <img src={tickCircle} alt="ticked" />
+                Max 5 To-do’s
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />5 MB file upload
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />1 week activity history
+              </li>
+            </ul>
+          </div>
           <Link to="/signup">
             <button className={`${styles.btn} hover`}>Get Started</button>
           </Link>
         </div>
-        <div className={styles.card}>
-          <strong>Premium Subscription Plan</strong>
-          <h2 className={styles.premium}>
-            <small>$</small>20<span>/Month</span>
-          </h2>
-          <ul>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Up to 100 To-do’s
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              30 mins reminder time
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              100 MB file upload
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Virtual Assistant
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />4 weeks activity history
-            </li>
-          </ul>
-          <button onClick={monthlySubHandler} className={`${styles.btn} hover`}>
-            Get Started
-          </button>
+        <div className={styles.purple}>
+          <div className={styles.top}>
+            <div className={styles.card_heading}>
+              <p>Popular</p>
+              <h3 className={styles.premium}>
+                $20<span>/Month</span>
+              </h3>
+              <p>For the Busy</p>
+            </div>
+            <ul>
+              <li>
+                <img src={wtickCircle} alt="ticked" />
+                Up to 100 To-do’s
+              </li>
+              <li>
+                <img src={wtickCircle} alt="ticked" />
+                30 mins reminder time
+              </li>
+              <li>
+                <img src={wtickCircle} alt="ticked" />
+                100 MB file upload
+              </li>
+              <li>
+                <img src={wtickCircle} alt="ticked" />
+                Virtual Assistant
+              </li>
+            </ul>
+          </div>
+          <div className={styles.center}>
+            <button
+              onClick={monthlySubHandler}
+              className={`${styles.btn} hover`}
+            >
+              Get Started
+            </button>
+          </div>
         </div>
         <div className={styles.card}>
-          <strong>Yearly Subscription Plan</strong>
-          <h2 className={styles.yearly}>
-            <small className={styles.year}>$</small>200<span>/Year</span>
-          </h2>
-          <ul>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Unlimited To-do’s
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Unlimited reminder time
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />1 GB file upload
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Virtual Assistant
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Unlimited activity history
-            </li>
-            <li>
-              <img src={tickCircle} alt="ticked" />
-              Premium Support
-            </li>
-          </ul>
-          <button onClick={yearlySubHandler} className={`${styles.btn} hover`}>
-            Get Started
-          </button>
+          <div className={styles.top}>
+            <div className={styles.card_heading}>
+              <p>Popular</p>
+              <h2 className={styles.year}>
+                $200<span>/Year</span>
+              </h2>
+              <p>For the Classy</p>
+            </div>
+            <ul>
+              <li>
+                <img src={tickCircle} alt="ticked" />
+                Unlimited To-do’s
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />
+                Unlimited reminder time
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />1 GB file upload
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />
+                Virtual Assistant
+              </li>
+              <li>
+                <img src={tickCircle} alt="ticked" />
+                Unlimited activity history
+              </li>
+            </ul>
+          </div>
+          <div className={styles.center}>
+            <button
+              onClick={yearlySubHandler}
+              className={`${styles.btn} hover`}
+            >
+              Get Started
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Subscribe;
+export default Subscribing;
