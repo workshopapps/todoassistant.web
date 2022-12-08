@@ -1,8 +1,8 @@
 import React from "react";
 import './Settings.scss'
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import arrowLeft from "../../../assets/arrow-left-cj.svg"
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 
@@ -11,11 +11,11 @@ const Edit = () => {
 
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
-    const { first_name, user_id } = user
+    const { first_name, user_id } = user.data
 
-    useEffect(() => {
-        axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
+    // }, [])
 
 
     const defaultForm = {
@@ -38,7 +38,7 @@ const Edit = () => {
     try {
 	if (user) {
 	      const res = await axios.put(
-	        `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+	        `https://api.ticked.hng.tech/api/v1/user/${user_id}`,
 	        {
 	        "first_name":formValue.first_Name,
 	        "last_name":formValue.last_name,
@@ -47,13 +47,21 @@ const Edit = () => {
 	        },
 	        {
 	          headers: {
-	            Authorization: `Bearer ${user.access_token}`
+	            Authorization: `Bearer ${user.data.access_token}`
 	          }
 	        }
 	      );
 	        
             if ((res.status == 200 && res.data)) {
-                localStorage.setItem("user", JSON.stringify(res?.data));
+    
+                const {date_of_birth, email, first_name, gender, last_name, phone} = res.data
+                const updateUserData = {...user.data, ["first_name"]: first_name, 
+                ["date_of_birth"]: date_of_birth, ["email"]: email,
+                ["gender"]: gender, ["last_name"]: last_name, ["phone"]: phone
+                }
+
+                const updateUser = {...user, ["data"]: updateUserData }
+                localStorage.setItem("user", JSON.stringify(updateUser));
                 navigate('/dashboard/profile')
                 navigate(0)
                 alert('Details changed')

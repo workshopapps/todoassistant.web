@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap');
+
+.digital_con {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.digital_con {
+    align-items: center;
+}
+
+.digital {
+    height: 3.5rem;
+    width: 7.2rem;
+    background: #714DD9;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #E9F3F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    border-radius: 0.5rem;
+}
+
+.day {
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.period {
+    font-size: 0.8rem;
+    color: white;
+}

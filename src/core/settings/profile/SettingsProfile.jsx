@@ -9,7 +9,7 @@ import axios from "axios";
 const SettingsProfilee = () => {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext)
-  const { first_name, last_name, user_id, email, phone } = user
+  const { first_name, last_name, user_id, email, phone } = user.data
   let FName = first_name
   let initial = FName.charAt(0).toUpperCase()
 
@@ -21,16 +21,17 @@ const SettingsProfilee = () => {
     try {
       if (user) {
         const res = await axios.delete(
-          `https://api.ticked.hng.tech/api/v1/user/${user.user_id}`,
+          `https://api.ticked.hng.tech/api/v1/user/${user_id}`,
           {
             headers: {
-              Authorization: `Bearer ${user.access_token}`
+              Authorization: `Bearer ${user.data.access_token}`
             }
           }
         );
         if ((res.status == 200 && res.data)) {
           localStorage.setItem("user", null);
-          navigate('/')
+          navigate('/')          
+          navigate(0)
           alert('account deleted')
         }
       }
@@ -82,7 +83,7 @@ const SettingsProfilee = () => {
           <section className="personal-info">
             <div className="heading-info">
               <p className="personal">Personal Information</p>
-              <Link to="edit" className="edit">
+              <Link to="/dashboard/edit" className="edit">
                 Edit
               </Link>
             </div>

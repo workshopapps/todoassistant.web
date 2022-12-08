@@ -14,32 +14,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 1.5rem;
+    padding: 1rem 0.5px;
     position: fixed;
     top: 6.25rem;
     right: 40px;
     z-index: 1;
-    width: 14.5rem;
-    height: 12.625rem;
+    height: 10rem;
     background: #FFFFFF;
     border-radius: 8px;
     border: 1px solid #D3D0D9;
 }
 
-.menubarcon1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 11.5rem;
-    padding-bottom: 15.5px;
-    border-bottom: 0.5px solid #D3D0D9;
-    gap: 0.5rem;
-}
-
-.settings {
-    width: 1.5rem;
-    height: 1.5rem;
-}
 
 .menubarcon1 p {
     font-family: 'Open Sans';
@@ -55,10 +40,13 @@
     flex-direction: row;
     justify-content: space-between;
     width: 11.5rem;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 12px 1.5rem;
     border-bottom: 0.5px solid #D3D0D9;
     text-decoration: none;
+
+    .rightarrow {
+        transition: all 0.3s ease-in-out;
+    }
 }
 
 .menubarcon2 p {
@@ -68,6 +56,19 @@
     font-size: 0.875rem;
     line-height: 120%;
     color: #333333;
+}
+
+.menubarcon2:hover {
+    background: #714DD9;
+
+    p, .rightarrow {
+        color: white;
+    }
+
+    .rightarrow {
+        transform: TranslateX(0.5rem);
+    }
+    
 }
 
 .rightarrow {
@@ -80,7 +81,7 @@
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-    padding-top: 12px;
+    padding: 12px 1.5rem;
     cursor: pointer;
 }
 

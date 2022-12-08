@@ -110,7 +110,6 @@ function App() {
 
   useEffect(() => {
     if (VA && location.pathname === "/va-login") {
-      console.log(true);
       location.pathname.replace(/[^/]*$/, "/virtual-assistance/");
     }
   }, [location.pathname]);
@@ -167,7 +166,7 @@ function App() {
               <Route path="notifications" element={<Notifications />} />
               <Route path="payment" element={<Payment />} />
               <Route path="profile" element={<SettingsProfilee />} />
-              <Route path="profile/edit" element={<Edit />} />
+              <Route path="edit" element={<Edit />} />
               <Route
                 path="profile/change-password"
                 element={<ChangePassword />}
