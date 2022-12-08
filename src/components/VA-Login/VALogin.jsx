@@ -6,20 +6,34 @@ import { Link, useNavigate } from "react-router-dom";
 import loginPic from "../../assets/va-login-image.svg";
 import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
 import { login } from "../../contexts/VAContexts/apiCalls";
+import { CircularProgress } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+// import toast from "react-hot-toast";
 
 const VALogin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  // const [errorMsg, setErrorMsg] = useState('')
   const [password, setPassword] = useState("");
   const [show, setShow] = React.useState(false);
+
   const toggle = () => setShow(!show);
 
-  const { dispatch } = useContext(VAAuthContext);
+  const { dispatch, isFetching, error } = useContext(VAAuthContext);
 
   const handleLogin = e => {
+    console.log(isFetching);
     e.preventDefault();
     login({ email, password }, dispatch);
-    navigate("/virtual-assistance");
+
+    if (error) {
+      console.log(`this  ${error}`);
+      toast.error("Something Went Wrong! Try Again.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } else {
+      navigate("/virtual-assistance");
+    }
   };
 
   return (
@@ -70,10 +84,19 @@ const VALogin = () => {
             </div>
             <div className={styles.login__formItem}>
               <button
-                style={{ background: `rgb(113, 77, 217)`, color: `#fff` }}
+                style={{
+                  background: `${
+                    (!isFetching && "rgb(113, 77, 217)") ||
+                    "rgba(71, 71, 71, 0.397)"
+                  }`,
+                  color: `#fff`,
+                  pointerEvents: `${(!isFetching && "auto") || "none"}`
+                }}
                 className={`${styles.login__submitBtn} hover`}
               >
-                Login
+                {(!isFetching && "Login") || (
+                  <CircularProgress color={"inherit"} size="20px" />
+                )}
               </button>
             </div>
           </form>
@@ -103,6 +126,7 @@ const VALogin = () => {
           <img src={loginPic} className={styles.loginPic} alt="loginPicture" />
         </div>
       </div>
+      <ToastContainer />
     </React.Fragment>
   );
 };

@@ -5,7 +5,7 @@ import NavList from "../../core/dashboard/va-client-page/NavList";
 
 const drawerWidth = 240;
 const style = {
-  display: { xs: "block", sm: "none" },
+  display: { sm: "block", md: "none" },
   "& .MuiDrawer-paper": {
     boxSizing: "border-box",
     width: drawerWidth
