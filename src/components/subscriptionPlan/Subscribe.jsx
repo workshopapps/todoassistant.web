@@ -1,6 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Link } from "react-router-dom";
-import styles from "./Subscribing.module.scss";
+import styles from "./Subscribe.module.scss";
 import tickCircle from "./tick-circle.png";
 import wtickCircle from "./white-tick-circle.png";
 
