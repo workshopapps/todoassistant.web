@@ -38,11 +38,10 @@ const UserNavbar = ({ handleDrawerToggle }) => {
       color="transparent"
       position="static"
     >
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: `space-between` }}>
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          edge="start"
           onClick={handleDrawerToggle}
           sx={{ mr: 2, display: { sm: "none" } }}
         >
@@ -69,7 +68,8 @@ const UserNavbar = ({ handleDrawerToggle }) => {
           />
           Welcome to Ticked
         </Typography>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        {/* profile and notification */}
+        <Box>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
             <Link to={`notifications`}>
               <Badge color="secondary" badgeContent={notifiLength}>

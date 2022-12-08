@@ -83,7 +83,7 @@ const SettingsProfilee = () => {
               </div>
             </div>
             <div className="head-2">
-              <Link>
+              <Link to={`/subscribe`}>
                 <button className="upgrade-btn hover">Upgrade Plan</button>
               </Link>
             </div>

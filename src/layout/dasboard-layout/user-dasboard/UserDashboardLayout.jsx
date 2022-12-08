@@ -38,7 +38,12 @@ const UserDashboardlayout = () => {
       maxWidth={`1440px`} //EXPERIMENTAL (WILL TAKE IT OF IF THE TEAM DISAGREES)
       margin={`0 auto`}
     >
-      <Grid2 borderRight={`1px solid lightgrey`} xs={0} md={3}>
+      <Grid2
+        display={{ xs: `none`, md: `flex` }}
+        borderRight={`1px solid lightgrey`}
+        xs={0}
+        md={3}
+      >
         <Box
           sx={{
             top: 0,
