@@ -70,7 +70,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
             src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669905647/hng/todoAppVirtualAssistant/twemoji_waving-hand_e1lc4q.svg"
             alt="wave"
           />
-          Welcome to Ricked
+          Welcome to Ticked
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
