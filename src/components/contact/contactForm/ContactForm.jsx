@@ -34,7 +34,7 @@ const ContactForm = () => {
         </p>
       </div>
 
-      <form className={contactStyles.formContainer}  action="https://formsubmit.co/maikellljudge@gmail.com" method="POST">
+      <form className={contactStyles.formContainer}  action="https://formsubmit.co/getticked@gmail.com" method="POST">
       <div>
           <label className={contactStyles.contactFormLabel}>
             Email Address{" "}

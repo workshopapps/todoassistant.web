@@ -28,9 +28,16 @@ const TaskItems = ({ status, myTasks }) => {
 
   const taskCount = () => {
     let count = 0;
-    const noOfCompleted = myTasks.filter(i => i.status === "DONE");
-    const noOfPending = myTasks.filter(i => i.status === "PENDING");
-    const noOfExpired = myTasks.filter(i => i.status === "EXPIRED");
+    // console.log(myTasks);
+    const noOfCompleted = Array.isArray(myTasks)
+      ? myTasks.filter(i => i.status === "DONE")
+      : 0;
+    const noOfPending = Array.isArray(myTasks)
+      ? myTasks.filter(i => i.status === "PENDING")
+      : 0;
+    const noOfExpired = Array.isArray(myTasks)
+      ? myTasks.filter(i => i.status === "EXPIRED")
+      : 0;
     if (status === "EXPIRED") {
       count = noOfExpired.length;
     } else if (status === "PENDING") {
@@ -114,14 +121,19 @@ const TaskItems = ({ status, myTasks }) => {
             </p>
           </div>
           <p className={styles.noOfTasks}>{`${
-            myTasks.length === 0 ? 0 : taskCount()
+            Array.isArray(myTasks)
+              ? myTasks.length === 0
+                ? 0
+                : taskCount()
+              : 0
           } TASKS`}</p>
         </div>
         {/* <p className={styles.asign}>ASSIGN</p> */}
         <p className={styles.date}>DUE DATE</p>
       </div>
       <div className={styles.tasks}>
-        {myTasks.length !== 0 &&
+        {Array.isArray(myTasks) &&
+          myTasks.length !== 0 &&
           myTasks
             .slice(0)
             .reverse()

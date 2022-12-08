@@ -39,11 +39,11 @@ const ChangePassword = () => {
                     },
                     {
                         headers: {
-                            Authorization: `Bearer ${user.access_token}`
+                            Authorization: `Bearer ${user.data.access_token}`
                         }
                     }
                 );
-                //console.log(res);
+                
                 if ((res.status == 200 && res.data)) {
                     navigate('/dashboard/profile')
                     navigate(0)
