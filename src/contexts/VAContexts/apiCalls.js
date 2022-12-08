@@ -16,7 +16,9 @@ export const login = async (VA, dispatch) => {
       VA,
       header
     );
+
     dispatch(loginSuccess(res.data));
+    localStorage.setItem("VA", JSON.stringify(res.data));
     location.replace("/virtual-assistance");
   } catch (err) {
     dispatch(loginFailure());

@@ -30,7 +30,6 @@ const Home = () => {
       if (response.status === 200) {       
         const vaTasks = response.data.data;
         setTasks(vaTasks);
-        console.log(vaTasks);
         setLoading(false); 
       }
 
