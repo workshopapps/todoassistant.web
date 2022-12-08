@@ -45,15 +45,15 @@ const VaClientPage = () => {
 
   return (
     <>
-      <Box height={`100vh`} bgcolor={`#F9F7FF`} py={`2.5rem`}>
+      <Box height={`calc(100vh - 120px)`} bgcolor={`#F9F7FF`} py={`2.5rem`}>
         <Container>
-          <VaClientHeader />
+          <VaClientHeader numberOfUsers={vaUsers.length} />
           <Box height={`100%`} my={`1rem`}>
             {loading ? <Loader /> : <VaClientUserList vaUsers={vaUsers} />}
           </Box>
         </Container>
       </Box>
-      <StatusBar open={open} close={close} />;
+      <StatusBar open={open} close={close} />
     </>
   );
 };
