@@ -53,6 +53,7 @@
         color: #707070;
         border-bottom: 2px solid white;
         padding-bottom: 0.5rem;
+        transition: all .2s ease-in-out;
         &:hover {
           border-bottom: 2px solid #714dd9;
         }

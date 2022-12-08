@@ -1,8 +1,8 @@
 import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
-import PeopleIcon from "@mui/icons-material/People";
-import TaskAltIcon from "@mui/icons-material/TaskAlt";
+// import PeopleIcon from "@mui/icons-material/People";
+// import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { NavLink } from "react-router-dom";
 import {
   List,
@@ -10,7 +10,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Button,
   Stack
 } from "@mui/material";
 
@@ -25,7 +24,9 @@ const styledListItem = {
 };
 
 const UserNavList = () => {
-  let vaUser = JSON.parse(localStorage.getItem("VA"));
+//   const userName = localStorage.getItem("user")
+//     ? JSON.parse(localStorage.getItem("user"))?.data.first_name
+//     : "";
 
   let activeStyle = {
     background: `#714DD980`,
@@ -33,24 +34,12 @@ const UserNavList = () => {
     color: `#fff`
   };
 
-  const showButton =
-    vaUser?.data.account_type === "MASTER" ? (
-      <NavLink
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        to={`/va-signup`}
-      >
-        <Button sx={{ bgcolor: `#714DD9` }} variant={`contained`}>
-          Sign up A new Virtual assistant
-        </Button>
-      </NavLink>
-    ) : null;
-
   return (
     <Stack height={`calc(99vh - 120px)`} justifyContent={`space-between`}>
       <List>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          to={`/virtual-assistance/`}
+          to={`/dashboard`}
         >
           <ListItem sx={styledListItem}>
             <ListItemIcon>
@@ -59,7 +48,8 @@ const UserNavList = () => {
             <ListItemText primary={`Home`} />
           </ListItem>
         </NavLink>
-        <NavLink
+
+        {/* <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           to={`clients`}
         >
@@ -69,7 +59,8 @@ const UserNavList = () => {
             </ListItemIcon>
             <ListItemText primary={`Clients`} />
           </ListItem>
-        </NavLink>
+        </NavLink> */}
+{/*
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           to={`tasks`}
@@ -80,11 +71,13 @@ const UserNavList = () => {
             </ListItemIcon>
             <ListItemText primary={`Tasks`} />
           </ListItem>
-        </NavLink>
+        </NavLink> */}
+
         <Divider sx={{ my: `1rem` }} />
+
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          to={`/virtual-assistance/settings`}
+          to={`/settings`}
         >
           <ListItem sx={styledListItem}>
             <ListItemIcon>
@@ -94,7 +87,6 @@ const UserNavList = () => {
           </ListItem>
         </NavLink>
       </List>
-      {showButton}
     </Stack>
   );
 };

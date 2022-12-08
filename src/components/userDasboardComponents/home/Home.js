@@ -19,9 +19,9 @@ export default function Home() {
       <CreateTask taskModal={taskModal} setTaskModal={setTaskModal} />
       <div className={styles.header}>
         <div className={styles.left}>
-          <h1>Welcome to Ticked</h1>
+          {/* <h1>Welcome to Ticked</h1> */}
           <div className={styles.todoTabs}>
-            <DashboardTabs tabNames={["All Task"]} />
+            <DashboardTabs tabNames={["Tasks"]} />
           </div>
         </div>
         <div
@@ -30,7 +30,7 @@ export default function Home() {
             setTaskModal(1);
           }}
         >
-          <div className={styles.newTask}>
+          <div className={[styles.newTask, "hover"].join(" ")}>
             <img src={addIcon} alt="" />
             <p>New Task</p>
           </div>
@@ -38,7 +38,7 @@ export default function Home() {
       </div>
       <div className={styles.allTasks}>
         {tasks == 0 ? (
-          <EmptyState />
+          <EmptyState setTaskModal={setTaskModal} />
         ) : (
           <>
             <TaskItems status="PENDING" myTasks={tasks} />

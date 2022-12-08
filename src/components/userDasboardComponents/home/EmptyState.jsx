@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./EmptyState.module.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import qup from "../../../assets/quote-up.svg";
 import qd from "../../../assets/quote-down.svg";
 
-function EmptyState() {
+function EmptyState({ setTaskModal }) {
   return (
     <div className={style.ESm}>
       <p className={style.ESMp}>
@@ -22,9 +22,17 @@ function EmptyState() {
         at least you know you gave all you had. We need to live the <br />
         best that's in us.
       </p>
-      <Link to="/newtask">
-        <p className={style.ESMg}>Get Started</p>
-      </Link>
+      {/* <Link to="/newtask"> */}
+      <p
+        style={{ cursor: "pointer" }}
+        className={style.ESMg}
+        onClick={() => {
+          setTaskModal(1);
+        }}
+      >
+        Get Started
+      </p>
+      {/* </Link> */}
     </div>
   );
 }

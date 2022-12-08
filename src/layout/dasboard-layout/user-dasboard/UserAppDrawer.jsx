@@ -1,18 +1,18 @@
 import { Box, Drawer, Stack } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import NavList from "../../core/dashboard/va-client-page/NavList";
+import UserNavList from "./UserNavList";
 
 const drawerWidth = 240;
 const style = {
-  display: { sm: "block", md: "none" },
+  display: { xs: "block", sm: "none" },
   "& .MuiDrawer-paper": {
     boxSizing: "border-box",
     width: drawerWidth
   }
 };
 
-const NavDrawer = props => {
+const UserNavDrawer = props => {
   const { mobileOpen, handleDrawerToggle, window } = props;
 
   const container =
@@ -47,10 +47,10 @@ const NavDrawer = props => {
             />
           </Link>
         </Stack>
-        <NavList />
+        <UserNavList />
       </Box>
     </Drawer>
   );
 };
 
-export default NavDrawer;
+export default UserNavDrawer;

@@ -10,7 +10,7 @@ import {
   Outlet,
   Link
 } from "react-router-dom";
-// import {useHistory} from "react-router-dom";
+import axios from "axios";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -27,8 +27,11 @@ import Typography from "@mui/material/Typography";
 //route
 import { userRoutes } from "../../router/user";
 
+//notification
+import { requestForToken } from "../../messaging_init_in_sw";
+
 //Images
-import tick from "../../assets/home/tick.png";
+// import tick from "../../assets/home/tick.png";
 import VaImg from "../../assets/dashboard/user.png";
 import arrowDown from "../../assets/dashboard/arrow-down.png";
 import hand from "../../assets/dashboard/hand.png";
@@ -38,9 +41,9 @@ import bell from "../../assets/dashboard/notif.png";
 
 const drawerWidth = 240;
 
-export default function VaDasboard() {
+export default function Dasboard() {
   const userName = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user")).first_name
+    ? JSON.parse(localStorage.getItem("user"))?.data.first_name
     : "";
   const location = useLocation();
   const { window } = location;
@@ -48,7 +51,25 @@ export default function VaDasboard() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [nav, setNav] = useState(false);
 
-  // const [title, setTitle] = useState("home");
+  //requestion notification permission from user
+  requestForToken();
+
+  const id = JSON.parse(localStorage.getItem("user")).user_id;
+  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
+
+  useEffect(() => {
+    const getNotification = async () => {
+      try {
+        await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+          user_id: `${id}`,
+          device_id: fbToken
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getNotification();
+  }, [fbToken]);
 
   useEffect(() => {
     //On click the array of route is split into array with the first item remove
@@ -74,7 +95,7 @@ export default function VaDasboard() {
       }}
     >
       <Toolbar>
-        <NavLink to={`/`} exact style={{ textDecoration: "none" }}>
+        {/* <NavLink to={`/`} style={{ textDecoration: "none" }}>
           <Box
             sx={{
               display: "flex",
@@ -92,7 +113,7 @@ export default function VaDasboard() {
               Ticked
             </Typography>
           </Box>
-        </NavLink>
+        </NavLink> */}
 
         <IconButton
           color="inherit"
@@ -128,7 +149,6 @@ export default function VaDasboard() {
             <Box sx={{ marginTop: "20px !important" }}>
               <NavLink
                 to={`/dashboard/${item.path}`}
-                exact
                 key={index}
                 style={{ textDecoration: "none" }}
               >
@@ -190,13 +210,22 @@ export default function VaDasboard() {
                 mt={4}
                 sx={{ width: "15vw", display: "inline" }}
               >
-                Hello, {userName}
+                Hello {userName},
               </Typography>
               <img
                 style={{ position: "relative", left: "10px", top: "2px" }}
                 src={hand}
                 alt="hand"
               />
+              <Typography
+                variant="h6"
+                mt={4}
+                ml={3}
+                sx={{ width: "15vw", display: "inline" }}
+              >
+                Welcome to Ticked
+              </Typography>
+              {/* fdf */}
             </Grid>
             <Grid item xs={6} sm={2}>
               <Box
@@ -288,6 +317,7 @@ export default function VaDasboard() {
 
       {/* Right Sidebar */}
       <Container
+        style={{ display: "flex", flexDirection: "column" }}
         maxWidth={false}
         component="main"
         sx={{
@@ -306,7 +336,6 @@ export default function VaDasboard() {
             return (
               <Route
                 key={index}
-                exact
                 path={`/dashboard/${item.path}`}
                 render={props => {
                   return (
