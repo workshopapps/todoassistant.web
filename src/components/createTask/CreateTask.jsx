@@ -198,7 +198,10 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
             </li> */}
             </ul>
           </div>
-          <button type="submit" className={styles.createTask_button}>
+          <button
+            type="submit"
+            className={[styles.createTask_button, "hover"].join(" ")}
+          >
             Create Task
           </button>
         </form>

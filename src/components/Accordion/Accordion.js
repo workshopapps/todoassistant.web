@@ -1,7 +1,6 @@
-import { Box } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import React, { useState } from "react";
 import styles from "./Accordion.module.scss";
-import avatar from "../../assets/avatar3.jpg";
 import comment from "../../assets/Vectorcom2.png";
 import commentlight from "../../assets/message-2messagelight.svg";
 import right from "../../assets/arrow-rightright.svg";
@@ -12,6 +11,36 @@ import moment from "moment";
 const Accordion = ({ data, setData, setHidden, setDissapear }) => {
   const [activeState, setActiveState] = useState(data[0]);
 
+  function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = "#";
+
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+
+    return color;
+  }
+
+  function stringAvatar(name) {
+    const upperName = name.toUpperCase();
+    return {
+      sx: {
+        bgcolor: stringToColor(upperName)
+      },
+      children: `${upperName.split(" ")[0][0]}${upperName.split(" ")[1][0]}`
+    };
+  }
+
   return (
     <Box>
       <Box
@@ -20,15 +49,15 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
         width="100%"
         justifyContent={"space-between"}
         alignItems="center"
+        sx={{ boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px" }}
       >
-        {data.map(task => (
-          // MOBILEVIEW
+        {data.map((task, index) => (
           <Box
             borderBottom={"1px solid #E9F3F5"}
             className={styles.taskListMobile}
             paddingBottom="15px"
             paddingTop="15px"
-            key={task?.task_id}
+            key={index}
             display={"flex"}
             width="100%"
             justifyContent={"space-between"}
@@ -49,10 +78,12 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
                 number: task.user.phone,
                 comment: task.comment
               });
+
               setDissapear(false);
               setTimeout(() => {
                 setHidden(false);
-              }, 50);
+              }, 200);
+
               setActiveState(task);
             }}
           >
@@ -81,14 +112,11 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
               >
                 <Box display="flex" alignItems={"center"} gap="5px">
                   {" "}
-                  <img
-                    style={{ height: "20px", borderRadius: "50%" }}
-                    src={avatar}
-                    alt="avatar"
-                  />
+                  <Avatar {...stringAvatar(task.user.name)} />
                   <span
                     style={{
                       fontSize: "15px",
+                      marginLeft: "20px",
                       paddingRight: "30px",
                       borderRight: "1px solid #D3D0D9",
                       whiteSpace: "nowrap",
@@ -133,7 +161,7 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
             <Box
               display={"flex"}
               gap="5px"
-              marginRight={"50px"}
+              marginRight={{ md: "50px !important", sm: "5px !important" }}
               className={styles.view}
             >
               <span

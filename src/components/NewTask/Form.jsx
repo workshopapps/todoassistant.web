@@ -92,7 +92,7 @@ function Form({ value }) {
 
       console.log(res);
       res.data.completed = false;
-      console.log(res.data)
+      console.log(res.data);
       const tasks = JSON.parse(localStorage.getItem("myTasks"));
       tasks.push(res.data);
       localStorage.setItem("myTasks", JSON.stringify(tasks));
