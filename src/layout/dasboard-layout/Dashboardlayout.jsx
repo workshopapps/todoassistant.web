@@ -17,18 +17,47 @@ const Dashboardlayout = () => {
   requestForToken();
 
   useEffect(() => {
-    const getNotification = async () => {
-      try {
-        await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
-          user_id: `${id}`,
-          device_id: fbToken
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getNotification();
-  }, [fbToken]);
+    const getNotification = async () =>  {
+           try {
+               await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+                   user_id: `${id}`,
+                   device_id: fbToken,
+                   },
+                   {headers: { Authorization: "Bearer " + id }}
+               )
+           } catch (error) {
+               console.error(error)
+       }
+    }
+    getNotification()
+   }, [fbToken])
+
+   const getNotificationVA = async () => {
+    try {
+      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+        headers: { Authorization: "Bearer " + id }
+      }).then((res) => {
+        localStorage.setItem("vaNotification", JSON.stringify(res.data))
+      })
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  // calling notifcation function every 10 sec
+  useEffect(() => {
+    getNotificationVA()
+
+    const interval = setInterval(() => {
+      getNotificationVA()
+    }, 10000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
 
   return (
     <Grid2 height={`100vh`} container>
