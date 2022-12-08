@@ -31,12 +31,18 @@ const UserDashboardlayout = () => {
   }, [fbToken]);
 
   return (
-    <Grid2 height={`100vh`} container>
-      <Grid2 xs={0} md={3}>
+    <Grid2
+      height={`100vh`}
+      container
+      width={`100%`}
+      maxWidth={`1440px`} //EXPERIMENTAL (WILL TAKE IT OF IF THE TEAM DISAGREES)
+      margin={`0 auto`}
+    >
+      <Grid2 borderRight={`1px solid lightgrey`} xs={0} md={3}>
         <Box
           sx={{
+            top: 0,
             padding: `0 1rem`,
-            border: `1px solid lightgrey`,
             display: { xs: `none`, md: `block` }
           }}
           width={`100%`}
