@@ -28,7 +28,6 @@ export default function Notifications() {
         }else if (location.pathname === "/virtual-assistance/notifications" && vaNotification !== null) {
             setNotification(vaNotification)
         }
-
     },[location.pathname])
     
 
@@ -92,9 +91,11 @@ export default function Notifications() {
 
             <Box sx={{display: "flex", justifyContent: "space-between", padding: {xs: "20px 10px", md: "0px 30px"}}}>
                 {notification.length > 0 && (
+                   <>
                     <Typography sx={{fontSize: "12px"}}>{notification.length} NOTIFICATIONS</Typography>
+                    <Typography sx={{fontSize: "12px", color: "#FF4D4F"}}>Clear all</Typography>
+                   </>
                 )}
-                <Typography sx={{fontSize: "12px", color: "#FF4D4F"}}>Clear all</Typography>
 
             </Box>
             {notification.length > 0 ?  
@@ -139,7 +140,7 @@ export default function Notifications() {
                 </Box>
                 )) :  
                     <Box mt={4}>
-                        <Typography textAlign={"center"}>You do not have any notification yet</Typography>
+                        <Typography textAlign={"center"}>You do not have notification yet</Typography>
                     </Box> 
                 }
            
