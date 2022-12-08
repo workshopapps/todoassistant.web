@@ -3,13 +3,14 @@ import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 import styles from "./TaskItems.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const TaskItems = ({ status, myTasks }) => {
   const notify = () => {
     status === "PENDING" && toast.success(`Moved to Done`, { icon: false });
     status === "DONE" && toast.info(`Moved to Pending`, { icon: false });
   };
-  const { setTasks } = useContext(TaskCtx);
+  const { setTasks, getClickedTask } = useContext(TaskCtx);
   const [showTasks, setShowTasks] = useState(false);
   const dateFormat = taskdate => {
     const date = new Date(taskdate);
@@ -85,6 +86,7 @@ const TaskItems = ({ status, myTasks }) => {
       setTasks(dummyTasks);
     }
   };
+  const navigate = useNavigate();
 
   return (
     <div className={styles.wrapper}>
@@ -143,6 +145,10 @@ const TaskItems = ({ status, myTasks }) => {
                   <>
                     {showTasks && (
                       <div
+                        onClick={() => {
+                          getClickedTask(i.task_id);
+                          navigate("/dashboard/taskdetail");
+                        }}
                         className={styles.task}
                         key={i.task_id}
                         style={{ background: color.background }}

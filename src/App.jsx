@@ -47,6 +47,7 @@ import VATasks from "./components/VAHome/VAHome";
 import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
+import TaskDetail from "./components/taskDetails/TaskDetails";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
@@ -160,13 +161,14 @@ function App() {
             <Route path="assistant" element={<ChatBox />} />
             <Route path="task" element={<Task />}></Route>
             <Route path="detail" element={<Detail />} />
+            <Route path="taskdetail" element={<TaskDetail />} />
             <Route path="sub" element={<Sub />} />
             <Route path="clients" element={<Client />} />
             <Route path="notification" element={<Notification />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="payment" element={<Payment />} />
             <Route path="profile" element={<SettingsProfilee />} />
-            <Route path="profile/edit" element={<Edit />} />
+            <Route path="edit" element={<Edit />} />
             <Route
               path="profile/change-password"
               element={<ChangePassword />}
