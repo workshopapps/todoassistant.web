@@ -13,6 +13,7 @@ import clock from "../../assets/clockclockiicon.svg";
 import closeIcon from "../../assets/close-circleclose.svg";
 import comment from "../../assets/Frame24comment.svg";
 import smile from "../../assets/Subtractsmile.svg";
+import SkeletonLoader from "./Skeleton/SkeletonLoader";
 
 const VAHome = () => {
   const [data, setData] = useState([]);
@@ -20,6 +21,7 @@ const VAHome = () => {
   // const [num, setNum] = useState(data?.length);
   // const [title, setTitle] = useState("ALL");
   const [activeClass, setActiveClass] = useState(2);
+  const [isLoading, setIsLoadiing] = useState(true);
   const [singleDate, setSingleData] = useState({
     title: data[0]?.title,
     date: time,
@@ -46,8 +48,8 @@ const VAHome = () => {
       );
 
       const vaTasks = response.data.data;
-
       setData(vaTasks);
+      setIsLoadiing(false);
     }
   };
 
@@ -58,10 +60,9 @@ const VAHome = () => {
   const handleSideBar = () => {
     setHidden(true);
 
-    //Add dissapear style to sidebar after 1second of animation
     setTimeout(() => {
       setDissapear(true);
-    }, 500);
+    }, 200);
   };
   useEffect(() => {
     if (hidden === true) {
@@ -73,7 +74,8 @@ const VAHome = () => {
 
   return (
     <Box
-      minHeight={"100vh"}
+      height={"86vh"}
+      overflow={"scroll"}
       padding="33px"
       bgcolor={"#F9F7FF"}
       className={styles.main}
@@ -89,7 +91,8 @@ const VAHome = () => {
           backgroundColor: "#fff",
           padding: "14px 22px",
           borderRadius: "8px",
-          gap: "20px"
+          gap: "20px",
+          boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px"
         }}
       >
         <Box display={"flex"} width="100%" justifyContent={"space-between"}>
@@ -114,7 +117,7 @@ const VAHome = () => {
               cursor: "pointer"
             }}
             color={activeClass === 2 && " #714DD9"}
-            className={activeClass === 2 && styles.active}
+            className={(activeClass === 2 && styles.active) || ""}
           >
             All Tasks {`(${data?.length})`}
           </Typography>
@@ -128,14 +131,14 @@ const VAHome = () => {
               textAlign: "center",
               color: `${activeClass === 1 && " #714DD9"}`
             }}
-            className={activeClass === 1 && styles.active}
+            className={(activeClass === 1 && styles.active) || ""}
           >
             Assigned to Me
           </Typography>
         </Box>
       </Box>
       <Box display={"flex"} width="100%" gap={"20px"}>
-        {data?.length === 0 && (
+        {data?.length === 0 && !isLoading && (
           // /* TASKS EMPTY STATE */
           <Box
             minHeight={"69vh"}
@@ -163,19 +166,23 @@ const VAHome = () => {
           </Box>
         )}
 
-        <Box
-          style={{ display: `${(data?.length === 0 && "none") || "block"}` }}
-          className={styles.Accordian__v11}
-          display={"flex"}
-          flexDirection="column"
-          marginTop={"27px"}
-          sx={{
-            width: "65%",
-            backgroundColor: "transparent",
-            padding: "10px 0px"
-          }}
-        >
-          {data && (
+        {data && !isLoading && (
+          <Box
+            style={{
+              display: `${
+                (data?.length === 0 && isLoading && "none") || "block"
+              }`
+            }}
+            className={styles.Accordian__v11}
+            display={"flex"}
+            flexDirection="column"
+            marginTop={"27px"}
+            sx={{
+              width: "65%",
+              backgroundColor: "transparent",
+              padding: "10px 0px"
+            }}
+          >
             <Accordian
               data={data}
               numTask={data?.length}
@@ -183,172 +190,150 @@ const VAHome = () => {
               setHidden={setHidden}
               setData={setSingleData}
             />
-          )}{" "}
-        </Box>
+          </Box>
+        )}
+        {isLoading && (
+          <Box width="100%">
+            <SkeletonLoader />
+          </Box>
+        )}
 
-        {/* //SIDE BAR */}
-
+        {/* SIDEBAR */}
         <Box
-          style={{ display: `${(data?.length === 0 && "none ") || "block"}` }}
-          className={`${styles.sidebar} ${hidden && styles.hidden} ${
+          style={{
+            display: `${(data?.length === 0 && "none ") || "block"}`
+          }}
+          width={"42%"}
+          height="100%"
+          marginTop={"50px"}
+          position="absolute"
+          className={`${styles.sidebar__fixed} ${
+            (hidden && styles.hidden) || ""
+          } ${(dissapear && styles.dissapear) || ""}`}
+        >
+          {/* CLOSE ICON */}
+          <img
+            src={closeIcon}
+            alt="close"
+            className={`${styles.closeIcon} ${(hidden && styles.hidden) || ""}`}
+            onClick={handleSideBar}
+          />
+          <Box
+            padding={"20px"}
+            paddingBottom={"10px"}
+            borderBottom="1px solid #E9F3F5"
+          >
+            <p
+              className={styles.title__hi}
+              style={{
+                color: "black",
+                fontSize: "18px",
+                fontWeight: 700,
+                paddingTop: "25px"
+              }}
+            >
+              {singleDate.title}
+            </p>
+          </Box>
+          <Box width={"100%"} padding="56px 24px">
+            <Box display={"flex"} gap="10px">
+              <img src={assign} alt="assign" />
+              <p>Assigned to me</p>
+            </Box>
+            <Box
+              width={"100%"}
+              border="1px solid #D3D0D9"
+              padding={"20px"}
+              borderRadius="10px"
+              marginTop={"15px"}
+            >
+              <h6 style={{ fontSize: "12px", fontWeight: "700" }}>STATUS</h6>
+              <Box display={"flex"} gap="5px" marginBottom={"15px"}>
+                <img src={clock} alt="assign" />
+                <p
+                  style={{
+                    fontSize: "15px",
+                    color: `${
+                      (singleDate.status === "Done" && "#53c41a") ||
+                      (singleDate.status === "Pending" &&
+                        "rgba(113, 77, 217)") ||
+                      (singleDate.status === "Overdue" && "rgba(255, 77, 79)")
+                    }`
+                  }}
+                >
+                  {singleDate.status}
+                </p>
+              </Box>
+              <h6 style={{ fontSize: "12px", fontWeight: "700" }}>DUE TIME</h6>
+              <p>{singleDate.date}</p>
+              <h6
+                style={{
+                  marginTop: "15px",
+                  fontSize: "12px",
+                  fontWeight: "700"
+                }}
+              >
+                CLIENT
+              </h6>
+              <Box
+                display={"flex"}
+                marginTop="10px"
+                justifyContent={"space-between"}
+              >
+                <Box display={"flex"} flexDirection="column">
+                  <h6 style={{ color: "#714DD9", fontSize: "12px" }}>
+                    {singleDate.client}{" "}
+                  </h6>
+                  <p style={{ fontSize: "12px" }}> +{singleDate.number} </p>
+                </Box>
+                <Box display={"flex"} alignItems="center" gap="5px">
+                  <img src={comment} alt="comment" />
+                  <h3 style={{ fontSize: "15px" }}>{singleDate.comment} </h3>
+                </Box>
+              </Box>
+            </Box>
+            <p
+              style={{
+                marginTop: "10px",
+                fontSize: "12px",
+                fontWeight: "700"
+              }}
+            >
+              Descrption
+            </p>
+            <p style={{ fontSize: "12px" }}>{singleDate.description} </p>
+          </Box>
+        </Box>
+        <Box
+          className={`${styles.comment} ${hidden && styles.hidden} ${
             dissapear && styles.dissapear
           }`}
-          marginTop={"-145px"}
-          position="relative"
-          sx={{ width: "35%", backgroundColor: "#fff" }}
+          width={"300px"}
+          borderRadius="10px"
+          border="1px solid #D3D0D9"
+          position={"fixed"}
+          bottom="10px"
+          padding="10px"
+          right="16px"
+          display={"flex"}
+          gap="7px"
+          alignItems={"center"}
         >
-          <Box
+          <img
             style={{
-              display: `${(data?.length === 0 && "none ") || "block"}`
+              height: "28px",
+              marginLeft: "10px",
+              cursor: "pointer"
             }}
-            position={"relative"}
-            top="-27px"
-            className={`${styles.saviour__relative} ${
-              hidden && styles.hidden
-            } ${dissapear && styles.dissapear}`}
-          >
-            <Box
-              style={{
-                display: `${(data?.length === 0 && "none ") || "block"}`
-              }}
-              width={"42%"}
-              height="100%"
-              marginTop={"50px"}
-              position="fixed"
-              className={styles.sidebar__fixed}
-            >
-              {/* CLOSE ICON */}
-              <img
-                src={closeIcon}
-                alt="close"
-                className={styles.closeIcon}
-                onClick={handleSideBar}
-              />
-              <Box
-                padding={"20px"}
-                paddingBottom={"10px"}
-                borderBottom="1px solid #E9F3F5"
-              >
-                <p
-                  className={styles.title__hi}
-                  style={{
-                    color: "black",
-                    fontSize: "18px",
-                    fontWeight: 700,
-                    paddingTop: "25px"
-                  }}
-                >
-                  {singleDate.title}
-                </p>
-              </Box>
-              <Box width={"100%"} padding="56px 24px">
-                <Box display={"flex"} gap="10px">
-                  <img src={assign} alt="assign" />
-                  <p>Assigned to me</p>
-                </Box>
-                <Box
-                  width={"100%"}
-                  border="1px solid #D3D0D9"
-                  padding={"20px"}
-                  borderRadius="10px"
-                  marginTop={"15px"}
-                >
-                  <h6 style={{ fontSize: "12px", fontWeight: "700" }}>
-                    STATUS
-                  </h6>
-                  <Box display={"flex"} gap="5px" marginBottom={"15px"}>
-                    <img src={clock} alt="assign" />
-                    <p
-                      style={{
-                        fontSize: "15px",
-                        color: `${
-                          (singleDate.status === "Done" && "#53c41a") ||
-                          (singleDate.status === "Pending" &&
-                            "rgba(113, 77, 217)") ||
-                          (singleDate.status === "Overdue" &&
-                            "rgba(255, 77, 79)")
-                        }`
-                      }}
-                    >
-                      {singleDate.status}
-                    </p>
-                  </Box>
-                  <h6 style={{ fontSize: "12px", fontWeight: "700" }}>
-                    DUE TIME
-                  </h6>
-                  <p>{singleDate.date}</p>
-                  <h6
-                    style={{
-                      marginTop: "15px",
-                      fontSize: "12px",
-                      fontWeight: "700"
-                    }}
-                  >
-                    CLIENT
-                  </h6>
-                  <Box
-                    display={"flex"}
-                    marginTop="10px"
-                    justifyContent={"space-between"}
-                  >
-                    <Box display={"flex"} flexDirection="column">
-                      <h6 style={{ color: "#714DD9", fontSize: "12px" }}>
-                        {singleDate.client}{" "}
-                      </h6>
-                      <p style={{ fontSize: "12px" }}> +{singleDate.number} </p>
-                    </Box>
-                    <Box display={"flex"} alignItems="center" gap="5px">
-                      <img src={comment} alt="comment" />
-                      <h3 style={{ fontSize: "15px" }}>
-                        {singleDate.comment}{" "}
-                      </h3>
-                    </Box>
-                  </Box>
-                </Box>
-                <p
-                  style={{
-                    marginTop: "10px",
-                    fontSize: "12px",
-                    fontWeight: "700"
-                  }}
-                >
-                  Descrption
-                </p>
-                <p style={{ fontSize: "12px" }}>{singleDate.description} </p>
-              </Box>
-            </Box>
-            <Box
-              className={`${styles.comment} ${hidden && styles.hidden} ${
-                dissapear && styles.dissapear
-              }`}
-              width={"37%"}
-              borderRadius="10px"
-              border="1px solid #D3D0D9"
-              position={"fixed"}
-              bottom="10px"
-              padding="10px"
-              right="36px"
-              display={"flex"}
-              gap="7px"
-              alignItems={"center"}
-            >
-              <img
-                style={{
-                  height: "28px",
-                  marginLeft: "10px",
-                  cursor: "pointer"
-                }}
-                src={smile}
-                alt="smile"
-              />
-              <input
-                style={{ margin: "0", border: 0, outline: "none" }}
-                type="text"
-                placeholder="Add a comment..."
-                title="comment"
-              />
-            </Box>
-          </Box>
+            src={smile}
+            alt="smile"
+          />
+          <input
+            style={{ margin: "0", border: 0, outline: "none", width: "100%" }}
+            type="text"
+            placeholder="Add a comment..."
+            title="comment"
+          />
         </Box>
       </Box>
     </Box>

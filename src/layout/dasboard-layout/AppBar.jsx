@@ -38,11 +38,12 @@ const Navbar = ({ handleDrawerToggle }) => {
     >
       <Toolbar>
         <IconButton
+        
           color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          sx={{ mr: 2, display: { md : "none" } }}
         >
           <MenuIcon />
         </IconButton>
