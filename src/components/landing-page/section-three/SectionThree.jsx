@@ -4,6 +4,7 @@ import { Animate } from "../../../hooks/animation/AnimateIn";
 import SectionThreeList from "./section-three-list/SectionThreeList";
 import HowModal from "./HowModal/HowModal";
 import styles from "./SectionThree.module.scss";
+import { Box } from "@mui/material";
 
 const SectionThree = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ const SectionThree = () => {
         src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1668644172/hng/todoAppVirtualAssistant/Vector-4_fj6sl7.svg"
         alt="float-icon"
       />
-      <section className={styles.container}>
+      <Box flex={1} className={styles.container}>
         <div className={styles.main__tick}>
           <header>
             <h3 className={styles.section__three_title}>How It Works</h3>
@@ -65,17 +66,22 @@ const SectionThree = () => {
             />
           </div>
           <div className={styles.steps}>
-            <button className={styles.getStarted} onClick={() => setIsOpen(true)}>Get started</button>
+            <button
+              className={styles.getStarted}
+              onClick={() => setIsOpen(true)}
+            >
+              Get started
+            </button>
             {isOpen && <HowModal setIsOpen={setIsOpen} />}
             <button className={styles.download}>Download App</button>
           </div>
         </div>
-      </section>
-      <div>
+      </Box>
+      <Box flex={1}>
         <Animate.FadeIn>
           <img className={styles.img} src={img} alt="section-three-img" />
         </Animate.FadeIn>
-      </div>
+      </Box>
     </div>
   );
 };

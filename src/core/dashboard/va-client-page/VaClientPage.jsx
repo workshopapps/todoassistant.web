@@ -53,7 +53,13 @@ const VaClientPage = () => {
           </Box>
         </Container>
       </Box>
-      <StatusBar open={open} close={close} />
+      <StatusBar
+        open={open}
+        close={close}
+        message={`Inteernal Server error!`}
+        priority={`error`}
+        position={`right`}
+      />
     </>
   );
 };
