@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.allTasks}>
-        {!isLoading && tasks == 0 ? (
+        {!isLoading && tasks.length == 0 ? (
           <EmptyState setTaskModal={setTaskModal} />
         ) : (
           <>

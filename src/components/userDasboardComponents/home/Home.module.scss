@@ -4,6 +4,7 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  
   .header {
     background: #ffffff;
     border-bottom: 1px solid #e9f3f5;
@@ -62,6 +63,7 @@
     gap: 32px;
     background: #ffffff;
     border: 1px solid #e9f3f5;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 8px;
     overflow: scroll;
     min-height: 65vh;
