@@ -1,5 +1,10 @@
+@import "../../scss/mixins";
+
 .TaskDetail_wrapper {
-  min-height: 90vh;
+  // min-height: 90vh;
+  // border: 1px solid red;
+  @include max-height;
+
   .TaskDetail_header {
     display: flex;
     flex-direction: column;
@@ -7,7 +12,7 @@
     background: #ffffff;
     border-bottom: 1px solid #e9f3f5;
     border-radius: 8px;
-
+    margin: 24px;
     border-bottom: 1px solid #e9f3f5;
     border-radius: 8px;
     display: flex;
@@ -54,7 +59,7 @@
         color: #707070;
         border-bottom: 2px solid white;
         padding-bottom: 0.5rem;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         &:hover {
           border-bottom: 2px solid #714dd9;
         }
@@ -124,6 +129,8 @@
     }
   }
   .TaskDetail_body {
+    margin: 24px;
+    border-radius: 8px;
     @media screen and (max-width: 1000px) {
       flex-direction: column-reverse;
     }

@@ -1,13 +1,15 @@
+@import "../../../scss/mixins";
+
 .settings {
   margin: 0;
-  padding: 0;
+  padding: 24px;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
   width: 100%;
   max-width: 100%;
-  height: max-content;
   position: relative;
+  @include max-height;
 
   .delete_modal {
     position: absolute;
@@ -92,6 +94,7 @@
     .profile-bottom {
       display: flex;
       flex-direction: column;
+      border-radius: 16px;
 
       .head {
         display: flex;
@@ -233,8 +236,8 @@
           margin-bottom: 24px;
 
           @media screen and (min-width: 780px) {
-            // padding: 34px 26px;
-            padding: 34px 0;
+            padding: 34px 26px;
+            // padding: 34px 0;
             row-gap: 40px;
           }
 
@@ -300,8 +303,8 @@
           margin-bottom: 24px;
 
           @media screen and (min-width: 780px) {
-            // padding: 34px 26px;
-            padding: 34px 0;
+            padding: 34px 26px;
+            // padding: 34px 0;
             row-gap: 50px;
           }
 
@@ -333,8 +336,8 @@
         row-gap: 40px;
 
         @media screen and (min-width: 780px) {
-          //   padding: 34px 26px;
-          padding: 34px 0;
+          padding: 34px 26px;
+          // padding: 34px 0;
         }
 
         .log {
@@ -354,6 +357,11 @@
         max-width: 600px;
         align-self: center;
         width: 100%;
+        padding: 1rem;
+
+        @media screen and (min-width: 780px) {
+          padding: 5rem;
+        }
 
         .head {
           align-self: center;
