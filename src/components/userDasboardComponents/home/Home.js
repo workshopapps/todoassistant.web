@@ -42,8 +42,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className={styles.allTasks}>
-        {!isLoading && tasks == 0 ? (
+      <div className={[styles.allTasks, `shadow`].join(" ")}>
+        {!isLoading && tasks.length == 0 ? (
           <EmptyState setTaskModal={setTaskModal} />
         ) : (
           <>

@@ -14,7 +14,7 @@ const TaskItems = ({ status, myTasks }) => {
   const [showTasks, setShowTasks] = useState(false);
   const dateFormat = taskdate => {
     const date = new Date(taskdate);
-    const newDate = `${date.getDay() + 1}, ${date.toDateString()[4]}${
+    const newDate = `${date.getDate()}, ${date.toDateString()[4]}${
       date.toDateString()[5]
     }${date.toDateString()[6]} at ${date.toLocaleTimeString()}`;
 

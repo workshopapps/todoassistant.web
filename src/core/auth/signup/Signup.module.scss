@@ -232,8 +232,14 @@
           }
         }
         .errMessage{
+          width: max-content;
           text-align: center;
+          margin-left: auto;
+          margin-right: auto;
           color: red;
+          border: solid 1px red;
+          padding: 9px;
+          border-radius: 8px;
         }
       }
     }

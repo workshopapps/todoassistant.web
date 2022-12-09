@@ -97,7 +97,7 @@ const SettingsProfilee = () => {
               </Link>
             </div>
 
-            <div className="details-card">
+            <div className="details-card shadow">
               <div className="name">
                 <p className="name-name">Name</p>
                 <div className="answer">
@@ -123,14 +123,15 @@ const SettingsProfilee = () => {
             <div className="heading-info">
               <p className="personal">Security</p>
             </div>
-            <div className="details-card-sec">
+            <div className="details-card-sec shadow">
               <Link to="change-password" className="tit">
                 <p className="tit-tit">Change password</p>
                 <img src={arrowRight} alt="arrow" />
               </Link>
             </div>
           </section>
-          <Link className="logout" onClick={() => setModal(cancle => !cancle)}>
+
+          <Link className="logout shadow" onClick={() => setModal(cancle => !cancle)}>
             <p className="log">Delete account</p>
             <img src={arrowRight} alt="arrow" />
           </Link>

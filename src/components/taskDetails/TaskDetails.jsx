@@ -91,7 +91,7 @@ const TaskDetails = () => {
       </div>
 
       {!tab ? (
-        <div className={styles.TaskDetail_body}>
+        <div className={[styles.TaskDetail_body, `shadow`].join(" ")}>
           <div className={styles.TaskDetail_body_left}>
             <h1 className={styles.TaskDetail_body_title}>{task.title}</h1>
             <p className={styles.TaskDetail_assignto_head}>Assigned to</p>
@@ -158,13 +158,13 @@ const TaskDetails = () => {
                 Due Time
               </p>
               <p className={styles.TaskDetail_body_right_duetimebody}>
-                {`${new Date(task.end_time).getDay() + 1}, ${month} at ${time}`}
+                {`${new Date(task.end_time).getDate()}, ${month} at ${time}`}
               </p>
             </div>
           </div>
         </div>
       ) : (
-    <Comments/>
+        <Comments />
       )}
     </div>
   );
