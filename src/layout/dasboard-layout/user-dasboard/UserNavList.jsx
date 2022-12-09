@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 // import PeopleIcon from "@mui/icons-material/People";
 // import TaskAltIcon from "@mui/icons-material/TaskAlt";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   List,
   Divider,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Stack
+  Stack,
+  Button
 } from "@mui/material";
+import { Logout } from "@mui/icons-material";
+import { logout } from "../../../contexts/authContext/AuthActions";
+import { AuthContext } from "../../../contexts/authContext/AuthContext";
 
 const styledListItem = {
   padding: `1rem`,
@@ -23,15 +27,23 @@ const styledListItem = {
   }
 };
 
-const UserNavList = () => {
+let activeStyle = {
+  background: `#714DD980`,
+  borderRadius: `8px`,
+  color: `#fff`
+};
+
 //   const userName = localStorage.getItem("user")
 //     ? JSON.parse(localStorage.getItem("user"))?.data.first_name
 //     : "";
 
-  let activeStyle = {
-    background: `#714DD980`,
-    borderRadius: `8px`,
-    color: `#fff`
+const UserNavList = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -60,7 +72,7 @@ const UserNavList = () => {
             <ListItemText primary={`Clients`} />
           </ListItem>
         </NavLink> */}
-{/*
+        {/*
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           to={`tasks`}
@@ -87,6 +99,23 @@ const UserNavList = () => {
           </ListItem>
         </NavLink>
       </List>
+
+      <Button
+        onClick={handleLogout}
+        color="error"
+        variant={`text`}
+        size="large"
+        sx={{
+          gap: `10px`,
+          borderRadius: `50px`,
+          textTransform: `capitalize`,
+          my: `1rem`,
+          width: `fit-content`
+        }}
+      >
+        <Logout fontSize="small" />
+        Logout
+      </Button>
     </Stack>
   );
 };

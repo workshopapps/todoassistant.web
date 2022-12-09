@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
@@ -7,15 +7,14 @@ import { Link, Outlet } from "react-router-dom";
 
 import axios from "axios";
 //messaginh
-import { requestForToken } from '../../messaging_init_in_sw'
-
+import { requestForToken } from "../../messaging_init_in_sw";
 
 const Dashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
-  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"))  
+  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id;
+  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
 
   // Request permission from user fro notification
-  requestForToken()
+  requestForToken();
 
   useEffect(() => {
     const getNotification = async () =>  {
@@ -40,7 +39,7 @@ const Dashboardlayout = () => {
       }).then((res) => {
         localStorage.setItem("vaNotification", JSON.stringify(res.data))
       })
-      
+
     } catch (error) {
       console.error(error)
     }
@@ -53,7 +52,7 @@ const Dashboardlayout = () => {
     const interval = setInterval(() => {
       getNotificationVA()
     }, 10000)
-  
+
     return () => {
       clearInterval(interval)
     }
@@ -61,12 +60,23 @@ const Dashboardlayout = () => {
 
 
   return (
-    <Grid2 height={`100vh`} container>
-      <Grid2 xs={0} md={3}>
+    <Grid2
+      height={`100vh`}
+      container
+      width={`100%`}
+      maxWidth={`1440px`} //EXPERIMENTAL (WILL TAKE IT OF IF THE TEAM DISAGREES)
+      margin={`0 auto`}
+    >
+      <Grid2
+        display={{ xs: `none`, md: `flex` }}
+        borderRight={`1px solid lightgrey`}
+        xs={0}
+        md={3}
+      >
         <Box
           sx={{
+            top: 0,
             padding: `0 1rem`,
-            border: `1px solid lightgrey`,
             display: { xs: `none`, md: `block` }
           }}
           width={`100%`}

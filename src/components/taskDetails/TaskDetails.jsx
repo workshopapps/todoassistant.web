@@ -7,6 +7,7 @@ import CreateTask from "../createTask/CreateTask";
 import { useContext } from "react";
 import { useEffect } from "react";
 import DeleteModal from "../deleteModal/DeleteModal";
+import Comments from "../Comments/Comments";
 
 const TaskDetails = () => {
   const [tab, setTab] = useState(0);
@@ -163,7 +164,7 @@ const TaskDetails = () => {
           </div>
         </div>
       ) : (
-        ""
+    <Comments/>
       )}
     </div>
   );

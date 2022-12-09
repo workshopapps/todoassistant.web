@@ -1,27 +1,29 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
+import styled from "@emotion/styled";
+import {
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+  TableRow
+} from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import ClientName from "./ClientName";
-import { Chip, styled, Typography } from "@mui/material";
-import ClientDropdown from "./ClientDropdown";
+import * as React from "react";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
 const style = {
   fontWeight: 700
 };
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: `#714DD9`,
-    color: theme.palette.common.white
+    color: `#fff`
   }
 }));
 
-export default function VaClientUserList({ vaUsers }) {
-  const userList = vaUsers?.map((user, index) => {
+export default function ClientLoader() {
+  const userList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(index => {
     return (
       <TableRow
         key={index}
@@ -31,24 +33,28 @@ export default function VaClientUserList({ vaUsers }) {
         }}
       >
         <TableCell>
-          <ClientName fullName={[user.first_name, user.last_name].join(" ")} />
+          <Stack gap={1} direction={`row`} alignItems={`center`}>
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton variant="text" height={10} width={`70%`} />
+          </Stack>
         </TableCell>
         <TableCell>
-          <Typography>{user.phone}</Typography>
+          <Skeleton variant="text" height={20} />
         </TableCell>
         <TableCell>
-          <Typography>{user.email}</Typography>
+          <Skeleton variant="text" height={20} />
         </TableCell>
         <TableCell>
-          <Chip color="success" label={user.status} variant="outlined" />
-        </TableCell>
-        <TableCell>
-          <ClientDropdown userID={user.user_id} />
+          <Skeleton
+            variant="rectangle"
+            width={`5rem`}
+            height={`2rem`}
+            sx={{ borderRadius: `16px` }}
+          />
         </TableCell>
       </TableRow>
     );
   });
-
   return (
     <TableContainer
       sx={{
