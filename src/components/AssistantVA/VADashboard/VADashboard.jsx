@@ -4,12 +4,8 @@ import Home from "../VAHome";
 
 const Dashboard = () => {
   return (
-    <div className={styles.va_container}>
-      <div className={styles.va_main}>
-        <div className={styles.va_home}>
-          <Home />
-        </div>
-      </div>
+    <div className={styles.va_container}>      
+      <Home />     
     </div>
   );
 };

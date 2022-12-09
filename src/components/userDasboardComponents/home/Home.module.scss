@@ -1,9 +1,13 @@
 .myWrapper {
   position: relative;
-  max-height: 100vh;
+  // max-height: 100vh;
+  height: calc(100vh - 120px);
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  // border: 1px solid red;
+  padding: 24px;
+
   .header {
     background: #ffffff;
     border-bottom: 1px solid #e9f3f5;

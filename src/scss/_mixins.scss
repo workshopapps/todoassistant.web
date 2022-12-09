@@ -48,3 +48,11 @@
     box-shadow: 0px 0px 0px 4px #714dd950;
   }
 }
+
+@mixin max-height {
+  height: calc(100vh - 56px);
+  overflow: auto;
+  @media (min-width: 992px) {
+    height: calc(100vh - 120px);
+  }
+}

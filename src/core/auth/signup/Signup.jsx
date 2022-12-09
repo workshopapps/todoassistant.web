@@ -130,10 +130,11 @@ const Signup = () => {
         "https://api.ticked.hng.tech/api/v1/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
-      console.log(response);
+        console.log(response)
       login({ email, password }, dispatch);
       setIsLoading(false);
       setError(false);
+
     } catch (err) {
       console.log(err);
       setIsLoading(false);
@@ -145,6 +146,7 @@ const Signup = () => {
         setIsAlertVisible(false);
         }, 2000);
     }
+
   };
   
   const togglePassword = () => {

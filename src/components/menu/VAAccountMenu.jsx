@@ -9,14 +9,14 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
-// import { AuthContext } from "../../contexts/authContext/AuthContext";
-// import { useContext } from "react";
-// import { logout } from "../../contexts/authContext/AuthActions";
+import { Link, useNavigate } from "react-router-dom";
+import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
+import { logout } from '../../contexts/VAContexts/AuthActions';
+
 
 export default function VAAccountMenu() {
-  //   const navigate = useNavigate();
-  //   const { dispatch } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { dispatch } = React.useContext(VAAuthContext);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -27,10 +27,10 @@ export default function VAAccountMenu() {
     setAnchorEl(null);
   };
 
-  //   const handleLogout = () => {
-  //     dispatch(logout());
-  //     navigate("/login");
-  //   };
+ const handleLogout = () => {
+   dispatch(logout());
+   navigate("/va-login");
+ };
 
   return (
     <React.Fragment>
@@ -112,7 +112,7 @@ export default function VAAccountMenu() {
           </MenuItem>
         </Link>
 
-        <MenuItem sx={{ color: `red`, mt: `1rem` }}>
+        <MenuItem sx={{ color: `red`, mt: `1rem` }} onClick={handleLogout}>
           <ListItemIcon sx={{ color: `red` }}>
             <Logout fontSize="small" />
           </ListItemIcon>

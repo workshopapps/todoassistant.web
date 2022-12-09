@@ -10,7 +10,8 @@ import { requestForToken } from "../../../messaging_init_in_sw";
 import UserNavList from "./UserNavList";
 
 const UserDashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("user")).data?.user_id;
+  const user = JSON.parse(localStorage.getItem("user"))
+  const id = user?.data.user_id;
   const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
 
   // Request permission from user from notification
@@ -71,9 +72,9 @@ const UserDashboardlayout = () => {
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
         <UserDashboardNav />
-        <Box padding={`24px`} sx={{backgroundColor:' rgba(113, 77, 217, 0.11)'}}>
-          <Outlet />
-        </Box>
+        {/* <Box padding={`24px`} > */}
+        <Outlet />
+        {/* </Box> */}
       </Grid2>
     </Grid2>
   );
