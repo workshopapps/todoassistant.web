@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./Home.module.scss";
 import addIcon from "../../../assets/newAdd.png";
 import useTasksLoading from "../../../hooks/tasks/useTasksLoading";
@@ -7,12 +7,18 @@ import DashboardTabs from "../../dasboard/DashboardTabs";
 import TaskItems from "../../dasboard/TaskItems";
 import CreateTask from "../../createTask/CreateTask";
 import EmptyState from "./EmptyState";
+import { Skeleton } from "@mui/material";
 
 export default function Home() {
   const [taskModal, setTaskModal] = useState(0);
+  const [taskData, setTaskData] = useState([]);
 
   useTasksLoading();
-  const { tasks } = useContext(TaskCtx);
+  const { tasks, isLoading } = useContext(TaskCtx);
+
+  useEffect(() => {
+    setTaskData(tasks);
+  }, [tasks]);
 
   return (
     <div className={styles.myWrapper}>
@@ -37,13 +43,76 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.allTasks}>
-        {tasks == 0 ? (
+        {!isLoading && tasks == 0 ? (
           <EmptyState setTaskModal={setTaskModal} />
         ) : (
           <>
-            <TaskItems status="PENDING" myTasks={tasks} />
-            <TaskItems status="DONE" myTasks={tasks} />
-            <TaskItems status="EXPIRED" myTasks={tasks} />
+            {(isLoading && (
+              <div style={{ width: "100%" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "Column",
+                    gap: "8px"
+                  }}
+                >
+                  <Skeleton
+                    variant="rectangular"
+                    width={"20%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px", marginTop: "10px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px", marginTop: "10px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"100%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"20%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px", marginTop: "10px" }}
+                  />
+                  <Skeleton
+                    variant="rectangular"
+                    width={"20%"}
+                    height="30px"
+                    sx={{ borderRadius: "7px", marginTop: "10px" }}
+                  />
+                </div>
+              </div>
+            )) || (
+              <>
+                <TaskItems status="PENDING" myTasks={taskData} />
+                <TaskItems status="DONE" myTasks={taskData} />
+                <TaskItems status="EXPIRED" myTasks={taskData} />
+              </>
+            )}
           </>
         )}
       </div>
