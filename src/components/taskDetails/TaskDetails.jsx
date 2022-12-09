@@ -157,7 +157,7 @@ const TaskDetails = () => {
                 Due Time
               </p>
               <p className={styles.TaskDetail_body_right_duetimebody}>
-                {`${new Date(task.end_time).getDay() + 1}, ${month} at ${time}`}
+                {`${new Date(task.end_time).getDate()}, ${month} at ${time}`}
               </p>
             </div>
           </div>
