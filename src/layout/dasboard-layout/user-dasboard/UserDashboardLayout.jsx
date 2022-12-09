@@ -3,32 +3,59 @@ import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import UserDashboardNav from "../../dasboard-layout/user-dasboard/UserDashboardNav";
 import { Box, Stack } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
-
 import axios from "axios";
+
 //messaginh
 import { requestForToken } from "../../../messaging_init_in_sw";
 import UserNavList from "./UserNavList";
 
 const UserDashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id;
-  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
-
-  // Request permission from user from notification
   requestForToken();
+  const id = JSON.parse(localStorage.getItem("user")).data?.user_id;
+  // const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
 
+  
+  // useEffect(() => {
+  //   // Request permission from user from notification
+  //   
+  //   const getNotification = async () => {
+  //     try {
+  //       await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+  //         user_id: `${id}`,
+  //         device_id: fbToken
+  //       });
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   getNotification();
+  // }, [fbToken]);
+  const getNotificationVA = async () => {
+    try {
+      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+        headers: { Authorization: "Bearer " + id }
+      }).then((res) => {
+        localStorage.setItem("userNotification", JSON.stringify(res.data))
+      })
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  // calling notifcation function every 10 sec
   useEffect(() => {
-    const getNotification = async () => {
-      try {
-        await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
-          user_id: `${id}`,
-          device_id: fbToken
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getNotification();
-  }, [fbToken]);
+    getNotificationVA()
+
+    const interval = setInterval(() => {
+      getNotificationVA()
+    }, 10000)
+  
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
 
   return (
     <Grid2 height={`100vh`} container>
