@@ -1,0 +1,350 @@
+.TaskDetail_wrapper {
+  .TaskDetail_header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e9f3f5;
+    border-radius: 8px;
+
+    border-bottom: 1px solid #e9f3f5;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    .TaskDetail_header_left {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      @media screen and (max-width: 1122px) {
+        padding-top: 1rem;
+      }
+      .TaskDetail_header_left_underline_left {
+        cursor: pointer;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: #714dd9;
+        border-bottom: 2px solid #714dd9;
+        padding-bottom: 0.5rem;
+      }
+      .TaskDetail_header_left_underline_right {
+        cursor: pointer;
+        margin-left: 2.5rem;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: #714dd9;
+        border-bottom: 2px solid #714dd9;
+        padding-bottom: 0.5rem;
+      }
+      .TaskDetail_header_left1 {
+        cursor: pointer;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: #707070;
+        border-bottom: 2px solid white;
+        padding-bottom: 0.5rem;
+        transition: all .2s ease-in-out;
+        &:hover {
+          border-bottom: 2px solid #714dd9;
+        }
+      }
+      .TaskDetail_header_left2 {
+        cursor: pointer;
+        margin-left: 2.5rem;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: #707070;
+        border-bottom: 2px solid white;
+        padding-bottom: 0.5rem;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          border-bottom: 2px solid #714dd9;
+        }
+      }
+      display: flex;
+    }
+    .TaskDetail_header_right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+
+      .TaskDetail_header_button1 {
+        @media screen and (max-width: 1122px) {
+          margin-right: 0px;
+        }
+        margin-right: 2.5rem;
+        display: flex;
+        flex-direction: row;
+        padding: 0.875rem 1.75rem;
+        gap: 8px;
+        background: #714dd9;
+        border-radius: 8px;
+        border: none;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fafafa;
+        cursor: pointer;
+      }
+      .TaskDetail_header_button2 {
+        display: flex;
+        flex-direction: row;
+        padding: 0.875rem 1.75rem;
+        gap: 8px;
+        background: white;
+        border-radius: 8px;
+        border: none;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #ff4d4f;
+        cursor: pointer;
+      }
+    }
+  }
+  .TaskDetail_body {
+    @media screen and (max-width: 1000px) {
+      flex-direction: column-reverse;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    .TaskDetail_body_left {
+      @media screen and (max-width: 1000px) {
+        width: 100%;
+        border-radius: 0px 0px 8px 8px;
+      }
+      width: 59%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 2.5rem;
+      background: #ffffff;
+      border-radius: 8px;
+      .TaskDetail_body_title {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        color: #000000;
+      }
+      .TaskDetail_assignto_head {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 180%;
+        color: #707070;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .TaskDetail_assignto {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .TaskDetail_va_name {
+          margin-left: 1rem;
+        }
+      }
+      .TaskDetail_reminder_time_head {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #333333;
+        margin-top: 1.5rem;
+      }
+      .TaskDetail_reminder_time {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0.2rem;
+        .TaskDetail_reminder_time_text {
+          margin-left: 0.5rem;
+        }
+      }
+      .TaskDetail_button {
+        @media screen and (min-width: 1000px) {
+          display: none;
+        }
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2rem;
+        .TaskDetail_button_edit {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 0.875rem 1.75rem;
+          gap: 8px;
+          background: #714dd9;
+          border-radius: 8px;
+          border: none;
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          color: #fafafa;
+          cursor: pointer;
+        }
+        .TaskDetail_button_delete {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 0.875rem 1.75rem;
+          border: 1px solid #714dd9;
+          border-radius: 8px;
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          color: #714dd9;
+          background-color: white;
+          margin-top: 1rem;
+        }
+      }
+    }
+    .TaskDetail_body_right {
+      @media screen and (max-width: 1000px) {
+        width: 100%;
+        border-radius: 8px 8px 0px 0px;
+      }
+      width: 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 2.5rem;
+      background: #ffffff;
+      border-radius: 8px;
+      .TaskDetail_body_right_status {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 100%;
+        color: #707070;
+        margin-bottom: 1rem;
+      }
+      .TaskDetail_body_right_status_title_done {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: #52c41a;
+        border-radius: 8px;
+        width: 100%;
+        .TaskDetail_body_right_status_name {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: #ffffff;
+        }
+        .TaskDetail_body_right_status_box {
+          width: 1.5rem;
+          height: 1.5rem;
+          background: #f9f7ff;
+          border-radius: 4px;
+        }
+      }
+      .TaskDetail_body_right_status_title_expired {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: #ff4d4f;
+        border-radius: 8px;
+        width: 100%;
+        .TaskDetail_body_right_status_name {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: #ffffff;
+        }
+        .TaskDetail_body_right_status_box {
+          width: 1.5rem;
+          height: 1.5rem;
+          background: #f9f7ff;
+          border-radius: 4px;
+        }
+      }
+      .TaskDetail_body_right_status_title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: #714dd9;
+        border-radius: 8px;
+        width: 100%;
+        .TaskDetail_body_right_status_name {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: #ffffff;
+        }
+        .TaskDetail_body_right_status_box {
+          width: 1.5rem;
+          height: 1.5rem;
+          background: #f9f7ff;
+          border-radius: 4px;
+        }
+      }
+      .TaskDetail_body_right_duetime {
+        margin-top: 1rem;
+        .TaskDetail_body_right_duetimeheader {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 100%;
+          color: #333333;
+          margin-bottom: 0.5rem;
+        }
+        .TaskDetail_body_right_duetimebody {
+          font-family: "Open Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 180%;
+          color: #707070;
+        }
+      }
+    }
+  }
+}

@@ -162,6 +162,39 @@
         }
       }
     }
+
+    .createTask_assignVa_option {
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+      .createTask_assignVa_OptionCheckbox {
+        width: 1rem;
+        height: 1rem;
+        background: #f9f7ff;
+        border: 1px solid #d3d0d9;
+        border-radius: 4px;
+      }
+      .createTask_assignVa_OptionCheckbox_active {
+        width: 1rem;
+        height: 1rem;
+        background: #714dd9;
+        border: 1px solid #d3d0d9;
+        border-radius: 4px;
+      }
+      .createTask_assignVa_optionText {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15.2px;
+        line-height: 100%;
+        color: #333333;
+        margin-left: 0.5rem;
+      }
+    }
+
     .createTask_va {
       margin-top: 1rem;
       .createTask_va_title {
