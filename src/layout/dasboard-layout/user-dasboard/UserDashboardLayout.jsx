@@ -71,7 +71,7 @@ const UserDashboardlayout = () => {
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
         <UserDashboardNav />
-        <Box padding={`24px`} sx={{backgroundColor:' rgba(113, 77, 217, 0.11)'}}>
+        <Box padding={`24px`} >
           <Outlet />
         </Box>
       </Grid2>
