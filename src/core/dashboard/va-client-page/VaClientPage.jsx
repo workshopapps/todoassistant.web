@@ -1,7 +1,7 @@
 import { Box, Container } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Loader from "./Loader";
+import ClientLoader from "../../../layout/pre-loader/ClientLoader";
 import StatusBar from "./StatusBar";
 import VaClientHeader from "./VaClientHeader";
 import VaClientUserList from "./VaClientUserList";
@@ -45,11 +45,15 @@ const VaClientPage = () => {
 
   return (
     <>
-      <Box height={`calc(100vh - 120px)`} bgcolor={`#F9F7FF`} py={`2.5rem`}>
+      <Box height={`calc(100vh - 120px)`} py={`2.5rem`}>
         <Container>
           <VaClientHeader numberOfUsers={vaUsers.length} />
           <Box height={`100%`} my={`1rem`}>
-            {loading ? <Loader /> : <VaClientUserList vaUsers={vaUsers} />}
+            {loading ? (
+              <ClientLoader />
+            ) : (
+              <VaClientUserList vaUsers={vaUsers} />
+            )}
           </Box>
         </Container>
       </Box>
