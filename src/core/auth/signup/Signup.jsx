@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import google from "../../../assets/google.png";
-import fb from "../../../assets/fb.png";
+// import fb from "../../../assets/fb.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import signupPicture from "../../../assets/signup-img-cj.png";
@@ -400,7 +400,7 @@ const Signup = () => {
                 cookiePolicy={"single_host_origin"}
                 isSignedIn={false}
               />
-              <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} />
+                {/* <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} /> */}
               <LoginSocialFacebook
               appId="529866819049212"
               onResolve={(response) =>{
