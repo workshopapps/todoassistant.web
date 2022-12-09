@@ -52,7 +52,7 @@ const TaskContextProvider = ({ children }) => {
   );
 
   const getClickedTask = id => {
-    const tasks = JSON.parse(localStorage.getItem("myTasks"));
+    // const tasks = JSON.parse(localStorage.getItem("myTasks"));
     const singleTask = tasks.find(i => i.task_id === id);
     setTask(singleTask);
   };

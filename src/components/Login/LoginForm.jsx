@@ -22,7 +22,7 @@ import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from 'react-facebook-login';
 import axios from "axios";
- import styles from "./loginForm.module.scss";
+import StatusBar from "../../core/dashboard/va-client-page/StatusBar";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -31,7 +31,7 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 const LoginForm = () => {
   const navigate = useNavigate();
   const { isFetching, errMessage, dispatch } = useContext(AuthContext);
-   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
+  const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,16 +40,15 @@ const LoginForm = () => {
   });
 
   useEffect(() => {
-    if (errMessage){
+    if (errMessage) {
       setSpecificErrorMessage(errMessage);
       setIsAlertVisible(true);
-      
+
       setTimeout(() => {
         setIsAlertVisible(false);
-        }, 2000);
+      }, 2000);
     }
-  },[errMessage]);
-
+  }, [errMessage]);
 
   const handleChange = prop => event => {
     setFormData({ ...formData, [prop]: event.target.value });
@@ -150,7 +149,7 @@ const LoginForm = () => {
           <InputLabel htmlFor="email-address">Email Address</InputLabel>
           <OutlinedInput
             required
-            sx={{ borderRadius: `8px` }}
+            sx={{ borderRadius: `8px`, bgcolor: `#fff` }}
             id="email-address"
             type="email"
             value={formData.email}
@@ -162,7 +161,7 @@ const LoginForm = () => {
           <InputLabel htmlFor="password">Password</InputLabel>
           <OutlinedInput
             required
-            sx={{ borderRadius: `8px` }}
+            sx={{ borderRadius: `8px`, bgcolor: `#fff` }}
             id="outlined-adornment-password"
             type={showPassword ? "text" : "password"}
             value={formData.password}
@@ -212,44 +211,26 @@ const LoginForm = () => {
           </Link>
         </Stack>
 
-        {isAlertVisible &&
-        <div className={styles.errorMessage}>{errMessage && specificErrorMessage}</div>
-        }
-
         {/* call to action btn */}
         <Stack>
-          { isFetching ?
           <Button
             type="submit"
             disableElevation
             size="large"
             variant="contained"
             sx={{
-              bgcolor: `#d3d0d9`,
-              padding: `1rem 0`,
-              borderRadius: `8px`,
-            }}
-          >
-            Signing in...
-          </Button>
-          :
-          <Button
-            type="submit"
-            disableElevation
-            size="large"
-            variant="contained"
-            sx={{
-              bgcolor: `#714DD9`,
+              bgcolor: isAlertVisible ? `red` : `#714DD9`,
               padding: `1rem 0`,
               borderRadius: `8px`,
               "&:hover": {
-                bgcolor: `#7b5ed3`,
+                boxShadow: `0px 0px 0px 4px #714dd950`,
+                bgcolor: `#7b5ed3`
               }
             }}
           >
-            Sign in
+            {isFetching ? `Signing in...` : `sign in`}
           </Button>
-          }
+
           <Stack
             margin={`1rem 0`}
             direction={`row`}
@@ -306,6 +287,12 @@ const LoginForm = () => {
           </Stack>
         </Stack>
       </Stack>
+      <StatusBar
+        open={isAlertVisible}
+        message={errMessage && specificErrorMessage}
+        priority={`error`}
+        position={`left`}
+      />
     </Container>
   );
 };

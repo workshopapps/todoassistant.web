@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./createTask.module.scss";
 import VALogo from "../../assets/createTaskVa.png";
 import axios from "axios";
@@ -6,11 +6,15 @@ import { CgClose } from "react-icons/cg";
 import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const CreateTask = ({ taskModal, setTaskModal }) => {
+import { useNavigate } from "react-router-dom";
+
+const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
+  const navigate = useNavigate();
   const { getTasks } = useContext(TaskCtx);
   //   const modal1 = useRef(0);
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
+  const [check, setCheck] = useState("");
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -18,11 +22,28 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     date2: "",
     time: "",
     repeat: "",
+    assigned: "",
     assistant: ""
   });
-
   //   const baseurl = "https://api.ticked.hng.tech/api/v1";
-  const token = JSON.parse(localStorage.getItem("user"))?.data.access_token;
+  const token = JSON.parse(localStorage.getItem("user"))?.data?.access_token;
+
+  useEffect(() => {
+    if (func === "edit") {
+      data.title = editData.title;
+      data.description = editData.title;
+      data.repeat = editData.repeat;
+      data.assistant = editData.va_option;
+    }
+  }, []);
+
+  const handleCheck = e => {
+    if (check === "") {
+      setCheck(e.currentTarget.id);
+    } else {
+      setCheck("");
+    }
+  };
 
   const handle = e => {
     const newData = { ...data };
@@ -33,7 +54,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
   const handleClose1 = e => {
     e.preventDefault();
 
-    setSubmit(!submit);
+    func === "edit" ? handleSubmit(e) : setSubmit(!submit);
   };
 
   const handleSubmit = async e => {
@@ -41,24 +62,43 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
     const reminderOption = e.target.id;
 
     try {
-      await axios.post(
-        `https://api.ticked.hng.tech/api/v1/task`,
-        {
-          title: data.title,
-          description: data.title,
-          start_time: new Date(
-            new Date().setMinutes(new Date().getMinutes() + 10)
-          ).toISOString(),
-          end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
-          repeat: "daily",
-          va_option: data.assistant,
-          status: "PENDING",
-          reminder: reminderOption === "no" ? "No, Thanks" : "Remind me"
-        },
-        { headers: { Authorization: "Bearer " + token } }
-      );
+      func !== "edit"
+        ? await axios.post(
+            `https://api.ticked.hng.tech/api/v1/task`,
+            {
+              title: data.title,
+              description: data.title,
+              start_time: new Date(
+                new Date().setMinutes(new Date().getMinutes() + 10)
+              ).toISOString(),
+              end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
+              repeat: "never",
+              va_option: data.assistant,
+              status: "PENDING",
+              reminder: reminderOption === "no" ? "No, Thanks" : "Remind me",
+              assigned: check
+            },
+            { headers: { Authorization: "Bearer " + token } }
+          )
+        : await axios.put(
+            `https://api.ticked.hng.tech/api/v1/task/${editData.task_id}`,
+            {
+              title: data.title,
+              description: data.title,
+              start_time: new Date(
+                new Date().setMinutes(new Date().getMinutes() + 10)
+              ).toISOString(),
+              end_time: new Date(`${data.date1}T${data.time}`).toISOString(),
+              repeat: "never",
+              va_option: data.assistant,
+              status: "PENDING",
+              reminder: reminderOption === "no" ? "No, Thanks" : "Remind me",
+              assigned: check
+            },
+            { headers: { Authorization: "Bearer " + token } }
+          );
       await getTasks();
-      toast.success("Task Created", {
+      toast.success(func === "edit" ? "Task Edited" : "Task Created", {
         position: toast.POSITION.TOP_RIGHT
       });
       setTaskModal(0);
@@ -69,6 +109,8 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
       data.time = "";
       data.repeat = "";
       data.assistant = "";
+      setCheck("");
+      func === "edit" ? navigate("/dashboard") : "";
     } catch (error) {
       // alert("Server Error");
       toast.error("Server Error! Unable to create task. Try again later.", {
@@ -82,6 +124,7 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
       data.time = "";
       data.repeat = "";
       data.assistant = "";
+      setCheck("");
     }
   };
   return (
@@ -159,23 +202,41 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
               />
             </div>
           </div>
+          <div
+            id="assigned"
+            className={styles.createTask_assignVa_option}
+            onClick={e => {
+              handleCheck(e);
+            }}
+          >
+            <div
+              className={
+                check === "assigned"
+                  ? styles.createTask_assignVa_OptionCheckbox_active
+                  : styles.createTask_assignVa_OptionCheckbox
+              }
+            ></div>
+            <p className={styles.createTask_assignVa_optionText}>
+              Assign to Virtual Assistant
+            </p>
+          </div>
           <div className={styles.createTask_va}>
-            <p className={styles.createTask_va_title}>Virtual Assistant</p>
+            <p className={styles.createTask_va_title}>
+              Virtual Assistant Contact Option
+            </p>
             <ul className={styles.createTask_va_options}>
               <li className={styles.createTask_va_list1}>
                 <input
                   required
                   type="radio"
-                  id="assign"
+                  id="call"
                   name="assistant"
-                  value="assign task"
+                  value="call"
                   onChange={e => {
                     handle(e);
                   }}
                 />
-                <label htmlFor="assign">
-                  Assign the task to virtual assitant
-                </label>
+                <label htmlFor="assign">Get a Call</label>
               </li>
               <li className={styles.createTask_va_list2}>
                 <input
@@ -183,23 +244,30 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
                   type="radio"
                   id="call"
                   name="assistant"
-                  value="get call"
+                  value="email"
                   onChange={e => {
                     handle(e);
                   }}
                 />
-                <label htmlFor="call">
-                  Get a call from an asistant to remind you
-                </label>
+                <label htmlFor="call">Get an Email</label>
               </li>
-              {/* <li className={styles.createTask_va_list3}>
-              <input name="va" type="radio" id="btn3" />
-              <label htmlFor="btn3">Assign the task to virtual assitant</label>
-            </li> */}
+              <li className={styles.createTask_va_list3}>
+                <input
+                  required
+                  type="radio"
+                  id="call"
+                  name="assistant"
+                  value="whatsapp"
+                  onChange={e => {
+                    handle(e);
+                  }}
+                />
+                <label htmlFor="btn3">Get a Whatsapp Message</label>
+              </li>
             </ul>
           </div>
           <button type="submit" className={styles.createTask_button}>
-            Create Task
+            {func === "edit" ? "Edit Task" : "Create Task"}
           </button>
         </form>
       ) : (
@@ -213,9 +281,12 @@ const CreateTask = ({ taskModal, setTaskModal }) => {
             Hello, my name is Michael and I am your virtual assistant.
           </p>
           <p className={styles.createTask_submit_item}>
-            {data.assistant === "get call"
-              ? "I would make sure you do not forget your tasks by giving you a call."
-              : "I will ensure I handle your task you assigned to me"}
+            {data.assistant === "call" &&
+              "I would make sure you do not forget your tasks by giving you a call."}
+            {data.assistant === "email" &&
+              "I would make sure you do not forget your tasks by sending you an email."}
+            {data.assistant === "whatsapp" &&
+              "I would make sure you do not forget your tasks by sending you a whatsapp message."}
           </p>
           <div className={styles.createTask_submit_button_wrapper}>
             <button

@@ -1,63 +1,58 @@
 .container {
-  background: linear-gradient(
-    0.25turn,
-    rgba(253, 168, 88, 0.512),
-    5%,
-    rgba(255, 255, 255, 0.82)
-  );
-  padding-bottom: 9rem;
-
   h1 {
     text-align: center;
-    padding: 2rem 0;
+    margin: 4rem 0 2.5rem;
   }
 
   .cards {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 3.5rem;
+    margin: 2rem 0 5rem;
 
-    .card {
-      padding: 3rem;
-      border-radius: 0.4rem;
-      border: 3px solid rgba(211, 208, 217, 1);
-      background-color: #fff;
+    .card,
+    .purple {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 2rem;
+      box-shadow: 0 3px 3px 1px rgba($color: #000000, $alpha: 0.15);
+      border-radius: 0.7rem;
+      height: 570px;
+      width: 355px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
 
-      h2 {
-        margin: 2rem 0;
-        text-align: center;
-        position: relative;
-        font-size: 4rem;
+      a,
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        small {
-          position: absolute;
-          top: 1.2rem;
-          left: 2rem;
-          font-weight: normal;
-          font-size: 1rem;
-          color: rgba(112, 112, 112, 1);
+      .card_heading {
+        p {
+          margin-bottom: 1rem;
         }
-        small.year {
-          left: 1.3rem;
-        }
 
-        span {
-          font-size: 1.2rem;
-          font-weight: normal;
-          color: rgba(112, 112, 112, 1);
+        h2 {
+          color: #714dd9;
+          font-size: 4rem;
+          span {
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+          }
         }
       }
 
-      h2.basic {
-        color: rgba(55, 226, 136, 1);
-      }
-      h2.premium {
-        color: rgba(113, 77, 217, 1);
-      }
-      h2.yearly {
-        color: rgba(253, 167, 88, 1);
+      ul {
+        width: 18rem;
+        border-top: 2px solid #d3d0d9;
       }
 
       li {
@@ -65,21 +60,53 @@
         align-items: center;
         gap: 0.5rem;
         list-style: none;
-        margin-bottom: 1rem;
-      }
-
-      .btn {
-        margin: 3rem 0 0 2.2rem;
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        background-color: rgba(113, 77, 217, 1);
-        color: #fff;
-        border-radius: 0.4rem;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        transition: 0.3s ease;
+        margin: 1.5rem 0;
       }
     }
+
+    .card:hover,
+    .purple:hover {
+      transform: scale(1.05);
+    }
+  }
+  .purple {
+    background-color: #714dd9;
+
+    h3 {
+      color: #ffffff;
+      font-size: 4rem;
+
+      span {
+        font-size: 1.1rem;
+        font-weight: normal;
+        margin-bottom: 1rem;
+      }
+    }
+
+    ul {
+      border-top: 2px solid #fff;
+    }
+    p,
+    li,
+    span {
+      color: #fff;
+    }
+
+    .btn {
+      color: rgba(113, 77, 217, 1);
+      background-color: #fff;
+    }
+  }
+  .btn {
+    padding: 1rem 1.5rem;
+    background-color: rgba(113, 77, 217, 1);
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-left: 4rem;
   }
 }

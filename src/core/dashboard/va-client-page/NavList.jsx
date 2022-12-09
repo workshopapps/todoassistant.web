@@ -24,7 +24,7 @@ const styledListItem = {
   }
 };
 
-const NavList = () => {
+const UserNavList = () => {
   let vaUser = JSON.parse(localStorage.getItem("VA"));
 
   let activeStyle = {
@@ -35,15 +35,25 @@ const NavList = () => {
 
   const showButton =
     vaUser?.data.account_type === "MASTER" ? (
-      <NavLink
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        to={`/va-signup`}
+      // <NavLink
+      //   style={({ isActive }) => (isActive ? activeStyle : undefined)}
+      //   to={`/va-signup`}
+      // >
+      <Button
+        disableElevation
+        color="success"
+        variant={`text`}
+        sx={{
+          borderRadius: `50px`,
+          textTransform: `capitalize`,
+          my: `1rem`,
+          width: `fit-content`
+        }}
       >
-        <Button sx={{ bgcolor: `#714DD9` }} variant={`contained`}>
-          Sign up A new Virtual assistant
-        </Button>
-      </NavLink>
-    ) : null;
+        Sign up A new Virtual assistant
+      </Button>
+    ) : // </NavLink>
+    null;
 
   return (
     <Stack height={`calc(99vh - 120px)`} justifyContent={`space-between`}>
@@ -99,4 +109,4 @@ const NavList = () => {
   );
 };
 
-export default NavList;
+export default UserNavList;

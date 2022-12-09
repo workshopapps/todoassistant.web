@@ -51,44 +51,67 @@
                     .Accordian__v11, .upperTittle{
                         width: 100% !important;
                     }
-                    .sidebar{
+                    // .sidebar{
                        
-                            margin-top: -145px !important;  
-                            position: absolute !important; 
-                            width: 61% !important; 
+                    //         margin-top: -145px !important;  
+                    //         position: absolute !important; 
+                    //         width: 61% !important; 
+                    //         visibility: visible !important; 
                           
-                            background-color: #fff !important;
-                            right: 1px !important; 
-                            z-index: 99999 !important; 
-                            top: 0px !important; 
-                            transition: all 0.7s ease-in-out;
-                        }
-                 .saviour__relative.hidden,
-                  .sidebar.hidden {
-                            right: -700px !important; 
-                        }
-                        .sidebar.dissapear .saviour__relative.dissapear{
-                            display: none !important; 
-                        }
+                    //         background-color: #fff !important;
+                    //         right: 1px !important; 
+                    //         z-index: 99999 !important; 
+                    //         top: 0px !important; 
+                    //         transition: all 0.2s ease-in-out;
+                    //     }
+                //         .saviour__relative{
+                //           visibility: visible !important; 
+                //            transition: all 0.2s ease-in-out;
+                        
+                //         }
+                //  .saviour__relative.hidden,
+                //   .sidebar.hidden {
+                //             right: -700px !important; 
+                //             height: 100vh !important; 
+                //             display:none !important
+                //         }
+                //         .sidebar.dissapear .saviour__relative.dissapear{
+                //             visibility: hidden !important; 
+                //         }
                         
                     .sidebar__fixed{
-                      height: 300vh !important; 
-                        right:0;
+                      height: 100vh !important; 
+                        
+                         right:0;
                             background-color: white !important;
-                            top: -45px !important;
-                          
-                            transition: all 0.7s ease-in-out;
-                        }
-                        .comment {
-                         
-                            visibility: visible;
-                            transition: all 1.7s ease-in-out;
+                            top: 70px !important;
+                          width:335px !important;
+                            transition: all 0.1s ease-in-out;
                             
+                        }
 
+                        .sidebar__fixed.hidden{
+                         width: 0 !important;
+                        }
+
+                        .sidebar__fixed.dissapear{
+                        display: none !important;
+                        }
+                        .comment{
+                    display: flex !important;
                         }
                       
+                        .comment.hidden {
+                    display: none !important;
+                        }
+
+                        .closeIcon.hidden{
+                          opacity: 0  !important;
+                          transition: all 0.6s ease-in;
+                        }
                        
                         .closeIcon{
+                          opacity: 1 !important;
                             position: absolute;
                             right: 32px;
                             cursor: pointer;
@@ -110,7 +133,8 @@
             } 
             @media screen and ( max-width:900px ){ 
               .sidebar__fixed{
-                width:67%
+                width:67%;
+                top: -26px !important
               }
               .comment{
                 width: 57%;
@@ -162,5 +186,5 @@
                       
                       @media screen and ( max-width:400px ){
                     .comment{
-                      width: 80% !important;
+                      width: 91% !important;
                     }}

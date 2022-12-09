@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Animate } from "../../../hooks/animation/AnimateIn";
 import Button from "../../button/ButtonComponent";
@@ -65,11 +64,13 @@ const AboutUsSectionTwoLayout = () => {
           </div>
           <div className={styles.steps}>
             <Button
-            link={`/login`}
-          title = {`Get Started`} 
-          style={{ width: `50%` }} 
-          />
-            <button className={styles.download}>Download App</button>
+              link={`/login`}
+              title={`Get Started`}
+              style={{ width: `50%` }}
+            />
+            <button className={[styles.download].join(" ")}>
+              Download App
+            </button>
           </div>
         </div>
       </section>

@@ -13,9 +13,14 @@
 		flex-direction: column;
 		gap: 2rem;
 		width: 50%;
-		padding: 0 5%;
+		padding: 0 10%;
 
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 1200px) {
+			padding: 0 5%;
+
+		}
+
+		@media screen and (max-width: 768px) {
 			width: 100%;
 			padding: 0 2rem;
 
@@ -37,7 +42,7 @@
 			width: 100%;
 		}
 
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 768px) {
             display: none;
         }
 	}
@@ -145,6 +150,11 @@
 	gap: 1rem;
 	margin: 0.5rem 0;
 	color: #333333;
+
+	@media screen and (max-width: 600px) {
+		align-items: flex-start;
+		flex-flow: column-reverse;
+	}
 }
 
 .login__formItem__checkbox span a {

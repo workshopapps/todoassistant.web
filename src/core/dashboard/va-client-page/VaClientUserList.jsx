@@ -50,8 +50,14 @@ export default function VaClientUserList({ vaUsers }) {
   });
 
   return (
-    <TableContainer sx={{ borderRadius: `8px` }} className={`shadow`}>
-      <Table aria-label="simple table">
+    <TableContainer
+      sx={{
+        height: `calc(100vh - 300px)`,
+        borderRadius: `8px`
+      }}
+      className={`shadow`}
+    >
+      <Table stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
             <StyledTableCell sx={style}>Client's name</StyledTableCell>

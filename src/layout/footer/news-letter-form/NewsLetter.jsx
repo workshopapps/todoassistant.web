@@ -176,12 +176,12 @@ const NewsLetter = () => {
               value={email}
               placeholder="Enter email"
             />
-            <input
+            <button
               onClick={handleNewsLetter}
-              className={style.subscribe_button}
-              type="button"
-              value="Subscribe"
-            />
+              className={[style.subscribe_button, `hover`].join(" ")}
+            >
+              Subscribe
+            </button>
           </div>
         </form>
       </section>
