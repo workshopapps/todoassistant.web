@@ -16,6 +16,9 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
+import {LoginSocialFacebook} from 'reactjs-social-login';
+import {FacebookLoginButton} from 'react-social-login-buttons'
+
 
 const Signup = () => {
   const clientId =
@@ -36,6 +39,7 @@ const Signup = () => {
   const [errMessage, setErrMessage] = useState("");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [phone, setPhone] = useState()
+  const [fbUser, setFbUser] = useState("");
   const { isFetching, dispatch } = useContext(AuthContext);
 
 
@@ -47,6 +51,35 @@ const Signup = () => {
   // const [error, setError] = useState(false);
   // const [gender, setGender] = useState("");
   // const [date_of_birth, setDateofbirth] = useState("");
+  useEffect(() => {
+   if (fbUser){
+    let name = fbUser.last_name;
+    let email = fbUser.email;
+    console.log(name, email);
+    fbSignUp({name, email})
+  
+   } 
+  },[fbUser]);
+
+  const fbSignUp = async (body) => {
+    try {
+      const response = await axios.post(
+        "https://api.ticked.hng.tech/api/v1/facebooklogin", body
+      );
+      console.log(response.data);
+      localStorage.setItem(
+        "token",
+        JSON.stringify(response.data.access_token)
+      );
+      localStorage.setItem("user", JSON.stringify(response?.data));
+      navigate("/dashboard", { replace: true });
+    } catch (err) {
+      console.log(err);
+      
+    }
+  }
+
+
 
   useEffect(() => {
     const initClient = () => {
@@ -84,6 +117,8 @@ const Signup = () => {
       console.error(error);
     }
   };
+
+  
 
   const HandleSubmit = async data => {
 
@@ -366,6 +401,18 @@ const Signup = () => {
                 isSignedIn={false}
               />
               <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} />
+              <LoginSocialFacebook
+              appId="529866819049212"
+              onResolve={(response) =>{
+                console.log(response);
+                setFbUser(response.data);
+              }}
+              onReject={(error) => {
+                console.log(error);
+              }}
+              >
+                <FacebookLoginButton />
+              </LoginSocialFacebook>
             </div>
           </div>
         </div>
