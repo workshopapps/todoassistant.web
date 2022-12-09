@@ -23,7 +23,7 @@ const StyledTableCell = styled(TableCell)(() => ({
 }));
 
 export default function ClientLoader() {
-  const userList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
+  const userList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(index => {
     return (
       <TableRow
         key={index}
@@ -35,17 +35,22 @@ export default function ClientLoader() {
         <TableCell>
           <Stack gap={1} direction={`row`} alignItems={`center`}>
             <Skeleton variant="circular" width={40} height={40} />
-            <Skeleton variant="text" height={10} width="80%" />
+            <Skeleton variant="text" height={10} width={`70%`} />
           </Stack>
         </TableCell>
         <TableCell>
-          <Skeleton variant="text" height={20} width="80%" />
+          <Skeleton variant="text" height={20} />
         </TableCell>
         <TableCell>
-          <Skeleton variant="text" height={20} width="80%" />
+          <Skeleton variant="text" height={20} />
         </TableCell>
         <TableCell>
-          <Skeleton variant="rectangle" width={`5rem`} height={`2rem`} sx={{borderRadius: `16px`}} />
+          <Skeleton
+            variant="rectangle"
+            width={`5rem`}
+            height={`2rem`}
+            sx={{ borderRadius: `16px` }}
+          />
         </TableCell>
       </TableRow>
     );
