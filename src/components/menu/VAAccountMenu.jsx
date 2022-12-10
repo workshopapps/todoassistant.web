@@ -1,22 +1,21 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import Settings from "@mui/icons-material/Settings";
+// import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { Link, useNavigate } from "react-router-dom";
 import { VAAuthContext } from "../../contexts/VAContexts/AuthContext";
-import { logout } from '../../contexts/VAContexts/AuthActions';
+import { logout } from "../../contexts/VAContexts/AuthActions";
+import ProfileAvatar from "../../core/dashboard/va-client-page/Avatar";
 
-
-export default function VAAccountMenu() {
-    const navigate = useNavigate();
-    const { dispatch } = React.useContext(VAAuthContext);
+export default function VAAccountMenu({ fullName }) {
+  const navigate = useNavigate();
+  const { dispatch } = React.useContext(VAAuthContext);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -27,10 +26,10 @@ export default function VAAccountMenu() {
     setAnchorEl(null);
   };
 
- const handleLogout = () => {
-   dispatch(logout());
-   navigate("/va-login");
- };
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/va-login");
+  };
 
   return (
     <React.Fragment>
@@ -44,17 +43,10 @@ export default function VAAccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar
-              alt="Remy Sharp"
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
-              sx={{
-                width: 40,
-                height: 40,
-                fontSize: `14px`,
-                fontWeight: 700,
-                color: `#714DD9`,
-                cursor: `pointer`
-              }}
+            <ProfileAvatar
+              fullName={fullName}
+              size={{ width: 40, height: 40 }}
+              fontSize={`16px`}
             />
           </IconButton>
         </Tooltip>
@@ -97,20 +89,24 @@ export default function VAAccountMenu() {
       >
         <Link to={`/virtual-assistance/profile`}>
           <MenuItem>
-            <Avatar sx={{ bgcolor: `#714DD9` }} />
+            <ProfileAvatar
+              fullName={fullName}
+              size={{ width: 20, height: 20 }}
+              fontSize={`12px`}
+            />
             Profile
           </MenuItem>
         </Link>
         <Divider />
 
-        <Link to="/virtual-assistance/settings">
+        {/* <Link to="/virtual-assistance/settings">
           <MenuItem sx={{ my: `1rem` }}>
             <ListItemIcon sx={{ color: `#714DD9` }}>
               <Settings fontSize="small" />
             </ListItemIcon>
             Settings
           </MenuItem>
-        </Link>
+        </Link> */}
 
         <MenuItem sx={{ color: `red`, mt: `1rem` }} onClick={handleLogout}>
           <ListItemIcon sx={{ color: `red` }}>
