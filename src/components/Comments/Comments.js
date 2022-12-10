@@ -78,7 +78,7 @@ const Comments = () => {
         {/* Message field */}
         <input
           type={"text"}
-          style={{ fontSize: "14px" }}
+          style={{ fontSize: "20px" }}
           required
           title="message"
           placeholder="Type Your message here"

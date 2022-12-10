@@ -17,7 +17,7 @@ const Messages = ({ data }) => {
       <span
         className={styles.message}
         style={{
-          fontSize: "24px",
+          fontSize: "20px",
           textAlign: `${(m.status === "user" && "end") || "start"}`,
           padding: `${
             (m.status === "user" && "10px 20px 35px 68px") ||

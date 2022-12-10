@@ -1,6 +1,6 @@
 .commentWrapper{
                       // border: 1px solid rebeccapurple;
-                      height: calc(85vh - 200px);
+                      height: calc(81vh - 200px);
                       max-height: calc(85vh - 200px);
                       overflow-y: auto;
                       overflow-x: hidden;
@@ -59,7 +59,7 @@
 
                   .inputField input{
                       width: 100%;
-    padding: 10px 40px;
+    padding: 10px 10px;
     border: 1px solid #c6c3c3;
     border-radius: 5px;
                   }
@@ -110,7 +110,7 @@
 @media screen and (max-width:600px) {
                       .commentWrapper{
                                             // border: 1px solid rebeccapurple;
-                                            height: calc(85vh - 140px);
+                                            height: calc(81vh - 140px);
                                             max-height: calc(85vh - 140px);
                                             overflow-y: auto;
                       } 
