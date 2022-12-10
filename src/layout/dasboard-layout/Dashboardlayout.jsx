@@ -1,62 +1,67 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
 import { Link, Outlet } from "react-router-dom";
 
-import axios from "axios";
+// import axios from "axios";
 //messaginh
 import { requestForToken } from "../../messaging_init_in_sw";
 
 const Dashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id;
-  const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
+  // const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
+
+ 
 
   // Request permission from user fro notification
   requestForToken();
 
-  useEffect(() => {
-    const getNotification = async () =>  {
-           try {
-               await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
-                   user_id: `${id}`,
-                   device_id: fbToken,
-                   },
-                   {headers: { Authorization: "Bearer " + id }}
-               )
-           } catch (error) {
-               console.error(error)
-       }
-    }
-    getNotification()
-   }, [fbToken])
+  // // Request permission from user fro notification
+  //
 
-   const getNotificationVA = async () => {
-    try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: "Bearer " + id }
-      }).then((res) => {
-        localStorage.setItem("vaNotification", JSON.stringify(res.data))
-      })
+  // useEffect(() => {
+  //   const getNotification = async () =>  {
+  //          try {
+  //              await axios.post("https://api.ticked.hng.tech/api/v1/notification", {
+  //                  user_id: `${id}`,
+  //                  device_id: fbToken,
+  //                  },
+  //                  {headers: { Authorization: "Bearer " + id }}
+  //              )
+  //          } catch (error) {
+  //              console.error(error)
+  //      }
+  //   }
+  //   getNotification()
+  //  }, [fbToken])
 
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  //  const getNotificationVA = async () => {
+  //   try {
+  //     await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+  //       headers: { Authorization: "Bearer " + id }
+  //     }).then((res) => {
+       
+  //       localStorage.setItem("vaNotification", JSON.stringify(res.data))
+  //     })
 
-  // calling notifcation function every 10 sec
-  useEffect(() => {
-    getNotificationVA()
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
-    const interval = setInterval(() => {
-      getNotificationVA()
-    }, 10000)
+  // // calling notifcation function every 10 sec
+  // useEffect(() => {
+  //   getNotificationVA()
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  //   const interval = setInterval(() => {
+  //     getNotificationVA()
+  //   }, 10000)
+
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [])
 
 
   return (
