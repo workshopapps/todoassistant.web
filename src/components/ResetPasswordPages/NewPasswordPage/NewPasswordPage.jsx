@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 import Modal from "../ModalSuccessReset/ModalSuccessReset";
 import * as Yup from "yup";
 import axios from "axios";
+import imgval from "../../../assets/assets/red-alert-exclamation.png";
+import closebtn from "../../../assets/assets/ios-close-5.png";
 const base_url = "https://api.ticked.hng.tech/api/v1";
 
 /* eslint-disable */
@@ -36,6 +38,8 @@ function NewPasswordPage() {
       setToken(token);
     }
   }, []);
+
+  const [err, setErr] = useState(null);
 
   const [userId, setUserId] = useState("");
   // get userid from the header
@@ -72,8 +76,14 @@ function NewPasswordPage() {
           localStorage.removeItem("userId");
         });
     } catch (e) {
-      alert(e);
+      setErr(e.response.data.error.error);
       setIsFetching(false);
+      // if (e.response.data.code === 403) {
+      //   console.log("Token expired!");
+      //   alert("Token expired");
+      // } else if (e.response.data.code === 500) {
+      //   console.log("Axios error request");
+      // }
     }
   };
 
@@ -107,6 +117,22 @@ function NewPasswordPage() {
         case.
       </p>
       <form autoComplete="off" onSubmit={handleSubmit}>
+        {err && (
+          <div className={style.disp_err}>
+            <div>
+              <img src={imgval} alt="Alert Icon" />
+              <p>{err}</p>
+            </div>
+            <div
+              className={style.close_btn}
+              onClick={() => {
+                setErr(null);
+              }}
+            >
+              <img src={closebtn} alt="Close Icon" />
+            </div>
+          </div>
+        )}
         <div className={style.rsp_input_field}>
           <label htmlFor="password">
             New Password
