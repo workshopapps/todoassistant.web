@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import google from "../../../assets/google.png";
-import fb from "../../../assets/fb.png";
+// import fb from "../../../assets/fb.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import signupPicture from "../../../assets/signup-img-cj.png";
@@ -16,6 +16,9 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
+import {LoginSocialFacebook} from 'reactjs-social-login';
+import {FacebookLoginButton} from 'react-social-login-buttons'
+
 
 const Signup = () => {
   const clientId =
@@ -36,6 +39,7 @@ const Signup = () => {
   const [errMessage, setErrMessage] = useState("");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [phone, setPhone] = useState()
+  const [fbUser, setFbUser] = useState("");
   const { isFetching, dispatch } = useContext(AuthContext);
 
 
@@ -47,6 +51,35 @@ const Signup = () => {
   // const [error, setError] = useState(false);
   // const [gender, setGender] = useState("");
   // const [date_of_birth, setDateofbirth] = useState("");
+  useEffect(() => {
+   if (fbUser){
+    let name = fbUser.last_name;
+    let email = fbUser.email;
+    console.log(name, email);
+    fbSignUp({name, email})
+  
+   } 
+  },[fbUser]);
+
+  const fbSignUp = async (body) => {
+    try {
+      const response = await axios.post(
+        "https://api.ticked.hng.tech/api/v1/facebooklogin", body
+      );
+      console.log(response.data);
+      localStorage.setItem(
+        "token",
+        JSON.stringify(response.data.access_token)
+      );
+      localStorage.setItem("user", JSON.stringify(response?.data));
+      navigate("/dashboard", { replace: true });
+    } catch (err) {
+      console.log(err);
+      
+    }
+  }
+
+
 
   useEffect(() => {
     const initClient = () => {
@@ -85,6 +118,8 @@ const Signup = () => {
     }
   };
 
+  
+
   const HandleSubmit = async data => {
 
     const { first_name, last_name, email, password, gender, date_of_birth } = data
@@ -95,10 +130,11 @@ const Signup = () => {
         "https://api.ticked.hng.tech/api/v1/user",
         { first_name, last_name, email, phone, password, gender, date_of_birth }
       );
-      console.log(response);
+        console.log(response)
       login({ email, password }, dispatch);
       setIsLoading(false);
       setError(false);
+
     } catch (err) {
       console.log(err);
       setIsLoading(false);
@@ -110,6 +146,7 @@ const Signup = () => {
         setIsAlertVisible(false);
         }, 2000);
     }
+
   };
   
   const togglePassword = () => {
@@ -365,7 +402,19 @@ const Signup = () => {
                 cookiePolicy={"single_host_origin"}
                 isSignedIn={false}
               />
-              <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} />
+                {/* <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} /> */}
+              <LoginSocialFacebook
+              appId="529866819049212"
+              onResolve={(response) =>{
+                console.log(response);
+                setFbUser(response.data);
+              }}
+              onReject={(error) => {
+                console.log(error);
+              }}
+              >
+                <FacebookLoginButton />
+              </LoginSocialFacebook>
             </div>
           </div>
         </div>

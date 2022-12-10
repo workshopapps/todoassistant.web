@@ -11,6 +11,8 @@ import { ToastContainer } from "react-toastify";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 import reportWebVitals from "./reportWebVitals";
+import * as atatus from "atatus-js";
+atatus.config("6be34f2b3b1944eca8c000dffbbd5bda").install();
 
 Sentry.init({
   dsn: "https://27853217d7d54bbfa34eb63e578376de@o4504281294176256.ingest.sentry.io/4504282186973184",

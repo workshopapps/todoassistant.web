@@ -7,7 +7,7 @@ import moment from "moment";
 
 // import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
 // import tasks from "../Accordion/_mock";
-import { AiOutlineDown } from "react-icons/ai";
+// import { AiOutlineDown } from "react-icons/ai";
 import assign from "../../assets/autobrightnessassignicon.svg";
 import clock from "../../assets/clockclockiicon.svg";
 import closeIcon from "../../assets/close-circleclose.svg";
@@ -95,7 +95,7 @@ const VAHome = () => {
           boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px"
         }}
       >
-        <Box display={"flex"} width="100%" justifyContent={"space-between"}>
+        {/* <Box display={"flex"} width="100%" justifyContent={"space-between"}>
           <Box display={"flex"} sx={{ alignItems: "center", gap: "10px" }}>
             {" "}
             <Typography variant="h4" className={styles.tittle}>
@@ -103,7 +103,7 @@ const VAHome = () => {
             </Typography>
             <AiOutlineDown className={`${styles.chevron} `} />
           </Box>
-        </Box>
+        </Box> */}
 
         <Box display={"flex"} width="100%" gap={"50px"}>
           <Typography

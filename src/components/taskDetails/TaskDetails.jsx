@@ -91,7 +91,7 @@ const TaskDetails = () => {
       </div>
 
       {!tab ? (
-        <div className={styles.TaskDetail_body}>
+        <div className={[styles.TaskDetail_body, `shadow`].join(" ")}>
           <div className={styles.TaskDetail_body_left}>
             <h1 className={styles.TaskDetail_body_title}>{task.title}</h1>
             <p className={styles.TaskDetail_assignto_head}>Assigned to</p>
@@ -164,7 +164,7 @@ const TaskDetails = () => {
           </div>
         </div>
       ) : (
-    <Comments/>
+        <Comments />
       )}
     </div>
   );

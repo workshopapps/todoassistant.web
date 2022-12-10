@@ -20,6 +20,7 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
+import FacebookLogin from 'react-facebook-login';
 import axios from "axios";
 import StatusBar from "../../core/dashboard/va-client-page/StatusBar";
 
@@ -93,6 +94,17 @@ const LoginForm = () => {
       console.error(error);
     }
   };
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    // setData(response);
+    // setPicture(response.picture.data.url);
+    // if (response.accessToken) {
+    //   setLogin(true);
+    // } else {
+    //   setLogin(false);
+    // }
+  }
 
   useEffect(() => {
     const initClient = () => {
@@ -261,7 +273,16 @@ const LoginForm = () => {
               />
             </IconButton>
             <IconButton sx={{ width: `fit-content` }} color="secondary">
-              <img src={facebook} alt="" />
+            <FacebookLogin
+              appId="671621864445949"
+              render={renderProps => (
+                <img onClick={renderProps.onClick} src={facebook} alt="" />
+              )}
+              autoLoad={true}
+              // fields="name,email,picture"
+              // scope="public_profile,user_friends"
+              callback={responseFacebook}
+              />
             </IconButton>
           </Stack>
         </Stack>
