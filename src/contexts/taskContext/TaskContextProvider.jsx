@@ -33,7 +33,7 @@ const TaskContextProvider = ({ children }) => {
     axios
       .get(`${base_url}/task/`, {
         headers: { Authorization: "Bearer " + token }
-      })
+      }) 
       .then(res => setTasks(res.data))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));

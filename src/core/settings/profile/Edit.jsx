@@ -5,11 +5,13 @@ import arrowLeft from "../../../assets/arrow-left-cj.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
+import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
+import { Typography } from "@mui/material";
 
 const Edit = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { first_name, user_id } = user.data;
+  const { user_id } = user.data;
 
   // useEffect(() => {
   //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
@@ -78,8 +80,10 @@ const Edit = () => {
     editRequest(form);
   };
 
-  let FName = first_name;
-  let initial = FName.charAt(0).toUpperCase();
+  const handleProfilePicChange = () => {};
+
+  // let FName = first_name;
+  // let initial = FName.charAt(0).toUpperCase();
   return (
     <div>
       <div className="settings">
@@ -95,10 +99,21 @@ const Edit = () => {
               <div className="head">
                 <div className="head-1">
                   <div className="user-initial">
-                    <p className="init">{initial}</p>
+                    <ProfileAvatar
+                      size={{ width: 120, height: 120 }}
+                      fontSize={`3rem`}
+                    />
                   </div>
                 </div>
               </div>
+              <Typography
+                onClick={handleProfilePicChange}
+                textAlign={`center`}
+                mb={5}
+              >
+                Edit Profile image
+                <input type="file" />
+              </Typography>
               <div className="form-form">
                 <div className="form-field">
                   <label htmlFor="first_Name" className="lab">
