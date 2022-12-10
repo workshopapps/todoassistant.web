@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -13,8 +12,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { useContext } from "react";
 import { logout } from "../../contexts/authContext/AuthActions";
+import ProfileAvatar from "../../core/dashboard/va-client-page/Avatar";
 
-export default function AccountMenu() {
+export default function AccountMenu({ fullName }) {
   const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
 
@@ -44,17 +44,10 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar
-              alt="Remy Sharp"
-              src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
-              sx={{
-                width: 40,
-                height: 40,
-                fontSize: `14px`,
-                fontWeight: 700,
-                color: `#714DD9`,
-                cursor: `pointer`
-              }}
+            <ProfileAvatar
+              fullName={fullName}
+              size={{ width: 40, height: 40 }}
+              fontSize={`16px`}
             />
           </IconButton>
         </Tooltip>
@@ -97,7 +90,11 @@ export default function AccountMenu() {
       >
         <Link to="/dashboard/profile">
           <MenuItem>
-            <Avatar sx={{ bgcolor: `#714DD9`}} />
+            <ProfileAvatar
+              fullName={fullName}
+              size={{ width: 20, height: 20 }}
+              fontSize={`12px`}
+            />
             Profile
           </MenuItem>
         </Link>
