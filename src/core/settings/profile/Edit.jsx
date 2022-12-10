@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const Edit = () => {
     editRequest(form);
   };
 
-  const handleProfilePicChange = () => {};
+  // const handleProfilePicChange = () => {};
 
   // let FName = first_name;
   // let initial = FName.charAt(0).toUpperCase();
@@ -100,20 +100,21 @@ const Edit = () => {
                 <div className="head-1">
                   <div className="user-initial">
                     <ProfileAvatar
+                      fullName={[user.data.first_name, user.data.last_name].join(" ")}
                       size={{ width: 120, height: 120 }}
                       fontSize={`3rem`}
                     />
                   </div>
                 </div>
               </div>
-              <Typography
+              {/* <Typography
                 onClick={handleProfilePicChange}
                 textAlign={`center`}
                 mb={5}
               >
                 Edit Profile image
                 <input type="file" />
-              </Typography>
+              </Typography> */}
               <div className="form-form">
                 <div className="form-field">
                   <label htmlFor="first_Name" className="lab">
