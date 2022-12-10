@@ -74,6 +74,7 @@ import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
 // import Signup from "./core/auth/signup/UserSignUp";
 import UserDashboardlayout from "./layout/dasboard-layout/user-dasboard/UserDashboardLayout";
+import Reminders from "./components/reminders/Reminders";
 
 function App() {
   // const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
@@ -194,6 +195,10 @@ function App() {
           <Route
             path="/CheckM"
             element={user ? <CheckM /> : <Navigate to="/login" replace />}
+          />
+          <Route
+          path="/reminders"
+          element={user ? <Reminders /> : <Navigate to="/login" replace />}
           />
           <Route
             path="/settings/profile"
