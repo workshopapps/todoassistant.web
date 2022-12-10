@@ -53,7 +53,7 @@ const Signup = () => {
   // const [date_of_birth, setDateofbirth] = useState("");
   useEffect(() => {
    if (fbUser){
-    let name = fbUser.last_name;
+    let name = `${fbUser.last_name} ${fbUser.first_name}`;
     let email = fbUser.email;
     console.log(name, email);
     fbSignUp({name, email})
@@ -69,9 +69,9 @@ const Signup = () => {
       console.log(response.data);
       localStorage.setItem(
         "token",
-        JSON.stringify(response.data.access_token)
+        JSON.stringify(response.data.data.access_token)
       );
-      localStorage.setItem("user", JSON.stringify(response?.data));
+      localStorage.setItem("user", JSON.stringify(response?.data.data));
       navigate("/dashboard", { replace: true });
     } catch (err) {
       console.log(err);
