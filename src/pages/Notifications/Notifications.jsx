@@ -8,55 +8,65 @@ export default function Notifications() {
   const id = JSON.parse(localStorage.getItem("user"));
   const idVa = JSON.parse(localStorage.getItem("VA"));
   const [active, setActive] = useState("All");
-  const [notification, setNotification] = useState([
-    {
-      title: "Subscription",
-      time: "Nov 24th at 8:30 PM",
-      content: "All your notification will show here",
-      bg: "linear-gradient(0deg, rgba(219, 0, 4, 0.11), rgba(219, 0, 4, 0.11)), #FFFFFF"
-    }
-  ]);
+  const [notification, setNotification] = useState([]);
+
+  console.log(notification)
 
   //GETTING USER AND VA NOTIFICATIONS
   const location = useLocation();
-  const vaNotification = JSON.parse(localStorage.getItem("vaNotification"));
-  const userNotification = JSON.parse(localStorage.getItem("userNotification"));
+  // const vaNotification = JSON.parse(localStorage.getItem("vaNotification"));
+  // const userNotification = JSON.parse(localStorage.getItem("userNotification"));
+
+  const handleRedirect = () => {
+    location.push("notifications")
+  }
+
+  const getNotificationVA = async () => {
+    try {
+      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+        headers: { Authorization: `Bearer ${
+          id?.data?.access_token || idVa?.extra?.token
+        }` }
+      }).then((res) => {
+        console.log(res.data, "/notification")
+        // localStorage.setItem("userNotification", JSON.stringify(res.data))
+        setNotification([...notification, res.data]);
+
+      })
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+  // useEffect(() => {
+  //   if (
+  //     location.pathname === "/dashboard/notifications" &&
+  //     userNotification !== null
+  //   ) {
+  //     setNotification(userNotification);
+  //   } else if (
+  //     location.pathname === "/virtual-assistance/notifications" &&
+  //     vaNotification !== null
+  //   ) {
+  //     setNotification(vaNotification);
+  //   }
+  // }, [location.pathname]);
 
   useEffect(() => {
-    if (
-      location.pathname === "/dashboard/notifications" &&
-      userNotification !== null
-    ) {
-      setNotification(userNotification);
-    } else if (
-      location.pathname === "/virtual-assistance/notifications" &&
-      vaNotification !== null
-    ) {
-      setNotification(vaNotification);
-    }
-  }, [location.pathname]);
+    getNotificationVA()
+  }, [])
 
   onMessageListener()
     .then(payload => {
-      const getNotificationVA = async () => {
-        try {
-          await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-            headers: { Authorization: `Bearer ${
-              id?.data?.access_token || idVa?.extra?.token
-            }` }
-          }).then((res) => {
-            console.log(res.data)
-            localStorage.setItem("userNotification", JSON.stringify(res.data))
-            setNotification([...notification, res.data]);
-
-          })
-          
-        } catch (error) {
-          console.error(error)
-        }
-      }
+      
+    
+      
       getNotificationVA()
-      console.log(payload);
+      alert("You have a new message")
+      handleRedirect()
+      console.log(payload, "done");
     })
     .catch(err => console.log("failed: ", err));
 
@@ -112,6 +122,13 @@ export default function Notifications() {
           </Box>
         </Box>
       </Box>
+      {/* <Box>
+        {notification.map((item, index) => (
+          <Box key={index}>
+            <p>{item.title}</p>
+          </Box>
+        ))}
+      </Box> */}
       <Box mt={2} sx={{ background: "#fff" }} py={2}>
         <Box
           sx={{
