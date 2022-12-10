@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {
-  Avatar,
   Badge,
   Box,
   IconButton,
@@ -12,6 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Link } from "react-router-dom";
+import VAAccountMenu from "../../components/menu/VAAccountMenu";
 
 const Navbar = ({ handleDrawerToggle }) => {
   let vaUser = JSON.parse(localStorage.getItem("VA"));
@@ -19,31 +19,30 @@ const Navbar = ({ handleDrawerToggle }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      notifiLength = JSON.parse(localStorage.getItem("notificationLength"))
+      notifiLength = JSON.parse(localStorage.getItem("notificationLength"));
     }, 10000);
 
-    return()=> clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <AppBar
       sx={{
         justifyContent: `center`,
         height: { xs: `64px`, sm: `120px` },
-        border: `1px solid lightgrey`
+        borderBottom: `1px solid lightgrey`
       }}
       elevation={0}
       color="transparent"
       position="static"
     >
-      <Toolbar>
+      <Toolbar sx={{ justifyContent: `space-between` }}>
         <IconButton
-        
           color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md : "none" } }}
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
@@ -67,7 +66,7 @@ const Navbar = ({ handleDrawerToggle }) => {
             alt="wave"
           />
         </Typography>
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        <Box>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
             <Link to={`notifications`}>
               <Badge color="secondary" badgeContent={notifiLength}>
@@ -85,21 +84,9 @@ const Navbar = ({ handleDrawerToggle }) => {
                 />
               </Badge>
             </Link>
-
-            <Link to={`/virtual-assistance/profile`}>
-              <Avatar
-                // {...stringAvatar("Kingsley Solomon")}
-                alt="Remy Sharp"
-                src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669358533/hng/todoAppVirtualAssistant/unsplash_315vPGsAFUk_yiklv0.svg"
-                sx={{
-                  width: 40,
-                  height: 40,
-                  fontSize: `14px`,
-                  fontWeight: 700,
-                  color: `#714DD9`
-                }}
-              />
-            </Link>
+            <Box>
+              <VAAccountMenu />
+            </Box>
           </Stack>
         </Box>
       </Toolbar>

@@ -1,19 +1,21 @@
-import React, { useEffect} from "react";
+import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
 import { Link, Outlet } from "react-router-dom";
 
-import axios from "axios";
+// import axios from "axios";
 //messaginh
-import { requestForToken } from '../../messaging_init_in_sw'
-
+import { requestForToken } from "../../messaging_init_in_sw";
 
 const Dashboardlayout = () => {
-  const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
-  requestForToken()
-  // const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"))  
+  // const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
+
+ 
+
+  // Request permission from user fro notification
+  requestForToken();
 
   // // Request permission from user fro notification
   //
@@ -34,40 +36,52 @@ const Dashboardlayout = () => {
   //   getNotification()
   //  }, [fbToken])
 
-   const getNotificationVA = async () => {
-    try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: "Bearer " + id }
-      }).then((res) => {
-        localStorage.setItem("vaNotification", JSON.stringify(res.data))
-      })
-      
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  //  const getNotificationVA = async () => {
+  //   try {
+  //     await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+  //       headers: { Authorization: "Bearer " + id }
+  //     }).then((res) => {
+       
+  //       localStorage.setItem("vaNotification", JSON.stringify(res.data))
+  //     })
 
-  // calling notifcation function every 10 sec
-  useEffect(() => {
-    getNotificationVA()
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
-    const interval = setInterval(() => {
-      getNotificationVA()
-    }, 10000)
-  
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  // // calling notifcation function every 10 sec
+  // useEffect(() => {
+  //   getNotificationVA()
+
+  //   const interval = setInterval(() => {
+  //     getNotificationVA()
+  //   }, 10000)
+
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [])
 
 
   return (
-    <Grid2 height={`100vh`} container>
-      <Grid2 xs={0} md={3}>
+    <Grid2
+      height={`100vh`}
+      container
+      width={`100%`}
+      maxWidth={`1440px`} //EXPERIMENTAL (WILL TAKE IT OF IF THE TEAM DISAGREES)
+      margin={`0 auto`}
+    >
+      <Grid2
+        display={{ xs: `none`, md: `flex` }}
+        borderRight={`1px solid lightgrey`}
+        xs={0}
+        md={3}
+      >
         <Box
           sx={{
+            top: 0,
             padding: `0 1rem`,
-            border: `1px solid lightgrey`,
             display: { xs: `none`, md: `block` }
           }}
           width={`100%`}

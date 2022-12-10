@@ -32,8 +32,6 @@
     background: #F9F7FF;
     padding: 1.5rem;
     transition: all 0.3s ease-in-out;
-    height: 85vh;
-    overflow-y: scroll;
 }
 
 .va_home_container_active {
@@ -51,10 +49,11 @@
     border-width: 0px 1px 1px 0px;
     border-style: solid;
     border-color: #E9F3F5;
-    border-radius: 8px 8px 8px 9px;
+    border-radius: 8px;
     padding: 0.5rem 2rem 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .va_home_links {
@@ -91,6 +90,10 @@
 .va_tasks {
     background: white;
     margin-top: 1rem;
+    height: 70vh;
+    overflow-y: scroll;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .va_no_tasks {

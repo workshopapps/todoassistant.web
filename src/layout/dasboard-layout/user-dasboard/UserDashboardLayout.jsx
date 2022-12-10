@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import UserDashboardNav from "../../dasboard-layout/user-dasboard/UserDashboardNav";
 import { Box, Stack } from "@mui/material";
 import { Link, Outlet } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 //messaginh
 import { requestForToken } from "../../../messaging_init_in_sw";
@@ -11,7 +11,7 @@ import UserNavList from "./UserNavList";
 
 const UserDashboardlayout = () => {
   requestForToken();
-  const id = JSON.parse(localStorage.getItem("user")).data?.user_id;
+  // const id = JSON.parse(localStorage.getItem("user")).data?.user_id;
   // const fbToken = JSON.parse(localStorage.getItem("firebaseNotification"));
 
   
@@ -30,40 +30,52 @@ const UserDashboardlayout = () => {
   //   };
   //   getNotification();
   // }, [fbToken]);
-  const getNotificationVA = async () => {
-    try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: "Bearer " + id }
-      }).then((res) => {
-        localStorage.setItem("userNotification", JSON.stringify(res.data))
-      })
+  // const getNotificationVA = async () => {
+  //   try {
+  //     await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+  //       headers: { Authorization: "Bearer " + id }
+  //     }).then((res) => {
+  //       console.log(res)
+  //       localStorage.setItem("userNotification", JSON.stringify(res.data))
+  //     })
       
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
-  // calling notifcation function every 10 sec
-  useEffect(() => {
-    getNotificationVA()
+  // // calling notifcation function every 10 sec
+  // useEffect(() => {
+  //   getNotificationVA()
 
-    const interval = setInterval(() => {
-      getNotificationVA()
-    }, 10000)
+  //   const interval = setInterval(() => {
+  //     getNotificationVA()
+  //   }, 10000)
   
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [])
 
 
   return (
-    <Grid2 height={`100vh`} container>
-      <Grid2 xs={0} md={3}>
+    <Grid2
+      height={`100vh`}
+      container
+      width={`100%`}
+      maxWidth={`1440px`} //EXPERIMENTAL (WILL TAKE IT OF IF THE TEAM DISAGREES)
+      margin={`0 auto`}
+    >
+      <Grid2
+        display={{ xs: `none`, md: `flex` }}
+        borderRight={`1px solid lightgrey`}
+        xs={0}
+        md={3}
+      >
         <Box
           sx={{
+            top: 0,
             padding: `0 1rem`,
-            border: `1px solid lightgrey`,
             display: { xs: `none`, md: `block` }
           }}
           width={`100%`}
@@ -87,9 +99,9 @@ const UserDashboardlayout = () => {
       </Grid2>
       <Grid2 position={`relative`} xs={12} md={9}>
         <UserDashboardNav />
-        <Box padding={`24px`}>
-          <Outlet />
-        </Box>
+        {/* <Box padding={`24px`} > */}
+        <Outlet />
+        {/* </Box> */}
       </Grid2>
     </Grid2>
   );
