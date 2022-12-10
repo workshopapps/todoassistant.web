@@ -64,7 +64,7 @@ export default function Notifications() {
     
       
       getNotificationVA()
-      alert("You have a new message")
+      alert("You have a new notification")
       handleRedirect()
       console.log(payload, "done");
     })
