@@ -116,7 +116,7 @@ const LoginForm = () => {
          "token",
          JSON.stringify(response.data.data.access_token)
        );
-       localStorage.setItem("user", JSON.stringify(response?.data.data));
+       localStorage.setItem("user", JSON.stringify(response?.data));
        navigate("/dashboard", { replace: true });
      } catch (err) {
        console.log(err);
