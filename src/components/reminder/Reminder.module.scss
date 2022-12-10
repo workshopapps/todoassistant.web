@@ -1,3 +1,5 @@
+@import "../../scss/mixins";
+
 .reminder {
   // background: linear-gradient(0deg, rgba(113, 77, 217, 0.11), rgba(113, 77, 217, 0.11)), #FFFFFF;;
   background: #f9f7ff;
@@ -41,21 +43,25 @@
   border-radius: 8px;
   border: none;
   margin: 1rem;
+  color: #fff;
+  @include hover;
 }
 .cancel {
   padding: 14px 24px;
   width: 18rem;
   height: 3rem;
   background: #ffffff;
-  border: 1px solid #714dd9;
   border-radius: 8px;
   margin-left: 1rem;
+  color: red;
+  border: none;
 }
 
-.cancel:hover{
-    background: #d94d75;
+.cancel:hover {
+  background: #d94d7570;
+  color: #fff;
 }
 
 .fontWeightBold {
-    font-weight: bold;
-  }
+  font-weight: bold;
+}

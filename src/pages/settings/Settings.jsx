@@ -5,7 +5,8 @@ import Tab from "@mui/material/Tab";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import Box from "@mui/material/Box";
-import RemindMeModal from "../../components/settings-components/RemindeMeModal";
+import Reminders from "../../components/reminders/Reminders"
+// import RemindMeModal from "../../components/settings-components/RemindeMeModal";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -65,7 +66,7 @@ export default function Settings() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <RemindMeModal />
+        <Reminders />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

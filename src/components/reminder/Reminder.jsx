@@ -6,7 +6,6 @@ import Checkbox from "@mui/material/Checkbox";
 import Radio from "@mui/material/Radio";
 // import Button from '@mui/material/Button';
 import Modal from "@mui/material/Modal";
-import { Button } from "@mui/material";
 
 const Reminder = ({ headerType, header, list, showSave, optionType }) => {
   const [modal, setModal] = useState(false);
@@ -93,14 +92,13 @@ const Reminder = ({ headerType, header, list, showSave, optionType }) => {
               </button>
             </div>
           ) : null}
-          <Button
+          <button
             id="btn__cancel"
             onClick={() => setModal(false)}
             className={classes.cancel}
           >
-            {" "}
             Cancel
-          </Button>
+          </button>
         </Box>
       </Modal>
       {/* <Modal
