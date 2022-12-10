@@ -48,6 +48,7 @@ import { useContext } from "react";
 import { AuthContext } from "./contexts/authContext/AuthContext";
 import TaskDetails from "./core/todo/TaskDetials";
 import TaskDetail from "./components/taskDetails/TaskDetails";
+import VATaskDetail from "./components/VAtaskdetails/VAtaskdetails";
 import EditAccountPage from "./components/accountSettingPages/account-setting-subpages/edit-account-page/EditAccountPage";
 import VaClientPage from "./core/dashboard/va-client-page/VaClientPage";
 import VALogin from "./components/VA-Login/VALogin";
@@ -264,6 +265,7 @@ function App() {
             <Route path="clients" element={<VaClientPage />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="tasks" element={<VATasks />} />
+            <Route path="vataskdetail/:id" element={<VATaskDetail />} />
             {/* <Route path="notifications" element={<Notifications />} /> */}
             <Route path="profile" element={<VaProfile />} />
           </Route>
