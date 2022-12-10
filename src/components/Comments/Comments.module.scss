@@ -131,9 +131,9 @@
 }
 
 @keyframes message {
-    0% { scale:0}
-    25% { scale:0.5}
-    50% { scale:1}
-    75% { scale:1.1}
-    100% { scale:1}
+    0% { transform: scale(0);}
+    25% {  transform: scale(0.5)}
+    50% {  transform: scale(0.7)}
+    75% { transform: scale(1.05)}
+    100% {  transform: scale(1)}
 }
