@@ -51,7 +51,7 @@ const UserNavList = () => {
       <List>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          to={`/dashboard`}
+          to={`/dashboard/`}
         >
           <ListItem sx={styledListItem}>
             <ListItemIcon>
@@ -89,7 +89,7 @@ const UserNavList = () => {
 
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          to={`/settings`}
+          to={`/dashboard/settings`}
         >
           <ListItem sx={styledListItem}>
             <ListItemIcon>

@@ -74,6 +74,7 @@ import Cancel from "./components/subscriptionPlan/ErrorPages/Cancel/Cancel";
 import OTPPage from "./components/ResetPasswordPages/otpPage/OTPPage";
 // import Signup from "./core/auth/signup/UserSignUp";
 import UserDashboardlayout from "./layout/dasboard-layout/user-dasboard/UserDashboardLayout";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   // const [device_id, setDevice_Id] = useState(JSON.parse(localStorage.getItem("firebaseNotifToken")) || null);
@@ -152,7 +153,7 @@ function App() {
         {/* ================================ */}
         <>
           <Route
-            path="/dashboard"
+            path="/dashboard/"
             element={
               user ? <UserDashboardlayout /> : <Navigate to="/login" replace />
             }
@@ -173,6 +174,7 @@ function App() {
               path="profile/change-password"
               element={<ChangePassword />}
             />
+            <Route path="settings" element={<Settings />} />
           </Route>
 
           <Route
