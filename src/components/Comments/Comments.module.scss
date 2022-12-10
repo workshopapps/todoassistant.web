@@ -68,6 +68,9 @@
                       outline: none;
                   }
 
+                  .inputField input::placeholder{
+                    font-size: 15px;
+                  }
                   .sendButton{ 
                        color: white;
                         background-color: rebeccapurple;
@@ -87,16 +90,9 @@
                       color:darkorange;
                   }
 
-//                   .comments::after {
-//                       content: "";
-//                       position: absolute;
-//                       width: 100%;
-//                       height: 1px;
-//                       left: 2px;
-//                       background-color: rgb(207, 204, 204);
-//                       top: calc(111vh - 200px);
-//                   }
-
+                  .message{
+                    animation: message 0.6s ease-in-out  1  ;
+                  }
 
 @media screen and (max-width:750px) {
     .message{
@@ -131,4 +127,12 @@
     .message{
         max-width: 92% !important ;
     }
+}
+
+@keyframes message {
+    0% { scale:0}
+    25% { scale:0.5}
+    50% { scale:0.7}
+    75% { scale:0.4}
+    100% { scale:1}
 }
