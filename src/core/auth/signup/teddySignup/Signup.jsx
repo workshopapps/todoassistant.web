@@ -4,7 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useFormik } from "formik";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { basicSchema } from "../../schemas/basicSchema";
+import { signupSchema } from "../../schemas/signupSchema";
 import { Link } from "react-router-dom";
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
@@ -74,7 +74,7 @@ function Signup() {
         date_of_birth: "",
         password: ""
       },
-      validationSchema: basicSchema,
+      validationSchema: signupSchema,
       onSubmit
     });
 
