@@ -43,7 +43,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
           color="inherit"
           aria-label="open drawer"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
