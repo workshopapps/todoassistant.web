@@ -1,0 +1,139 @@
+.commentWrapper{
+                      // border: 1px solid rebeccapurple;
+                      height: calc(81vh - 200px);
+                      max-height: calc(85vh - 200px);
+                      overflow-y: auto;
+                      overflow-x: hidden;
+}
+
+
+.commentWrapper::-webkit-scrollbar {
+                      display: block !important;
+                       background-color: transparent; 
+                      width: 6px;
+                      height: 10px !important;
+                      
+                  }
+
+                  .commentWrapper::-webkit-scrollbar-track {
+                      display: block !important;
+                      width: 5px;
+                      /* background-color: black; */
+                      height: 10px !important;
+                  }
+                  .commentWrapper::-webkit-scrollbar-thumb {
+                      display: block !important;
+                     
+                      border-radius: 5px;
+                      height: 10px !important;
+                      /* width: 5px; */
+                      background-color: #714dd9c7;
+                  }
+
+                  .comments{
+                      min-height: 100%;
+                      display:flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      margin: 15px 7px;
+                  }
+
+                  .empty__state{
+                      width: 100%;
+    align-self: center;
+    justify-content: center;
+                  }
+
+                  .inputField{
+                      // border: 1px solid #714dd9c7;
+                      width: 100%;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      padding: 10px 30px;
+                      gap: 36px;
+                      margin-top: 6px;
+                      
+                  }
+                
+
+                  .inputField input{
+                      width: 100%;
+    padding: 10px 10px;
+    border: 1px solid #c6c3c3;
+    border-radius: 5px;
+                  }
+
+                  .inputField input:focus{
+                      outline: none;
+                  }
+
+                  .inputField input::placeholder{
+                    font-size: 15px;
+                  }
+                  .sendButton{ 
+                       color: white;
+                        background-color: rebeccapurple;
+                        width: 39px;
+                        height: 38px;
+                        padding: 8px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                  }
+
+                  .emojiFace{       
+                      height: 34px;
+                      width: 34px;
+                  }
+
+                  .emojiFace:hover{
+                      color:darkorange;
+                  }
+
+                  .message{
+                    animation: message 1s ease-in-out  1  ;
+                  }
+
+@media screen and (max-width:750px) {
+    .message{
+        max-width: 58% !important ;
+    }
+    .comments{
+        gap: 18px;
+    }
+}
+
+@media screen and (max-width:600px) {
+                      .commentWrapper{
+                                            // border: 1px solid rebeccapurple;
+                                            height: calc(81vh - 140px);
+                                            max-height: calc(85vh - 140px);
+                                            overflow-y: auto;
+                      } 
+
+                      .inputField{
+                                            // border: 1px solid #714dd9c7;
+                                          
+                                            padding: 10px 3px;
+                                            gap: 7px;
+                                           
+                                            
+                                        }
+
+}
+
+
+@media screen and (max-width:450px) {
+    .message{
+        max-width: 92% !important ;
+        font-size:15px !important;
+    }
+}
+
+@keyframes message {
+    0% { transform: scale(0);}
+    25% {  transform: scale(0.5)}
+    50% {  transform: scale(0.7)}
+    75% { transform: scale(1.05)}
+    100% {  transform: scale(1)}
+}
