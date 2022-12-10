@@ -85,7 +85,11 @@ const Navbar = ({ handleDrawerToggle }) => {
               </Badge>
             </Link>
             <Box>
-              <VAAccountMenu />
+              <VAAccountMenu
+                fullName={[vaUser.data.first_name, vaUser.data.last_name].join(
+                  " "
+                )}
+              />
             </Box>
           </Stack>
         </Box>

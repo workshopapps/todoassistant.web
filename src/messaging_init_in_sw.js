@@ -1,8 +1,8 @@
 // Firebase Cloud Messaging Configuration File.
 // Read more at https://firebase.google.com/docs/cloud-messaging/js/client && https://firebase.google.com/docs/cloud-messaging/js/receive
-
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import axios from "axios";
 
 const firebaseConfig = {
   // apiKey: "AIzaSyB11d-CF7hi7_bKzhsDxBlV90O1ZWi9gsE",
@@ -26,6 +26,8 @@ initializeApp(firebaseConfig);
 const messaging = getMessaging();
 
 export const requestForToken = () => {
+  const id = JSON.parse(localStorage.getItem("user"));
+  const idVa = JSON.parse(localStorage.getItem("VA"));
   return getToken(messaging, {
     vapidKey: `BIjP8ngeWZ_-4DoNVGjxPV1eJFKpUVK9-GakbhHC8TuTPKxXtGLVk_UNtFs1KqZF6vAUiTEqJ95RDlSIETLPLZM`
   })
@@ -36,6 +38,28 @@ export const requestForToken = () => {
           "firebaseNotification",
           JSON.stringify(currentToken)
         );
+
+        const getNotification = async () => {
+          const data = {
+            user_id: `${id?.data?.user_id || idVa?.data?.va_id}`,
+            device_id: currentToken
+          };
+          try {
+            console.log("testing");
+            await axios
+              .post("https://api.ticked.hng.tech/api/v1/notification", data, {
+                headers: {
+                  Authorization: `Bearer ${
+                    id?.data?.access_token || idVa?.extra?.token
+                  }`
+                }
+              })
+              .then(res => console.log(res.data));
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        getNotification();
         // Perform any other neccessary action with the token
       } else {
         // Show permission request UI

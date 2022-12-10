@@ -1,10 +1,7 @@
 @import "../../scss/mixins";
 
 .TaskDetail_wrapper {
-  // min-height: 90vh;
-  // border: 1px solid red;
-  @include max-height;
-
+  max-height: 96vh;
   .TaskDetail_header {
     display: flex;
     flex-direction: column;
