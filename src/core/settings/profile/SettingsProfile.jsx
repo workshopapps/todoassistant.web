@@ -90,7 +90,7 @@ const SettingsProfilee = () => {
               </div>
             </div>
             <div className="head-2">
-              <Link to={`/dashboard/settings`}>
+              <Link to={`/dashboard/settings`} state={{ index: 1 }}>
                 <button className="upgrade-btn hover">Upgrade Plan</button>
               </Link>
             </div>
