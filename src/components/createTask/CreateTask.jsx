@@ -273,7 +273,7 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
           </div>
           <button
             type="submit"
-            className={styles.createTask_button}
+            className={[styles.createTask_button, `hover`].join(" ")}
             disabled={buttonDisable ? true : false}
           >
             {func === "edit" ? "Edit Task" : "Create Task"}

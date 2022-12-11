@@ -7,20 +7,27 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
 import { useRef } from "react";
-import { Box, Stack } from "@mui/material";
+import { Box, CircularProgress, Stack } from "@mui/material";
 import { Edit } from "@mui/icons-material";
+import StatusBar from "../../dashboard/va-client-page/StatusBar";
+
 // import { Typography } from "@mui/material";
 
 const EditProfile = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const [isLoading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const { user_id } = user.data;
   const pictureInput = useRef(null);
-  const [pictureValue, setPictureValue] = useState("");
 
   // useEffect(() => {
   //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
   // }, [])
+
+  const close = () => {
+    setOpen(false);
+  };
 
   const defaultForm = {
     first_Name: "",
@@ -86,21 +93,42 @@ const EditProfile = () => {
     editRequest(form);
   };
 
-  const handlePictureValue = async e => {
-    setPictureValue(e.target.files[0]);
-    const url = `https://api.ticked.hng.tech/api/v1/user/upload`;
+  const updateStorage = data => {
+    const profile = JSON.parse(localStorage.getItem("user"));
+    Object.keys(data).forEach(key => {
+      profile["data"]["avatar"] = data["avatar"];
+      key;
+    });
+    localStorage.setItem("user", JSON.stringify(profile));
+    // since we are not using context as a global use store...
+    // we would have to reload the page for user data change
+    // which in a sense is bad practice
+    location.reload();
+  };
 
+  const handlePictureValue = async e => {
+    const url = `https://api.ticked.hng.tech/api/v1/user/upload`;
+    // setLoading(true);
     const formData = new FormData();
-    formData.append("file", pictureValue);
-    // formData.append("fileName", pictureValue.name);
+    formData.append("file", e.target.files[0]);
     const config = {
       headers: {
         Authorization: `Bearer ${user.data.access_token}`,
-        "content-type": "multipart/form-data"
+        "Content-Type": "multipart/form-data"
       }
     };
-    const res = await axios.post(url, formData, config);
-    console.log(res.data);
+    try {
+      const res = await axios.post(url, formData, config);
+      if (res.data.code === 200) {
+        updateStorage(res.data.data);
+        setLoading(false);
+         setOpen(true);
+      }
+    } catch (err) {
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -118,7 +146,14 @@ const EditProfile = () => {
               <div className="head">
                 <div className="head-1">
                   <Box
-                    onClick={() => pictureInput.current.click()}
+                    onClick={() => {
+                      try {
+                        setLoading(true);
+                        pictureInput.current.click();
+                      } catch (err) {
+                        setLoading(false);
+                      }
+                    }}
                     className="user-initial"
                     sx={{ position: `relative`, cursor: `pointer` }}
                   >
@@ -146,7 +181,11 @@ const EditProfile = () => {
                       bgcolor={`lightgrey`}
                       p={`5px`}
                     >
-                      <Edit sx={{ color: `#714DD9` }} fontSize="10px" />
+                      {isLoading ? (
+                        <CircularProgress size={16} />
+                      ) : (
+                        <Edit sx={{ color: `#714DD9` }} fontSize="10px" />
+                      )}
                     </Stack>
                   </Box>
                 </div>
@@ -214,6 +253,13 @@ const EditProfile = () => {
           </div>
         </div>
       </div>
+      <StatusBar
+        open={open}
+        close={close}
+        message={`profile picture uploaded successfully`}
+        priority={`success`}
+        position={`right`}
+      />
     </div>
   );
 };

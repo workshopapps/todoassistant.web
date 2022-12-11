@@ -21,6 +21,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 export default function VaClientUserList({ vaUsers }) {
+  console.log(vaUsers);
   const userList = vaUsers?.map((user, index) => {
     return (
       <TableRow
@@ -46,7 +47,7 @@ export default function VaClientUserList({ vaUsers }) {
           <Chip color="success" label={user.status} variant="outlined" />
         </TableCell>
         <TableCell>
-          <ClientDropdown userID={user.user_id} />
+          <ClientDropdown userID={user.user_id} user={user} />
         </TableCell>
       </TableRow>
     );
