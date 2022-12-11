@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/authContext/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import { gapi } from "gapi-script";
+import { GoogleLogin } from "react-google-login";
+import FacebookLogin from "react-facebook-login";
+import axios from "axios";
+import StatusBar from "../../core/dashboard/va-client-page/StatusBar";
 import style from "./Login.module.scss";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import * as Yup from "yup";
 import { useFormik } from "formik";
-// import { basicSchema } from "../../schemas/basicSchema";
-import { Link } from "react-router-dom";
-// import axios from "axios";
+import { loginSchema } from "../../../schemas/loginSchema";
+import { login } from "../../contexts/authContext/apiCalls";
+
 import google from "../../assets/google.png";
 import fb from "../../assets/fb.png";
-// const base_url = "https://api.ticked.hng.tech/api/v1";
 
 /* eslint-disable */
 
-const passwordRegExp =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-
-const basicSchema = Yup.object().shape({
-  email: Yup.string().email("Email is not valid").required("Email is required"),
-  password: Yup.string()
-    .min(8, "Password requires a minimum of 8 characters")
-    .max(20, "Password ")
-    .matches(
-      passwordRegExp,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character e.g. [!, @, #, $, %, ^, &, *]"
-    )
-    .required("Password is required"),
-});
+const clientId =
+  "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
+const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 function Login() {
+  const navigate = useNavigate();
+  const { errMessage, dispatch } = useContext(AuthContext);
+  // const { isFetching, errMessage, dispatch } = useContext(AuthContext);
+  const [specificErrorMessage, setSpecificErrorMessage] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
   // toggle password states
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -43,11 +43,13 @@ function Login() {
   //     console.log("player");
   //   };
 
-  const onSubmit = async (values) => {
-    console.log(values);
+  const onSubmit = async values => e => {
+    e.preventDefault();
     setIsSigningIn(true);
+    console.log(values);
     // after finding the data
     setIsSigningIn(false);
+    login(values, dispatch);
 
     // const data = { email: values.email, password: values.password };
     // try {
@@ -70,11 +72,72 @@ function Login() {
     useFormik({
       initialValues: {
         email: "",
-        password: "",
+        password: ""
       },
-      validationSchema: basicSchema,
-      onSubmit,
+      validationSchema: loginSchema,
+      onSubmit
     });
+
+  // const handleMouseDownPassword = event => {
+  //   event.preventDefault();
+  // };
+
+  useEffect(() => {
+    if (errMessage) {
+      setSpecificErrorMessage(errMessage);
+      setIsAlertVisible(true);
+
+      setTimeout(() => {
+        setIsAlertVisible(false);
+      }, 2000);
+    }
+  }, [errMessage]);
+
+  const onSuccess = res => {
+    console.log(res);
+    googleSignIn(res?.profileObj);
+  };
+  const onFailure = err => {
+    console.log("failed:", err);
+  };
+
+  const googleSignIn = async body => {
+    try {
+      const response = await axios.post(`${baseurl}/googlelogin`, body);
+      if (response.status == 200 && response.data) {
+        localStorage.setItem(
+          "google_login_token",
+          JSON.stringify(response.data.access_token)
+        );
+        localStorage.setItem("user", JSON.stringify(response?.data));
+        navigate("/dashboard", { replace: true });
+        navigate(0);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: ""
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
+
+  const responseFacebook = response => {
+    console.log(response);
+    // setData(response);
+    // setPicture(response.picture.data.url);
+    // if (response.accessToken) {
+    //   setLogin(true);
+    // } else {
+    //   setLogin(false);
+    // }
+  };
 
   return (
     <div>
@@ -155,7 +218,7 @@ function Login() {
                     />
                   </label>
                   <p>
-                    <Link>Forgot Password?</Link>
+                    <Link to="/resetpassword">Forgot Password?</Link>
                   </p>
                 </div>
 
@@ -172,22 +235,44 @@ function Login() {
 
               <div className={style.switch}>
                 <p>Don't have an account ?</p>
-                <Link>Create Account</Link>
+                <Link to="/signup">Create Account</Link>
               </div>
 
               <hr />
               <p className={style.or_ctn_with}>Or continue with</p>
 
               <div className={style.social_media_icons}>
-                <img
-                  src={google}
-                  alt="google icon"
-                  style={{ cursor: "pointer" }}
+                <GoogleLogin
+                  clientId={clientId}
+                  render={renderProps => (
+                    <img
+                      onClick={renderProps.onClick}
+                      src={google}
+                      alt="google icon"
+                      style={{ cursor: "pointer" }}
+                    />
+                  )}
+                  buttonText="Sign in with Google"
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  cookiePolicy={"single_host_origin"}
+                  isSignedIn={false}
                 />
-                <img
-                  src={fb}
-                  alt="facebook icon"
-                  style={{ cursor: "pointer" }}
+
+                <FacebookLogin
+                  appId="671621864445949"
+                  render={renderProps => (
+                    <img
+                      onClick={renderProps.onClick}
+                      src={fb}
+                      alt="facebook icon"
+                      style={{ cursor: "pointer" }}
+                    />
+                  )}
+                  autoLoad={true}
+                  // fields="name,email,picture"
+                  // scope="public_profile,user_friends"
+                  callback={responseFacebook}
                 />
               </div>
             </div>
@@ -195,6 +280,12 @@ function Login() {
           <div className={style.img_flow}>
             <img src="images/reset-psw-img.svg" alt="" />
           </div>
+          <StatusBar
+            open={isAlertVisible}
+            message={errMessage && specificErrorMessage}
+            priority={`error`}
+            position={`left`}
+          />
         </div>
       </>
     </div>
