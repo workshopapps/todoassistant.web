@@ -25,6 +25,7 @@ import axios from "axios";
 import StatusBar from "../../core/dashboard/va-client-page/StatusBar";
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
+import { loginSuccess } from "../../contexts/authContext/AuthActions";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -33,7 +34,7 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 const LoginForm = () => {
   const navigate = useNavigate();
   const { isFetching, errMessage, dispatch } = useContext(AuthContext);
-  const [specificErrorMessage, setSpecificErrorMessage] = useState("");
+  // const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [fbUser, setFbUser] = useState("");
@@ -45,7 +46,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (fbUser){
-     let name = fbUser.last_name;
+     let name = fbUser.name;
      let email = fbUser.email;
      console.log(name, email);
      fbSignUp({name, email})
@@ -59,12 +60,13 @@ const LoginForm = () => {
          "https://api.ticked.hng.tech/api/v1/facebooklogin", body
        );
        console.log(response.data);
-       localStorage.setItem(
-         "token",
-         JSON.stringify(response.data.access_token)
-       );
-       localStorage.setItem("user", JSON.stringify(response?.data));
-       navigate("/dashboard", { replace: true });
+       dispatch(loginSuccess(response.data));
+      //  localStorage.setItem(
+      //    "token",
+      //    JSON.stringify(response.data.access_token)
+      //  );
+      //  localStorage.setItem("user", JSON.stringify(response?.data));
+      //  navigate("/dashboard", { replace: true });
      } catch (err) {
        console.log(err);
        
@@ -73,7 +75,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (errMessage) {
-      setSpecificErrorMessage(errMessage);
+      // setSpecificErrorMessage(errMessage);
       setIsAlertVisible(true);
 
       setTimeout(() => {
@@ -306,7 +308,7 @@ const LoginForm = () => {
             </IconButton>
             <IconButton sx={{ width: `fit-content` }} color="secondary">
             <LoginSocialFacebook
-              appId="529866819049212"
+              appId="486566616898057"
               onResolve={(response) =>{
                 console.log(response);
                 setFbUser(response.data);
@@ -323,7 +325,7 @@ const LoginForm = () => {
       </Stack>
       <StatusBar
         open={isAlertVisible}
-        message={errMessage && specificErrorMessage}
+        message={errMessage}
         priority={`error`}
         position={`left`}
       />
