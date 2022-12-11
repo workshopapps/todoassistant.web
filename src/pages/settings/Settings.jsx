@@ -18,8 +18,9 @@ import {
 } from "@mui/material";
 import tickCircle from "../../components/subscriptionPlan/tick-circle.png";
 // import wtickCircle from "./white-tick-circle.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { styled } from "@mui/system";
+import { useEffect } from "react";
 // import RemindMeModal from "../../components/settings-components/RemindeMeModal";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,23 +68,54 @@ const AntTabs = styled(props => (
   }
 });
 
-const StyledTab = styled(props => <Tab disableRipple {...props} />)(
-  ({ theme }) => ({
-    textTransform: "capitalize",
-    // fontWeight: theme.typography.fontWeightRegular,
-    // fontSize: theme.typography.pxToRem(15),
-    marginRight: theme.spacing(1),
-    "&.Mui-selected": {
-      color: "#714dd9"
-    },
-    "&.Mui-focusVisible": {
-      backgroundColor: "rgba(100, 95, 228, 0.32)"
-    }
-  })
-);
+// function StyledTab(props) {
+//   return (
+//     <Tab
+//       component="a"
+//       onClick={event => {
+//         event.preventDefault();
+//       }}
+//       {...props}
+//     />
+//   );
+// }
+
+const showLink = () => {};
+
+const StyledTab = styled(props => (
+  <Tab
+    {...props}
+    component="a"
+    onClick={event => {
+      event.preventDefault();
+      showLink();
+    }}
+    disableRipple
+  />
+))(({ theme }) => ({
+  textTransform: "capitalize",
+  // fontWeight: theme.typography.fontWeightRegular,
+  // fontSize: theme.typography.pxToRem(15),
+  marginRight: theme.spacing(1),
+  "&.Mui-selected": {
+    color: "#714dd9"
+  },
+  "&.Mui-focusVisible": {
+    backgroundColor: "rgba(100, 95, 228, 0.32)"
+  }
+}));
 
 export default function Settings() {
   const [value, setValue] = React.useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.index) {
+      setValue(location.state.index);
+    } else {
+      setValue(0);
+    }
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -141,11 +173,13 @@ export default function Settings() {
             label="Reminder"
             icon={<AccessAlarmsIcon sx={{ ml: 1 }} />}
             iconPosition={`end`}
+            // href="/dashboard/settings/reminder"
           />
           <StyledTab
             label="Subscription"
             icon={<AddCardIcon sx={{ ml: 1 }} />}
             iconPosition={`end`}
+            // href="/dashboard/settings/subscription"
           />
           {/* <Tab label="Item Three" /> */}
         </AntTabs>
