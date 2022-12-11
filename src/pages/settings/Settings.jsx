@@ -6,7 +6,7 @@ import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import Box from "@mui/material/Box";
 import Reminders from "../../components/reminders/Reminders";
-// import styles from "./subscription.module.scss";
+import styles from "./subscription.module.scss";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Button,
@@ -18,7 +18,9 @@ import {
 } from "@mui/material";
 import tickCircle from "../../components/subscriptionPlan/tick-circle.png";
 // import wtickCircle from "./white-tick-circle.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { styled } from "@mui/system";
+import { useEffect } from "react";
 // import RemindMeModal from "../../components/settings-components/RemindeMeModal";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,8 +51,71 @@ TabPanel.propTypes = {
 //   };
 // }
 
+const AntTabs = styled(props => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+))({
+  "& .MuiTabs-indicator": {
+    display: "none",
+    justifyContent: "center",
+    backgroundColor: "transparent"
+  },
+  "& .MuiTabs-indicatorSpan": {
+    maxWidth: 40,
+    width: "0"
+  }
+});
+
+// function StyledTab(props) {
+//   return (
+//     <Tab
+//       component="a"
+//       onClick={event => {
+//         event.preventDefault();
+//       }}
+//       {...props}
+//     />
+//   );
+// }
+
+const showLink = () => {};
+
+const StyledTab = styled(props => (
+  <Tab
+    {...props}
+    component="a"
+    onClick={event => {
+      event.preventDefault();
+      showLink();
+    }}
+    disableRipple
+  />
+))(({ theme }) => ({
+  textTransform: "capitalize",
+  // fontWeight: theme.typography.fontWeightRegular,
+  // fontSize: theme.typography.pxToRem(15),
+  marginRight: theme.spacing(1),
+  "&.Mui-selected": {
+    color: "#714dd9"
+  },
+  "&.Mui-focusVisible": {
+    backgroundColor: "rgba(100, 95, 228, 0.32)"
+  }
+}));
+
 export default function Settings() {
   const [value, setValue] = React.useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.index) {
+      setValue(location.state.index);
+    } else {
+      setValue(0);
+    }
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -97,25 +162,27 @@ export default function Settings() {
   };
 
   return (
-    <Box padding={`24px`} sx={{ width: "100%" }}>
+    <Box className={styles.container} padding={`24px`} sx={{ width: "100%" }}>
       <Box sx={{ border: 1, borderColor: "divider", borderRadius: `8px` }}>
-        <Tabs
+        <AntTabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab
+          <StyledTab
             label="Reminder"
             icon={<AccessAlarmsIcon sx={{ ml: 1 }} />}
             iconPosition={`end`}
+            // href="/dashboard/settings/reminder"
           />
-          <Tab
+          <StyledTab
             label="Subscription"
             icon={<AddCardIcon sx={{ ml: 1 }} />}
             iconPosition={`end`}
+            // href="/dashboard/settings/subscription"
           />
           {/* <Tab label="Item Three" /> */}
-        </Tabs>
+        </AntTabs>
       </Box>
       <TabPanel value={value} index={0}>
         <Reminders />
@@ -123,10 +190,16 @@ export default function Settings() {
       <TabPanel value={value} index={1}>
         <Stack
           justifyContent={`space-between`}
+          alignItems={`center`}
           direction={`row`}
           flexWrap={`wrap`}
         >
-          <Box padding={5} borderRadius={`8px`} className={`shadow`}>
+          <Box
+            margin={{ xs: `1rem auto`, md: `1rem 0` }}
+            padding={5}
+            borderRadius={`8px`}
+            className={`shadow grow`}
+          >
             <Box mb={3}>
               <Box>
                 <Typography>Basic</Typography>
@@ -174,7 +247,8 @@ export default function Settings() {
             bgcolor={`#714dd9`}
             color={`#fff`}
             borderRadius={`8px`}
-            className={`shadow`}
+            className={`shadow grow`}
+            margin={{ xs: `1rem auto`, md: `1rem 0` }}
           >
             <Box mb={3}>
               <Box>
@@ -222,7 +296,12 @@ export default function Settings() {
             </Button>
           </Box>
           {/* ====================================================== */}
-          <Box padding={5} borderRadius={`8px`} className={`shadow`}>
+          <Box
+            padding={5}
+            borderRadius={`8px`}
+            className={`shadow grow`}
+            margin={{ xs: `1rem auto`, md: `1rem 0` }}
+          >
             <Box mb={3}>
               <Box>
                 <Typography>Celebrity</Typography>

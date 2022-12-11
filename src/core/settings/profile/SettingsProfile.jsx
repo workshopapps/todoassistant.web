@@ -6,11 +6,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
+import { Edit } from "@mui/icons-material";
+import { Chip } from "@mui/material";
 
 const SettingsProfilee = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { first_name, last_name, user_id, email, phone } = user.data;
+  const { first_name, last_name, user_id, email, phone, avatar } = user.data;
   // let FName = first_name
   // let initial = FName.charAt(0).toUpperCase()
 
@@ -74,16 +76,21 @@ const SettingsProfilee = () => {
                 size={{ width: 100, height: 100 }}
                 fontSize={`3rem`}
                 fullName={[first_name, last_name].join(" ")}
+                image={avatar}
               />
               <div className="user-name">
                 <div className="user">
                   {first_name} {last_name}
                 </div>
-                <span className="subtitle">Ticked Free plan</span>
+                <Chip
+                  color="primary"
+                  label="Ticked Free Plan"
+                  variant="outlined"
+                />
               </div>
             </div>
             <div className="head-2">
-              <Link to={`/subscribe`}>
+              <Link to={`/dashboard/settings`} state={{ index: 1 }}>
                 <button className="upgrade-btn hover">Upgrade Plan</button>
               </Link>
             </div>
@@ -94,6 +101,10 @@ const SettingsProfilee = () => {
               <p className="personal">Personal Information</p>
               <Link to="/dashboard/edit" className="edit">
                 Edit
+                <Edit
+                  sx={{ ml: 1, verticalAlign: `baseline` }}
+                  fontSize={`1rem`}
+                />
               </Link>
             </div>
 
@@ -131,7 +142,10 @@ const SettingsProfilee = () => {
             </div>
           </section>
 
-          <Link className="logout shadow" onClick={() => setModal(cancle => !cancle)}>
+          <Link
+            className="logout shadow"
+            onClick={() => setModal(cancle => !cancle)}
+          >
             <p className="log">Delete account</p>
             <img src={arrowRight} alt="arrow" />
           </Link>
