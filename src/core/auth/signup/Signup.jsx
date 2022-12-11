@@ -18,6 +18,7 @@ import PhoneInput from "react-phone-number-input";
 import { useForm } from "react-hook-form";
 import {LoginSocialFacebook} from 'reactjs-social-login';
 import {FacebookLoginButton} from 'react-social-login-buttons'
+import { loginFailure, loginStart, loginSuccess } from "../../../contexts/authContext/AuthActions";
 
 
 const Signup = () => {
@@ -41,6 +42,7 @@ const Signup = () => {
   const [phone, setPhone] = useState()
   const [fbUser, setFbUser] = useState("");
   const { isFetching, dispatch } = useContext(AuthContext);
+  
 
 
   const navigate = useNavigate();
@@ -53,7 +55,7 @@ const Signup = () => {
   // const [date_of_birth, setDateofbirth] = useState("");
   useEffect(() => {
    if (fbUser){
-    let name = fbUser.last_name;
+    let name = `${fbUser.last_name} ${fbUser.first_name}`;
     let email = fbUser.email;
     console.log(name, email);
     fbSignUp({name, email})
@@ -61,23 +63,24 @@ const Signup = () => {
    } 
   },[fbUser]);
 
-  const fbSignUp = async (body) => {
+  const fbSignUp = async body => {
+    dispatch(loginStart());
     try {
       const response = await axios.post(
-        "https://api.ticked.hng.tech/api/v1/facebooklogin", body
+        "https://api.ticked.hng.tech/api/v1/facebooklogin",
+        body
       );
-      console.log(response.data);
-      localStorage.setItem(
-        "token",
-        JSON.stringify(response.data.access_token)
-      );
+      
+      dispatch(loginSuccess(response.data));
+      localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
       localStorage.setItem("user", JSON.stringify(response?.data));
       navigate("/dashboard", { replace: true });
+      
     } catch (err) {
       console.log(err);
-      
+      dispatch(loginFailure(err.response.data.error.error));
     }
-  }
+  };
 
 
 

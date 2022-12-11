@@ -84,6 +84,8 @@ function App() {
   const { user } = useContext(AuthContext);
   const { VA } = useContext(VAAuthContext);
 
+  console.log(user, "This is App.js user")
+
   // const location = useLocation();
 
   // const sendNotification = async () =>{
