@@ -1,6 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import google from "../../assets/google.png";
-import facebook from "../../assets/fb.png";
+// import facebook from "../../assets/fb.png";
 import { login } from "../../contexts/authContext/apiCalls";
 import {
   Box,
@@ -20,9 +20,11 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
-import FacebookLogin from 'react-facebook-login';
+// import FacebookLogin from 'react-facebook-login';
 import axios from "axios";
 import StatusBar from "../../core/dashboard/va-client-page/StatusBar";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -34,10 +36,40 @@ const LoginForm = () => {
   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [fbUser, setFbUser] = useState("");
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+
+
+  useEffect(() => {
+    if (fbUser){
+     let name = fbUser.last_name;
+     let email = fbUser.email;
+     console.log(name, email);
+     fbSignUp({name, email})
+   
+    } 
+   },[fbUser]);
+ 
+   const fbSignUp = async (body) => {
+     try {
+       const response = await axios.post(
+         "https://api.ticked.hng.tech/api/v1/facebooklogin", body
+       );
+       console.log(response.data);
+       localStorage.setItem(
+         "token",
+         JSON.stringify(response.data.access_token)
+       );
+       localStorage.setItem("user", JSON.stringify(response?.data));
+       navigate("/dashboard", { replace: true });
+     } catch (err) {
+       console.log(err);
+       
+     }
+   }
 
   useEffect(() => {
     if (errMessage) {
@@ -95,16 +127,16 @@ const LoginForm = () => {
     }
   };
 
-  const responseFacebook = (response) => {
-    console.log(response);
-    // setData(response);
-    // setPicture(response.picture.data.url);
-    // if (response.accessToken) {
-    //   setLogin(true);
-    // } else {
-    //   setLogin(false);
-    // }
-  }
+  // const responseFacebook = (response) => {
+  //   console.log(response);
+  //   // setData(response);
+  //   // setPicture(response.picture.data.url);
+  //   // if (response.accessToken) {
+  //   //   setLogin(true);
+  //   // } else {
+  //   //   setLogin(false);
+  //   // }
+  // }
 
   useEffect(() => {
     const initClient = () => {
@@ -273,16 +305,18 @@ const LoginForm = () => {
               />
             </IconButton>
             <IconButton sx={{ width: `fit-content` }} color="secondary">
-            <FacebookLogin
-              appId="671621864445949"
-              render={renderProps => (
-                <img onClick={renderProps.onClick} src={facebook} alt="" />
-              )}
-              autoLoad={true}
-              // fields="name,email,picture"
-              // scope="public_profile,user_friends"
-              callback={responseFacebook}
-              />
+            <LoginSocialFacebook
+              appId="529866819049212"
+              onResolve={(response) =>{
+                console.log(response);
+                setFbUser(response.data);
+              }}
+              onReject={(error) => {
+                console.log(error);
+              }}
+              >
+                <FacebookLoginButton />
+              </LoginSocialFacebook>
             </IconButton>
           </Stack>
         </Stack>
