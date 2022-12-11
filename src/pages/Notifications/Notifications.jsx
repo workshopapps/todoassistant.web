@@ -39,6 +39,10 @@ export default function Notifications() {
     }
   }
 
+// Setting notification color
+// switch () {
+
+// }
 
   // useEffect(() => {
   //   if (
@@ -60,9 +64,6 @@ export default function Notifications() {
 
   onMessageListener()
     .then(payload => {
-      
-    
-      
       getNotificationVA()
       alert("You have a new notification")
       handleRedirect()
@@ -149,8 +150,9 @@ export default function Notifications() {
           )}
         </Box>
         {notification.length > 0 ? (
-          notification.map(item => (
-            <Box
+          notification.map(item => {
+            return (
+              <Box
               className="shadow"
               key={item.title}
               mt={1}
@@ -215,7 +217,8 @@ export default function Notifications() {
                 </Typography>
               </Box>
             </Box>
-          ))
+            )
+          })
         ) : (
           <Box mt={4}>
             <Typography textAlign={"center"}>
