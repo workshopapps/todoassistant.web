@@ -8,6 +8,8 @@ import { Chip, MenuItem, Stack } from "@mui/material";
 import axios from "axios";
 import Loader from "./Loader";
 import ProfileAvatar from "./Avatar";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const style = {
   position: "relative",
@@ -26,6 +28,17 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
   p: { xs: `1rem`, md: `5rem` }
+};
+
+const iconStyle = {
+  fontSize: `xx-large`,
+  borderRadius: `100%`,
+  padding: `5px`,
+  // bgcolor: `#714DD930`,
+  color: `#714DD9`,
+  "&:hover": {
+    bgcolor: `#714DD970`
+  }
 };
 
 const styledMenuItem = {
@@ -110,10 +123,10 @@ export default function UserProfileModal({ userID }) {
               {[userDetails.first_name, userDetails.last_name].join(" ")}
             </Typography>
             <Chip color="primary" label="Ticked Free Plan" variant="outlined" />
-            <Box width={{ xs: `90%`, md: `70%` }}>
+            <Box width={{ xs: `100%`, md: `70%` }}>
               <Stack
                 borderRadius={`8px`}
-                padding={5}
+                padding={`5rem 1rem`}
                 gap={3}
                 className="shadow"
               >
@@ -121,49 +134,101 @@ export default function UserProfileModal({ userID }) {
                   direction={`row`}
                   justifyContent={`space-between`}
                   alignItems={`center`}
+                  flexWrap={`wrap`}
                 >
-                  <Typography fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}>
-                    Name
-                  </Typography>
-                  <Typography
-                    color={`#000000`}
-                    fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                    fontWeight={700}
+                  <Stack
+                    direction={`row`}
+                    alignItems={`center`}
+                    justifyContent={`space-between`}
+                    gap={1}
+                    width={{ xs: `5rem`, md: `6rem` }}
+                    pl={`.4rem`}
                   >
-                    {[userDetails.first_name, userDetails.last_name].join(" ")}
-                  </Typography>
+                    <ProfileAvatar
+                      size={{ width: 25, height: 25 }}
+                      fontSize={`10px`}
+                      fullName={[
+                        userDetails.first_name,
+                        userDetails.last_name
+                      ].join(" ")}
+                    />
+                    <Typography
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                    >
+                      Name
+                    </Typography>
+                  </Stack>
+                  <Stack width={`60%`}>
+                    <Typography
+                      color={`#000000`}
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                      fontWeight={700}
+                    >
+                      {[userDetails.first_name, userDetails.last_name].join(
+                        " "
+                      )}
+                    </Typography>
+                  </Stack>
+                </Stack>
+                <Stack
+                  direction={`row`}
+                  justifyContent={`space-between`}
+                  alignItems={`center`}
+                  flexWrap={`wrap`}
+                >
+                  <Stack
+                    direction={`row`}
+                    alignItems={`center`}
+                    justifyContent={`space-between`}
+                    gap={1}
+                    width={{ xs: `5rem`, md: `6rem` }}
+                  >
+                    <AlternateEmailIcon sx={iconStyle} />
+                    <Typography
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                    >
+                      Email
+                    </Typography>
+                  </Stack>
+                  <Stack width={`60%`}>
+                    <Typography
+                      color={`#000000`}
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                      fontWeight={700}
+                    >
+                      {userDetails.email}
+                    </Typography>
+                  </Stack>
                 </Stack>
                 <Stack
                   direction={`row`}
                   justifyContent={`space-between`}
                   alignItems={`center`}
                 >
-                  <Typography fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}>
-                    Email Addrerss
-                  </Typography>
-                  <Typography
-                    color={`#000000`}
-                    fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                    fontWeight={700}
+                  <Stack
+                    direction={`row`}
+                    alignItems={`center`}
+                    justifyContent={`space-between`}
+                    gap={1}
+                    width={{ xs: `5rem`, md: `6rem` }}
                   >
-                    {userDetails.email}
-                  </Typography>
-                </Stack>
-                <Stack
-                  direction={`row`}
-                  justifyContent={`space-between`}
-                  alignItems={`center`}
-                >
-                  <Typography fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}>
-                    Phone Number
-                  </Typography>
-                  <Typography
-                    color={`#000000`}
-                    fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                    fontWeight={700}
-                  >
-                    {userDetails.phone}
-                  </Typography>
+                    <PhoneIcon sx={iconStyle} />
+
+                    <Typography
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                    >
+                      Phone
+                    </Typography>
+                  </Stack>
+                  <Stack width={`60%`}>
+                    <Typography
+                      color={`#000000`}
+                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                      fontWeight={700}
+                    >
+                      {userDetails.phone}
+                    </Typography>
+                  </Stack>
                 </Stack>
               </Stack>
             </Box>

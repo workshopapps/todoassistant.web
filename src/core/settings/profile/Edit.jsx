@@ -16,7 +16,6 @@ const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const { user_id } = user.data;
   const pictureInput = useRef(null);
-  const [pictureValue, setPictureValue] = useState("");
 
   // useEffect(() => {
   //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
@@ -86,20 +85,29 @@ const EditProfile = () => {
     editRequest(form);
   };
 
+  // const updateStorage = data => {
+  //   const profile = JSON.parse(localStorage.getItem("user"));
+  //   Object.keys(data).forEach(key => {
+  //     console.log(key);
+  //     profile[key] = data[key];
+  //   });
+  //   localStorage.setItem("profile", JSON.stringify(profile));
+  // };
+
   const handlePictureValue = async e => {
-    setPictureValue(e.target.files[0]);
     const url = `https://api.ticked.hng.tech/api/v1/user/upload`;
 
     const formData = new FormData();
-    formData.append("file", pictureValue);
-    // formData.append("fileName", pictureValue.name);
+    formData.append("file", e.target.files[0]);
+
     const config = {
       headers: {
         Authorization: `Bearer ${user.data.access_token}`,
-        "content-type": "multipart/form-data"
+        "Content-Type": "multipart/form-data"
       }
     };
     const res = await axios.post(url, formData, config);
+    // updateStorage(res.data.data);
     console.log(res.data);
   };
 
