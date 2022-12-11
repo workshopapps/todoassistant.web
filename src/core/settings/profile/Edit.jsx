@@ -6,12 +6,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
+import { useRef } from "react";
 // import { Typography } from "@mui/material";
 
 const Edit = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const { user_id } = user.data;
+  const pictureInput = useRef(null);
+  const [pictureValue, setPictureValue] = useState("");
 
   // useEffect(() => {
   //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
@@ -23,6 +26,7 @@ const Edit = () => {
     email: "",
     phone: ""
   };
+
   const [form, setForm] = useState(defaultForm);
   const { first_Name, last_name, email, phone } = form;
 
@@ -80,10 +84,23 @@ const Edit = () => {
     editRequest(form);
   };
 
-  // const handleProfilePicChange = () => {};
+  const handlePictureValue = async e => {
+    setPictureValue(e.target.files[0]);
+    const url = `https://api.ticked.hng.tech/api/v1/user/upload`;
 
-  // let FName = first_name;
-  // let initial = FName.charAt(0).toUpperCase();
+    const formData = new FormData();
+    formData.append("file", pictureValue);
+    // formData.append("fileName", pictureValue.name);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user.data.access_token}`,
+        "content-type": "multipart/form-data"
+      }
+    };
+    const res = await axios.post(url, formData, config);
+    console.log(res.data);
+  };
+
   return (
     <div>
       <div className="settings">
@@ -98,9 +115,23 @@ const Edit = () => {
               <p className="title">Edit profile</p>
               <div className="head">
                 <div className="head-1">
-                  <div className="user-initial">
+                  <div
+                    onClick={() => pictureInput.current.click()}
+                    className="user-initial"
+                  >
+                    <input
+                      onChange={handlePictureValue}
+                      id="pictureInput"
+                      ref={pictureInput}
+                      hidden
+                      type="file"
+                    />
                     <ProfileAvatar
-                      fullName={[user.data.first_name, user.data.last_name].join(" ")}
+                      image={user.data.avatar}
+                      fullName={[
+                        user.data.first_name,
+                        user.data.last_name
+                      ].join(" ")}
                       size={{ width: 120, height: 120 }}
                       fontSize={`3rem`}
                     />
