@@ -7,9 +7,11 @@ import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
 import { useRef } from "react";
+import { Box, Stack } from "@mui/material";
+import { Edit } from "@mui/icons-material";
 // import { Typography } from "@mui/material";
 
-const Edit = () => {
+const EditProfile = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const { user_id } = user.data;
@@ -115,9 +117,10 @@ const Edit = () => {
               <p className="title">Edit profile</p>
               <div className="head">
                 <div className="head-1">
-                  <div
+                  <Box
                     onClick={() => pictureInput.current.click()}
                     className="user-initial"
+                    sx={{ position: `relative`, cursor: `pointer` }}
                   >
                     <input
                       onChange={handlePictureValue}
@@ -135,7 +138,17 @@ const Edit = () => {
                       size={{ width: 120, height: 120 }}
                       fontSize={`3rem`}
                     />
-                  </div>
+                    <Stack
+                      justifyContent={`center`}
+                      alignItems={`center`}
+                      borderRadius={`100%`}
+                      sx={{ position: `absolute`, right: 0, bottom: 0 }}
+                      bgcolor={`lightgrey`}
+                      p={`5px`}
+                    >
+                      <Edit sx={{ color: `#714DD9` }} fontSize="10px" />
+                    </Stack>
+                  </Box>
                 </div>
               </div>
               {/* <Typography
@@ -212,4 +225,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default EditProfile;
