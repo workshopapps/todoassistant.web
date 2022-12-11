@@ -31,7 +31,10 @@ export default function VaClientUserList({ vaUsers }) {
         }}
       >
         <TableCell>
-          <ClientName fullName={[user.first_name, user.last_name].join(" ")} />
+          <ClientName
+            image={user.avatar}
+            fullName={[user.first_name, user.last_name].join(" ")}
+          />
         </TableCell>
         <TableCell>
           <Typography>{user.phone}</Typography>

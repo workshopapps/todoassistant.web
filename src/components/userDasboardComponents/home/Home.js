@@ -30,7 +30,7 @@ export default function Home() {
             setTaskModal(1);
           }}
         >
-          <div className={styles.newTask}>
+          <div className={[styles.newTask, `hover`].join(" ")}>
             <img src={addIcon} alt="" />
             <p>New Task</p>
           </div>
