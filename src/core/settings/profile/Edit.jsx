@@ -151,14 +151,7 @@ const EditProfile = () => {
                   </Box>
                 </div>
               </div>
-              {/* <Typography
-                onClick={handleProfilePicChange}
-                textAlign={`center`}
-                mb={5}
-              >
-                Edit Profile image
-                <input type="file" />
-              </Typography> */}
+
               <div className="form-form">
                 <div className="form-field">
                   <label htmlFor="first_Name" className="lab">
