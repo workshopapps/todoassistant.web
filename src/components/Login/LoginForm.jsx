@@ -26,13 +26,20 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 const LoginForm = () => {
   const navigate = useNavigate();
   const { errMessage, dispatch } = useContext(AuthContext);
-  // const { isFetching, errMessage, dispatch } = useContext(AuthContext);
+  // const [specificErrorMessage, setSpecificErrorMessage] = useState("");
+  // const [showPassword, setShowPassword] = useState(false);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [fbUser, setFbUser] = useState("");
+  // const [formData, setFormData] = useState({
+  //   email: "",
+  //   password: ""
+  // });
 
   const [err, setErr] = useState(null);
-  const [fbUser, setFbUser] = useState("");
+  
 
   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
-  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  
 
   // toggle password states
   const [passwordShown, setPasswordShown] = useState(false);
@@ -59,9 +66,9 @@ const LoginForm = () => {
       );
       
       dispatch(loginSuccess(response.data));
-      localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
-      localStorage.setItem("user", JSON.stringify(response?.data));
-      navigate("/dashboard", { replace: true });
+      // localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
+      // localStorage.setItem("user", JSON.stringify(response?.data));
+      // navigate("/dashboard", { replace: true });
       
     } catch (err) {
       console.log(err);
@@ -291,7 +298,7 @@ const LoginForm = () => {
                 />
 
                 <LoginSocialFacebook
-                  appId="529866819049212"
+                  appId="486566616898057"
                   onResolve={response => {
                     console.log(response);
                     setFbUser(response.data);
