@@ -89,10 +89,8 @@ const UserNavbar = ({ handleDrawerToggle }) => {
             </Link>
             <Box>
               <AccountMenu
-              fullName={[
-                userName.first_name,
-                userName.last_name
-              ].join(" ")}
+                image={userName.avatar}
+                fullName={[userName.first_name, userName.last_name].join(" ")}
               />
               {/* {nav ? <Dropdown /> : null} */}
             </Box>
