@@ -72,9 +72,9 @@ const Signup = () => {
       );
       
       dispatch(loginSuccess(response.data));
-      localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
-      localStorage.setItem("user", JSON.stringify(response?.data));
-      navigate("/dashboard", { replace: true });
+      // localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
+      // localStorage.setItem("user", JSON.stringify(response?.data));
+      // navigate("/dashboard", { replace: true });
       
     } catch (err) {
       console.log(err);
@@ -141,7 +141,7 @@ const Signup = () => {
       console.log(err);
       setIsLoading(false);
       setError(true);
-      setErrMessage(err.response.data.message);
+      setErrMessage(err.response.data.error.error);
       setIsAlertVisible(true);
       
       setTimeout(() => {
@@ -405,13 +405,13 @@ const Signup = () => {
               />
                 {/* <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} /> */}
               <LoginSocialFacebook
-              appId="529866819049212"
+              appId="486566616898057"
               onResolve={(response) =>{
-                console.log(response);
+                console.log("THE RESPONSEEEEE", response);
                 setFbUser(response.data);
               }}
               onReject={(error) => {
-                console.log(error);
+                console.log("THE ERORRRRR", error);
               }}
               >
                 <FacebookLoginButton />
