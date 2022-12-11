@@ -48,7 +48,7 @@ const styledMenuItem = {
   }
 };
 
-export default function UserProfileModal({ userID }) {
+export default function UserProfileModal({ userID, user }) {
   let vaUser = JSON.parse(localStorage.getItem("VA"));
 
   const [loading, setLoading] = React.useState(false);
@@ -113,6 +113,7 @@ export default function UserProfileModal({ userID }) {
               }}
             />
             <ProfileAvatar
+              image={user.avatar}
               fontSize={`48px`}
               fullName={[userDetails.first_name, userDetails.last_name]
                 .join(" ")
@@ -145,6 +146,7 @@ export default function UserProfileModal({ userID }) {
                     pl={`.4rem`}
                   >
                     <ProfileAvatar
+                      image={user.avatar}
                       size={{ width: 25, height: 25 }}
                       fontSize={`10px`}
                       fullName={[
