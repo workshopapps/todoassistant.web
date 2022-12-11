@@ -15,7 +15,7 @@ import AccountMenu from "../../../components/menu/AccountMenu";
 
 const UserNavbar = ({ handleDrawerToggle }) => {
   const userName = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))?.data.first_name
+    ? JSON.parse(localStorage.getItem("user"))?.data
     : "";
   let notifiLength;
 
@@ -43,7 +43,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
           color="inherit"
           aria-label="open drawer"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
@@ -61,7 +61,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
             display: { xs: "none", sm: "flex" }
           }}
         >
-          Hello {userName}
+          Hello {userName.first_name}
           <img
             src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1669905647/hng/todoAppVirtualAssistant/twemoji_waving-hand_e1lc4q.svg"
             alt="wave"
@@ -88,7 +88,10 @@ const UserNavbar = ({ handleDrawerToggle }) => {
               </Badge>
             </Link>
             <Box>
-              <AccountMenu />
+              <AccountMenu
+                image={userName.avatar}
+                fullName={[userName.first_name, userName.last_name].join(" ")}
+              />
               {/* {nav ? <Dropdown /> : null} */}
             </Box>
           </Stack>

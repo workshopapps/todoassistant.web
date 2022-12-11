@@ -7,8 +7,10 @@ import right from "../../assets/arrow-rightright.svg";
 import stopwatch from "../../assets/timer-startstopclock.svg";
 import stopwatchlight from "../../assets/timer-startclocklight.svg";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
-const Accordion = ({ data, setData, setHidden, setDissapear }) => {
+const Accordion = ({ data, setHidden, setDissapear }) => {
+  const navigate = useNavigate();
   const [activeState, setActiveState] = useState(data[0]);
 
   function stringToColor(string) {
@@ -69,16 +71,7 @@ const Accordion = ({ data, setData, setHidden, setDissapear }) => {
               }`
             }}
             onClick={() => {
-              setData({
-                title: task.title,
-                date: moment(task.end_time).format("lll"),
-                description: task.description,
-                status: task.status,
-                client: task.user.name,
-                number: task.user.phone,
-                comment: task.comment
-              });
-
+              navigate(`/virtual-assistance/vataskdetail/${task.task_id}`);
               setDissapear(false);
               setTimeout(() => {
                 setHidden(false);

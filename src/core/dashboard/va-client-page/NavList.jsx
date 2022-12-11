@@ -1,6 +1,6 @@
 import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
-import SettingsIcon from "@mui/icons-material/Settings";
+// import SettingsIcon from "@mui/icons-material/Settings";
 import PeopleIcon from "@mui/icons-material/People";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { NavLink } from "react-router-dom";
@@ -92,7 +92,7 @@ const UserNavList = () => {
           </ListItem>
         </NavLink>
         <Divider sx={{ my: `1rem` }} />
-        <NavLink
+        {/* <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
           to={`/virtual-assistance/settings`}
         >
@@ -102,7 +102,7 @@ const UserNavList = () => {
             </ListItemIcon>
             <ListItemText primary={`Settings`} />
           </ListItem>
-        </NavLink>
+        </NavLink> */}
       </List>
       {showButton}
     </Stack>

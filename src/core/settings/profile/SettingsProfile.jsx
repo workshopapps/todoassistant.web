@@ -6,11 +6,29 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
+import { Edit } from "@mui/icons-material";
+import { Button, Chip, Stack, Typography } from "@mui/material";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneIcon from "@mui/icons-material/Phone";
+import KeyIcon from "@mui/icons-material/Key";
+import UpgradeIcon from "@mui/icons-material/Upgrade";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+
+const iconStyle = {
+  fontSize: `xx-large`,
+  borderRadius: `100%`,
+  padding: `5px`,
+  // bgcolor: `#714DD930`,
+  color: `#714DD9`,
+  "&:hover": {
+    bgcolor: `#714DD970`
+  }
+};
 
 const SettingsProfilee = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { first_name, last_name, user_id, email, phone } = user.data;
+  const { first_name, last_name, user_id, email, phone, avatar } = user.data;
   // let FName = first_name
   // let initial = FName.charAt(0).toUpperCase()
 
@@ -74,17 +92,27 @@ const SettingsProfilee = () => {
                 size={{ width: 100, height: 100 }}
                 fontSize={`3rem`}
                 fullName={[first_name, last_name].join(" ")}
+                image={avatar}
               />
               <div className="user-name">
                 <div className="user">
                   {first_name} {last_name}
                 </div>
-                <span className="subtitle">Ticked Free plan</span>
+                <Chip
+                  color="primary"
+                  label="Ticked Free Plan"
+                  variant="outlined"
+                />
               </div>
             </div>
             <div className="head-2">
-              <Link to={`/subscribe`}>
-                <button className="upgrade-btn hover">Upgrade Plan</button>
+              <Link to={`/dashboard/settings`} state={{ index: 1 }}>
+                <Button
+                  startIcon={<UpgradeIcon />}
+                  className="upgrade-btn hover"
+                >
+                  Upgrade Plan
+                </Button>
               </Link>
             </div>
           </div>
@@ -93,29 +121,52 @@ const SettingsProfilee = () => {
             <div className="heading-info">
               <p className="personal">Personal Information</p>
               <Link to="/dashboard/edit" className="edit">
-                Edit
+                <Chip
+                  sx={{
+                    fontSize: `1rem`,
+                    px: 1,
+                    color: "#714DD9",
+                    border: `1px solid #714DD9`,
+                    cursor: `pointer`
+                  }}
+                  size="large"
+                  icon={<Edit sx={{ fontSize: `1rem` }} />}
+                  label="Edit"
+                />
               </Link>
             </div>
 
             <div className="details-card shadow">
-              <div className="name">
-                <p className="name-name">Name</p>
-                <div className="answer">
+              <Stack direction={`row`} alignItems={`center`} className="name">
+                <Stack direction={`row`} alignItems={`center`} gap={1}>
+                  <ProfileAvatar
+                    size={{ width: 40, height: 40 }}
+                    fontSize={`10px`}
+                    fullName={[first_name, last_name].join(" ")}
+                    image={avatar}
+                  />
+                  <p className="name-name">Name</p>
+                </Stack>
+                <Typography className="answer">
                   {first_name} {last_name}
-                </div>
-              </div>
-              <div className="name">
-                <p className="name-name">Email address</p>
-                <div className="answer">{email}</div>
-              </div>
-              <div className="name">
-                <p className="name-name">Phone number</p>
-                <div className="answer">{phone}</div>
-              </div>
-              <div className="name">
-                <p className="name-name">User ID</p>
-                <div className="answer uid">{user_id}</div>
-              </div>
+                </Typography>
+              </Stack>
+
+              <Stack direction={`row`} alignItems={`center`} className="name">
+                <Stack direction={`row`} alignItems={`center`} gap={1}>
+                  <AlternateEmailIcon sx={iconStyle} />
+                  <p className="name-name">Email address</p>
+                </Stack>
+                <Typography className="answer">{email}</Typography>
+              </Stack>
+
+              <Stack direction={`row`} alignItems={`center`} className="name">
+                <Stack direction={`row`} alignItems={`center`} gap={1}>
+                  <PhoneIcon sx={iconStyle} />
+                  <p className="name-name">Phone number</p>
+                </Stack>
+                <Typography className="answer">{phone}</Typography>
+              </Stack>
             </div>
           </section>
 
@@ -125,14 +176,34 @@ const SettingsProfilee = () => {
             </div>
             <div className="details-card-sec shadow">
               <Link to="change-password" className="tit">
-                <p className="tit-tit">Change password</p>
+                <Stack direction={`row`} alignItems={`center`} gap={1}>
+                  <KeyIcon sx={iconStyle} />
+                  <p className="tit-tit">Change password</p>
+                </Stack>
                 <img src={arrowRight} alt="arrow" />
               </Link>
             </div>
           </section>
 
-          <Link className="logout shadow" onClick={() => setModal(cancle => !cancle)}>
-            <p className="log">Delete account</p>
+          <Link
+            className="logout shadow"
+            onClick={() => setModal(cancle => !cancle)}
+          >
+            <Stack direction={`row`} alignItems={`center`} gap={1}>
+              <RemoveCircleOutlineIcon
+                sx={{
+                  fontSize: `xx-large`,
+                  borderRadius: `100%`,
+                  padding: `5px`,
+                  // bgcolor: `#ff000020`,
+                  color: `red`,
+                  "&:hover": {
+                    bgcolor: `#714DD970`
+                  }
+                }}
+              />
+              <p className="log">Delete account</p>
+            </Stack>
             <img src={arrowRight} alt="arrow" />
           </Link>
         </div>
