@@ -17,6 +17,7 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../schemas/loginSchema";
 import imgval from "../../assets/assets/red-alert-exclamation.png";
 import closebtn from "../../assets/assets/ios-close-5.png";
+import { loginFailure, loginStart, loginSuccess } from "../../contexts/authContext/AuthActions";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -50,17 +51,21 @@ const LoginForm = () => {
   }, [fbUser]);
 
   const fbSignUp = async body => {
+    dispatch(loginStart());
     try {
       const response = await axios.post(
         "https://api.ticked.hng.tech/api/v1/facebooklogin",
         body
       );
-      console.log(response.data);
-      localStorage.setItem("token", JSON.stringify(response.data.data.access_token));
-      localStorage.setItem("user", JSON.stringify(response?.data.data));
+      
+      dispatch(loginSuccess(response.data));
+      localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
+      localStorage.setItem("user", JSON.stringify(response?.data));
       navigate("/dashboard", { replace: true });
+      
     } catch (err) {
       console.log(err);
+      dispatch(loginFailure(err.response.data.error.error));
     }
   };
 
