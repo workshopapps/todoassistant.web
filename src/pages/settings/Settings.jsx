@@ -171,13 +171,13 @@ export default function Settings() {
         >
           <StyledTab
             label="Reminder"
-            icon={<AccessAlarmsIcon sx={{ ml: 1 }} />}
+            icon={<AccessAlarmsIcon sx={{ ml: 1, fontSize: `1.2rem` }} />}
             iconPosition={`end`}
             // href="/dashboard/settings/reminder"
           />
           <StyledTab
             label="Subscription"
-            icon={<AddCardIcon sx={{ ml: 1 }} />}
+            icon={<AddCardIcon sx={{ ml: 1, fontSize: `1.1rem` }} />}
             iconPosition={`end`}
             // href="/dashboard/settings/subscription"
           />
