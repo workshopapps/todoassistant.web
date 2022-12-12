@@ -13,7 +13,11 @@ const Task = ({ details, handleClick }) => {
       <div className={styles.task_details_container}>
         <div className={styles.task_details}>
           <div className={styles.client}>
-            <div className={styles.va_client_img}>{UserName}</div>
+            <div className={styles.va_client_img}>
+              {details.user.avatar !== "" ? <img className={styles.va_avatar} src = {details.user.avatar} alt = "notification" /> :
+              {UserName}
+              }
+            </div>
             <p className={styles.va_client_typo}>{details.user.name}</p>
           </div>
           {details.assigned ? (

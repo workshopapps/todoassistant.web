@@ -128,7 +128,7 @@
 }
 
 .task_container {
-    padding: 2rem;
+    padding: 1rem 2rem;
     border-bottom: 1px solid #E9F3F5;
     gap: 1.5rem;
 
@@ -137,10 +137,15 @@
     }
 }
 
-.va_client_img {
+.va_client_img, 
+.va_avatar {
     height: 35px;
     width: 35px;
     border-radius: 50%;
+}
+
+.va_client_img {
+    
     color: white;
     background: #714DD9;
     text-align: center;
