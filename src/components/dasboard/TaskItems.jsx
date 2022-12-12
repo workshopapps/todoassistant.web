@@ -139,7 +139,7 @@ const TaskItems = ({ status, myTasks }) => {
           myTasks
             .slice(0)
             .reverse()
-            .map(i => {
+            .map((i, index) => {
               if (i.status === status) {
                 return (
                   <>
@@ -150,7 +150,7 @@ const TaskItems = ({ status, myTasks }) => {
                           navigate("/dashboard/taskdetail");
                         }}
                         className={styles.task}
-                        key={i.task_id}
+                        key={index}
                         style={{ background: color.background }}
                       >
                         <div className={styles.taskName}>
