@@ -52,6 +52,7 @@ const VAHome = () => {
       const vaTasks = response.data.data;
 
       setData(vaTasks);
+      localStorage.setItem("Tasks", JSON.stringify(vaTasks));
       setIsLoadiing(false);
     }
   };
@@ -92,7 +93,8 @@ const VAHome = () => {
         sx={{
           width: `${"100%"}`,
           backgroundColor: "#fff",
-          padding: "14px 22px",
+          padding: "5px 22px",
+          paddingTop: "33px",
           borderRadius: "8px",
           gap: "20px",
           boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px"
@@ -117,7 +119,8 @@ const VAHome = () => {
               fontSize: "15px",
               fontWeight: "600",
               textAlign: "center",
-              cursor: "pointer"
+              cursor: "pointer",
+              height: "50px"
             }}
             color={activeClass === 2 && " #714DD9"}
             className={(activeClass === 2 && styles.active) || ""}
@@ -132,11 +135,12 @@ const VAHome = () => {
               fontSize: "15px",
               cursor: "pointer",
               textAlign: "center",
+              height: "50px",
               color: `${activeClass === 1 && " #714DD9"}`
             }}
             className={(activeClass === 1 && styles.active) || ""}
           >
-            Assigned to Me
+            Assigned to Me {`(${data?.length})`}
           </Typography>
         </Box>
       </Box>
@@ -179,14 +183,14 @@ const VAHome = () => {
             className={styles.Accordian__v11}
             display={"flex"}
             flexDirection="column"
-            marginTop={"27px"}
             sx={{
               width: "65%",
               backgroundColor: "transparent",
-              padding: "10px 0px"
+              padding: "0px 6px"
             }}
           >
             <Accordian
+              activeClass={activeClass}
               data={data}
               numTask={data?.length}
               setDissapear={setDissapear}

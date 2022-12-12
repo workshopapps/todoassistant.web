@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&display=swap');
+
+*{
+  font-family: Lato;
+}
+
 .tittle {
                       
                       font-size: 20px !important;
@@ -10,12 +16,12 @@
 
                   .active::after{
                     content: '';
-                    width: 110px;
+                    width: 150px;
                     height: 3px;
                     background-color:   #714DD9;
                     position: absolute;
-                    left: 0;
-                    bottom: -10px;
+                    left: -10px;
+                    bottom: -6px;
                   }
 
                   .chevron{
@@ -44,7 +50,39 @@
 
                   
                   //sidebar
-                
+                 .Accordian__v11{
+                  max-height: 64vh;
+                  overflow: scroll;
+                  overflow-x: hidden;
+                      margin-top: 20px;
+                 }
+
+                 
+
+.Accordian__v11::-webkit-scrollbar {
+  display: block !important;
+   background-color: transparent; 
+  width: 6px;
+  height: 10px !important;
+  
+}
+
+.Accordian__v11::-webkit-scrollbar-track {
+  display: block !important;
+  width: 5px;
+  /* background-color: black; */
+  height: 10px !important;
+}
+.Accordian__v11::-webkit-scrollbar-thumb {
+  display: block !important;
+ 
+  border-radius: 5px;
+  height: 10px !important;
+  /* width: 5px; */
+  background-color: #714dd9c7;
+}
+
+
                     .closeIcon{
                       display: block;
                     }
