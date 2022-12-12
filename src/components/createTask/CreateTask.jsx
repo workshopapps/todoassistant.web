@@ -10,13 +10,16 @@ import { useNavigate } from "react-router-dom";
 
 const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
   const navigate = useNavigate();
-  const { getTasks } = useContext(TaskCtx);
+  const { getTasks, getNotificationVA, notification } = useContext(TaskCtx);
   //   const modal1 = useRef(0);
+console.log(notification, "teast")
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
   const [check, setCheck] = useState("");
   const [buttonDisable, setButtonDisable] = useState(0);
+  // const [notification, setNotification] = useState([]);
 
+// console.log(notification)
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -46,6 +49,11 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
       setCheck("");
     }
   };
+
+  useEffect(() => {
+    getNotificationVA()
+  }, [])
+
 
   const handle = e => {
     const newData = { ...data };
@@ -104,6 +112,7 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
       toast.success(func === "edit" ? "Task Edited" : "Task Created", {
         position: toast.POSITION.TOP_RIGHT
       });
+      getNotificationVA()
       setTaskModal(0);
       setSubmit(!submit);
       data.title = "";

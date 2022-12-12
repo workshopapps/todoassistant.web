@@ -1,44 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import { onMessageListener } from "../../messaging_init_in_sw";
 import { useLocation } from "react-router-dom";
-import axios from 'axios'
+import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 
 export default function Notifications() {
-  const id = JSON.parse(localStorage.getItem("user"));
-  const idVa = JSON.parse(localStorage.getItem("VA"));
   const [active, setActive] = useState("All");
-  const [notification, setNotification] = useState([]);
+  const {notification } = useContext(TaskCtx);
 
-  console.log(notification)
 
+  console.log(notification, "not")
+// Object.values(notification).map(item => console.log(item[0], "loop"))
   //GETTING USER AND VA NOTIFICATIONS
   const location = useLocation();
   // const vaNotification = JSON.parse(localStorage.getItem("vaNotification"));
   // const userNotification = JSON.parse(localStorage.getItem("userNotification"));
+  // userNotification.map((item) => console.log(item))
 
   const handleRedirect = () => {
     location.push("notifications")
   }
 
-  const getNotificationVA = async () => {
-    try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: `Bearer ${
-          id?.data?.access_token || idVa?.extra?.token
-        }` }
-      }).then((res) => {
-        console.log(res.data, "/notification")
-        // localStorage.setItem("userNotification", JSON.stringify(res.data))
-        setNotification([...notification, res.data]);
 
-      })
-      
-    } catch (error) {
-      console.error(error)
-    }
-  }
+// Setting notification color
+// switch () {
 
+// }
 
   // useEffect(() => {
   //   if (
@@ -54,28 +41,17 @@ export default function Notifications() {
   //   }
   // }, [location.pathname]);
 
-  useEffect(() => {
-    getNotificationVA()
-  }, [])
+
 
   onMessageListener()
     .then(payload => {
-      
-    
-      
-      getNotificationVA()
       alert("You have a new notification")
       handleRedirect()
       console.log(payload, "done");
     })
     .catch(err => console.log("failed: ", err));
 
-  useEffect(() => {
-    localStorage.setItem(
-      "notificationLength",
-      JSON.stringify(notification.length)
-    );
-  }, [notification]);
+
 
   return (
     <Box padding={`24px`} maxWidth={"100vw"}>
@@ -149,16 +125,25 @@ export default function Notifications() {
           )}
         </Box>
         {notification.length > 0 ? (
-          notification.map(item => (
-            <Box
+          notification.map(item => {
+            let bgCl
+            switch(item?.title) {
+              case "Expired Task":
+                  bgCl = "linear-gradient(0deg, rgba(219, 0, 4, 0.11), rgba(219, 0, 4, 0.11)), #FFFFFF"
+                  break
+              default: 
+                  bgCl = "linear-gradient(0deg, rgba(82, 196, 26, 0.11), rgba(82, 196, 26, 0.11)), #FFFFFF"
+            }
+            return (
+              <Box
               className="shadow"
-              key={item.title}
+              key={item?.title}
               mt={1}
               p={1}
               sx={{
-                background: item?.color,
+                background: bgCl,
                 borderRadius: "8px",
-                padding: { xs: "20px 10px", md: "20px 50px" }
+                padding: { xs: "20px 10px", md: "20px 50px" },
               }}
             >
               <Box
@@ -196,7 +181,7 @@ export default function Notifications() {
                   </Box>
                   <Box ml={2}>
                     <Typography sx={{ fontSize: "14px", fontWeight: "700" }}>
-                      {item.title}
+                      {item?.title}
                     </Typography>
                     <Typography
                       sx={{ fontSize: "12px", fontWeight: "400" }}
@@ -215,7 +200,8 @@ export default function Notifications() {
                 </Typography>
               </Box>
             </Box>
-          ))
+            )
+          })
         ) : (
           <Box mt={4}>
             <Typography textAlign={"center"}>
