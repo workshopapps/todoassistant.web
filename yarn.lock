@@ -15717,6 +15717,11 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+use-detect-keyboard-open@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/use-detect-keyboard-open/-/use-detect-keyboard-open-0.2.0.tgz#fd2bb9c0871e0cb3e66f0185c8e40c2e2910f5b3"
+  integrity sha512-tW1MHQ5rKFshz0xxcUSdTrLoXPH5VG+X671wQerW7rgMZbp0b9YcTxnq3a8oOT5urxWS3C2TckOYs7LGOp6CiA==
+
 use-isomorphic-layout-effect@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.2.tgz#497cefb13d863d687b08477d9e5a164ad8c1a6fb"
