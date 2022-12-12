@@ -5,6 +5,7 @@ import Messages from "./Messages";
 import TextInput from "./TextInput/TextInput";
 import data from "./_mock";
 import useSound from "use-sound";
+import useDetectKeyboard from "use-detect-keyboard-open";
 import messageSound from "../../assets/sounds/message.mp3";
 import emoji from "../../assets/emoji.png";
 import Picker from "emoji-picker-react";
@@ -20,6 +21,7 @@ const Comments = () => {
   const [canSend, setCanSend] = useState(false);
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
+  const isKeyboardOpen = useDetectKeyboard();
 
   const onEmojiClick = emojiObject => {
     setCanSend(true);
@@ -50,7 +52,7 @@ const Comments = () => {
   //Messages Comes In
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [apiData]);
+  }, [apiData, isKeyboardOpen]);
 
   const handleMessage = e => {
     //Detect if only Emoji is being sent to incrase the font size
