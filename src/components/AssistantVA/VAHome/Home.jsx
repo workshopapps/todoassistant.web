@@ -5,7 +5,6 @@ import TaskDetail from "./TaskDetail";
 import Preloader from "./Preloader";
 import Clock from "./Clock";
 import styles from "./Home.module.scss";
-// import vaArrowDown from "../../../assets/VADashboard/va-arrowDown.svg";
 
 const Home = () => {
   const [nav, setNav] = useState(true);
@@ -20,13 +19,14 @@ const Home = () => {
     try {
       setLoading(true)
       const response = await axios.get(
-        `https://api.ticked.hng.tech/api/v1/task/all/va`,
+        `https://api.ticked.hng.tech/api/v1/task/all`,
         {
           headers: {
             Authorization: `Bearer ${vaUser.extra.token}`
           }
         }
       );
+
       if (response.status === 200) {       
         const vaTasks = response.data.data;
         setTasks(vaTasks);
@@ -37,6 +37,7 @@ const Home = () => {
       setLoading(false);
       console.error(error);
     }
+    
   };
 
   const handleClick = e => {
@@ -57,7 +58,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setAssigned(tasks?.filter(task => task.assigned === true));
+    setAssigned(tasks?.filter(task => task.va_id !== ""));
   }, [tasks]);
 
   return (
@@ -80,12 +81,10 @@ const Home = () => {
               className={[styles.va_home_link, !nav && styles.active].join(" ")}
               onClick={() => setNav(false)}
             >
-              Assigned to me
+              Assigned to me ({assigned?.length})
             </div>
           </div>
-          <div className={styles.va_home_title}>
-            {/* <p className={styles.va_home_typo}>Today</p>
-            <img className={styles.va_img} src={vaArrowDown} alt="vaArrow" /> */}
+          <div className={styles.va_home_clock}>
             <Clock />
           </div>
         </div>
@@ -107,10 +106,8 @@ const Home = () => {
                 </span>
               </div>
             ) : (
-              tasks.map((task, index) =>
-                task.assigned ? (
+              assigned.map((task, index) =>
                   <Task details={task} key={index} handleClick={handleClick} />
-                ) : null
               )
             )
           ) : (
