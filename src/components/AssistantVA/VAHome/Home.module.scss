@@ -95,6 +95,7 @@
     margin-top: 1rem;
     height: 70vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 8px 8px 0px 0px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -290,11 +291,45 @@
     color: #F2A005;
 }
 
+/* Extra */
+/* Scrollbar */
+
+.va_tasks::-webkit-scrollbar {
+    display: block !important;
+     background-color: transparent; 
+    width: 6px;
+    height: 10px !important;
+  }
+  
+  /* Track */
+  .va_tasks::-webkit-scrollbar-track {
+    display: block !important;
+    width: 5px;
+    /* background-color: black; */
+    height: 10px !important;
+  }
+  
+  /* Handle */
+  .va_tasks::-webkit-scrollbar-thumb {
+    display: block !important;
+   
+    border-radius: 5px;
+    height: 10px !important;
+    /* width: 5px; */
+    background-color: #714dd9c7;
+  }
+  
+  /* Handle on hover */
+  .va_tasks::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+
 // Tablet Screen Downwards
 @media screen and (max-width: 768px) {
     .task_details {
         flex-flow: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .va_home_container_active {
@@ -318,5 +353,15 @@
     }
 }
 
-
+// Mobile Screen Downwards
+@media screen and (max-width: 420px) {
+    .va_home_clock {
+        display: none;
+    }
+    .task_view {
+        .va_task_img {
+            display: none;
+        }
+    }
+}
 
