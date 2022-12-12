@@ -61,8 +61,6 @@ const Home = () => {
     setAssigned(tasks?.filter(task => task.va_id !== ""));
   }, [tasks]);
 
-  console.log(assigned, "This is assigned")
-
   return (
     <section className={styles.va_section_container}>
       <div
