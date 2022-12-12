@@ -295,34 +295,34 @@
 /* Scrollbar */
 
 .va_tasks::-webkit-scrollbar {
-    display: block !important;
-     background-color: transparent; 
-    width: 6px;
-    height: 10px !important;
-  }
-  
-  /* Track */
-  .va_tasks::-webkit-scrollbar-track {
-    display: block !important;
-    width: 5px;
-    /* background-color: black; */
-    height: 10px !important;
-  }
-  
-  /* Handle */
-  .va_tasks::-webkit-scrollbar-thumb {
-    display: block !important;
-   
-    border-radius: 5px;
-    height: 10px !important;
-    /* width: 5px; */
-    background-color: #714dd9c7;
-  }
-  
-  /* Handle on hover */
-  .va_tasks::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  display: block !important;
+   background-color: transparent; 
+  width: 6px;
+  height: 10px !important;
+}
+
+/* Track */
+.va_tasks::-webkit-scrollbar-track {
+  display: block !important;
+  width: 5px;
+  /* background-color: black; */
+  height: 10px !important;
+}
+
+/* Handle */
+.va_tasks::-webkit-scrollbar-thumb {
+  display: block !important;
+ 
+  border-radius: 5px;
+  height: 10px !important;
+  /* width: 5px; */
+  background-color: #714dd9c7;
+}
+
+/* Handle on hover */
+.va_tasks::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 
 // Tablet Screen Downwards
