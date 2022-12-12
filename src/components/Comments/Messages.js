@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Comments.module.scss";
 
 const Messages = ({ data }) => {
-  console.log(new Date(`${data}`));
   return data?.map(m => (
     <div
       key={m.id}
@@ -17,13 +16,16 @@ const Messages = ({ data }) => {
       <span
         className={styles.message}
         style={{
-          fontSize: "20px",
-          textAlign: `${(m.status === "user" && "end") || "start"}`,
+          fontFamily: `'Lato', sans-serif !important'`,
+          fontStyle: `${(m.isEmoji && "normal") || "italic"}`,
+          fontSize: `${(m.isEmoji && "58px") || "20px"}`,
+          textAlign: `start`,
           padding: `${
-            (m.status === "user" && "10px 20px 35px 68px") ||
-            "10px 68px 35px 10px"
+            (m.status === "user" && "10px 20px 35px 15px") ||
+            "10px 15px 35px 10px"
           }`,
           maxWidth: "42%",
+          wordBreak: "break-word",
           color: "white",
           backgroundColor: `${
             (m.status === "user" && "rgba(113, 77, 217, 0.5)") ||
