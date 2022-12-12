@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&display=swap');
+
 @import "../../scss/mixins";
 
+p{
+  font-family: Lato , "sans-serif" !important;
+  text-transform: capitalize;
+}
 .TaskDetail_wrapper {
   max-height: 96vh;
   .TaskDetail_header {
@@ -25,7 +31,8 @@
       }
       .TaskDetail_header_left_underline_left {
         cursor: pointer;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -37,7 +44,8 @@
       .TaskDetail_header_left_underline_right {
         cursor: pointer;
         margin-left: 2.5rem;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -48,7 +56,8 @@
       }
       .TaskDetail_header_left1 {
         cursor: pointer;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -64,7 +73,8 @@
       .TaskDetail_header_left2 {
         cursor: pointer;
         margin-left: 2.5rem;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -99,7 +109,8 @@
         background: #714dd9;
         border-radius: 8px;
         border: none;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -115,7 +126,8 @@
         background: white;
         border-radius: 8px;
         border: none;
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -149,7 +161,8 @@
       background: #ffffff;
       border-radius: 8px;
       .TaskDetail_body_title {
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
@@ -157,7 +170,8 @@
         color: #000000;
       }
       .TaskDetail_assignto_head {
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 14px;
@@ -175,7 +189,8 @@
         }
       }
       .TaskDetail_reminder_time_head {
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -210,7 +225,8 @@
           background: #714dd9;
           border-radius: 8px;
           border: none;
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 600;
           font-size: 16px;
@@ -226,7 +242,8 @@
           padding: 0.875rem 1.75rem;
           border: 1px solid #714dd9;
           border-radius: 8px;
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 600;
           font-size: 16px;
@@ -250,7 +267,8 @@
       background: #ffffff;
       border-radius: 8px;
       .TaskDetail_body_right_status {
-        font-family: "Open Sans";
+        font-family: Lato , "sans-serif" !important;
+        text-transform: capitalize;
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
@@ -268,7 +286,8 @@
         border-radius: 8px;
         width: 100%;
         .TaskDetail_body_right_status_name {
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 700;
           font-size: 14px;
@@ -292,7 +311,8 @@
         border-radius: 8px;
         width: 100%;
         .TaskDetail_body_right_status_name {
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 700;
           font-size: 14px;
@@ -316,7 +336,8 @@
         border-radius: 8px;
         width: 100%;
         .TaskDetail_body_right_status_name {
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 700;
           font-size: 14px;
@@ -333,7 +354,8 @@
       .TaskDetail_body_right_duetime {
         margin-top: 1rem;
         .TaskDetail_body_right_duetimeheader {
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 600;
           font-size: 16px;
@@ -342,7 +364,8 @@
           margin-bottom: 0.5rem;
         }
         .TaskDetail_body_right_duetimebody {
-          font-family: "Open Sans";
+          font-family: Lato , "sans-serif" !important;
+          text-transform: capitalize;
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
