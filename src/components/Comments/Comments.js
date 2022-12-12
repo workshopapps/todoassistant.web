@@ -1,29 +1,44 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { BiSend } from "react-icons/bi";
 import styles from "./Comments.module.scss";
-import data from "./_mock";
-import Picker from "emoji-picker-react";
-import { FaSmileWink } from "react-icons/fa";
 import Messages from "./Messages";
+import TextInput from "./TextInput/TextInput";
+import data from "./_mock";
+import useSound from "use-sound";
+import useDetectKeyboard from "use-detect-keyboard-open";
+import messageSound from "../../assets/sounds/message.mp3";
+import emoji from "../../assets/emoji.png";
+import Picker from "emoji-picker-react";
+// import { FaSmileWink } from "react-icons/fa";
 
 import "./Comments.css";
-import { useEffect } from "react";
 
 const Comments = () => {
+  const [play] = useSound(messageSound);
+  const bottomRef = useRef(null);
   const [apiData, setApiData] = useState(data);
+  const [typedMessage, setTypedMessage] = useState(null);
+  const [canSend, setCanSend] = useState(false);
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
+  const isKeyboardOpen = useDetectKeyboard();
 
   const onEmojiClick = emojiObject => {
-    console.log(emojiObject.emoji);
+    setCanSend(true);
     setMessage(prev => prev + emojiObject.emoji);
     setShowPicker(false);
   };
 
   const handleSend = () => {
     let id = Math.floor(Math.random * 200);
-    console.log(message);
-    setApiData([...apiData, { id: id, status: "user", comment: message }]);
+
+    play();
+    setApiData([
+      ...apiData,
+      { id: id, status: "user", comment: message, isEmoji: !typedMessage }
+    ]);
+    setCanSend(false);
+    setTypedMessage(false);
     setMessage("");
   };
 
@@ -32,17 +47,30 @@ const Comments = () => {
       handleSend();
     }
   };
-  useEffect(() => {
-    window.scrollTo(0, document.getElementById("chat").scrollHeight);
 
-    setApiData(data);
-  }, []);
+  //Automatically Scrool to Bottom when new
+  //Messages Comes In
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [apiData, isKeyboardOpen]);
 
   const handleMessage = e => {
-    setMessage(e.target.value);
+    //Detect if only Emoji is being sent to incrase the font size
+    let { value: message } = e.target;
+    let trimmedMessage = message.trim();
+
+    if (message && trimmedMessage.length > 0) {
+      setCanSend(true);
+      setTypedMessage(true);
+    } else {
+      setCanSend(false);
+    }
+
+    setMessage(message);
+
     // console.log(message.text);
   };
-  //{"status":"success","code":202,"message":"Login Successful","data":{"user_id":"b7e4da28-3194-4297-a6f2-881b55b9f0ae","email":"max@gmail.com","first_name":"Messi","last_name":"Ankara","phone":"98082847348978","gender":"","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im1heEBnbWFpbC5jb20iLCJJZCI6ImI3ZTRkYTI4LTMxOTQtNDI5Ny1hNmYyLTg4MWI1NWI5ZjBhZSIsIlN0YXR1cyI6InVzZXIiLCJleHAiOjE2NzA2NzQ3ODB9.R9auVuyY87KjfMd0xwfv5A8ylKLbhZXzGPioCTVFhDA","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im1heEBnbWFpbC5jb20iLCJJZCI6ImI3ZTRkYTI4LTMxOTQtNDI5Ny1hNmYyLTg4MWI1NWI5ZjBhZSIsIlN0YXR1cyI6IiIsImV4cCI6MTY3MDgwNDM4MH0.SuISsdcN069cYFoExtM9Y3EegPDmZPkpLpIz8-kdA2s"}}
+
   return (
     <>
       <div className={styles.commentWrapper}>
@@ -60,15 +88,17 @@ const Comments = () => {
 
             <Messages data={apiData} />
           )}
+          {/* BOTTOM */}
+          <div ref={bottomRef}></div>
         </div>
       </div>
       <div className={styles.inputField}>
         {/* INput Emoji Here */}
         <div>
-          <FaSmileWink
-            className={styles.emojiFace}
-            color="rgb(170 170 170)"
-            cursor={"pointer"}
+          <img
+            src={emoji}
+            alt="emoji"
+            style={{ height: "40px", cursor: "pointer" }}
             onClick={() => setShowPicker(prev => !prev)}
           />
           {showPicker && (
@@ -78,7 +108,7 @@ const Comments = () => {
         {/* Message field */}
         <input
           type={"text"}
-          style={{ fontSize: "20px" }}
+          style={{ fontSize: "20px", display: "none" }}
           required
           title="message"
           placeholder="Type Your message here"
@@ -86,9 +116,19 @@ const Comments = () => {
           onChange={handleMessage}
           onKeyDown={handleEnter}
         />
+        <TextInput value={message} onChange={handleMessage} />
 
         {/* submitIcon */}
-        <BiSend className={styles.sendButton} onClick={handleSend} />
+        <BiSend
+          style={{
+            backgroundColor: `${
+              (canSend && "rebeccapurple") || "rgb(51 51 51 / 29%)"
+            }`
+          }}
+          className={styles.sendButton}
+          onClick={handleSend}
+          pointerEvents={`${(canSend && "auto") || "none"}`}
+        />
       </div>
     </>
   );

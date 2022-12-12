@@ -1,81 +1,115 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import { onMessageListener } from "../../messaging_init_in_sw";
 import { useLocation } from "react-router-dom";
-import axios from 'axios'
+import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
+import axios from "axios";
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+// import DialogContentText from '@mui/material/DialogContentText';
+import Slide from '@mui/material/Slide';
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
+export function AlertDialogSlide({open, handleClose, loading, userDetails}) {
+  return (
+    <div>
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+      >
+        
+        <DialogContent>
+         {loading ? 
+         <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
+          <CircularProgress color="inherit" />
+        </Stack> : 
+        <Box> 
+         
+            <Typography>Title: {userDetails.title}</Typography>
+            <Typography>Status: {userDetails.status}</Typography>
+            <Typography>Created: {userDetails.start_time}</Typography>
+            <Typography>End: {userDetails.end_time}</Typography>
+        </Box>}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Ok</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
 
 export default function Notifications() {
-  const id = JSON.parse(localStorage.getItem("user"));
+  // const id = JSON.parse(localStorage.getItem("user"));
   const idVa = JSON.parse(localStorage.getItem("VA"));
+  const [open, setOpen] = useState(false);
+  const [ loading, setIsLoading ] = useState(false)
+  const [ userDetails, setUserDetails ] = useState([])
+
+  const getUserNotificationDetails = async (taskID) => {
+    setIsLoading(true)
+      try {
+        await axios.get(`https://api.ticked.hng.tech/api/v1/task/${taskID}`, {
+          headers: { Authorization: `Bearer ${
+            idVa?.extra?.token
+          }` }
+        })
+          .then((res) => {
+            setIsLoading(false)
+            setUserDetails(res.data)
+          })
+        
+      } catch (error) {
+        setIsLoading(false)
+      }
+  }
+
+
+
+  const handleClickOpen = (val) => {
+    console.log(val)
+    setOpen(true);
+    getUserNotificationDetails(val)
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const [active, setActive] = useState("All");
-  const [notification, setNotification] = useState([]);
+  const {notification } = useContext(TaskCtx);
 
-  console.log(notification)
 
-  //GETTING USER AND VA NOTIFICATIONS
+
   const location = useLocation();
-  // const vaNotification = JSON.parse(localStorage.getItem("vaNotification"));
-  // const userNotification = JSON.parse(localStorage.getItem("userNotification"));
+
 
   const handleRedirect = () => {
     location.push("notifications")
   }
 
-  const getNotificationVA = async () => {
-    try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: `Bearer ${
-          id?.data?.access_token || idVa?.extra?.token
-        }` }
-      }).then((res) => {
-        console.log(res.data, "/notification")
-        // localStorage.setItem("userNotification", JSON.stringify(res.data))
-        setNotification([...notification, res.data]);
-
-      })
-      
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
 
-  // useEffect(() => {
-  //   if (
-  //     location.pathname === "/dashboard/notifications" &&
-  //     userNotification !== null
-  //   ) {
-  //     setNotification(userNotification);
-  //   } else if (
-  //     location.pathname === "/virtual-assistance/notifications" &&
-  //     vaNotification !== null
-  //   ) {
-  //     setNotification(vaNotification);
-  //   }
-  // }, [location.pathname]);
-
-  useEffect(() => {
-    getNotificationVA()
-  }, [])
 
   onMessageListener()
     .then(payload => {
-      
-    
-      
-      getNotificationVA()
       alert("You have a new notification")
       handleRedirect()
       console.log(payload, "done");
     })
     .catch(err => console.log("failed: ", err));
 
-  useEffect(() => {
-    localStorage.setItem(
-      "notificationLength",
-      JSON.stringify(notification.length)
-    );
-  }, [notification]);
+
 
   return (
     <Box padding={`24px`} maxWidth={"100vw"}>
@@ -137,7 +171,7 @@ export default function Notifications() {
             padding: { xs: "20px 10px", md: "0px 30px" }
           }}
         >
-          {notification.length > 0 && (
+          {notification !== null && (
             <>
               <Typography sx={{ fontSize: "12px" }}>
                 {notification.length} NOTIFICATIONS
@@ -148,22 +182,34 @@ export default function Notifications() {
             </>
           )}
         </Box>
-        {notification.length > 0 ? (
-          notification.map(item => (
-            <Box
+        {/* <p onClick={() => handleClickOpen("906a82f3-850a-4d58-ac2b-fc3d3c702c30")}>me</p> */}
+        {notification !== null ? (
+          notification.map(item => {
+            let bgCl
+            switch(item?.title) {
+              case "Expired Task":
+                  bgCl = "linear-gradient(0deg, rgba(219, 0, 4, 0.11), rgba(219, 0, 4, 0.11)), #FFFFFF"
+                  break
+              default: 
+                  bgCl = "linear-gradient(0deg, rgba(82, 196, 26, 0.11), rgba(82, 196, 26, 0.11)), #FFFFFF"
+            }
+            return (
+              <Box
+              onClick={() => handleClickOpen(item.task_id)}
               className="shadow"
-              key={item.title}
+              key={item?.title}
               mt={1}
               p={1}
               sx={{
-                background: item?.color,
+                background: bgCl,
                 borderRadius: "8px",
-                padding: { xs: "20px 10px", md: "20px 50px" }
+                padding: { xs: "20px 10px", md: "20px 50px" },
+                cursor: "pointer"
               }}
             >
               <Box
                 sx={{
-                  display: "flex",
+                  display: {xs: "block", sm: "block", md: "flex"},
                   justifyContent: "space-between",
                   alignItems: "center"
                 }}
@@ -196,7 +242,7 @@ export default function Notifications() {
                   </Box>
                   <Box ml={2}>
                     <Typography sx={{ fontSize: "14px", fontWeight: "700" }}>
-                      {item.title}
+                      {item?.title}
                     </Typography>
                     <Typography
                       sx={{ fontSize: "12px", fontWeight: "400" }}
@@ -215,7 +261,8 @@ export default function Notifications() {
                 </Typography>
               </Box>
             </Box>
-          ))
+            )
+          })
         ) : (
           <Box mt={4}>
             <Typography textAlign={"center"}>
@@ -224,6 +271,11 @@ export default function Notifications() {
           </Box>
         )}
       </Box>
+      <AlertDialogSlide 
+        open={open} 
+        handleClose={handleClose} 
+        loading={loading} 
+        userDetails={userDetails} />
     </Box>
   );
 }
