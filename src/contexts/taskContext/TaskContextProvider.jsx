@@ -64,7 +64,7 @@ const TaskContextProvider = ({ children }) => {
           id?.data?.access_token || idVa?.extra?.token
         }` }
       }).then((res) => {
-        alert("You have a new notification")
+        // alert("You have a new notification")
         localStorage.setItem("userNotification", JSON.stringify(res.data))
         setNotification(res.data);
 
