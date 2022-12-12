@@ -72,7 +72,7 @@ const LoginForm = () => {
       
     } catch (err) {
       console.log(err);
-      dispatch(loginFailure(err.response.data.error.error));
+      dispatch(loginFailure(err.message));
     }
   };
 

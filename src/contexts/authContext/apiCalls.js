@@ -13,6 +13,6 @@ export const login = async (user, dispatch) => {
     console.log(res.data, "This is login");
   } catch (err) {
     console.log(err, "This is login err");
-    dispatch(loginFailure(err.response.data.error.error));
+    dispatch(loginFailure(err.response.data.message));
   }
 };
