@@ -20,7 +20,7 @@ const Task = ({ details, handleClick }) => {
             </div>
             <p className={styles.va_client_typo}>{details.user.name}</p>
           </div>
-          {details.assigned ? (
+          {details.va_id !== "" ? (
             <div className={styles.client}>
               <BsPatchCheck className={styles.va_task_img} size={20} />
               <p className={styles.va_client_typo}>Assigned to me</p>
