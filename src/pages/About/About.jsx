@@ -5,6 +5,7 @@ import AboutSectionTwo from "../../components/about/section-two/AboutSectionTwo"
 import HappyClient from "../../components/about/testimonial/tesimonial-cards/HappyClient";
 import Layout from "../../layout/Layout";
 import Download from "../../components/landing-page/download/Download";
+import AboutUsSectionTwoLayout from "../../components/about/section-two/AboutUsSectionTwoLayout";
 
 const About = () => {
   return (
@@ -12,9 +13,10 @@ const About = () => {
       <Layout>
         <AboutHeroSection />
         <MissionVision />
+        <AboutUsSectionTwoLayout />
         <AboutSectionTwo />
         <HappyClient />
-        <Download/>
+        <Download />
       </Layout>
     </div>
   );
