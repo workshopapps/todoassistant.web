@@ -3,34 +3,36 @@ import { Box, Typography } from "@mui/material";
 import styles from "./VAHome.module.scss";
 import Accordian from "../Accordion/Accordion";
 import axios from "axios";
-import moment from "moment";
+// import moment from "moment";
+// import VATaskdetails from "../VAtaskdetails/VAtaskdetails"
 
 // import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
 // import tasks from "../Accordion/_mock";
 // import { AiOutlineDown } from "react-icons/ai";
-import assign from "../../assets/autobrightnessassignicon.svg";
-import clock from "../../assets/clockclockiicon.svg";
-import closeIcon from "../../assets/close-circleclose.svg";
-import comment from "../../assets/Frame24comment.svg";
+// import assign from "../../assets/autobrightnessassignicon.svg";
+// import clock from "../../assets/clockclockiicon.svg";
+// import closeIcon from "../../assets/close-circleclose.svg";
+// import comment from "../../assets/Frame24comment.svg";
 import smile from "../../assets/Subtractsmile.svg";
 import SkeletonLoader from "./Skeleton/SkeletonLoader";
 
 const VAHome = () => {
-  const [data, setData] = useState([]);
-  const time = moment(data[0]?.end_time).format("111");
+  // const time = moment(data[0]?.end_time).format("111");
   // const [num, setNum] = useState(data?.length);
   // const [title, setTitle] = useState("ALL");
+  // const [singleDate, setSingleData] = useState({
+  //   title: data[0]?.title,
+  //   date: time,
+  //   description: data[0]?.description,
+  //   status: data[0]?.status,
+  //   client: data[0]?.user.name,
+  //   number: data[0]?.user.phone,
+  //   comment: 6
+  // });
+  const [data, setData] = useState([]);
   const [activeClass, setActiveClass] = useState(2);
   const [isLoading, setIsLoadiing] = useState(true);
-  const [singleDate, setSingleData] = useState({
-    title: data[0]?.title,
-    date: time,
-    description: data[0]?.description,
-    status: data[0]?.status,
-    client: data[0]?.user.name,
-    number: data[0]?.user.phone,
-    comment: 6
-  });
+
   const [hidden, setHidden] = useState(true);
   const [dissapear, setDissapear] = useState(true);
 
@@ -48,7 +50,9 @@ const VAHome = () => {
       );
 
       const vaTasks = response.data.data;
+
       setData(vaTasks);
+      localStorage.setItem("Tasks", JSON.stringify(vaTasks));
       setIsLoadiing(false);
     }
   };
@@ -57,13 +61,13 @@ const VAHome = () => {
     fetchTasks();
   }, []);
 
-  const handleSideBar = () => {
-    setHidden(true);
+  // const handleSideBar = () => {
+  //   setHidden(true);
 
-    setTimeout(() => {
-      setDissapear(true);
-    }, 200);
-  };
+  //   setTimeout(() => {
+  //     setDissapear(true);
+  //   }, 200);
+  // };
   useEffect(() => {
     if (hidden === true) {
       document.body.style = "overflow-y:scroll";
@@ -89,7 +93,8 @@ const VAHome = () => {
         sx={{
           width: `${"100%"}`,
           backgroundColor: "#fff",
-          padding: "14px 22px",
+          padding: "5px 22px",
+          paddingTop: "33px",
           borderRadius: "8px",
           gap: "20px",
           boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px"
@@ -114,7 +119,8 @@ const VAHome = () => {
               fontSize: "15px",
               fontWeight: "600",
               textAlign: "center",
-              cursor: "pointer"
+              cursor: "pointer",
+              height: "50px"
             }}
             color={activeClass === 2 && " #714DD9"}
             className={(activeClass === 2 && styles.active) || ""}
@@ -129,11 +135,12 @@ const VAHome = () => {
               fontSize: "15px",
               cursor: "pointer",
               textAlign: "center",
+              height: "50px",
               color: `${activeClass === 1 && " #714DD9"}`
             }}
             className={(activeClass === 1 && styles.active) || ""}
           >
-            Assigned to Me
+            Assigned to Me {`(${data?.length})`}
           </Typography>
         </Box>
       </Box>
@@ -176,19 +183,19 @@ const VAHome = () => {
             className={styles.Accordian__v11}
             display={"flex"}
             flexDirection="column"
-            marginTop={"27px"}
             sx={{
               width: "65%",
               backgroundColor: "transparent",
-              padding: "10px 0px"
+              padding: "0px 6px"
             }}
           >
             <Accordian
+              activeClass={activeClass}
               data={data}
               numTask={data?.length}
               setDissapear={setDissapear}
               setHidden={setHidden}
-              setData={setSingleData}
+              // setData={setSingleData}
             />
           </Box>
         )}
@@ -198,8 +205,10 @@ const VAHome = () => {
           </Box>
         )}
 
+        {/* VATaskdetails */}
+
         {/* SIDEBAR */}
-        <Box
+        {/* <Box
           style={{
             display: `${(data?.length === 0 && "none ") || "block"}`
           }}
@@ -212,7 +221,7 @@ const VAHome = () => {
           } ${(dissapear && styles.dissapear) || ""}`}
         >
           {/* CLOSE ICON */}
-          <img
+        {/* <img
             src={closeIcon}
             alt="close"
             className={`${styles.closeIcon} ${(hidden && styles.hidden) || ""}`}
@@ -302,8 +311,8 @@ const VAHome = () => {
               Descrption
             </p>
             <p style={{ fontSize: "12px" }}>{singleDate.description} </p>
-          </Box>
-        </Box>
+          </Box> */}
+        {/* </Box>  */}
         <Box
           className={`${styles.comment} ${hidden && styles.hidden} ${
             dissapear && styles.dissapear

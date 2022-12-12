@@ -59,7 +59,7 @@ const StyledMenu = styled(props => (
 //   }
 // };
 
-export default function ClientDropdown({ userID }) {
+export default function ClientDropdown({ userID, user }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = event => {
@@ -91,7 +91,7 @@ export default function ClientDropdown({ userID }) {
         open={open}
         onClose={handleClose}
       >
-        <UserProfileModal userID={userID} />
+        <UserProfileModal user={user} userID={userID} />
         {/* <MenuItem sx={styledMenuItem} onClick={handleClose} disableRipple>
           <TaskAltIcon />
           View Tasks

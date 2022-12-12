@@ -1,4 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import style from "./Signup.module.scss";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import google from "../../../assets/google.png";
@@ -6,80 +8,115 @@ import google from "../../../assets/google.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import signupPicture from "../../../assets/signup-img-cj.png";
-import styles from "./Signup.module.scss";
-import { AiOutlineEye } from "react-icons/ai";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
-// import Header from "../../../layout/header/Header";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../../layout/header/Navbar";
 import { login } from "../../../contexts/authContext/apiCalls";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import { useForm } from "react-hook-form";
-import {LoginSocialFacebook} from 'reactjs-social-login';
-import {FacebookLoginButton} from 'react-social-login-buttons'
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { useFormik } from "formik";
+import { signupSchema } from "../../../schemas/signupSchema";
+import styled from "styled-components/macro";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess
+} from "../../../contexts/authContext/AuthActions";
+import imgval from "../../../assets/assets/red-alert-exclamation.png";
+import closebtn from "../../../assets/assets/ios-close-5.png";
 
+// styled components for PhoneInput
+const Phone = styled(PhoneInput)`
+  .flag-dropdown {
+    background: inherit;
+    width: 50px;
+    padding-left: 7px;
+    height: 45px;
+    top: 1px;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    &:hover {
+      background: inherit;
+    }
+  }
+  .flag-dropdown.open {
+    background: inherit;
+  }
+  #phone-input {
+    padding-left: 50px;
+    height: 100%;
+    width: 100%;
+    input {
+      border: 1px solid red;
+    }
+  }
+`;
 
 const Signup = () => {
   const clientId =
     "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
-  const {
-    register,
-    handleSubmit,
-    trigger,
-    formState: { errors }
-  } = useForm();
-  const baseurl = "https://api.ticked.hng.tech/api/v1";
-  const [isChecked, setIsChecked] = useState(false);
-  const [active, setActive] = useState(true);
-  const [passwordShown, setPasswordShown] = useState(false);
 
+  const baseurl = "https://api.ticked.hng.tech/api/v1";
+
+  const navigate = useNavigate();
+
+  // toggle button type
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword1 = () => {
+    setPasswordShown(!passwordShown);
+  };
+
+  // keep data for login
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  // Facebook and Loading states
   const [isLoading, setIsLoading] = useState(false);
+  const [fbUser, setFbUser] = useState("");
+
+  // change state terms of service and privacy policy
+  const [checkState, setCheckState] = useState(false);
+  const changeState = () => {
+    setCheckState(!checkState);
+  };
+
   const [error, setError] = useState(false);
   const [errMessage, setErrMessage] = useState("");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
-  const [phone, setPhone] = useState()
-  const [fbUser, setFbUser] = useState("");
   const { isFetching, dispatch } = useContext(AuthContext);
 
-
-  const navigate = useNavigate();
-  // const [first_name, setFirstName] = useState("");
-  // const [last_name, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState(false);
-  // const [gender, setGender] = useState("");
-  // const [date_of_birth, setDateofbirth] = useState("");
+  // Facebook handling
   useEffect(() => {
-   if (fbUser){
-    let name = fbUser.last_name;
-    let email = fbUser.email;
-    console.log(name, email);
-    fbSignUp({name, email})
-  
-   } 
-  },[fbUser]);
+    if (fbUser) {
+      let name = `${fbUser.last_name} ${fbUser.first_name}`;
+      let email = fbUser.email;
+      console.log(name, email);
+      fbSignUp({ name, email });
+    }
+  }, [fbUser]);
 
-  const fbSignUp = async (body) => {
+  const fbSignUp = async body => {
+    dispatch(loginStart());
     try {
       const response = await axios.post(
-        "https://api.ticked.hng.tech/api/v1/facebooklogin", body
+        "https://api.ticked.hng.tech/api/v1/facebooklogin",
+        body
       );
-      console.log(response.data);
-      localStorage.setItem(
-        "token",
-        JSON.stringify(response.data.access_token)
-      );
-      localStorage.setItem("user", JSON.stringify(response?.data));
-      navigate("/dashboard", { replace: true });
+
+      dispatch(loginSuccess(response.data));
+      //   localStorage.setItem(
+      //     "token",
+      //     JSON.stringify(response?.data.data.access_token)
+      //   );
+      //   localStorage.setItem("user", JSON.stringify(response?.data));
+      //   navigate("/dashboard", { replace: true });
     } catch (err) {
       console.log(err);
-      
+      dispatch(loginFailure(err.response.data.error.error));
     }
-  }
-
-
+  };
 
   useEffect(() => {
     const initClient = () => {
@@ -98,10 +135,6 @@ const Signup = () => {
     console.log("failed:", err);
   };
 
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
-  };
-
   const googleSignUp = async body => {
     try {
       const response = await axios.post(`${baseurl}/googlelogin`, body);
@@ -118,281 +151,315 @@ const Signup = () => {
     }
   };
 
-  
+  const onSubmit = async values => {
+    const data = {
+      first_name: values.first_name,
+      last_name: values.last_name,
+      email: values.email,
+      gender: values.gender,
+      phone: values.phone,
+      date_of_birth: values.date_of_birth,
+      password: values.password
+    };
 
-  const HandleSubmit = async data => {
-
-    const { first_name, last_name, email, password, gender, date_of_birth } = data
+    // setEmail(data.email);
+    // setPassword(data.password);
+    console.log(data);
     setIsLoading(true);
-    
+
     try {
       const response = await axios.post(
         "https://api.ticked.hng.tech/api/v1/user",
-        { first_name, last_name, email, phone, password, gender, date_of_birth }
+        data
       );
-        console.log(response)
-      login({ email, password }, dispatch);
+      console.log(response);
+      login({ email: data.email, password: data.password }, dispatch);
       setIsLoading(false);
       setError(false);
-
     } catch (err) {
       console.log(err);
       setIsLoading(false);
       setError(true);
       setErrMessage(err.response.data.message);
       setIsAlertVisible(true);
-      
+
       setTimeout(() => {
         setIsAlertVisible(false);
-        }, 2000);
+      }, 4000);
     }
+  };
 
-  };
-  
-  const togglePassword = () => {
-    setPasswordShown(!passwordShown);
-  };
+  // formik handling
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        gender: "",
+        date_of_birth: "",
+        password: ""
+      },
+      validationSchema: signupSchema,
+      onSubmit
+    });
 
   return (
     <>
-      <Navbar />
-      <div className={styles.signupContainer}>
-        <div className={styles.signupLeft}>
-          <div className={styles.abeg}>
-            <h2 className={styles.createAccountText}>Create Account</h2>
-            <form
-              onSubmit={handleSubmit(HandleSubmit)}
-              className={styles.Formm}
-            >
-              <div className={styles.eachContainer}>
-                <label htmlFor="first_name" className={styles.describer}>
+      <Navbar className={style.reset_header} />
+
+      <div className={style.signup_pg}>
+        <div className={style.content_cont}>
+          <div className={style.newpsw_page_cont}>
+            <h2>Create Account</h2>
+            <form autoComplete="off" onSubmit={handleSubmit}>
+              <div className={style.rsp_input_field}>
+                {/* Label and input for first name */}
+                <label htmlFor="first_name">
                   First Name
-                </label>
-                <input
-                  className={errors.first_name ? styles.Err : styles.inpuT}
-                  id="first_name"
-                  type="text"
-                  placeholder="Enter first name"
-                  {...register("first_name", {
-                    required: "This field is required"
-                  })}
-                />
-                {errors.first_name && (
-                  <small className={styles.error_state}>
-                    {errors.first_name.message}
-                  </small>
-                )}
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="last_name" className={styles.describer}>
-                  Last Name
-                </label>
-                <input
-                  className={errors.last_name ? styles.Err : styles.inpuT}
-                  id="last_name"
-                  type="text"
-                  placeholder="Enter last name"
-                  {...register("last_name", {
-                    required: "This field is required"
-                  })}
-                />
-                {errors.last_name && (
-                  <small className={styles.error_state}>
-                    {errors.last_name.message}
-                  </small>
-                )}
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="email" className={styles.describer}>
-                  Email Address
-                </label>
-                <input
-                  className={errors.email ? styles.Err : styles.inpuT}
-                  id="email"
-                  type="email"
-                  placeholder="Enter email"
-                  {...register("email", {
-                    required: "Enter a vaild email address",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "invalid email"
-                    }
-                  })}
-                  onKeyUp={() => {
-                    trigger("email");
-                  }}
-                />
-                {errors.email && (
-                  <small className={styles.error_state}>
-                    {errors.email.message}
-                  </small>
-                )}
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="phone" className={styles.describer}>
-                  Phone Number
-                </label>
-                <PhoneInput
-                  className={styles.phone}
-                  international
-                  defaultCountry="NG"
-                  id="phone"
-                  required
-                  value={phone}
-                  onChange={setPhone}
-                />
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="gender" className={styles.describer}>
-                  Gender
-                </label>
-                <select
-                  name="isSeries"
-                  id="gender"
-                  className={errors.gender ? styles.Err : styles.inpuT}
-                  {...register("gender", { required: "Select a gender" })}
-                >
-                  <option value="" disabled>
-                    Select Gender
-                  </option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-                {errors.gender && (
-                  <small className={styles.error_state}>
-                    {errors.gender.message}
-                  </small>
-                )}
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="date_of_birth" className={styles.describer}>
-                  Date of birth
-                </label>
-                <input
-                  className={errors.date_of_birth ? styles.Err : styles.inpuT}
-                  id="date_of_birth"
-                  type="date"
-                  placeholder="Enter Date of birth"
-                  {...register("date_of_birth", { required: "Pick a date" })}
-                />
-                {errors.date_of_birth && (
-                  <small className={styles.error_state}>
-                    {errors.date_of_birth.message}
-                  </small>
-                )}
-              </div>
-
-              <div className={styles.eachContainer}>
-                <label htmlFor="password" className={styles.describer}>
-                  Password
-                </label>
-                <div className={styles.passwordInputWrapper}>
                   <input
-                    id="password"
-                    className={errors.password ? styles.Err : styles.inpuT}
-                    type={passwordShown ? "text" : "password"}
-                    placeholder="Enter password"
-                    {...register("password", {
-                      required: "Enter a password",
-                      minLength: {
-                        value: 6,
-                        message: "Password too short, a minimum of 6 charaters"
-                      }
-                    })}
+                    type="text"
+                    name="first_name"
+                    value={values.first_name}
+                    className={
+                      errors.first_name && touched.first_name
+                        ? style.input_error
+                        : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter First Name"
+                    required
                   />
+                </label>
+                {errors.first_name && touched.first_name && (
+                  <span className={style.error}>{errors.first_name}</span>
+                )}
+              </div>
+              {/* input and label for last name */}
+              <div className={style.rsp_input_field}>
+                <label htmlFor="last_name">
+                  Last Name
+                  <input
+                    type="text"
+                    name="last_name"
+                    value={values.last_name}
+                    className={
+                      errors.last_name && touched.last_name
+                        ? style.input_error
+                        : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter Last Name"
+                    required
+                  />
+                </label>
+                {errors.last_name && touched.last_name && (
+                  <span className={style.error}>{errors.last_name}</span>
+                )}
+              </div>
+              {/* input and label for email */}
+              <div className={style.rsp_input_field}>
+                <label htmlFor="email">
+                  Email Address
+                  <input
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    className={
+                      errors.email && touched.email ? style.input_error : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter Email Address"
+                    required
+                  />
+                </label>
+                {errors.email && touched.email && (
+                  <span className={style.error}>{errors.email}</span>
+                )}
+              </div>
+              {/* input and label for gender */}
+              <div className={style.rsp_input_field}>
+                <label htmlFor="gender">
+                  Gender
+                  <select
+                    name="gender"
+                    value={values.gender}
+                    className={
+                      errors.gender && touched.gender ? style.input_error : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select Gender
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </label>
+                {errors.gender && touched.gender && (
+                  <span className={style.error}>{errors.gender}</span>
+                )}
+              </div>
 
-                  <div className={styles.eye}>
-                    {passwordShown ? (
-                      <AiOutlineEye onClick={togglePassword} />
-                    ) : (
-                      <AiOutlineEyeInvisible onClick={togglePassword} />
-                    )}
+              {/* Input and label for phone number */}
+              <div className={style.rsp_input_field}>
+                <label htmlFor="phone">
+                  Phone Number
+                  <Phone
+                    className={
+                      errors.phone && touched.phone ? "input_error" : ""
+                    }
+                    international
+                    country={"ng"}
+                    placeholder="Enter phone number"
+                    id="phone"
+                    name="phone"
+                    value={values.phone}
+                    onChange={handleChange("phone")}
+                    onBlur={handleBlur("phone")}
+                    inputProps={{
+                      id: "phone-input",
+                      class: "input_error"
+                    }}
+                    searchClass={{
+                      class: "flag-dropdown flag-dropdown.open"
+                    }}
+                    required
+                  />
+                </label>
+                {errors.phone && touched.phone && (
+                  <span className={style.error}>{errors.phone}</span>
+                )}
+              </div>
+
+              {/* input and label for date_of_birth */}
+              <div className={style.rsp_input_field}>
+                <label htmlFor="date_of_birth">
+                  Date of Birth
+                  <input
+                    type="date"
+                    name="date_of_birth"
+                    value={values.date_of_birth}
+                    className={
+                      errors.date_of_birth && touched.date_of_birth
+                        ? style.input_error
+                        : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter Date of Birth"
+                    required
+                  />
+                </label>
+                {errors.date_of_birth && touched.date_of_birth && (
+                  <span className={style.error}>{errors.date_of_birth}</span>
+                )}
+              </div>
+
+              {/* input and label for password */}
+              <div className={style.rsp_input_field}>
+                <label>
+                  Password
+                  <input
+                    type={passwordShown ? "text" : "password"}
+                    name="password"
+                    value={values.password}
+                    className={
+                      errors.password && touched.password
+                        ? style.input_error
+                        : ""
+                    }
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Enter password"
+                    required
+                  />
+                  <AiOutlineEye
+                    onClick={togglePassword1}
+                    className={passwordShown ? style.hideEye : style.showEye}
+                  />
+                  <AiOutlineEyeInvisible
+                    onClick={togglePassword1}
+                    className={passwordShown ? style.showEye : style.hideEye}
+                  />
+                </label>
+                {errors.password && touched.password && (
+                  <span className={style.error}>{errors.password}</span>
+                )}
+              </div>
+
+              <div className={style.checkbox_field}>
+                <label className={style.checkbox_input} htmlFor="terms">
+                  <input
+                    name="terms"
+                    type="checkbox"
+                    value={checkState}
+                    onChange={changeState}
+                    id="checkbox"
+                    required
+                  />
+                  <p name="terms">
+                    By signing up, you agree to the{" "}
+                    <Link to="/policy">
+                      Terms of Service and Privacy Policy
+                    </Link>
+                  </p>
+                </label>
+              </div>
+
+              {isAlertVisible && (
+                <div className={style.disp_err}>
+                  <div>
+                    <img src={imgval} alt="Alert Icon" />
+                    <p>{error && errMessage}</p>
+                  </div>
+                  <div
+                    className={style.close_btn}
+                    onClick={() => {
+                      setIsAlertVisible(false);
+                    }}
+                  >
+                    <img src={closebtn} alt="Close Icon" />
                   </div>
                 </div>
-                {errors.password && (
-                  <small className={styles.error_state}>
-                    {errors.password.message}
-                  </small>
-                )}
-              </div>
+              )}
 
-              <div className={styles.permission}>
-                <label htmlFor="checkbox"></label>
-                <input
-                  id="checkbox"
-                  name="checkbox"
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={handleOnChange}
-                  onClick={() => setActive(current => !current)}
-                />
-                <span className={styles.permissionText}>
-                  By signing up, you agree to the{" "}
-                  <Link to="/policy" style={{ textDecoration: "none" }}>
-                    Terms of service and Privacy Policy
-                  </Link>
-                </span>
-              </div>
-
-              {isAlertVisible &&
-              <div className={styles.errMessage}>{error && errMessage}</div>
-              }
-              
-            {(isFetching || isLoading) ?
-              <button
-                id="btn__submitagain"
-                className={styles.buttonDisabled} disabled={active}
-              >
-                Signing Up...
-              </button>
-              : 
-              <button
-                id="btn__submit"
-
-                className={styles.buttonEnabled}
-              >
-                Sign Up
-              </button>
-            }
+              {/* signup button */}
+              {isFetching || isLoading ? (
+                <button className={style.btn_npsw} disabled={true}>
+                  Signing Up...
+                </button>
+              ) : (
+                <button
+                  className={style.btn_npsw}
+                  disabled={!checkState}
+                  type="submit"
+                >
+                  Sign Up
+                </button>
+              )}
             </form>
-
-
-
-            <p className={styles.tosignup}>
-              Already have an account?,{" "}
-              <Link
-                to="/login"
-                style={{
-                  textDecoration: "none",
-                  marginLeft: "0.3rem",
-                  fontWeight: "700"
-                }}
-              >
-                Sign In
-              </Link>
-            </p>
-
-
-            <div className={styles.continueWith}>
-              <div className={styles.continueWithLine}></div>
-              <span className={styles.continueWithText}>Or continue with</span>
-              <div className={styles.continueWithLine}></div>
+            <div className={style.switch}>
+              <p>Already have an account?</p>
+              <Link to="/login">Sign In</Link>
             </div>
 
-            <div className={styles.signupSocials}>
+            <hr />
+            <p className={style.or_ctn_with}>Or continue with</p>
+            <div className={style.social_media_icons}>
               <GoogleLogin
                 clientId={clientId}
                 render={renderProps => (
                   <button
                     onClick={renderProps.onClick}
-                    className={styles.signup__googleButton}
+                    className={style.signup__googleButton}
                   >
-                    {" "}
                     <img src={google} alt="google_login" />
                   </button>
                 )}
@@ -402,24 +469,23 @@ const Signup = () => {
                 cookiePolicy={"single_host_origin"}
                 isSignedIn={false}
               />
-                {/* <img src={fb} alt="facebook icon" style={{ cursor: "pointer" }} /> */}
+
               <LoginSocialFacebook
-              appId="529866819049212"
-              onResolve={(response) =>{
-                console.log(response);
-                setFbUser(response.data);
-              }}
-              onReject={(error) => {
-                console.log(error);
-              }}
+                appId="486566616898057"
+                onResolve={response => {
+                  console.log("THE RESPONSEEEEE", response);
+                  setFbUser(response.data);
+                }}
+                onReject={error => {
+                  console.log("THE ERORRRRR", error);
+                }}
               >
                 <FacebookLoginButton />
               </LoginSocialFacebook>
             </div>
           </div>
         </div>
-
-        <div className={styles.signupImg}>
+        <div className={style.img_flow}>
           <img src={signupPicture} alt="signupPicture" />
         </div>
       </div>

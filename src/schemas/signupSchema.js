@@ -7,6 +7,16 @@ const phoneRegExp =
 const passwordRegExp =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
+function subtractYears(date, years) {
+  // 👇 make copy with "Date" constructor
+  const dateCopy = new Date(date);
+
+  dateCopy.setFullYear(date.getFullYear() - years);
+
+  return dateCopy;
+}
+const date = new Date();
+
 export const signupSchema = Yup.object().shape({
   first_name: Yup.string()
     .min(2, "Too short!")
@@ -24,7 +34,17 @@ export const signupSchema = Yup.object().shape({
   gender: Yup.string().required(
     "Gender is required - Choose between Male or Female"
   ),
-  date_of_birth: Yup.string().required("Date of Birth is required"),
+  date_of_birth: Yup.date()
+    // .max(
+    //   new Date(),
+    //   "Please enter valid date, you cannot be born in the future!"
+    // )
+    .max(subtractYears(date, 11), "Invalid Date - You should be older than 11")
+    .min(
+      subtractYears(date, 80),
+      "Are you 80years or more? What task can you still do..."
+    )
+    .required("Date of Birth is required"),
   password: Yup.string()
     .min(8, "Password requires a minimum of 8 characters")
     .max(20, "Password ")

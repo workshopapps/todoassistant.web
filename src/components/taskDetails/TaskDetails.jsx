@@ -11,12 +11,19 @@ import Comments from "../Comments/Comments";
 
 const TaskDetails = () => {
   const [tab, setTab] = useState(0);
-  const { task } = useContext(TaskCtx);
+  let { task } = useContext(TaskCtx);
   const [time, setTime] = useState("");
   const [month, setMonth] = useState("");
   const [edit, setEdit] = useState(0);
   const [deleteTask, setDeleteTask] = useState(0);
 
+  //------sending task to local storage for persistence---
+  if (Object.keys(task).length) {
+    localStorage.setItem("taskDetialsContent", JSON.stringify(task));
+  }
+  task = JSON.parse(localStorage.getItem("taskDetialsContent"));
+
+  //------end of task persist---
   useEffect(() => {
     const date = new Date(task?.end_time);
     let hours = date.getHours();
@@ -29,7 +36,7 @@ const TaskDetails = () => {
     setTime(strTime);
     const monthName = new Date(task?.end_time);
     setMonth(monthName.toLocaleString("default", { month: "long" }));
-  });
+  }, []);
   return (
     <div className={styles.TaskDetail_wrapper}>
       <DeleteModal
