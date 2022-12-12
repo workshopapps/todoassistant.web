@@ -14,7 +14,7 @@ import { useContext } from "react";
 import { logout } from "../../contexts/authContext/AuthActions";
 import ProfileAvatar from "../../core/dashboard/va-client-page/Avatar";
 
-export default function AccountMenu({ fullName }) {
+export default function AccountMenu({ fullName, image }) {
   const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
 
@@ -45,6 +45,7 @@ export default function AccountMenu({ fullName }) {
             aria-expanded={open ? "true" : undefined}
           >
             <ProfileAvatar
+              image={image}
               fullName={fullName}
               size={{ width: 40, height: 40 }}
               fontSize={`16px`}
@@ -91,6 +92,7 @@ export default function AccountMenu({ fullName }) {
         <Link to="/dashboard/profile">
           <MenuItem>
             <ProfileAvatar
+              image={image}
               fullName={fullName}
               size={{ width: 20, height: 20 }}
               fontSize={`12px`}

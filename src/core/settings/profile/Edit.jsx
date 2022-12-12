@@ -6,16 +6,28 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/authContext/AuthContext";
 import axios from "axios";
 import ProfileAvatar from "../../dashboard/va-client-page/Avatar";
+import { useRef } from "react";
+import { Box, CircularProgress, Stack } from "@mui/material";
+import { Edit } from "@mui/icons-material";
+import StatusBar from "../../dashboard/va-client-page/StatusBar";
+
 // import { Typography } from "@mui/material";
 
-const Edit = () => {
+const EditProfile = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const [isLoading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const { user_id } = user.data;
+  const pictureInput = useRef(null);
 
   // useEffect(() => {
   //     axios.get(`api/v1/va/${user_id}').then((res)=> console.log("mm")`)
   // }, [])
+
+  const close = () => {
+    setOpen(false);
+  };
 
   const defaultForm = {
     first_Name: "",
@@ -23,6 +35,7 @@ const Edit = () => {
     email: "",
     phone: ""
   };
+
   const [form, setForm] = useState(defaultForm);
   const { first_Name, last_name, email, phone } = form;
 
@@ -80,10 +93,44 @@ const Edit = () => {
     editRequest(form);
   };
 
-  // const handleProfilePicChange = () => {};
+  const updateStorage = data => {
+    const profile = JSON.parse(localStorage.getItem("user"));
+    Object.keys(data).forEach(key => {
+      profile["data"]["avatar"] = data["avatar"];
+      key;
+    });
+    localStorage.setItem("user", JSON.stringify(profile));
+    // since we are not using context as a global use store...
+    // we would have to reload the page for user data change
+    // which in a sense is bad practice
+    location.reload();
+  };
 
-  // let FName = first_name;
-  // let initial = FName.charAt(0).toUpperCase();
+  const handlePictureValue = async e => {
+    const url = `https://api.ticked.hng.tech/api/v1/user/upload`;
+    // setLoading(true);
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user.data.access_token}`,
+        "Content-Type": "multipart/form-data"
+      }
+    };
+    try {
+      const res = await axios.post(url, formData, config);
+      if (res.data.code === 200) {
+        updateStorage(res.data.data);
+        setLoading(false);
+         setOpen(true);
+      }
+    } catch (err) {
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <div className="settings">
@@ -98,23 +145,52 @@ const Edit = () => {
               <p className="title">Edit profile</p>
               <div className="head">
                 <div className="head-1">
-                  <div className="user-initial">
+                  <Box
+                    onClick={() => {
+                      try {
+                        setLoading(true);
+                        pictureInput.current.click();
+                      } catch (err) {
+                        setLoading(false);
+                      }
+                    }}
+                    className="user-initial"
+                    sx={{ position: `relative`, cursor: `pointer` }}
+                  >
+                    <input
+                      onChange={handlePictureValue}
+                      id="pictureInput"
+                      ref={pictureInput}
+                      hidden
+                      type="file"
+                    />
                     <ProfileAvatar
-                      fullName={[user.data.first_name, user.data.last_name].join(" ")}
+                      image={user.data.avatar}
+                      fullName={[
+                        user.data.first_name,
+                        user.data.last_name
+                      ].join(" ")}
                       size={{ width: 120, height: 120 }}
                       fontSize={`3rem`}
                     />
-                  </div>
+                    <Stack
+                      justifyContent={`center`}
+                      alignItems={`center`}
+                      borderRadius={`100%`}
+                      sx={{ position: `absolute`, right: 0, bottom: 0 }}
+                      bgcolor={`lightgrey`}
+                      p={`5px`}
+                    >
+                      {isLoading ? (
+                        <CircularProgress size={16} />
+                      ) : (
+                        <Edit sx={{ color: `#714DD9` }} fontSize="10px" />
+                      )}
+                    </Stack>
+                  </Box>
                 </div>
               </div>
-              {/* <Typography
-                onClick={handleProfilePicChange}
-                textAlign={`center`}
-                mb={5}
-              >
-                Edit Profile image
-                <input type="file" />
-              </Typography> */}
+
               <div className="form-form">
                 <div className="form-field">
                   <label htmlFor="first_Name" className="lab">
@@ -177,8 +253,15 @@ const Edit = () => {
           </div>
         </div>
       </div>
+      <StatusBar
+        open={open}
+        close={close}
+        message={`profile picture uploaded successfully`}
+        priority={`success`}
+        position={`right`}
+      />
     </div>
   );
 };
 
-export default Edit;
+export default EditProfile;

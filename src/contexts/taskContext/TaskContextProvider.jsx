@@ -5,6 +5,8 @@ import { AuthContext } from "../authContext/AuthContext";
 export const taskCtxDefaultValues = {
   tasks: [],
   task: {},
+  notification: [],
+  setNotification: () => null,
   isLoading: false,
   getTasks: () => null,
   setTasks: () => null,
@@ -17,8 +19,11 @@ export const taskCtxDefaultValues = {
 export const TaskCtx = createContext(taskCtxDefaultValues);
 
 const TaskContextProvider = ({ children }) => {
+  const id = JSON.parse(localStorage.getItem("user"));
+  const idVa = JSON.parse(localStorage.getItem("VA"));
   const base_url = "https://api.ticked.hng.tech/api/v1";
   const [tasks, setTasks] = useState([]);
+  const [notification, setNotification] = useState([]);
   const [task, setTask] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useContext(AuthContext);
@@ -52,6 +57,24 @@ const TaskContextProvider = ({ children }) => {
     [setTask]
   );
 
+  const getNotificationVA = async () => {
+    try {
+      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
+        headers: { Authorization: `Bearer ${
+          id?.data?.access_token || idVa?.extra?.token
+        }` }
+      }).then((res) => {
+        alert("You have a new notification")
+        localStorage.setItem("userNotification", JSON.stringify(res.data))
+        setNotification(res.data);
+
+      })
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const getClickedTask = id => {
     // const tasks = JSON.parse(localStorage.getItem("myTasks"));
     const singleTask = tasks.find(i => i.task_id === id);
@@ -84,6 +107,8 @@ const TaskContextProvider = ({ children }) => {
         getTasks,
         setTasks,
         getTaskById,
+        getNotificationVA,
+        notification,
         updateTask,
         deleteTask,
         getClickedTask

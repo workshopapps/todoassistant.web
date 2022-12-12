@@ -2,7 +2,7 @@ import { Stack, Typography } from "@mui/material";
 import React from "react";
 import ProfileAvatar from "./Avatar";
 
-const ClientName = ({ fullName, align }) => {
+const ClientName = ({ fullName, align, image }) => {
   return (
     <Stack
       direction={`row`}
@@ -11,6 +11,7 @@ const ClientName = ({ fullName, align }) => {
       gap={2}
     >
       <ProfileAvatar
+        image={image}
         fontSize={`14px`}
         size={{ width: 40, height: 40 }}
         fullName={fullName.toUpperCase()}

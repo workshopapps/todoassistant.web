@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useContext} from "react";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import DashboardNav from "./DashboardNav";
 import { Box, Stack } from "@mui/material";
 import NavList from "../../core/dashboard/va-client-page/NavList";
 import { Link, Outlet } from "react-router-dom";
+import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
+
 
 // import axios from "axios";
 //messaginh
@@ -13,12 +15,18 @@ const Dashboardlayout = () => {
   // const id = JSON.parse(localStorage.getItem("VA")).data?.va_id
 
  
+ 
 
   // Request permission from user fro notification
   requestForToken();
 
-  // // Request permission from user fro notification
-  //
+  const { getNotificationVA } = useContext(TaskCtx);
+
+  useEffect(() => {
+    getNotificationVA()
+  }, [])
+
+  // console.log(notification, "va")
 
   // useEffect(() => {
   //   const getNotification = async () =>  {

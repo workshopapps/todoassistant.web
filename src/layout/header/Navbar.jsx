@@ -13,7 +13,7 @@ const btnStyleOutline = {
   color: "#714dd9"
 };
 
-export default function Navbar() {
+export default function Navbar({ className }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
@@ -22,7 +22,7 @@ export default function Navbar() {
     dispatch(logout());
     navigate("/login");
   };
-  
+
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
@@ -43,7 +43,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav>
+    <nav className={className}>
       <div className={style.nav}>
         <div className={style.logo}>
           <Link to="/">
@@ -77,7 +77,7 @@ const NavDrawer = ({ toggleSidebar }) => {
     dispatch(logout());
     navigate("/login");
   };
-  
+
   // CTA -- CALL TO ACTIION
   const CTA = !user ? (
     <>
