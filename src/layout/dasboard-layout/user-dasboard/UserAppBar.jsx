@@ -66,7 +66,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
         <Box>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
             <Link to={`notifications`}>
-              <Badge color="secondary" badgeContent={notification.length}>
+              <Badge color="secondary" badgeContent={notification?.length}>
                 <NotificationsNoneIcon
                   fontSize="large"
                   sx={{
