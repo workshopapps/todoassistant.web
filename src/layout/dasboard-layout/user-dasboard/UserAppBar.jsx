@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {  useContext } from "react";
 import {
   Badge,
   Box,
@@ -12,21 +12,15 @@ import AppBar from "@mui/material/AppBar";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Link } from "react-router-dom";
 import AccountMenu from "../../../components/menu/AccountMenu";
+import { TaskCtx } from "../../../contexts/taskContext/TaskContextProvider";
+
 
 const UserNavbar = ({ handleDrawerToggle }) => {
   const userName = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))?.data
     : "";
-  let notifiLength;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      notifiLength = JSON.parse(localStorage.getItem("notificationLength"));
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  const {notification } = useContext(TaskCtx);
   return (
     <AppBar
       sx={{
@@ -72,7 +66,7 @@ const UserNavbar = ({ handleDrawerToggle }) => {
         <Box>
           <Stack direction={`row`} alignItems={`center`} gap={5}>
             <Link to={`notifications`}>
-              <Badge color="secondary" badgeContent={notifiLength}>
+              <Badge color="secondary" badgeContent={notification.length}>
                 <NotificationsNoneIcon
                   fontSize="large"
                   sx={{
