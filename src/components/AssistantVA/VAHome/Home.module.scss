@@ -1,5 +1,4 @@
 .va_section_container,
-.va_home_title,
 .va_home_links,
 .task_view,
 .task_details_container,
@@ -54,6 +53,10 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.va_home_clock{
+    display: block;
 }
 
 .va_home_links {
@@ -309,3 +312,6 @@
         background: white;
     }
 }
+
+
+
