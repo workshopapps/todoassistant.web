@@ -51,7 +51,7 @@ export function AlertDialogSlide({open, handleClose, loading, userDetails}) {
 }
 
 export default function Notifications() {
-  // const id = JSON.parse(localStorage.getItem("user"));
+  const id = JSON.parse(localStorage.getItem("user"));
   const idVa = JSON.parse(localStorage.getItem("VA"));
   const [open, setOpen] = useState(false);
   const [ loading, setIsLoading ] = useState(false)
@@ -62,7 +62,7 @@ export default function Notifications() {
       try {
         await axios.get(`https://api.ticked.hng.tech/api/v1/task/${taskID}`, {
           headers: { Authorization: `Bearer ${
-            idVa?.extra?.token
+          id?.data?.access_token || idVa?.extra?.token
           }` }
         })
           .then((res) => {

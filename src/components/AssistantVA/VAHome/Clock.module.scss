@@ -1,27 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap');
 
-.digital_con {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.digital_con {
-    align-items: center;
-}
-
 .digital {
-    height: 3.5rem;
-    width: 7.2rem;
     background: #714DD9;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif !important;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #E9F3F5;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
     border-radius: 0.5rem;
+    padding: 5px 0px;
 }
 
 .day {
@@ -35,4 +25,19 @@
 .period {
     font-size: 0.8rem;
     color: white;
+    font-family: 'Orbitron', sans-serif !important;
+}
+
+@media screen and (max-width: 768px) {
+    .digital {
+        background: transparent;
+        font-size: 1rem;
+        color: #714DD9;
+        padding: 5px 0px;
+    }
+
+    .period {
+        color: #714DD9;
+        font-family: 'Orbitron', sans-serif !important;
+    }
 }
