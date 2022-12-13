@@ -9,6 +9,7 @@ import useDetectKeyboard from "use-detect-keyboard-open";
 import messageSound from "../../assets/sounds/message.mp3";
 import emoji from "../../assets/emoji.png";
 import Picker from "emoji-picker-react";
+import axios from "axios";
 // import { FaSmileWink } from "react-icons/fa";
 
 import "./Comments.css";
@@ -23,6 +24,39 @@ const Comments = () => {
   const [showPicker, setShowPicker] = useState(false);
   const isKeyboardOpen = useDetectKeyboard();
 
+  // POST {{base_url}}/task/comment
+
+  const sendComment = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    let taskId = JSON.parse(localStorage.getItem("taskDetialsContent")).task_id;
+
+    if (user) {
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/task/comment`,
+        {
+          task_id: taskId,
+          sender_id: user.data.user_id,
+          comment: message,
+          created_at: new Date(),
+          status: "user",
+          isEmoji: (typedMessage && 1) || 0
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${user.data.extra_token}`
+          }
+        }
+      );
+
+      console.log(response);
+      // const vaTasks = response.data.data;
+
+      // setData(vaTasks);
+      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
+      // setIsLoadiing(false);
+    }
+  };
+
   const onEmojiClick = emojiObject => {
     setCanSend(true);
     setMessage(prev => prev + emojiObject.emoji);
@@ -33,6 +67,7 @@ const Comments = () => {
     let id = Math.floor(Math.random * 200);
 
     play();
+    sendComment();
     setApiData([
       ...apiData,
       { id: id, status: "user", comment: message, isEmoji: !typedMessage }
