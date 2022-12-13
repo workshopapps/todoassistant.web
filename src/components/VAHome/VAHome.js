@@ -120,7 +120,9 @@ const VAHome = () => {
               fontWeight: "600",
               textAlign: "center",
               cursor: "pointer",
-              height: "50px"
+              height: "50px",
+              maxWidth: "160px",
+              width: "100%"
             }}
             color={activeClass === 2 && " #714DD9"}
             className={(activeClass === 2 && styles.active) || ""}

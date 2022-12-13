@@ -4,6 +4,8 @@ import styles from "./Comments.module.scss";
 import Messages from "./Messages";
 import TextInput from "./TextInput/TextInput";
 // import data from "./_mock";
+
+import { useParams } from "react-router-dom";
 import useSound from "use-sound";
 import useDetectKeyboard from "use-detect-keyboard-open";
 import messageSound from "../../assets/sounds/message.mp3";
@@ -15,73 +17,16 @@ import "./Comments.css";
 import axios from "axios";
 
 const Comments = () => {
+  const { id: taskId } = useParams();
   const [play] = useSound(messageSound);
   const bottomRef = useRef(null);
-  const [apiData, setApiData] = useState(null);
+  const [apiData, setApiData] = useState([]);
+  const [sent, setSent] = useState(false);
   const [typedMessage, setTypedMessage] = useState(null);
   const [canSend, setCanSend] = useState(false);
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   const isKeyboardOpen = useDetectKeyboard();
-
-  const getComments = async () => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let task = JSON.parse(localStorage.getItem("taskDetialsContent"));
-    console.log(task);
-    if (user) {
-      const response = await axios.get(
-        `https://api.ticked.hng.tech/api/v1/task/comment/${task.task_id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${user.data.access_token}`
-          }
-        }
-      );
-      console.log(response);
-      setApiData(response.data.data);
-
-      // const vaTasks = response.data.data;
-
-      // setData(vaTasks);
-      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
-      // setIsLoadiing(false);
-    }
-  };
-
-  const sendComment = async () => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let task = JSON.parse(localStorage.getItem("taskDetailsContent"));
-
-    let { task_id: taskId } = task;
-    if (user) {
-      const response = await axios.post(
-        `https://api.ticked.hng.tech/api/v1/task/comment`,
-        {
-          comment: message,
-          created_at: new Date(),
-          task_id: taskId,
-          sender_id: user.data.user_id,
-          status: "user",
-          isEmoji: (!typedMessage && 1) || 0
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${user.data.access_token}`
-          }
-        }
-      );
-
-      console.log(response);
-      // setData(vaTasks);
-      // const response = response.data.data;
-      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
-      // setIsLoadiing(false);
-    }
-  };
-
-  useEffect(() => {
-    getComments();
-  }, []);
 
   const onEmojiClick = emojiObject => {
     setCanSend(true);
@@ -96,7 +41,7 @@ const Comments = () => {
     sendComment();
     setApiData([
       ...apiData,
-      { id: id, status: "user", comment: message, isEmoji: !typedMessage }
+      { id: id, status: "va", comment: message, isEmoji: !typedMessage }
     ]);
     setCanSend(false);
     setTypedMessage(false);
@@ -113,7 +58,7 @@ const Comments = () => {
   //Messages Comes In
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [apiData, isKeyboardOpen]);
+  }, [apiData, isKeyboardOpen, message]);
 
   const handleMessage = e => {
     //Detect if only Emoji is being sent to incrase the font size
@@ -132,6 +77,67 @@ const Comments = () => {
     // console.log(message.text);
   };
 
+  const getComments = async () => {
+    let va = JSON.parse(localStorage.getItem("VA"));
+
+    if (va) {
+      const response = await axios.get(
+        `https://api.ticked.hng.tech/api/v1/task/comment/${taskId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${va.extra.token}`
+          }
+        }
+      );
+      console.log(response);
+      setApiData(response.data.data);
+
+      // const vaTasks = response.data.data;
+
+      // setData(vaTasks);
+      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
+      // setIsLoadiing(false);
+    }
+  };
+
+  const sendComment = async () => {
+    let va = JSON.parse(localStorage.getItem("VA"));
+
+    if (va) {
+      const response = await axios.post(
+        `https://api.ticked.hng.tech/api/v1/task/comment`,
+        {
+          comment: message,
+          created_at: new Date(),
+          task_id: taskId,
+          sender_id: va.data.va_id,
+          status: "va",
+          isEmoji: (!typedMessage && 1) || 0
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${va.extra.token}`
+          }
+        }
+      );
+      if (response.status === 200) {
+        console.log(response);
+        setSent(true);
+      } else {
+        setSent(false);
+      }
+
+      // setData(vaTasks);
+      // const response = response.data.data;
+      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
+      // setIsLoadiing(false);
+    }
+  };
+
+  useEffect(() => {
+    getComments();
+  }, []);
+
   return (
     <>
       <div className={styles.commentWrapper}>
@@ -147,7 +153,7 @@ const Comments = () => {
           )) || (
             /* MESSAGES */
 
-            <Messages data={apiData} />
+            <Messages data={apiData} sent={sent} />
           )}
           {/* BOTTOM */}
           <div ref={bottomRef}></div>
