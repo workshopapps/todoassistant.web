@@ -24,13 +24,19 @@
     @media screen and (max-width: 660px) {
       width: 90vw;
     }
+    @media screen and (min-width: 1183px) {
+      width: 40vw;
+    }
+    @media screen and (max-width: 400px) {
+      padding: 2.813rem 3rem !important;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2.813rem 5rem;
     background: #f9f7ff;
     border-radius: 8px;
-    // width: 30vw;
+    width: 50vw;
     .Delete_head {
       font-family: "Open Sans";
       font-style: normal;
