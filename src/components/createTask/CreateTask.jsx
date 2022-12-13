@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "./createTask.module.scss";
-import VALogo from "../../assets/createTaskVa.png";
+import VALogo from "../../assets/createTaskVasst.png";
 import axios from "axios";
 import { CgClose } from "react-icons/cg";
 import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
@@ -12,14 +12,13 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
   const navigate = useNavigate();
   const { getTasks, getNotificationVA, notification } = useContext(TaskCtx);
   //   const modal1 = useRef(0);
-console.log(notification, "teast")
+  console.log(notification, "teast");
   //   const modal2 = useRef(1);
   const [submit, setSubmit] = useState(1);
   const [check, setCheck] = useState("");
   const [buttonDisable, setButtonDisable] = useState(0);
   // const [notification, setNotification] = useState([]);
 
-// console.log(notification)
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -36,10 +35,8 @@ console.log(notification, "teast")
   useEffect(() => {
     if (func === "edit") {
       data.title = editData.title;
-      data.description = editData.title;
-      data.repeat = editData.repeat;
-      data.assistant = editData.va_option;
     }
+    getNotificationVA();
   }, []);
 
   const handleCheck = e => {
@@ -49,11 +46,6 @@ console.log(notification, "teast")
       setCheck("");
     }
   };
-
-  useEffect(() => {
-    getNotificationVA()
-  }, [])
-
 
   const handle = e => {
     const newData = { ...data };
@@ -112,7 +104,7 @@ console.log(notification, "teast")
       toast.success(func === "edit" ? "Task Edited" : "Task Created", {
         position: toast.POSITION.TOP_RIGHT
       });
-      getNotificationVA()
+      getNotificationVA();
       setTaskModal(0);
       setSubmit(!submit);
       data.title = "";
@@ -156,7 +148,9 @@ console.log(notification, "teast")
           }}
         >
           <div className={styles.createTask_header_wrapper}>
-            <h1 className={styles.createTask_header}>Add New Task</h1>
+            <h1 className={styles.createTask_header}>
+              {func === "edit" ? "Edit Task" : "Add New Task"}
+            </h1>
             <CgClose
               onClick={() => {
                 setTaskModal(0);
@@ -296,7 +290,7 @@ console.log(notification, "teast")
         <div className={styles.createTask_submit_modal}>
           <img src={VALogo} alt="valogo" />
           <p className={styles.createTask_submit_header}>
-            Hello, my name is Michael and I am your virtual assistant.
+            Hello, my name is James and I am your virtual assistant.
           </p>
           <p className={styles.createTask_submit_item}>
             {data.assistant === "call" &&
