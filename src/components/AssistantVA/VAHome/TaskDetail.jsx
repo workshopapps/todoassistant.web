@@ -32,6 +32,11 @@ const TaskDetail = ({ taskDetails, handleClose }) => {
                 </div>
 
                 <div className = {styles.taskDetail_child}>
+                    <div className = {styles.child_title}>CONTACT OPTION</div>
+                    <p className = {styles.child_sub_typo}>{taskDetails.va_option}</p>                  
+                </div>
+
+                <div className = {styles.taskDetail_child}>
                     <div className = {styles.child_title}>DUE TIME</div>
                     <p className = {styles.child_sub_typo}>{format_time}</p>                  
                 </div>

@@ -9,7 +9,13 @@ import stopwatchlight from "../../assets/timer-startclocklight.svg";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
-const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
+const Accordion = ({
+  data,
+  setHidden,
+  setDissapear,
+  activeClass,
+  assigned
+}) => {
   const navigate = useNavigate();
   const [activeState, setActiveState] = useState(data[0]);
 
@@ -17,36 +23,37 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
     return moment(date).endOf(date).fromNow();
   };
 
-  function stringToColor(string) {
-    let hash = 0;
-    let i;
+  // function stringToColor(string) {
+  //   let hash = 0;
+  //   let i;
 
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
+  //   /* eslint-disable no-bitwise */
+  //   for (i = 0; i < string.length; i += 1) {
+  //     hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  //   }
 
-    let color = "#";
+  //   let color = "#";
 
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
+  //   for (i = 0; i < 3; i += 1) {
+  //     const value = (hash >> (i * 8)) & 0xff;
+  //     color += `00${value.toString(16)}`.slice(-2);
+  //   }
+  //   /* eslint-enable no-bitwise */
 
-    return color;
-  }
+  //   return color;
+  // }
 
-  function stringAvatar(name) {
-    const upperName = name.toUpperCase();
-    return {
-      sx: {
-        bgcolor: stringToColor(upperName)
-      },
-      children: `${upperName.split(" ")[0][0]}${upperName.split(" ")[1][0]}`
-    };
-  }
+  // function stringAvatar(name) {
+  //   const upperName = name.toUpperCase();
+  //   return {
+  //     sx: {
+  //       bgcolor: stringToColor(upperName)
+  //     },
+  //     children: `${upperName.split(" ")[0][0]}${upperName.split(" ")[1][0]}`
+  //   };
+  // }
 
+  console.log(assigned, "This is assigned");
   return (
     <div style={{ transform: "translateX(0)", position: "relative" }}>
       <Box
@@ -117,7 +124,10 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                 >
                   <Box display="flex" alignItems={"center"} gap="5px">
                     {" "}
-                    <Avatar {...stringAvatar(task.user.name)} />
+                    <Avatar
+                      src={task.user.avatar}
+                      sx={{ height: "35px", width: "35px" }}
+                    />
                     <span
                       style={{
                         fontSize: "15px",
@@ -226,7 +236,7 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
           alignItems="center"
           sx={{ boxShadow: "rgb(149 157 165 / 16%) 0px 8px 24px" }}
         >
-          {data.map((task, index) => (
+          {assigned.map((task, index) => (
             <Box
               borderBottom={"1px solid #E9F3F5"}
               className={styles.taskListMobile}
@@ -281,7 +291,7 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                   <Box display="flex" alignItems={"center"} gap="5px">
                     {" "}
                     <Avatar
-                      {...stringAvatar(task.user.name)}
+                      src={task.user.avatar}
                       sx={{ height: "35px", width: "35px" }}
                     />
                     <span
