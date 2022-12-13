@@ -10,13 +10,17 @@ const TaskItems = ({ status, myTasks }) => {
     status === "PENDING" && toast.success(`Moved to Done`, { icon: false });
     status === "DONE" && toast.info(`Moved to Pending`, { icon: false });
   };
-  const { setTasks, getClickedTask } = useContext(TaskCtx);
+  const {
+    setTasks,
+    getClickedTask
+    // , updateTask
+  } = useContext(TaskCtx);
   const [showTasks, setShowTasks] = useState(false);
   const dateFormat = taskdate => {
     const date = new Date(taskdate);
     const newDate = `${date.getDate()}, ${date.toDateString()[4]}${
       date.toDateString()[5]
-    }${date.toDateString()[6]} at ${date.toLocaleTimeString()}`;
+    }${date.toDateString()[6]} ${date.toLocaleTimeString()}`;
 
     return newDate;
   };
@@ -145,14 +149,17 @@ const TaskItems = ({ status, myTasks }) => {
                   <>
                     {showTasks && (
                       <div
-                        onClick={() => {
-                          getClickedTask(i.task_id);
-                          navigate("/dashboard/taskdetail");
-                        }}
                         className={styles.task}
                         key={i.task_id}
                         style={{ background: color.background }}
                       >
+                        <div
+                          className={styles.overlay}
+                          onClick={() => {
+                            getClickedTask(i.task_id);
+                            navigate("/dashboard/taskdetail");
+                          }}
+                        ></div>
                         <div
                           className={styles.checkBox}
                           style={{
@@ -164,7 +171,17 @@ const TaskItems = ({ status, myTasks }) => {
                           }}
                           onClick={() => {
                             handleClick(i.task_id, i.status);
-                            notify();
+                            i.status !== "EXPIRED" &&
+                              // updateTask(i.task_id, {
+                              //   title: "working",
+                              //   description: i.title,
+                              //   start_time: i.start_time,
+                              //   end_time: i.end_time,
+                              //   repeat: "never",
+                              //   va_option: i.va_option,
+                              //   status: "DONE"
+                              // });
+                              notify();
                           }}
                         ></div>
                         <div className={styles.detailsWrapper}>

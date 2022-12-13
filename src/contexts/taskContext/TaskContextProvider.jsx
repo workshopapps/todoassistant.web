@@ -59,21 +59,23 @@ const TaskContextProvider = ({ children }) => {
 
   const getNotificationVA = async () => {
     try {
-      await axios.get("https://api.ticked.hng.tech/api/v1/notification", {
-        headers: { Authorization: `Bearer ${
-          id?.data?.access_token || idVa?.extra?.token
-        }` }
-      }).then((res) => {
-        alert("You have a new notification")
-        localStorage.setItem("userNotification", JSON.stringify(res.data))
-        setNotification(res.data);
-
-      })
-      
+      await axios
+        .get("https://api.ticked.hng.tech/api/v1/notification", {
+          headers: {
+            Authorization: `Bearer ${
+              id?.data?.access_token || idVa?.extra?.token
+            }`
+          }
+        })
+        .then(res => {
+          alert("You have a new notification");
+          localStorage.setItem("userNotification", JSON.stringify(res.data));
+          setNotification(res.data);
+        });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const getClickedTask = id => {
     // const tasks = JSON.parse(localStorage.getItem("myTasks"));
@@ -81,14 +83,19 @@ const TaskContextProvider = ({ children }) => {
     setTask(singleTask);
   };
 
-  const updateTask = (id, body) => {
-    setIsLoading(true);
-    axios
-      .put(`${base_url}/task/${id}`, body)
-      .then(() => getTasks())
-      .catch(err => console.log(err))
-      .finally(() => setIsLoading(false));
-  };
+  const updateTask = useCallback(
+    (id, body) => {
+      setIsLoading(true);
+      axios
+        .put(`${base_url}/task/${id}`, body, {
+          headers: { Authorization: "Bearer " + token }
+        })
+        .then(() => getTasks())
+        .catch(err => console.log(err))
+        .finally(() => setIsLoading(false));
+    },
+    [token]
+  );
 
   const deleteTask = id => {
     setIsLoading(true);
