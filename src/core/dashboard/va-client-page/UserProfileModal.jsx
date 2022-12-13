@@ -195,7 +195,10 @@ export default function UserProfileModal({ userID, user }) {
                     </Typography>
                   </Stack>
                 </Stack>
-                <FormControl component={`a`} href={`mailto:info@example.com`}>
+                <FormControl
+                  component={`a`}
+                  href={`mailto:${userDetails.email}`}
+                >
                   <Stack
                     direction={`row`}
                     justifyContent={`space-between`}
