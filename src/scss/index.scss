@@ -20,10 +20,22 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: $black !important;
   background: #fff !important;
+
+  // p {
+  //   // border: 1px solid red;
+  //   font-size: 14px !important;
+  //   @media (min-width: 992px) {
+  //     font-size: 18px !important;
+  //   }
+  // }
 }
 
 .hover {
@@ -68,4 +80,7 @@ body {
 
 input {
   border: 1px solid red;
+}
+
+.fluid-header {
 }

@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 
 // import DialogTitle from '@mui/material/DialogTitle';
 import Slide from "@mui/material/Slide";
+import { Stack } from "@mui/material";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -167,13 +168,13 @@ const NewsLetter = () => {
         error={error}
         email={email}
       />
-      <section className={style.news__letter}>
-        <h3 className={style.header}>Newsletter</h3>
-        <form className={style.form}>
+      <form className={style.news__letter}>
+        <Typography className={style.header}>Newsletter</Typography>
+        <Box px={2} mb={`1rem`} textAlign={`left`} className={style.form}>
           <label className={style.label} htmlFor="email">
             Email Address
           </label>
-          <div className={style.input_container}>
+          <Stack direction={{ sm: `row` }} alignItems={`center`} gap={2}>
             <input
               className={`${style.input}`}
               style={{ outline: "none" }}
@@ -183,15 +184,16 @@ const NewsLetter = () => {
               value={email}
               placeholder="Enter email"
             />
+
             <button
               onClick={(e) => handleNewsLetter(e)}
               className={[style.subscribe_button, `hover`].join(" ")}
-            >
+
               Subscribe
             </button>
-          </div>
-        </form>
-      </section>
+          </Stack>
+        </Box>
+      </form>
     </>
   );
 };

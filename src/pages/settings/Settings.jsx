@@ -193,6 +193,7 @@ export default function Settings() {
           alignItems={`center`}
           direction={`row`}
           flexWrap={`wrap`}
+          fontSize={{ xs: `small`, sm: `medium` }}
         >
           <Box
             margin={{ xs: `1rem auto`, md: `1rem 0` }}
@@ -270,13 +271,19 @@ export default function Settings() {
               <List>
                 <ListItem sx={{ px: 0 }}>
                   <img src={tickCircle} alt="ticked" />
-                  Max 5 To-do’s
+                  Up to 100 To-do’s
                 </ListItem>
                 <ListItem sx={{ px: 0 }}>
-                  <img src={tickCircle} alt="ticked" />5 MB file upload
+                  <img src={tickCircle} alt="ticked" />
+                  30 mins reminder time
                 </ListItem>
                 <ListItem sx={{ px: 0 }}>
-                  <img src={tickCircle} alt="ticked" />1 week activity history
+                  <img src={tickCircle} alt="ticked" />
+                  100 MB file upload
+                </ListItem>
+                <ListItem sx={{ px: 0 }}>
+                  <img src={tickCircle} alt="ticked" />
+                  Virtual Assistant
                 </ListItem>
               </List>
             </Box>
@@ -322,13 +329,22 @@ export default function Settings() {
               <List>
                 <ListItem sx={{ px: 0 }}>
                   <img src={tickCircle} alt="ticked" />
-                  Max 5 To-do’s
+                  Unlimited To-do’s
                 </ListItem>
                 <ListItem sx={{ px: 0 }}>
-                  <img src={tickCircle} alt="ticked" />5 MB file upload
+                  <img src={tickCircle} alt="ticked" />
+                  Unlimited reminder time
                 </ListItem>
                 <ListItem sx={{ px: 0 }}>
-                  <img src={tickCircle} alt="ticked" />1 week activity history
+                  <img src={tickCircle} alt="ticked" />1 GB file upload
+                </ListItem>
+                <ListItem sx={{ px: 0 }}>
+                  <img src={tickCircle} alt="ticked" />1 GB file upload
+                </ListItem>
+
+                <ListItem sx={{ px: 0 }}>
+                  <img src={tickCircle} alt="ticked" />
+                  Unlimited activity history
                 </ListItem>
               </List>
             </Box>

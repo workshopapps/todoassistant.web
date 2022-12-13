@@ -49,7 +49,7 @@
     border-style: solid;
     border-color: #E9F3F5;
     border-radius: 8px;
-    padding: 0.5rem 2rem 0.5rem 2rem;
+    padding: 0.2rem 2rem 0rem 2rem;
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -78,27 +78,47 @@
     line-height: 120%;
     color: #707070;
     cursor: pointer;
-    padding: 1rem 0;
+    padding: 1.5rem 0 ;
 }
 
-.active,
-.va_home_link:hover {
-    font-weight: 600;
+.active {
+    font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
     color: #714DD9;
-    border-bottom: 2px solid #714DD9;
+    border-bottom: 3px solid #714DD9;
 }
 
-.va_tasks {
-    background: white;
+.va_home_link:hover {
+    color: #714DD9;
+}
+
+.va_tasks {    
     margin-top: 1rem;
     height: 70vh;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 8px 8px 0px 0px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+    position: relative;   
 }
+
+.va_allTasks {
+    transform: translateX(-100vw) !important;
+    transition:all 1s ease;
+    position:absolute;
+    width:100%;
+    background: white;
+}
+
+.va_assigned {
+    transform: translateX(100vw) !important;
+    transition:all 1s ease;
+    background: white;
+}
+
+.va_allTasks.active_tab,.va_assigned.active_tab{
+    transform:translateX(0) !important;
+  }
 
 .va_no_tasks {
     display: flex;
