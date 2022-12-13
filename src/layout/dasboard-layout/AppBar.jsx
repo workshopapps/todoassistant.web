@@ -61,7 +61,7 @@ console.log(notification)
           />
         </Typography>
         <Box>
-          <Stack direction={`row`} alignItems={`center`} gap={5}>
+          <Stack direction={`row`} alignItems={`center`} gap={0}>
             <Link to={`notifications`}>
               <Badge color="secondary" badgeContent={notification?.length}>
                 <NotificationsNoneIcon
