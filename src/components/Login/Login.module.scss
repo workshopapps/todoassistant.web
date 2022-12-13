@@ -297,6 +297,9 @@
           font-weight: 600;
           font-size: 14px;
           line-height: 180%;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
