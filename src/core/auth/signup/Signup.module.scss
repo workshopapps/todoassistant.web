@@ -1,33 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
-.reset_header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  background: #ffffff;
-  z-index: 60;
-  // max-width: 1440px;
-  // height: 100px;
-  // border-bottom: 1px solid #d3d0d9;
-  // padding: 16px;
-  // display: flex;
-  // align-items: center;
-  // img {
-  //   padding-left: 104px;
-  //   @media screen and (max-width: 768px) {
-  //     padding-left: 0px;
-  //   }
-  // }
-}
 .signup_pg {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  // display: grid;
+  // grid-template-columns: 50% 50%;
   //   overflow: hidden;
+  // height: 135vh;
   background: #f9f7ff;
   width: 100%;
-  height: 135vh;
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -43,13 +23,13 @@
       margin: 20px auto;
       position: relative;
       padding: 20px;
-      top: 80px;
+      // top: 80px;
       background: #f9f7ff;
       // padding: 20px;
 
-      @media screen and (max-width: 768px) {
-        top: 70px;
-      }
+      // @media screen and (max-width: 768px) {
+      //   top: 70px;
+      // }
 
       h2 {
         height: 40px;
@@ -61,6 +41,11 @@
         color: #333333;
         margin: 0 0 30px;
         text-align: center;
+
+        @media screen and (max-width: 225px) {
+          font-size: 20px;
+          margin: 0 0 25px;
+        }
       }
       form {
         .rsp_input_field {
@@ -379,5 +364,12 @@
     @media screen and (max-width: 768px) {
       display: none;
     }
+  }
+}
+
+img.mainImg {
+  position: fixed;
+  @media screen and (max-width: 900px) {
+    position: inherit;
   }
 }

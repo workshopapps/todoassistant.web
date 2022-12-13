@@ -17,7 +17,11 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../schemas/loginSchema";
 import imgval from "../../assets/assets/red-alert-exclamation.png";
 import closebtn from "../../assets/assets/ios-close-5.png";
-import { loginFailure, loginStart, loginSuccess } from "../../contexts/authContext/AuthActions";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess
+} from "../../contexts/authContext/AuthActions";
 
 const clientId =
   "407472887868-9a6lr7idrip6h8cgthsgekl84mo7358q.apps.googleusercontent.com";
@@ -25,21 +29,19 @@ const baseurl = "https://api.ticked.hng.tech/api/v1";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { errMessage, dispatch } = useContext(AuthContext);
+  const { isFetching, errMessage, dispatch } = useContext(AuthContext);
   // const [specificErrorMessage, setSpecificErrorMessage] = useState("");
   // const [showPassword, setShowPassword] = useState(false);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [fbUser, setFbUser] = useState("");
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: ""
-  // });
+
+  const [checkState, setCheckState] = useState(false);
+  // useState to disable button while submitting
+  const [isSignin, setIsSignin] = useState(false);
 
   const [err, setErr] = useState(null);
-  
 
   const [specificErrorMessage, setSpecificErrorMessage] = useState("");
-  
 
   // toggle password states
   const [passwordShown, setPasswordShown] = useState(false);
@@ -64,21 +66,16 @@ const LoginForm = () => {
         "https://api.ticked.hng.tech/api/v1/facebooklogin",
         body
       );
-      
+
       dispatch(loginSuccess(response.data));
       // localStorage.setItem("token", JSON.stringify(response?.data.data.access_token));
       // localStorage.setItem("user", JSON.stringify(response?.data));
       // navigate("/dashboard", { replace: true });
-      
     } catch (err) {
       console.log(err);
       dispatch(loginFailure(err.response.data.error.error));
     }
   };
-
-  const [checkState, setCheckState] = useState(false);
-  // useState to disable button while submitting
-  const [isSignin, setIsSignin] = useState(false);
 
   const onSubmit = async values => {
     // e.preventDefault();
@@ -93,14 +90,15 @@ const LoginForm = () => {
   useEffect(() => {
     if (errMessage) {
       setSpecificErrorMessage(errMessage);
-      setErr(errMessage);
+      // setErr(errMessage);
+      setErr("Invalid email and password combination");
       setIsAlertVisible(true);
 
       setTimeout(() => {
         setIsAlertVisible(false);
       }, 2000);
     }
-    errMessage == err;
+    // errMessage == err;
   }, [errMessage]);
 
   // formik handling
@@ -260,7 +258,7 @@ const LoginForm = () => {
                   </p>
                 </div>
 
-                {isSignin ? (
+                {isFetching || isSignin ? (
                   <button className={style.btn_npsw} disabled={true}>
                     Signing In...
                   </button>
