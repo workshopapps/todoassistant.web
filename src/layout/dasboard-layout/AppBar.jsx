@@ -23,7 +23,7 @@ console.log(notification)
     <AppBar
       sx={{
         justifyContent: `center`,
-        height: { xs: `64px`, sm: `120px` },
+        height: { xs: `64px`, md: `120px` },
         borderBottom: `1px solid lightgrey`
       }}
       elevation={0}
