@@ -81,13 +81,16 @@
     padding: 1rem 0;
 }
 
-.active,
-.va_home_link:hover {
+.active {
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
     color: #714DD9;
     border-bottom: 2px solid #714DD9;
+}
+
+.va_home_link:hover {
+    color: #714DD9;
 }
 
 .va_tasks {
