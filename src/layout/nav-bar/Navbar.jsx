@@ -14,7 +14,7 @@ import { AuthContext } from "../../contexts/authContext/AuthContext";
 import { useContext } from "react";
 import Button from "../../components/button/ButtonComponent";
 import { logout } from "../../contexts/authContext/AuthActions";
-import { List, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import style from "../header/navbar.module.scss";
 import { ArrowUpward } from "@mui/icons-material";
 
@@ -44,7 +44,8 @@ const scrollToTop = () => {
 const btnStyleOutline = {
   border: "1px solid #714dd9",
   background: "transparent",
-  color: "#714dd9"
+  color: "#714dd9",
+  width: { xs: `100%`, md: `initial` }
 };
 
 function NavBar(props) {
@@ -78,24 +79,31 @@ function NavBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        <Link to="/">
-          <img
-            src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg`}
-            alt="ticked"
-          />
-        </Link>
-      </Typography>
-      <Divider />
-      <List>
+    <Stack
+      justifyContent={`space-between`}
+      height={`100%`}
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center" }}
+    >
+      <Box>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          <Link to="/">
+            <img
+              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1668735681/hng/todoAppVirtualAssistant/Frame_34483_msotkx.svg`}
+              alt="ticked"
+            />
+          </Link>
+        </Typography>
+        <Divider />
+      </Box>
+      <Box height={`100%`} pt={10}>
         <Links isMobile={true} />
-      </List>
+      </Box>
       {/* CTAs */}
-      <Stack my={5} alignItems={`center`} gap={2}>
+      <Stack px={3} my={5} alignItems={`center`} gap={2}>
         {CTA}
       </Stack>
-    </Box>
+    </Stack>
   );
 
   return (
@@ -155,7 +163,12 @@ function NavBar(props) {
             <Links isMobile={false} />
           </Box>
           {/* CTAs */}
-          <Stack display={{ xs: `none`, md: `flex` }} direction={`row`} gap={4}>
+          <Stack
+            width={`20rem`}
+            display={{ xs: `none`, md: `flex` }}
+            direction={`row`}
+            gap={4}
+          >
             {CTA}
           </Stack>
         </Toolbar>
