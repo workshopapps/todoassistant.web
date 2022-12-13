@@ -4,7 +4,7 @@ import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Chip, MenuItem, Stack } from "@mui/material";
+import { Chip, FormControl, MenuItem, Stack } from "@mui/material";
 import axios from "axios";
 import Loader from "./Loader";
 import ProfileAvatar from "./Avatar";
@@ -13,6 +13,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 
 const style = {
   position: "relative",
+
   display: `flex`,
   flexDirection: `column`,
   alignItems: `center`,
@@ -22,12 +23,15 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   borderRadius: `8px`,
-  maxWidth: 900,
+  maxWidth: 500,
   width: `100%`,
   height: { xs: `100%`, md: `initial` },
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  p: { xs: `1rem`, md: `5rem` }
+  bgcolor: {
+    xs: `#fff`,
+    sm: `transparent`
+  },
+  boxShadow: 0
+  // p: { xs: `1rem`, md: `5rem` }
 };
 
 const iconStyle = {
@@ -91,6 +95,7 @@ export default function UserProfileModal({ userID, user }) {
         View Profile
       </MenuItem>
       <Modal
+        sx={{ border: `1px solid red` }}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -105,11 +110,15 @@ export default function UserProfileModal({ userID, user }) {
               onClick={handleClose}
               sx={{
                 position: `absolute`,
+                padding: `.3rem`,
+                border: `1px solid red`,
+                borderRadius: `100%`,
                 top: 0,
                 right: 0,
                 margin: `2rem`,
                 fontSize: `2rem`,
-                cursor: `pointer`
+                cursor: `pointer`,
+                color: { xs: `red`, md: `#fff` }
               }}
             />
             <ProfileAvatar
@@ -120,17 +129,31 @@ export default function UserProfileModal({ userID, user }) {
                 .toUpperCase()}
               size={{ width: 150, height: 150 }}
             />
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Typography
+              color={{ xs: `#333333`, md: `#fff` }}
+              fontWeight={700}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
               {[userDetails.first_name, userDetails.last_name].join(" ")}
             </Typography>
-            <Chip color="primary" label="Ticked Free Plan" variant="outlined" />
-            <Box width={{ xs: `100%`, md: `70%` }}>
+            <Chip
+              sx={{ bgcolor: `#3f89b8`, color: `#fff` }}
+              label="Ticked Free Plan"
+              variant="outlined"
+            />
+            <Box width={`100%`}>
               <Stack
+                border={`1px solid lightgrey`}
                 borderRadius={`8px`}
-                padding={`5rem 1rem`}
+                padding={{ xs: `2rem 1rem`, sm: `2rem` }}
                 gap={3}
-                className="shadow"
+                bgcolor={`#fff`}
               >
+                <Typography fontWeight={700} fontSize={`16px`}>
+                  Profile Infomation
+                </Typography>
                 <Stack
                   direction={`row`}
                   justifyContent={`space-between`}
@@ -172,66 +195,78 @@ export default function UserProfileModal({ userID, user }) {
                     </Typography>
                   </Stack>
                 </Stack>
-                <Stack
-                  direction={`row`}
-                  justifyContent={`space-between`}
-                  alignItems={`center`}
-                  flexWrap={`wrap`}
+                <FormControl
+                  component={`a`}
+                  href={`mailto:${userDetails.email}`}
                 >
                   <Stack
                     direction={`row`}
-                    alignItems={`center`}
                     justifyContent={`space-between`}
-                    gap={1}
-                    width={{ xs: `5rem`, md: `6rem` }}
+                    alignItems={`center`}
+                    flexWrap={`wrap`}
                   >
-                    <AlternateEmailIcon sx={iconStyle} />
-                    <Typography
-                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                    <Stack
+                      direction={`row`}
+                      alignItems={`center`}
+                      justifyContent={`space-between`}
+                      gap={1}
+                      width={{ xs: `5rem`, md: `6rem` }}
                     >
-                      Email
-                    </Typography>
+                      <AlternateEmailIcon sx={iconStyle} />
+                      <Typography
+                        fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                      >
+                        Email
+                      </Typography>
+                    </Stack>
+                    <Stack width={`60%`}>
+                      <Typography
+                        color={`#000000`}
+                        fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                        fontWeight={700}
+                      >
+                        {userDetails.email}
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack width={`60%`}>
-                    <Typography
-                      color={`#000000`}
-                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                      fontWeight={700}
-                    >
-                      {userDetails.email}
-                    </Typography>
-                  </Stack>
-                </Stack>
-                <Stack
-                  direction={`row`}
-                  justifyContent={`space-between`}
-                  alignItems={`center`}
+                </FormControl>
+                <FormControl
+                  component={`a`}
+                  // href={`https://api.whatsapp.com/send?phone=${userDetails.phone}`}
+                  href={`https://wa.me/${userDetails.phone}`}
+                  target="_blank"
                 >
                   <Stack
                     direction={`row`}
-                    alignItems={`center`}
                     justifyContent={`space-between`}
-                    gap={1}
-                    width={{ xs: `5rem`, md: `6rem` }}
+                    alignItems={`center`}
                   >
-                    <PhoneIcon sx={iconStyle} />
+                    <Stack
+                      direction={`row`}
+                      alignItems={`center`}
+                      justifyContent={`space-between`}
+                      gap={1}
+                      width={{ xs: `5rem`, md: `6rem` }}
+                    >
+                      <PhoneIcon sx={iconStyle} />
 
-                    <Typography
-                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                    >
-                      Phone
-                    </Typography>
+                      <Typography
+                        fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                      >
+                        Phone
+                      </Typography>
+                    </Stack>
+                    <Stack width={`60%`}>
+                      <Typography
+                        color={`#000000`}
+                        fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
+                        fontWeight={700}
+                      >
+                        {userDetails.phone}
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack width={`60%`}>
-                    <Typography
-                      color={`#000000`}
-                      fontSize={{ xs: `12px`, sm: `14px`, md: `16px` }}
-                      fontWeight={700}
-                    >
-                      {userDetails.phone}
-                    </Typography>
-                  </Stack>
-                </Stack>
+                </FormControl>
               </Stack>
             </Box>
           </Box>

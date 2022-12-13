@@ -35,13 +35,14 @@ const VAHome = () => {
 
   const [hidden, setHidden] = useState(true);
   const [dissapear, setDissapear] = useState(true);
+  const [assigned, setAssigned] = useState([]);
 
   const fetchTasks = async () => {
     let vaUser = JSON.parse(localStorage.getItem("VA"));
 
     if (vaUser) {
       const response = await axios.get(
-        `https://api.ticked.hng.tech/api/v1/task/all/va`,
+        `https://api.ticked.hng.tech/api/v1/task/all`,
         {
           headers: {
             Authorization: `Bearer ${vaUser.extra.token}`
@@ -75,6 +76,10 @@ const VAHome = () => {
       document.body.style = "overflow-y:hidden";
     }
   }, [hidden]);
+
+  useEffect(() => {
+    setAssigned(data?.filter(task => task.va_id !== ""));
+  }, [data]);
 
   return (
     <Box
@@ -142,7 +147,7 @@ const VAHome = () => {
             }}
             className={(activeClass === 1 && styles.active) || ""}
           >
-            Assigned to Me {`(${data?.length})`}
+            Assigned to Me {`(${assigned?.length})`}
           </Typography>
         </Box>
       </Box>
@@ -197,6 +202,7 @@ const VAHome = () => {
               numTask={data?.length}
               setDissapear={setDissapear}
               setHidden={setHidden}
+              assigned={assigned}
               // setData={setSingleData}
             />
           </Box>
