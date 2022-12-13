@@ -4,6 +4,8 @@ import styles from "./Comments.module.scss";
 import Messages from "./Messages";
 import TextInput from "./TextInput/TextInput";
 import data from "./_mock";
+
+import { useParams } from "react-router-dom";
 import useSound from "use-sound";
 import useDetectKeyboard from "use-detect-keyboard-open";
 import messageSound from "../../assets/sounds/message.mp3";
@@ -15,6 +17,7 @@ import "./Comments.css";
 import axios from "axios";
 
 const Comments = () => {
+  const { id: taskId } = useParams();
   const [play] = useSound(messageSound);
   const bottomRef = useRef(null);
   const [apiData, setApiData] = useState(data);
@@ -41,7 +44,7 @@ const Comments = () => {
     sendComment();
     setApiData([
       ...apiData,
-      { id: id, status: "user", comment: message, isEmoji: !typedMessage }
+      { id: id, status: "va", comment: message, isEmoji: !typedMessage }
     ]);
     setCanSend(false);
     setTypedMessage(false);
@@ -76,16 +79,16 @@ const Comments = () => {
 
     // console.log(message.text);
   };
-  const getComments = async () => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let taskId = JSON.parse(localStorage.getItem("taskDetialsContent")).task_id;
 
-    if (user) {
+  const getComments = async () => {
+    let va = JSON.parse(localStorage.getItem("VA"));
+
+    if (va) {
       const response = await axios.get(
         `https://api.ticked.hng.tech/api/v1/task/comment/${taskId}`,
         {
           headers: {
-            Authorization: `Bearer ${user.data.access_token}`
+            Authorization: `Bearer ${va.extra.token}`
           }
         }
       );
@@ -99,23 +102,22 @@ const Comments = () => {
   };
 
   const sendComment = async () => {
-    let user = JSON.parse(localStorage.getItem("user"));
-    let taskId = JSON.parse(localStorage.getItem("taskDetialsContent")).task_id;
+    let va = JSON.parse(localStorage.getItem("VA"));
 
-    if (user) {
+    if (va) {
       const response = await axios.post(
         `https://api.ticked.hng.tech/api/v1/task/comment`,
         {
           comment: message,
           created_at: new Date(),
           task_id: taskId,
-          sender_id: user.data.user_id,
-          status: "user",
+          sender_id: va.data.va_id,
+          status: "va",
           isEmoji: (!typedMessage && "1") || "0"
         },
         {
           headers: {
-            Authorization: `Bearer ${user.data.access_token}`
+            Authorization: `Bearer ${va.extra.token}`
           }
         }
       );

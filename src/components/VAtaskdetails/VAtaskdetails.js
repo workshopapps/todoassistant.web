@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import timerStart from "../../assets/timer-start-small.png";
 import styles from "./VAtaskdetails.module.scss";
 
-import VAComments from "../Comments/Comments";
+import VAComments from "../VAComments/Comments";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Avatar } from "@mui/material";

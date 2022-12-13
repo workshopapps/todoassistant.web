@@ -12,7 +12,7 @@ const Messages = ({ data }) => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: `${(m.status === "user" && "flex-end") || "flex-start"}`
+        alignItems: `${(m.status === "va" && "flex-end") || "flex-start"}`
       }}
     >
       <span
@@ -23,17 +23,17 @@ const Messages = ({ data }) => {
           fontSize: `${(m.isEmoji && "58px") || "20px"}`,
           textAlign: `start`,
           padding: `${
-            (m.status === "user" && "10px 20px 35px 15px") ||
+            (m.status === "va" && "10px 20px 35px 15px") ||
             "10px 15px 35px 10px"
           }`,
           maxWidth: "42%",
           wordBreak: "break-word",
           color: "white",
           backgroundColor: `${
-            (m.status === "user" && "#9c27b0") || "rgba(113, 77, 217, 8.5)"
+            (m.status === "va" && "#9c27b0") || "rgba(113, 77, 217, 8.5)"
           }`,
           borderRadius: `${
-            (m.status === "user" && "5px 5px 0px 5px") || "5px 5px 5px 0px"
+            (m.status === "va" && "5px 5px 0px 5px") || "5px 5px 5px 0px"
           }`
         }}
       >
@@ -41,9 +41,9 @@ const Messages = ({ data }) => {
       </span>
       <span
         style={{
-          display: `${(m.status === "user" && "block") || "none"}`,
+          display: `${(m.status === "va" && "block") || "none"}`,
           position: "absolute",
-          right: `${(m.status === "user" && "14px") || ""} `,
+          right: `${(m.status === "va" && "14px") || ""} `,
           bottom: "3px",
           fontSize: "10px",
           color: "white"
@@ -55,9 +55,9 @@ const Messages = ({ data }) => {
 
       <span
         style={{
-          display: `${(m.status === "user" && "none") || "block"}`,
+          display: `${(m.status === "va" && "none") || "block"}`,
           position: "absolute",
-          left: `${(m.status === "user" && "") || "14px"} `,
+          left: `${(m.status === "va" && "") || "14px"} `,
           bottom: "3px",
           fontSize: "10px",
           color: "white"

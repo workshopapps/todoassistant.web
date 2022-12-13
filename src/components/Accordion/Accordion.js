@@ -120,6 +120,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     <Avatar {...stringAvatar(task.user.name)} />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         marginLeft: "10px",
                         paddingRight: "30px",
@@ -141,6 +143,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -158,6 +162,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "13px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -170,6 +176,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                   <Box display="flex" alignItems={"center"} gap="5px">
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         marginLeft: "20px",
                         fontSize: "13px",
                         color: ` ${
@@ -194,6 +202,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
               >
                 <span
                   style={{
+                    fontFamily: `Lato 'sans-serif'`,
+                    textTransform: "capitalize",
                     color: `${(activeState === task && "#fff") || "#714DD9"}`
                   }}
                   className={styles.task__date}
@@ -286,6 +296,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         marginLeft: "10px",
                         paddingRight: "30px",
@@ -307,6 +319,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -324,6 +338,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "13px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -336,6 +352,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
                   <Box display="flex" alignItems={"center"} gap="5px">
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         marginLeft: "20px",
                         fontSize: "13px",
                         color: ` ${
@@ -360,6 +378,8 @@ const Accordion = ({ data, setHidden, setDissapear, activeClass }) => {
               >
                 <span
                   style={{
+                    fontFamily: `Lato 'sans-serif'`,
+                    textTransform: "capitalize",
                     color: `${(activeState === task && "#fff") || "#714DD9"}`
                   }}
                   className={styles.task__date}

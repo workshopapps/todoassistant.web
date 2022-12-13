@@ -1,0 +1,32 @@
+.css-8q2m5j-MuiInputBase-root-MuiInput-root:before ,
+.css-17g51r8:hover:before,
+.css-17g51r8:hover:not(.Mui-disabled)::before,
+.css-17g51r8::after,
+.css-17g51r8::before,
+.css-8q2m5j-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before,
+.css-8q2m5j-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before
+{
+                      border-bottom:none !important
+}
+
+.css-13r4j3i {
+                      width: 100% !important;
+                  }
+                  
+                  .css-13r4j3i .MuiTextField-root {
+                      margin: 8px !important;
+                      width: 95% !important;
+                      border: 1px solid #cbcbcb !important;
+                      border-radius: 7px !important;
+                      padding: 7px !important;
+                  }
+                  .css-8q2m5j-MuiInputBase-root-MuiInput-root:after{
+                      border-bottom: none !important;
+                  }
+
+                  @media screen and (min-width:900px){
+                      .css-13r4j3i .MuiTextField-root {
+                                            margin: 8px !important;
+                                            width: 101% !important;
+                      }                                        
+                  }
