@@ -3,7 +3,7 @@ import { BiSend } from "react-icons/bi";
 import styles from "./Comments.module.scss";
 import Messages from "./Messages";
 import TextInput from "./TextInput/TextInput";
-import data from "./_mock";
+// import data from "./_mock";
 
 import { useParams } from "react-router-dom";
 import useSound from "use-sound";
@@ -20,7 +20,7 @@ const Comments = () => {
   const { id: taskId } = useParams();
   const [play] = useSound(messageSound);
   const bottomRef = useRef(null);
-  const [apiData, setApiData] = useState(data);
+  const [apiData, setApiData] = useState([]);
   const [sent, setSent] = useState(false);
   const [typedMessage, setTypedMessage] = useState(null);
   const [canSend, setCanSend] = useState(false);
@@ -30,10 +30,7 @@ const Comments = () => {
 
   const onEmojiClick = emojiObject => {
     setCanSend(true);
-    let hexEmoji = emojiObject.emoji.codePointAt(0).toString(16);
-    setMessage(prev => prev + hexEmoji);
-    // console.log((emojiObject.emoji).codePointAt(0).toString(16))
-    // console.log(String.fromCodePoint("0x1f603"))
+    setMessage(prev => prev + emojiObject.emoji);
     setShowPicker(false);
   };
 
@@ -93,6 +90,8 @@ const Comments = () => {
         }
       );
       console.log(response);
+      setApiData(response.data.data);
+
       // const vaTasks = response.data.data;
 
       // setData(vaTasks);
@@ -113,7 +112,7 @@ const Comments = () => {
           task_id: taskId,
           sender_id: va.data.va_id,
           status: "va",
-          isEmoji: (!typedMessage && "1") || "0"
+          isEmoji: (!typedMessage && 1) || 0
         },
         {
           headers: {
@@ -145,7 +144,7 @@ const Comments = () => {
         <div className={styles.comments} id={"chat"}>
           {(!apiData && (
             /* EMPTY STATE HERE */
-            <div className={styles.empty__state}>
+            <div className={styles.empty__state} style={{ marginTop: "119px" }}>
               <h3 style={{ textAlign: "center", marginBottom: "10px" }}>
                 No Messages
               </h3>
