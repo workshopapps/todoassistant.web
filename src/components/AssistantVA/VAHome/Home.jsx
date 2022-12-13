@@ -92,25 +92,52 @@ const Home = () => {
         (
         <div className={styles.va_tasks}>
           {tasks?.length > 0 ? (
-            nav ? (
-              tasks.map((task, index) => (
-                <Task details={task} key={index} handleClick={handleClick} />
-              ))
-            ) : assigned?.length <= 0 ? (
-              <div className={styles.va_no_tasks}>
-                <span className={styles.va_no_tasks_title}>
-                  No Assigned Tasks Yet
-                </span>
-                <span className={styles.va_no_tasks_sub}>
-                  You will be notified when a user assigned a task to you
-                </span>
-              </div>
-            ) : (
-              assigned.map((task, index) =>
+            <>
+              <div className={[styles.va_allTasks, nav && styles.active_tab].join(" ")}>
+                {tasks.map((task, index) => (
                   <Task details={task} key={index} handleClick={handleClick} />
-              )
-            )
-          ) : (
+                ))
+                }
+              </div>
+
+              <div className={[styles.va_assigned, !nav && styles.active_tab].join(" ")}>
+                {
+                  assigned?.length <= 0 ? (
+                    <div className={styles.va_no_tasks}>
+                      <span className={styles.va_no_tasks_title}>
+                        No Assigned Tasks Yet
+                      </span>
+                      <span className={styles.va_no_tasks_sub}>
+                        You will be notified when a user assigned a task to you
+                      </span>
+                    </div>) : (
+                      assigned.map((task, index) =>
+                      <Task details={task} key={index} handleClick={handleClick} />
+                  )
+                    )
+
+                }
+              </div>
+            </>
+          ) 
+          //   : assigned?.length <= 0 ? (
+          //     <div className={styles.va_no_tasks}>
+          //       <span className={styles.va_no_tasks_title}>
+          //         No Assigned Tasks Yet
+          //       </span>
+          //       <span className={styles.va_no_tasks_sub}>
+          //         You will be notified when a user assigned a task to you
+          //       </span>
+          //     </div>
+          //   ) : (
+          //     <div className={[styles.va_assigned, !nav && styles.active_tab].join(" ")}>
+          //     {assigned.map((task, index) =>
+          //         <Task details={task} key={index} handleClick={handleClick} />
+          //     )}
+          //     </div>
+          //   )
+          // ) 
+          : (
             <div className={styles.va_no_tasks}>
               <span className={styles.va_no_tasks_title}>No Clients</span>
               <span className={styles.va_no_tasks_sub}>
