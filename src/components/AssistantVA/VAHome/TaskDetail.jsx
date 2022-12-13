@@ -3,6 +3,7 @@ import moment from "moment";
 import styles from './Home.module.scss'
 import { AiOutlineClockCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { BsPatchCheck } from "react-icons/bs";
+// import { Link } from 'react-router-dom'
 
 const TaskDetail = ({ taskDetails, handleClose }) => {
     const format_time = moment(taskDetails.end_time).format("lll")
@@ -29,6 +30,15 @@ const TaskDetail = ({ taskDetails, handleClose }) => {
                         <AiOutlineClockCircle className = {styles.child_sub_img} size={20} />
                         <p className = {styles.child_sub_typo}>{taskDetails.status}</p>
                     </div>                    
+                </div>
+
+                <div className = {styles.taskDetail_child}>
+                    <div className = {styles.child_title}>CONTACT OPTION</div>
+                    {
+                        taskDetails.va_option === "call" || taskDetails.va_option === "whatsapp" ? <a href={`https://wa.me/${taskDetails.user.phone}`} target="_blank" rel="noreferrer">
+                        <p className = {styles.child_sub_typo}>{taskDetails.va_option}</p>
+                        </a> : <p className = {styles.child_sub_typo}>{taskDetails.va_option}</p>
+                    }                     
                 </div>
 
                 <div className = {styles.taskDetail_child}>
