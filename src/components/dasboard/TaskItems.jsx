@@ -4,6 +4,7 @@ import styles from "./TaskItems.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { Box, Stack, Typography } from "@mui/material";
 
 const TaskItems = ({ status, myTasks }) => {
   const notify = () => {
@@ -92,7 +93,7 @@ const TaskItems = ({ status, myTasks }) => {
     <div className={styles.wrapper}>
       <ToastContainer />
       <div className={styles.header}>
-        <div className={styles.status}>
+        <Box gap={3} className={styles.status}>
           <div className={styles.statusName}>
             <div
               className={styles.icon}
@@ -118,20 +119,30 @@ const TaskItems = ({ status, myTasks }) => {
                 />
               </svg>
             </div>
-            <p className={styles.text} style={{ background: `${color.color}` }}>
+            <Typography
+              fontSize={{ xs: `12px`, md: `14px` }}
+              className={styles.text}
+              style={{ background: `${color.color}` }}
+            >
               {status}
-            </p>
+            </Typography>
           </div>
-          <p className={styles.noOfTasks}>{`${
+          <Typography className={styles.noOfTasks}>{`${
             Array.isArray(myTasks)
               ? myTasks.length === 0
                 ? 0
                 : taskCount()
               : 0
-          } TASKS`}</p>
-        </div>
+          } TASKS`}</Typography>
+        </Box>
         {/* <p className={styles.asign}>ASSIGN</p> */}
-        <p className={styles.date}>DUE DATE</p>
+        <Stack
+          alignItems={`end`}
+          display={{ xs: `none`, sm: `flex` }}
+          width={`100%`}
+        >
+          <Typography className={styles.date}>DUE DATE</Typography>
+        </Stack>
       </div>
       <div className={styles.tasks}>
         {Array.isArray(myTasks) &&
@@ -188,7 +199,7 @@ const TaskItems = ({ status, myTasks }) => {
                               {i.title}
                             </p>
                           </div>
-                          {i.va_option === "assign task" ? (
+                          {i.va_id !== "" ? (
                             <div
                               className={styles.asign}
                               style={{

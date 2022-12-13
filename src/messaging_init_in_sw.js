@@ -33,7 +33,7 @@ export const requestForToken = () => {
   })
     .then(currentToken => {
       if (currentToken) {
-        console.log("current token for client 1: ", currentToken);
+        // console.log("current token for client 1: ", currentToken);
         localStorage.setItem(
           "firebaseNotification",
           JSON.stringify(currentToken)
@@ -45,7 +45,7 @@ export const requestForToken = () => {
             device_id: currentToken
           };
           try {
-            console.log("testing");
+            // console.log("testing");
             await axios
               .post("https://api.ticked.hng.tech/api/v1/notification", data, {
                 headers: {

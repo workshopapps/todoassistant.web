@@ -1,4 +1,8 @@
 .css-8q2m5j-MuiInputBase-root-MuiInput-root:before ,
+.css-17g51r8:hover:before,
+.css-17g51r8:hover:not(.Mui-disabled)::before,
+.css-17g51r8::after,
+.css-17g51r8::before,
 .css-8q2m5j-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before,
 .css-8q2m5j-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled):before
 {
