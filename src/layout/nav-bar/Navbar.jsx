@@ -134,6 +134,7 @@ function NavBar(props) {
         color="transparent"
         position="static"
         component="nav"
+        // className="shadow"
       >
         <Toolbar
           className={style.nav}
