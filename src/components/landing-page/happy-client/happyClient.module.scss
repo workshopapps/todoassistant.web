@@ -30,10 +30,7 @@ p {
     font-weight: 700;
     line-height: 160%;
     margin-bottom: 1rem;
-    font-size: 34px;
-    @media screen and (min-width: 992px) {
-      font-size: 48px;
-    }
+    @include header-font;
   }
 
   .section__six_subtitle {

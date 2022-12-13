@@ -4,6 +4,7 @@ import styles from "./TaskItems.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { Box, Stack, Typography } from "@mui/material";
 
 const TaskItems = ({ status, myTasks }) => {
   const notify = () => {
@@ -92,7 +93,7 @@ const TaskItems = ({ status, myTasks }) => {
     <div className={styles.wrapper}>
       <ToastContainer />
       <div className={styles.header}>
-        <div className={styles.status}>
+        <Box gap={3} className={styles.status}>
           <div className={styles.statusName}>
             <div
               className={styles.icon}
@@ -118,20 +119,30 @@ const TaskItems = ({ status, myTasks }) => {
                 />
               </svg>
             </div>
-            <p className={styles.text} style={{ background: `${color.color}` }}>
+            <Typography
+              fontSize={{ xs: `12px`, md: `14px` }}
+              className={styles.text}
+              style={{ background: `${color.color}` }}
+            >
               {status}
-            </p>
+            </Typography>
           </div>
-          <p className={styles.noOfTasks}>{`${
+          <Typography className={styles.noOfTasks}>{`${
             Array.isArray(myTasks)
               ? myTasks.length === 0
                 ? 0
                 : taskCount()
               : 0
-          } TASKS`}</p>
-        </div>
+          } TASKS`}</Typography>
+        </Box>
         {/* <p className={styles.asign}>ASSIGN</p> */}
-        <p className={styles.date}>DUE DATE</p>
+        <Stack
+          alignItems={`end`}
+          display={{ xs: `none`, sm: `flex` }}
+          width={`100%`}
+        >
+          <Typography className={styles.date}>DUE DATE</Typography>
+        </Stack>
       </div>
       <div className={styles.tasks}>
         {Array.isArray(myTasks) &&
@@ -144,17 +155,33 @@ const TaskItems = ({ status, myTasks }) => {
                 return (
                   <>
                     {showTasks && (
-                      <div
+                      <Stack
+                        direction={{ xs: `column`, sm: `row` }}
+                        fontSize={{ xs: `small`, md: `medium` }}
+                        justifyContent={`space-between`}
+                        alignItems={`center`}
+                        gap={`1rem`}
+                        padding={`1rem`}
                         onClick={() => {
                           getClickedTask(i.task_id);
                           navigate("/dashboard/taskdetail");
                         }}
-                        className={styles.task}
+                        className={styles.tas}
                         key={index}
                         style={{ background: color.background }}
                       >
-                        <div className={styles.taskName}>
-                          <div
+                        <Stack
+                          flex={1}
+                          direction={`row`}
+                          alignItems={`center`}
+                          gap={1}
+                          className={styles.taskName}
+                          position={`relative`}
+                          zIndex={50}
+                        >
+                          <Box
+                            width={`1rem`}
+                            height={`1rem`}
                             className={styles.checkBox}
                             style={{
                               background:
@@ -167,8 +194,10 @@ const TaskItems = ({ status, myTasks }) => {
                               handleClick(i.task_id, i.status);
                               notify();
                             }}
-                          ></div>
-                          <p
+                          ></Box>
+                          <Typography
+                            fontSize={{ xs: `14px`, md: `16px` }}
+                            fontWeight={700}
                             className={styles.text}
                             style={{
                               color: status === "DONE" ? "#D3D0D9" : "",
@@ -177,10 +206,14 @@ const TaskItems = ({ status, myTasks }) => {
                             }}
                           >
                             {i.title}
-                          </p>
-                        </div>
+                          </Typography>
+                        </Stack>
                         {i.va_option === "assign task" ? (
-                          <div
+                          <Stack
+                            flex={1}
+                            direction={`row`}
+                            alignItems={`center`}
+                            gap={1}
                             className={styles.asign}
                             style={{
                               opacity: status === "EXPIRED" ? "0%" : "100%"
@@ -219,9 +252,13 @@ const TaskItems = ({ status, myTasks }) => {
                             >
                               Assigned
                             </p>
-                          </div>
+                          </Stack>
                         ) : (
-                          <div
+                          <Stack
+                            flex={1}
+                            direction={`row`}
+                            alignItems={`center`}
+                            gap={1}
                             className={styles.asign}
                             style={{
                               opacity:
@@ -266,15 +303,19 @@ const TaskItems = ({ status, myTasks }) => {
                             >
                               Assign
                             </p>
-                          </div>
+                          </Stack>
                         )}
-                        <p
-                          className={styles.date}
-                          style={{ color: status === "DONE" ? "#D3D0D9" : "" }}
-                        >
-                          {dateFormat(i.end_time)}
-                        </p>
-                      </div>
+                        <Stack alignItems={`end`} flex={1}>
+                          <Typography
+                            className={styles.date}
+                            style={{
+                              color: status === "DONE" ? "#D3D0D9" : ""
+                            }}
+                          >
+                            {dateFormat(i.end_time)}
+                          </Typography>
+                        </Stack>
+                      </Stack>
                     )}
                   </>
                 );
