@@ -31,7 +31,7 @@ const Comments = () => {
     let taskId = JSON.parse(localStorage.getItem("taskDetialsContent")).task_id;
 
     if (user) {
-      const response = await axios.get(
+      const response = await axios.post(
         `https://api.ticked.hng.tech/api/v1/task/comment`,
         {
           task_id: taskId,
