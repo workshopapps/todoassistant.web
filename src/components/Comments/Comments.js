@@ -17,20 +17,46 @@ import axios from "axios";
 const Comments = () => {
   const [play] = useSound(messageSound);
   const bottomRef = useRef(null);
-  const [apiData, setApiData] = useState(null);
+  const [apiData, setApiData] = useState([]);
   const [typedMessage, setTypedMessage] = useState(null);
   const [canSend, setCanSend] = useState(false);
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   const isKeyboardOpen = useDetectKeyboard();
 
+  const onEmojiClick = emojiObject => {
+    setCanSend(true);
+    setMessage(prev => prev + emojiObject.emoji);
+    setShowPicker(false);
+  };
+
+  const handleSend = () => {
+    let id = Math.floor(Math.random * 200);
+    console.log("hi");
+    play();
+    sendComment();
+    setApiData([
+      ...apiData,
+      { id: id, status: "user", comment: message, isEmoji: !typedMessage }
+    ]);
+    setCanSend(false);
+    setTypedMessage(false);
+    setMessage("");
+  };
+
+  const handleEnter = e => {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  };
+
   const getComments = async () => {
     let user = JSON.parse(localStorage.getItem("user"));
     let task = JSON.parse(localStorage.getItem("taskDetialsContent"));
-    console.log(task);
+    console.log(task.task_id);
     if (user) {
       const response = await axios.get(
-        `https://api.ticked.hng.tech/api/v1/task/comment/${task.task_id}`,
+        `https://api.ticked.hng.tech/api/v1/task/comment/${task?.task_id}`,
         {
           headers: {
             Authorization: `Bearer ${user.data.access_token}`
@@ -52,14 +78,13 @@ const Comments = () => {
     let user = JSON.parse(localStorage.getItem("user"));
     let task = JSON.parse(localStorage.getItem("taskDetailsContent"));
 
-    let { task_id: taskId } = task;
     if (user) {
       const response = await axios.post(
         `https://api.ticked.hng.tech/api/v1/task/comment`,
         {
           comment: message,
           created_at: new Date(),
-          task_id: taskId,
+          task_id: task.task_id,
           sender_id: user.data.user_id,
           status: "user",
           isEmoji: (!typedMessage && 1) || 0
@@ -82,32 +107,6 @@ const Comments = () => {
   useEffect(() => {
     getComments();
   }, []);
-
-  const onEmojiClick = emojiObject => {
-    setCanSend(true);
-    setMessage(prev => prev + emojiObject.emoji);
-    setShowPicker(false);
-  };
-
-  const handleSend = () => {
-    let id = Math.floor(Math.random * 200);
-
-    play();
-    sendComment();
-    setApiData([
-      ...apiData,
-      { id: id, status: "user", comment: message, isEmoji: !typedMessage }
-    ]);
-    setCanSend(false);
-    setTypedMessage(false);
-    setMessage("");
-  };
-
-  const handleEnter = e => {
-    if (e.key === "Enter") {
-      handleSend();
-    }
-  };
 
   //Automatically Scrool to Bottom when new
   //Messages Comes In
