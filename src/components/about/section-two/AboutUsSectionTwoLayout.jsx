@@ -4,8 +4,9 @@ import Button from "../../button/ButtonComponent";
 import SectionThreeList from "../../../components/landing-page/section-three/section-three-list/SectionThreeList";
 //import SectionThreeList from "./section-three-list/SectionThreeList";
 import styles from "./AboutUsHeader.module.scss";
+import { Button as ButtonComp } from "@mui/material";
 
-const AboutUsSectionTwoLayout = () => {
+const AboutUsSectionTwoLayout = ({ title }) => {
   const [img, setImg] = useState(
     "https://res.cloudinary.com/kingsleysolomon/image/upload/v1668950853/hng/todoAppVirtualAssistant/Frame_34492_1_beztou.svg"
   );
@@ -32,7 +33,7 @@ const AboutUsSectionTwoLayout = () => {
       <section className={styles.container}>
         <div className={styles.main__tick}>
           <header>
-            <h3 className={styles.section__three_title}>Why Ticked</h3>
+            <h3 className={styles.section__three_title}>{title}</h3>
           </header>
           <div className={styles.steps}>
             <SectionThreeList
@@ -66,11 +67,15 @@ const AboutUsSectionTwoLayout = () => {
             <Button
               link={`/login`}
               title={`Get Started`}
-              style={{ width: `50%` }}
+              style={{ width: `100%` }}
             />
-            <button className={[styles.download].join(" ")}>
+            <ButtonComp
+              variant="outlined"
+              style={{ width: `100%` }}
+              className={[styles.download].join(" ")}
+            >
               Download App
-            </button>
+            </ButtonComp>
           </div>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import { Animate } from "../../../hooks/animation/AnimateIn";
 import Button from "../../button/ButtonComponent";
@@ -15,12 +16,12 @@ const TodoListSection = () => {
       <section className={styles.container}>
         <div className={styles.vr_header}>
           <h3>To-do list</h3>
-          <p>
+          <Typography fontSize={{ xs: `16px`, md: `18px` }}>
             TICKED is the easiest way to organise and schedule your individual
             tasks. It makes it easy for you to be clear on what to do, when to
             do it, and how to get it done in a lively and exciting way. DON’T
             forget to carry out your next task, your Assistant will call you.
-          </p>
+          </Typography>
           <div className={styles.vr_header_buttons}>
             <Button
               link={`/signup`}

@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import Carousel from "../../../components/carousel/Carousel";
 import Button from "../../button/ButtonComponent";
 import Banner from "./Banner";
@@ -54,13 +55,13 @@ const VirtualAssistant = () => {
     <section className={styles.vr}>
       <div className={styles.vr_header}>
         <h3>Virtual Assistant</h3>
-        <p>
+        <Typography fontSize={{ xs: `16`, md: `18px` }}>
           A Virtual Assistant will be available for you. Get the opportunity to
           work with a Virtual Assistant such that you can delegate some tasks to
           be carried out for you. Receive calls from your Assistant when you
           fail to complete your set tasks for each day or within a speculated
           time.
-        </p>
+        </Typography>
         <div className={styles.vr_header_buttons}>
           <Button
             link={`/signup`}

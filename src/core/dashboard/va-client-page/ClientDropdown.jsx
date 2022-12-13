@@ -80,7 +80,7 @@ export default function ClientDropdown({ userID, user }) {
         disableelevation="true"
         onClick={handleClick}
       >
-        <MoreVertIcon />
+        <MoreVertIcon sx={{ color: "#714DD9" }} />
       </IconButton>
       <StyledMenu
         id="client-menu"

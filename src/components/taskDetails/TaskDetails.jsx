@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./taskDetails.module.scss";
-import VAavatar from "../../assets/vaavatar.png";
+import VAavatar from "../../assets/va-avatar.png";
 import timerStart from "../../assets/timer-start-small.png";
 import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
 import CreateTask from "../createTask/CreateTask";
@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import DeleteModal from "../deleteModal/DeleteModal";
 import Comments from "../Comments/Comments";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const TaskDetails = () => {
   const [tab, setTab] = useState(0);
@@ -16,6 +18,7 @@ const TaskDetails = () => {
   const [month, setMonth] = useState("");
   const [edit, setEdit] = useState(0);
   const [deleteTask, setDeleteTask] = useState(0);
+  const navigate = useNavigate();
 
   //------sending task to local storage for persistence---
   if (Object.keys(task).length) {
@@ -50,11 +53,20 @@ const TaskDetails = () => {
         func="edit"
         editData={task}
       />
+      <div
+        className={styles.TaskDetail_back}
+        onClick={() => {
+          navigate("/dashboard");
+        }}
+      >
+        <MdOutlineKeyboardBackspace className={styles.TaskDetail_backIcon} />
+        <p className={styles.TaskDetail_backText}>Back</p>
+      </div>
       <div className={styles.TaskDetail_header}>
         <div className={styles.TaskDetail_header_left}>
           <p
             onClick={() => {
-              setTab(!tab);
+              tab ? setTab(!tab) : "";
             }}
             className={
               !tab
@@ -66,7 +78,7 @@ const TaskDetails = () => {
           </p>
           <p
             onClick={() => {
-              setTab(!tab);
+              tab ? "" : setTab(!tab);
             }}
             className={
               tab
@@ -104,7 +116,7 @@ const TaskDetails = () => {
             <p className={styles.TaskDetail_assignto_head}>Assigned to</p>
             <div className={styles.TaskDetail_assignto}>
               <img src={VAavatar} alt="assigned va" />
-              <p className={styles.TaskDetail_va_name}>Sandra Davids</p>
+              <p className={styles.TaskDetail_va_name}>James</p>
             </div>
             <p className={styles.TaskDetail_reminder_time_head}>
               Reminder Time

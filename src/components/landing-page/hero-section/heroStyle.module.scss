@@ -34,14 +34,11 @@
       text-align: left;
     }
     h3 {
-      font-size: 34px;
+      @include header-font;
       margin: 1rem 0;
-      @media screen and (min-width: 992px) {
-        font-size: 48px;
-      }
     }
     p {
-      font-size: 18px;
+      // font-size: 18px;
       line-height: 180%;
     }
 

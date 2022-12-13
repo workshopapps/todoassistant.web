@@ -10,7 +10,7 @@ const VaClientHeader = ({ numberOfUsers }) => {
       bgcolor={`#fff`}
       borderRadius={`8px`}
       className={`shadow`}
-      py={`2.25rem`}
+      py={`1rem`}
     >
       <Badge
         max={99}
@@ -20,7 +20,7 @@ const VaClientHeader = ({ numberOfUsers }) => {
       >
         <PersonIcon
           sx={{
-            fontSize: `3rem`,
+            fontSize: `2.3rem`,
             margin: `0 1rem`,
             bgcolor: `#714DD980`,
             borderRadius: `100%`,

@@ -10,6 +10,7 @@
 
 .env
 
+temp_auto_push.bat
 
 # misc
 .DS_Store
@@ -22,3 +23,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
+.gitignore
+branch_structure.json

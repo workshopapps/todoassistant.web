@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./delete.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import { TaskCtx } from "../../contexts/taskContext/TaskContextProvider";
@@ -10,7 +10,9 @@ const DeleteModal = ({ deleteTask, setDeleteTask, editData }) => {
   const token = JSON.parse(localStorage.getItem("user"))?.data?.access_token;
   const navigate = useNavigate();
   const { getTasks } = useContext(TaskCtx);
+  const [disabled, setDisabled] = useState(false);
   const handleDelete = async () => {
+    setDisabled(true);
     try {
       await axios.delete(
         `https://api.ticked.hng.tech/api/v1/task/${editData.task_id}`,
@@ -29,6 +31,7 @@ const DeleteModal = ({ deleteTask, setDeleteTask, editData }) => {
       });
       navigate("/dashboard");
     }
+    setDisabled(false);
   };
   return (
     <div
@@ -52,6 +55,7 @@ const DeleteModal = ({ deleteTask, setDeleteTask, editData }) => {
               handleDelete();
             }}
             className={styles.Delete_button2}
+            disabled={disabled}
           >
             Yes, Delete
           </button>

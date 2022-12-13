@@ -1,54 +1,54 @@
 @import "../../../scss/mixins";
 @import "../../../scss/variables";
 
-.sectionGrid{
-  background: url( "../../../assets/Rectangle 18.png");
-}
-
-.contactGrid{
-  @include container;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
- // height: 70vh;
-  margin-bottom: 5rem;
-  @media (min-width: 992px) {
-  flex-direction: row;
-    .img {
-    flex: 1;
-    height: 100%;
-   // margin-top: 5rem;
-    img {
-      @include img_fluid;
-      width: 41rem;
-    }
-  }
-}
-  }
-
- @media (max-width: 768px) {
-   .contactGrid{
- @include container;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  margin-bottom: 5rem;
- }
-
+.sectionGrid {
+  background: url("../../../assets/Rectangle 18.png") no-repeat;
   .img {
-    flex: 1;
-    height: 100%;
-    width: 29rem;
-    img {
-      @include img_fluid;
-      margin-bottom: 5px;
-    }
+    // display: 1px solid red;
+    // width: 10rem;
+    @include img_fluid;
   }
 }
 
+// .contactGrid {
+// @include container;
+// display: flex;
+// flex-direction: column;
+// justify-content: space-between;
+// align-items: center;
+// // height: 70vh;
+// margin-bottom: 5rem;
 
-   
- 
+// flex-direction: row;
+// .img {
+//   flex: 1;
+//   // height: 100%;
+//   // margin-top: 5rem;
+//   img {
+//     display: none;
+//     // width: 41rem;
+//   }
+// }
+// }
+
+// @media (max-width: 768px) {
+//   .contactGrid {
+//     @include container;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 100vh;
+//     margin-bottom: 5rem;
+//   }
+
+//   .img {
+//     flex: 1;
+//     height: 100%;
+//     width: 29rem;
+//     img {
+//       @include img_fluid;
+//       margin-bottom: 5px;
+//     }
+//   }
+// }

@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Animate } from "../../../hooks/animation/AnimateIn";
@@ -10,7 +11,7 @@ const HeroSectionNew = ({ content }) => {
         <div className={styles.header}>
           <h3>{content.title}</h3>
           <h3 style={{ color: `#FDA758` }}>{content.title2}</h3>
-          <p>{content.subTitle}</p>
+          <Typography fontSize={{xs:`16px`, md:`20px`}}>{content.subTitle}</Typography>
         </div>
         <div className={styles.hero__btn_container}>
           <Link to="/signup">

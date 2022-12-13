@@ -36,7 +36,10 @@
 }
 
 @mixin header-font {
-  font-size: 34px;
+  font-size: 28px;
+  @media (min-width: 375px) {
+    font-size: 34px;
+  }
   @media (min-width: 992px) {
     font-size: 48px;
   }

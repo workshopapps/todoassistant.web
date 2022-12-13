@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 import style from "./whytickedbox.module.scss";
 
@@ -17,7 +18,7 @@ export default WhyTickedBox;
 
 export const FeatureBox = ({ title, desc, bgColor, width }) => {
   return (
-    <div
+    <Box
       style={{ background: bgColor, maxWidth: width }}
       className={[style.featureBox, `shadow`].join(" ")}
     >
@@ -27,6 +28,6 @@ export const FeatureBox = ({ title, desc, bgColor, width }) => {
       />
       <h4 className={style.whytickedbox__header}>{title}</h4>
       <p className={style.whytickedbox__desc}>{desc}</p>
-    </div>
+    </Box>
   );
 };

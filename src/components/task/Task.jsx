@@ -12,7 +12,6 @@ const Task = () => {
       {/* ------sub-header----------------- */}
       <div className={styles.task_top}>
         <div className={styles.task_left_wrap}>
-    
           <p className={styles.task_left_text}>Welcome to Ticked</p>
         </div>
         <Search />
@@ -55,17 +54,17 @@ const Task = () => {
         </div>
 
         {tab === 0
-          ? Data.map((value) => {
+          ? Data.map(value => {
               return <TaskView key={value.id} value={value} />;
             })
           : ""}
         {tab === 1
-          ? Data.map((value) => {
+          ? Data.map(value => {
               return <TaskView key={value.id} value={value} />;
             })
           : ""}
         {tab === 2
-          ? Data.map((value) => {
+          ? Data.map(value => {
               return <TaskView key={value.id} value={value} complete={true} />;
             })
           : ""}

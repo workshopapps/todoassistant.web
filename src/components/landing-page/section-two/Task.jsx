@@ -28,10 +28,10 @@ const Task = () => {
   return (
     <section className={style.section__two}>
       <header>
-        <h1 className={style.section__two_title}>
+        <h3 className={style.section__two_title}>
           Focus On Your Day <br /> Let’s Worry About Your{" "}
           <span className={style.section__two_task}>Tasks</span>
-        </h1>
+        </h3>
         <p className={style.section__two_subtitle}>
           Organise your tasks, set your reminders and allocate tasks to your
           Virtual Assistant in order to stay focused on your tasks, save time

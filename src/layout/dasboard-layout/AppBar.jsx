@@ -23,7 +23,7 @@ console.log(notification)
     <AppBar
       sx={{
         justifyContent: `center`,
-        height: { xs: `64px`, sm: `120px` },
+        height: { xs: `64px`, md: `120px` },
         borderBottom: `1px solid lightgrey`
       }}
       elevation={0}
@@ -61,9 +61,9 @@ console.log(notification)
           />
         </Typography>
         <Box>
-          <Stack direction={`row`} alignItems={`center`} gap={5}>
+          <Stack direction={`row`} alignItems={`center`} gap={0}>
             <Link to={`notifications`}>
-              <Badge color="secondary" badgeContent={notification.length}>
+              <Badge color="secondary" badgeContent={notification?.length}>
                 <NotificationsNoneIcon
                   fontSize="large"
                   sx={{

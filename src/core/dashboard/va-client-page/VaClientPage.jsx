@@ -45,7 +45,12 @@ const VaClientPage = () => {
 
   return (
     <>
-      <Box height={`calc(100vh - 120px)`} py={`2.5rem`}>
+      <Box
+        position={`relative`}
+        height={{ xs: `calc(100vh - 60px)`, md: `calc(100vh - 120px)` }}
+        py={`1.5rem`}
+        // border={`1px solid red`}
+      >
         <Container>
           <VaClientHeader numberOfUsers={vaUsers.length} />
           <Box height={`100%`} my={`1rem`}>
