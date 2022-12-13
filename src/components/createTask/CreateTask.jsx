@@ -19,7 +19,6 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
   const [buttonDisable, setButtonDisable] = useState(0);
   // const [notification, setNotification] = useState([]);
 
-  // console.log(notification)
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -36,10 +35,8 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
   useEffect(() => {
     if (func === "edit") {
       data.title = editData.title;
-      data.description = editData.title;
-      data.repeat = editData.repeat;
-      data.assistant = editData.va_option;
     }
+    getNotificationVA();
   }, []);
 
   const handleCheck = e => {
@@ -49,10 +46,6 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
       setCheck("");
     }
   };
-
-  useEffect(() => {
-    getNotificationVA();
-  }, []);
 
   const handle = e => {
     const newData = { ...data };
@@ -155,7 +148,9 @@ const CreateTask = ({ taskModal, setTaskModal, func, editData }) => {
           }}
         >
           <div className={styles.createTask_header_wrapper}>
-            <h1 className={styles.createTask_header}>Add New Task</h1>
+            <h1 className={styles.createTask_header}>
+              {func === "edit" ? "Edit Task" : "Add New Task"}
+            </h1>
             <CgClose
               onClick={() => {
                 setTaskModal(0);
