@@ -52,14 +52,13 @@ const Comments = () => {
     let user = JSON.parse(localStorage.getItem("user"));
     let task = JSON.parse(localStorage.getItem("taskDetailsContent"));
 
-    let { task_id: taskId } = task;
     if (user) {
       const response = await axios.post(
         `https://api.ticked.hng.tech/api/v1/task/comment`,
         {
           comment: message,
           created_at: new Date(),
-          task_id: taskId,
+          task_id: task.task_id,
           sender_id: user.data.user_id,
           status: "user",
           isEmoji: (!typedMessage && 1) || 0
