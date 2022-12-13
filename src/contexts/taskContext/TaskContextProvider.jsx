@@ -12,6 +12,7 @@ export const taskCtxDefaultValues = {
   setTasks: () => null,
   getClickedTask: () => null,
   getTaskById: () => null,
+  updateStatus: () => null,
   updateTask: () => null,
   deleteTask: () => null
 };
@@ -97,6 +98,17 @@ const TaskContextProvider = ({ children }) => {
     [token]
   );
 
+  const updateStatus = (id, body) => {
+    setIsLoading(true);
+    axios
+      .put(`${base_url}/task/status/${id}`, body, {
+        headers: { Authorization: "Bearer " + token }
+      })
+      .then(() => getTasks())
+      .catch(err => console.log(err))
+      .finally(() => setIsLoading(false));
+  };
+
   const deleteTask = id => {
     setIsLoading(true);
     axios
@@ -114,6 +126,7 @@ const TaskContextProvider = ({ children }) => {
         getTasks,
         setTasks,
         getTaskById,
+        updateStatus,
         getNotificationVA,
         notification,
         updateTask,

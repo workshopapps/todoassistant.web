@@ -10,11 +10,7 @@ const TaskItems = ({ status, myTasks }) => {
     status === "PENDING" && toast.success(`Moved to Done`, { icon: false });
     status === "DONE" && toast.info(`Moved to Pending`, { icon: false });
   };
-  const {
-    setTasks,
-    getClickedTask
-    // , updateTask
-  } = useContext(TaskCtx);
+  const { setTasks, getClickedTask, updateStatus } = useContext(TaskCtx);
   const [showTasks, setShowTasks] = useState(false);
   const dateFormat = taskdate => {
     const date = new Date(taskdate);
@@ -172,16 +168,11 @@ const TaskItems = ({ status, myTasks }) => {
                           onClick={() => {
                             handleClick(i.task_id, i.status);
                             i.status !== "EXPIRED" &&
-                              // updateTask(i.task_id, {
-                              //   title: "working",
-                              //   description: i.title,
-                              //   start_time: i.start_time,
-                              //   end_time: i.end_time,
-                              //   repeat: "never",
-                              //   va_option: i.va_option,
-                              //   status: "DONE"
-                              // });
-                              notify();
+                              updateStatus(i.task_id, {
+                                status:
+                                  i.status === "PENDING" ? "PENDING" : "DONE"
+                              });
+                            notify();
                           }}
                         ></div>
                         <div className={styles.detailsWrapper}>
