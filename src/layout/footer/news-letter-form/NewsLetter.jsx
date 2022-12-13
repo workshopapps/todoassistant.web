@@ -126,8 +126,8 @@ const NewsLetter = () => {
       );
   };
 
-  const handleNewsLetter = async (e) => {
-    e.preventDefault()
+  const handleNewsLetter = async e => {
+    e.preventDefault();
     if (email !== "" && validateEmail(email)) {
       try {
         const response = await axios.post(
@@ -137,12 +137,11 @@ const NewsLetter = () => {
           }
         );
         if (response.status == 200) {
-          toast.success('Thank you for subscribing', {
+          toast.success("Thank you for subscribing", {
             position: toast.POSITION.TOP_RIGHT
           });
           setError("new");
           setEmail("");
-
         }
         if (response.status == 400) {
           setError("exist");
@@ -186,9 +185,9 @@ const NewsLetter = () => {
             />
 
             <button
-              onClick={(e) => handleNewsLetter(e)}
+              onClick={e => handleNewsLetter(e)}
               className={[style.subscribe_button, `hover`].join(" ")}
-
+            >
               Subscribe
             </button>
           </Stack>
