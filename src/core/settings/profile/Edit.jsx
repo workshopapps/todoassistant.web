@@ -30,10 +30,10 @@ const EditProfile = () => {
   };
 
   const defaultForm = {
-    first_Name: "",
-    last_name: "",
-    email: "",
-    phone: ""
+    first_Name: user.data.first_name,
+    last_name: user.data.last_name,
+    email: user.data.email,
+    phone: user.data.phone
   };
 
   const [form, setForm] = useState(defaultForm);
@@ -122,7 +122,7 @@ const EditProfile = () => {
       if (res.data.code === 200) {
         updateStorage(res.data.data);
         setLoading(false);
-         setOpen(true);
+        setOpen(true);
       }
     } catch (err) {
       setLoading(false);
