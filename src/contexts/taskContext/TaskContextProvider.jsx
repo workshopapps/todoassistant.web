@@ -78,6 +78,23 @@ const TaskContextProvider = ({ children }) => {
     }
   };
 
+  //Deleting and resetting notiification
+  const resetNotification = async () => {
+    setNotification([])
+    try {
+      await axios.delete("https://api.ticked.hng.tech/api/v1/notification", {
+        headers: { Authorization: `Bearer ${
+          id?.data?.access_token || idVa?.extra?.token
+        }` }
+      }).then((res) => {
+        console.log(res)
+      })
+    } catch (error) {
+      console.error(error)
+      
+    }
+  }
+
   const getClickedTask = id => {
     // const tasks = JSON.parse(localStorage.getItem("myTasks"));
     const singleTask = tasks.find(i => i.task_id === id);
@@ -129,6 +146,7 @@ const TaskContextProvider = ({ children }) => {
         updateStatus,
         getNotificationVA,
         notification,
+        resetNotification,
         updateTask,
         deleteTask,
         getClickedTask

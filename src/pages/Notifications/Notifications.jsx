@@ -53,9 +53,16 @@ export function AlertDialogSlide({open, handleClose, loading, userDetails}) {
 export default function Notifications() {
   const id = JSON.parse(localStorage.getItem("user"));
   const idVa = JSON.parse(localStorage.getItem("VA"));
+  const [ mark, setMark ] = useState(false)
   const [open, setOpen] = useState(false);
   const [ loading, setIsLoading ] = useState(false)
   const [ userDetails, setUserDetails ] = useState([])
+  const {notification, resetNotification } = useContext(TaskCtx);
+  const [active, setActive] = useState("All");
+  const [ currentNotification ] = useState(notification)
+  // const { getTasks, getNotificationVA, notification } = useContext(TaskCtx);
+
+  // const [notificationRead, setNotificationRead] = useState([])
 
   const getUserNotificationDetails = async (taskID) => {
     setIsLoading(true)
@@ -75,19 +82,41 @@ export default function Notifications() {
       }
   }
 
+//   let filterNotification = []
+ 
+  
+// console.log(filterNotification)
 
 
-  const handleClickOpen = (val) => {
-    console.log(val)
+
+
+  const handleClickOpen = (val, notificationIndex) => {
+    let value = currentNotification[notificationIndex]
+    // setCurrentNotification((prev))
+    // console.log(notification)
+    value.readNotification = true
+    // notification[notificationIndex] = value
+    // console.log(value)
     setOpen(true);
     getUserNotificationDetails(val)
+    
   };
+
+  const handleRead = (log, index) => {
+    console.log(log, index, "unread")
+    const value = currentNotification[index]
+    value.read_status  = "1"
+    // console.log(currentNotification)
+    // setCurrentNotification((prev) => prev[index] = value)
+  }
+
+  currentNotification.filter((item) => item.read_status !== "1")
+  console.log(currentNotification, "curent")
 
   const handleClose = () => {
     setOpen(false);
   };
-  const [active, setActive] = useState("All");
-  const {notification } = useContext(TaskCtx);
+  
 
 
 
@@ -140,7 +169,7 @@ export default function Notifications() {
             >
               All
             </Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 cursor: "pointer",
                 borderBottom: active === "Unread" ? "2px solid #714DD9" : null,
@@ -149,10 +178,15 @@ export default function Notifications() {
               onClick={() => setActive("Unread")}
             >
               Unread
-            </Typography>
+            </Typography> */}
           </Box>
           <Box>
-            <Typography sx={{ color: "#714DD9" }}>Mark All as read</Typography>
+            {notification.length > 0 ? <Typography 
+              onClick={() => {
+                setMark(true)
+                
+              }} 
+              sx={{ color: "#714DD9", cursor: "pointer" }}>Mark All as read</Typography> : null}
           </Box>
         </Box>
       </Box>
@@ -163,12 +197,12 @@ export default function Notifications() {
           </Box>
         ))}
       </Box> */}
-      <Box mt={2} sx={{ background: "#fff" }} py={2}>
+      {active === "All" ?   <Box mt={2} sx={{ background: "#fff" }} py={2}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            padding: { xs: "20px 10px", md: "0px 30px" }
+            padding: { xs: "20px 10px", md: "0px 30px" },
           }}
         >
           {notification !== null && (
@@ -176,15 +210,21 @@ export default function Notifications() {
               <Typography sx={{ fontSize: "12px" }}>
                 {notification.length} NOTIFICATIONS
               </Typography>
-              <Typography sx={{ fontSize: "12px", color: "#FF4D4F" }}>
+             {notification.length > 0 ?  <Typography 
+                sx={{ 
+                  fontSize: "12px", 
+                  color: "#FF4D4F", 
+                  cursor: "pointer" 
+                }} 
+                  onClick={() => resetNotification()}>
                 Clear all
-              </Typography>
+              </Typography>: null}
             </>
           )}
         </Box>
         {/* <p onClick={() => handleClickOpen("906a82f3-850a-4d58-ac2b-fc3d3c702c30")}>me</p> */}
         {notification !== null ? (
-          notification.map(item => {
+          notification.map((item, index) => {
             let bgCl
             switch(item?.title) {
               case "Expired Task":
@@ -195,9 +235,118 @@ export default function Notifications() {
             }
             return (
               <Box
-              onClick={() => handleClickOpen(item.task_id)}
+              onClick={() => handleClickOpen(item.task_id, index)}
               className="shadow"
-              key={item?.title}
+              key={index}
+              mt={1}
+              p={1}
+              sx={{
+                background: bgCl,
+                borderRadius: "8px",
+                padding: { xs: "20px 10px", md: "20px 50px" },
+                cursor: "pointer"
+              }}
+            >
+              <Box
+                sx={{
+                  display: {xs: "block", sm: "block", md: "flex"},
+                  justifyContent: "space-between",
+                  alignItems: "center"
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
+                  <Box>
+                    <Box
+                      sx={{
+                        padding: "20px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%"
+                      }}
+                    >
+                      <Typography ml={1}>N</Typography>
+                      <Typography
+                        sx={{
+                          backgroundColor: mark ? null : "red",
+                          padding: "3px",
+                          borderRadius: "50%",
+                          position: "relative",
+                          left: "7px",
+                          top: "-12px"
+                        }}
+                      ></Typography>
+                    </Box>
+                  </Box>
+                  <Box ml={2}>
+                    <Typography sx={{ fontSize: "14px", fontWeight: mark ? "100" : "700" }}>
+                      {item?.title}
+                    </Typography>
+                    <Typography
+                      sx={{ fontSize: "12px", fontWeight: mark ? "100" : "400" }}
+                      component="span"
+                    >
+                      {item?.content}
+                    </Typography>
+                  </Box>
+                </Box>
+                <Typography
+                  sx={{ fontSize: "12px", fontWeight: mark ? "100" : "400" }}
+                  ml={2}
+                  component="span"
+                >
+                  {item?.time}
+                </Typography>
+              </Box>
+            </Box>
+            )
+          })
+        ) : (
+          <Box mt={4}>
+            <Typography textAlign={"center"}>
+              You do not have notification yet
+            </Typography>
+          </Box>
+        )}
+      </Box> : active === "Unread" ? <Box mt={2} sx={{ background: "#fff" }} py={2}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: { xs: "20px 10px", md: "0px 30px" },
+          }}
+        >
+          {currentNotification !== null && (
+            <>
+              <Typography sx={{ fontSize: "12px" }}>
+                {currentNotification.length} NOTIFICATIONS
+              </Typography>
+              {/* <Typography sx={{ fontSize: "12px", color: "#FF4D4F" }}>
+                Clear all
+              </Typography> */}
+            </>
+          )}
+        </Box>
+        {/* <p onClick={() => handleClickOpen("906a82f3-850a-4d58-ac2b-fc3d3c702c30")}>me</p> */}
+        {currentNotification !== null ? (
+          currentNotification.map((item, index) => {
+            // console.log(item, "308")
+            // item.readNotification = false
+            let bgCl
+            switch(item?.title) {
+              case "Expired Task":
+                  bgCl = "linear-gradient(0deg, rgba(219, 0, 4, 0.11), rgba(219, 0, 4, 0.11)), #FFFFFF"
+                  break
+              default: 
+                  bgCl = "linear-gradient(0deg, rgba(82, 196, 26, 0.11), rgba(82, 196, 26, 0.11)), #FFFFFF"
+            }
+            return (
+              <Box
+              onClick={() => handleRead(item, index)}
+              className="shadow"
+              key={index}
               mt={1}
               p={1}
               sx={{
@@ -270,7 +419,7 @@ export default function Notifications() {
             </Typography>
           </Box>
         )}
-      </Box>
+      </Box>: null}
       <AlertDialogSlide 
         open={open} 
         handleClose={handleClose} 
