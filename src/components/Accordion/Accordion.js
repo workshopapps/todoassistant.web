@@ -53,7 +53,6 @@ const Accordion = ({
   //   };
   // }
 
-  console.log(assigned, "This is assigned");
   return (
     <div style={{ transform: "translateX(0)", position: "relative" }}>
       <Box

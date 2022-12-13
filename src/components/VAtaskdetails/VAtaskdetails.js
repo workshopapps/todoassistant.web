@@ -56,35 +56,35 @@ const TaskDetails = () => {
     return moment(date).format("LT");
   };
 
-  // function stringToColor(string) {
-  //   let hash = 0;
-  //   let i;
+  function stringToColor(string) {
+    let hash = 0;
+    let i;
 
-  //   /* eslint-disable no-bitwise */
-  //   for (i = 0; i < string.length; i += 1) {
-  //     hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  //   }
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
 
-  //   let color = "#";
+    let color = "#";
 
-  //   for (i = 0; i < 3; i += 1) {
-  //     const value = (hash >> (i * 8)) & 0xff;
-  //     color += `00${value.toString(16)}`.slice(-2);
-  //   }
-  //   /* eslint-enable no-bitwise */
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
 
-  //   return color;
-  // }
+    return color;
+  }
 
-  // function stringAvatar(name) {
-  //   const upperName = name.toUpperCase();
-  //   return {
-  //     sx: {
-  //       bgcolor: stringToColor(upperName)
-  //     },
-  //     children: `${upperName.split(" ")[0][0]}${upperName.split(" ")[1][0]}`
-  //   };
-  // }
+  function stringAvatar(name) {
+    const upperName = name.toUpperCase();
+    return {
+      sx: {
+        bgcolor: stringToColor(upperName)
+      },
+      children: `${upperName.split(" ")[0][0]}${upperName.split(" ")[1][0]}`
+    };
+  }
   return (
     <div className={styles.TaskDetail_wrapper}>
       <div className={styles.TaskDetail_header}>
@@ -123,10 +123,7 @@ const TaskDetails = () => {
             <p className={styles.TaskDetail_assignto_head}>Assigned to</p>
             <div className={styles.TaskDetail_assignto}>
               {/* <img src={VAavatar} alt="assigned va" /> */}
-              <Avatar
-                src={data.user.avatar}
-                sx={{ height: "35px", width: "35px" }}
-              />
+              <Avatar {...stringAvatar("James Ishaku")} />
               <p className={styles.TaskDetail_va_name}>{vaName}</p>
             </div>
             <p className={styles.TaskDetail_reminder_time_head}>
