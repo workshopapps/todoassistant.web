@@ -16,7 +16,7 @@ const ClientName = ({ fullName, align, image }) => {
         size={{ width: 40, height: 40 }}
         fullName={fullName.toUpperCase()}
       />
-      <Typography fontSize={`16px`}>{fullName}</Typography>
+      <Typography fontSize={{ xs: `14px`, sm: `16px` }}>{fullName}</Typography>
     </Stack>
   );
 };

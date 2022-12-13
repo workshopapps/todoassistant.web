@@ -2,17 +2,17 @@
 
 @import "../../scss/mixins";
 
-p{
-  font-family: Lato , "sans-serif" !important;
-  text-transform: capitalize;
-}
+// p{
+//   font-family: Lato , "sans-serif" !important;
+//   text-transform: capitalize;
+// }
 .TaskDetail_wrapper {
   max-height: 96vh;
   .TaskDetail_header {
     display: flex;
     flex-direction: column;
     padding: 1rem 2.5rem;
-    background: #ffffff;
+    background: #fff;
     border-bottom: 1px solid #e9f3f5;
     border-radius: 8px;
     margin: 24px;

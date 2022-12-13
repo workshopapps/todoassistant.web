@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import { toast } from "react-toastify";
+
 // import DialogTitle from '@mui/material/DialogTitle';
 import Slide from "@mui/material/Slide";
 import { Stack } from "@mui/material";
@@ -124,7 +126,8 @@ const NewsLetter = () => {
       );
   };
 
-  const handleNewsLetter = async () => {
+  const handleNewsLetter = async e => {
+    e.preventDefault();
     if (email !== "" && validateEmail(email)) {
       try {
         const response = await axios.post(
@@ -134,8 +137,11 @@ const NewsLetter = () => {
           }
         );
         if (response.status == 200) {
-          handleClickOpen();
+          toast.success("Thank you for subscribing", {
+            position: toast.POSITION.TOP_RIGHT
+          });
           setError("new");
+          setEmail("");
         }
         if (response.status == 400) {
           setError("exist");
@@ -177,12 +183,13 @@ const NewsLetter = () => {
               value={email}
               placeholder="Enter email"
             />
-            <Button
-              onClick={handleNewsLetter}
-              className={[style.subscribe_button].join(" ")}
+
+            <button
+              onClick={e => handleNewsLetter(e)}
+              className={[style.subscribe_button, `hover`].join(" ")}
             >
               Subscribe
-            </Button>
+            </button>
           </Stack>
         </Box>
       </form>

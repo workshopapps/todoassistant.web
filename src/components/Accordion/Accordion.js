@@ -129,6 +129,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         marginLeft: "10px",
                         paddingRight: "30px",
@@ -150,6 +152,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -167,6 +171,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "13px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -179,6 +185,8 @@ const Accordion = ({
                   <Box display="flex" alignItems={"center"} gap="5px">
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         marginLeft: "20px",
                         fontSize: "13px",
                         color: ` ${
@@ -203,6 +211,8 @@ const Accordion = ({
               >
                 <span
                   style={{
+                    fontFamily: `Lato 'sans-serif'`,
+                    textTransform: "capitalize",
                     color: `${(activeState === task && "#fff") || "#714DD9"}`
                   }}
                   className={styles.task__date}
@@ -295,6 +305,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         marginLeft: "10px",
                         paddingRight: "30px",
@@ -316,6 +328,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "15px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -333,6 +347,8 @@ const Accordion = ({
                     />
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         fontSize: "13px",
                         color: `${
                           (activeState === task && "#fff") || "rgb(150 144 144)"
@@ -345,6 +361,8 @@ const Accordion = ({
                   <Box display="flex" alignItems={"center"} gap="5px">
                     <span
                       style={{
+                        fontFamily: `Lato 'sans-serif'`,
+                        textTransform: "capitalize",
                         marginLeft: "20px",
                         fontSize: "13px",
                         color: ` ${
@@ -369,6 +387,8 @@ const Accordion = ({
               >
                 <span
                   style={{
+                    fontFamily: `Lato 'sans-serif'`,
+                    textTransform: "capitalize",
                     color: `${(activeState === task && "#fff") || "#714DD9"}`
                   }}
                   className={styles.task__date}
