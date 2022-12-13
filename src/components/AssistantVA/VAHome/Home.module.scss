@@ -1,5 +1,4 @@
 .va_section_container,
-.va_home_title,
 .va_home_links,
 .task_view,
 .task_details_container,
@@ -56,6 +55,10 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.va_home_clock{
+    display: block;
+}
+
 .va_home_links {
     gap: 2rem;
 }
@@ -78,8 +81,7 @@
     padding: 1rem 0;
 }
 
-.active,
-.va_home_link:hover {
+.active {
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
@@ -87,11 +89,16 @@
     border-bottom: 2px solid #714DD9;
 }
 
+.va_home_link:hover {
+    color: #714DD9;
+}
+
 .va_tasks {
     background: white;
     margin-top: 1rem;
     height: 70vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 8px 8px 0px 0px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -125,7 +132,7 @@
 }
 
 .task_container {
-    padding: 2rem;
+    padding: 1rem 2rem;
     border-bottom: 1px solid #E9F3F5;
     gap: 1.5rem;
 
@@ -134,10 +141,15 @@
     }
 }
 
-.va_client_img {
+.va_client_img, 
+.va_avatar {
     height: 35px;
     width: 35px;
     border-radius: 50%;
+}
+
+.va_client_img {
+    
     color: white;
     background: #714DD9;
     text-align: center;
@@ -282,11 +294,45 @@
     color: #F2A005;
 }
 
+/* Extra */
+/* Scrollbar */
+
+.va_tasks::-webkit-scrollbar {
+  display: block !important;
+   background-color: transparent; 
+  width: 6px;
+  height: 10px !important;
+}
+
+/* Track */
+.va_tasks::-webkit-scrollbar-track {
+  display: block !important;
+  width: 5px;
+  /* background-color: black; */
+  height: 10px !important;
+}
+
+/* Handle */
+.va_tasks::-webkit-scrollbar-thumb {
+  display: block !important;
+ 
+  border-radius: 5px;
+  height: 10px !important;
+  /* width: 5px; */
+  background-color: #714dd9c7;
+}
+
+/* Handle on hover */
+.va_tasks::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 // Tablet Screen Downwards
 @media screen and (max-width: 768px) {
     .task_details {
         flex-flow: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .va_home_container_active {
@@ -305,7 +351,21 @@
     }
 
     .taskDetail_container {
-        width: 80%;
+        width: 100vw;
+        height: 100vh;
         background: white;
     }
 }
+
+// Mobile Screen Downwards
+@media screen and (max-width: 420px) {
+    .va_home_clock {
+        display: none;
+    }
+    .task_view {
+        .va_task_img {
+            display: none;
+        }
+    }
+}
+
