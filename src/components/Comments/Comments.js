@@ -113,10 +113,9 @@ const Comments = () => {
         // setIsLoadiing(false);
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setIsLoadiing(false);
       }
-      //  finally{
-      //   setIsLoadiing(false)
-      // }
     }
   };
 
