@@ -9,7 +9,7 @@ import TextInput from "./TextInput/TextInput";
 import useSound from "use-sound";
 import useDetectKeyboard from "use-detect-keyboard-open";
 import messageSound from "../../assets/sounds/message.mp3";
-import emoji from "../../assets/emoji.png";
+import emoji from "../../assets/emoji.webp";
 import Picker from "emoji-picker-react";
 // import { FaSmileWink } from "react-icons/fa";
 
