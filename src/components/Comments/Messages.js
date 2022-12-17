@@ -1,9 +1,13 @@
 // import React from "react";
 // import { BiLoaderCircle } from "react-icons/bi";
 // import { AiOutlineCheckCircle } from "react-icons/ai";
+import moment from "moment";
 import styles from "./Comments.module.scss";
 
 const Messages = ({ data }) => {
+  const remeiningTime = date => {
+    return moment(date).endOf(date).fromNow();
+  };
   return data?.map(m => (
     <div
       key={m.id}
@@ -43,28 +47,30 @@ const Messages = ({ data }) => {
         style={{
           display: `${(m.status === "user" && "block") || "none"}`,
           position: "absolute",
-          right: `${(m.status === "user" && "14px") || ""} `,
-          bottom: "3px",
+          right: `${(m.status === "user" && "-12px") || ""} `,
+          bottom: "-17px",
           fontSize: "10px",
-          color: "white"
+          color: "rebeccapurple",
+          fontStyle: "italic"
         }}
         className={styles.time}
       >
-        4pm{" "}
+        {remeiningTime(m.created_at)}
       </span>
 
       <span
         style={{
           display: `${(m.status === "user" && "none") || "block"}`,
           position: "absolute",
-          left: `${(m.status === "user" && "") || "14px"} `,
-          bottom: "3px",
+          left: `${(m.status === "user" && "") || "-12px"} `,
+          bottom: "-17px",
           fontSize: "10px",
-          color: "white"
+          color: "rebeccapurple",
+          fontStyle: "italic"
         }}
         className={styles.time}
       >
-        4pm{" "}
+        {remeiningTime(m.created_at)}
       </span>
     </div>
   ));

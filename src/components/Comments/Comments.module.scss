@@ -92,7 +92,7 @@
 }
 
 .emojiFace:hover {
-  color: darkorange;
+  color: rgb(247, 0, 255);
 }
 
 .message,
@@ -100,6 +100,10 @@
 .loading,
 .time {
   animation: message 1s ease-in-out 1;
+}
+
+.spinner{
+  animation : spinner 3.4s linear infinite;
 }
 
 @media screen and (max-width: 750px) {
@@ -237,5 +241,23 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    color: rebeccapurple;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: rgb(247, 0, 255);
+  }
+  75% {
+    color: red;
+  }
+  100% {
+    color: rebeccapurple;
   }
 }

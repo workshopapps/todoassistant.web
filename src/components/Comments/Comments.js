@@ -162,9 +162,12 @@ const Comments = () => {
   return (
     <>
       {(isLoading && (
-        <div style={{ width: "100%", display: "flex", placeItems: "center" }}>
+        <div style={{ width: "100%", display: "flex", placeContent: "center" }}>
           {" "}
-          <CircularProgress />{" "}
+          <CircularProgress
+            className="spinner"
+            sx={{ color: "rebeccapurple" }}
+          />{" "}
         </div>
       )) || (
         <>
