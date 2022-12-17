@@ -1,9 +1,14 @@
 // import React from "react";
 // import { BiLoaderCircle } from "react-icons/bi";
 // import { AiOutlineCheckCircle } from "react-icons/ai";
+import moment from "moment";
 import styles from "./Comments.module.scss";
 
 const Messages = ({ data }) => {
+  const remeiningTime = date => {
+    return moment(date).endOf(date).fromNow();
+  };
+
   return data?.map(m => (
     <div
       key={m.id}
@@ -50,7 +55,7 @@ const Messages = ({ data }) => {
         }}
         className={styles.time}
       >
-        4pm{" "}
+        {remeiningTime(m.created_at)}
       </span>
 
       <span
