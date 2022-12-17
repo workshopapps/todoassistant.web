@@ -165,7 +165,7 @@ const Comments = () => {
         <div style={{ width: "100%", display: "flex", placeContent: "center" }}>
           {" "}
           <CircularProgress
-            className="spinner"
+            className={styles.spinner}
             sx={{ color: "rebeccapurple" }}
           />{" "}
         </div>
