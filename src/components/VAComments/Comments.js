@@ -158,9 +158,12 @@ const Comments = () => {
   return (
     <>
       {(isLoading && (
-        <div style={{ width: "100%", display: "flex", placeItems: "center" }}>
+        <div style={{ width: "100%", display: "flex", placeContent: "center" }}>
           {" "}
-          <CircularProgress />{" "}
+          <CircularProgress
+            className={styles.spinner}
+            sx={{ color: "rebeccapurple" }}
+          />{" "}
         </div>
       )) || (
         <>
@@ -185,47 +188,44 @@ const Comments = () => {
               {/* BOTTOM */}
               <div ref={bottomRef}></div>
             </div>
-            <div className={styles.inputField}>
-              {/* INput Emoji Here */}
-              <div>
-                <img
-                  src={emoji}
-                  alt="emoji"
-                  style={{ height: "40px", cursor: "pointer" }}
-                  onClick={() => setShowPicker(prev => !prev)}
-                />
-                {showPicker && (
-                  <Picker
-                    className={styles.emoji}
-                    onEmojiClick={onEmojiClick}
-                  />
-                )}
-              </div>
-              {/* Message field */}
-              <input
-                type={"text"}
-                style={{ fontSize: "20px", display: "none" }}
-                required
-                title="message"
-                placeholder="Type Your message here"
-                value={message}
-                onChange={handleMessage}
-                onKeyDown={handleEnter}
+          </div>
+          <div className={styles.inputField}>
+            {/* INput Emoji Here */}
+            <div>
+              <img
+                src={emoji}
+                alt="emoji"
+                style={{ height: "40px", cursor: "pointer" }}
+                onClick={() => setShowPicker(prev => !prev)}
               />
-              <TextInput value={message} onChange={handleMessage} />
-
-              {/* submitIcon */}
-              <BiSend
-                style={{
-                  backgroundColor: `${
-                    (canSend && "rebeccapurple") || "rgb(51 51 51 / 29%)"
-                  }`
-                }}
-                className={styles.sendButton}
-                onClick={handleSend}
-                pointerEvents={`${(canSend && "auto") || "none"}`}
-              />
+              {showPicker && (
+                <Picker className={styles.emoji} onEmojiClick={onEmojiClick} />
+              )}
             </div>
+            {/* Message field */}
+            <input
+              type={"text"}
+              style={{ fontSize: "20px", display: "none" }}
+              required
+              title="message"
+              placeholder="Type Your message here"
+              value={message}
+              onChange={handleMessage}
+              onKeyDown={handleEnter}
+            />
+            <TextInput value={message} onChange={handleMessage} />
+
+            {/* submitIcon */}
+            <BiSend
+              style={{
+                backgroundColor: `${
+                  (canSend && "rebeccapurple") || "rgb(51 51 51 / 29%)"
+                }`
+              }}
+              className={styles.sendButton}
+              onClick={handleSend}
+              pointerEvents={`${(canSend && "auto") || "none"}`}
+            />
           </div>
         </>
       )}
