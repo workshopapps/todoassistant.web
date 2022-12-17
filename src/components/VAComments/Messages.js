@@ -48,10 +48,11 @@ const Messages = ({ data }) => {
         style={{
           display: `${(m.status === "va" && "block") || "none"}`,
           position: "absolute",
-          right: `${(m.status === "va" && "14px") || ""} `,
-          bottom: "3px",
+          right: `${(m.status === "va" && "0") || ""} `,
+          bottom: "-17px",
           fontSize: "10px",
-          color: "white"
+          color: "rebeccapurple",
+          fontStyle: "italic"
         }}
         className={styles.time}
       >
@@ -62,14 +63,15 @@ const Messages = ({ data }) => {
         style={{
           display: `${(m.status === "va" && "none") || "block"}`,
           position: "absolute",
-          left: `${(m.status === "va" && "") || "14px"} `,
-          bottom: "3px",
+          left: `${(m.status === "va" && "") || "0"} `,
+          bottom: "-17px",
           fontSize: "10px",
-          color: "white"
+          color: "rebeccapurple",
+          fontStyle: "italic"
         }}
         className={styles.time}
       >
-        4pm{" "}
+        {remeiningTime(m.created_at)}
       </span>
     </div>
   ));
