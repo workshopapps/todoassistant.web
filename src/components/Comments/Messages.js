@@ -47,7 +47,7 @@ const Messages = ({ data }) => {
         style={{
           display: `${(m.status === "user" && "block") || "none"}`,
           position: "absolute",
-          right: `${(m.status === "user" && "-12px") || ""} `,
+          right: `${(m.status === "user" && "0") || ""} `,
           bottom: "-17px",
           fontSize: "10px",
           color: "rebeccapurple",
@@ -62,7 +62,7 @@ const Messages = ({ data }) => {
         style={{
           display: `${(m.status === "user" && "none") || "block"}`,
           position: "absolute",
-          left: `${(m.status === "user" && "") || "-12px"} `,
+          left: `${(m.status === "user" && "") || "0"} `,
           bottom: "-17px",
           fontSize: "10px",
           color: "rebeccapurple",
