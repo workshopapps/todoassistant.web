@@ -15,12 +15,14 @@ import Picker from "emoji-picker-react";
 
 import "./Comments.css";
 import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 const Comments = () => {
   const { id: taskId } = useParams();
   const [play] = useSound(messageSound);
   const bottomRef = useRef(null);
   const [apiData, setApiData] = useState([]);
+  const [isLoading, setIsLoadiing] = useState(true);
   const [sent, setSent] = useState(false);
   const [typedMessage, setTypedMessage] = useState(null);
   const [canSend, setCanSend] = useState(false);
@@ -41,7 +43,13 @@ const Comments = () => {
     sendComment();
     setApiData([
       ...apiData,
-      { id: id, status: "va", comment: message, isEmoji: !typedMessage }
+      {
+        id: id,
+        status: "va",
+        comment: message,
+        isEmoji: !typedMessage,
+        created_at: new Date()
+      }
     ]);
     setCanSend(false);
     setTypedMessage(false);
@@ -78,25 +86,34 @@ const Comments = () => {
   };
 
   const getComments = async () => {
+    setIsLoadiing(true);
     let va = JSON.parse(localStorage.getItem("VA"));
 
     if (va) {
-      const response = await axios.get(
-        `https://api.ticked.hng.tech/api/v1/task/comment/${taskId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${va.extra.token}`
+      try {
+        const response = await axios.get(
+          `https://api.ticked.hng.tech/api/v1/task/comment/${taskId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${va.extra.token}`
+            }
           }
+        );
+        console.log(response);
+        if (response.data.data) {
+          setApiData(response.data.data);
         }
-      );
-      console.log(response);
-      setApiData(response.data.data);
 
-      // const vaTasks = response.data.data;
+        // const vaTasks = response.data.data;
 
-      // setData(vaTasks);
-      // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
-      // setIsLoadiing(false);
+        // setData(vaTasks);
+        // localStorage.setItem("Tasks", JSON.stringify(vaTasks));
+        // setIsLoadiing(false);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoadiing(false);
+      }
     }
   };
 
@@ -140,63 +157,78 @@ const Comments = () => {
 
   return (
     <>
-      <div className={styles.commentWrapper}>
-        <div className={styles.comments} id={"chat"}>
-          {(!apiData && (
-            /* EMPTY STATE HERE */
-            <div className={styles.empty__state} style={{ marginTop: "119px" }}>
-              <h3 style={{ textAlign: "center", marginBottom: "10px" }}>
-                No Messages
-              </h3>
-              <p style={{ textAlign: "center" }}>Start a Conversation</p>
+      {(isLoading && (
+        <div style={{ width: "100%", display: "flex", placeContent: "center" }}>
+          {" "}
+          <CircularProgress
+            className={styles.spinner}
+            sx={{ color: "rebeccapurple" }}
+          />{" "}
+        </div>
+      )) || (
+        <>
+          <div className={styles.commentWrapper}>
+            <div className={styles.comments} id={"chat"}>
+              {(!isLoading && apiData.length === 0 && (
+                /* EMPTY STATE HERE */
+                <div
+                  className={styles.empty__state}
+                  style={{ marginTop: "119px" }}
+                >
+                  <h3 style={{ textAlign: "center", marginBottom: "10px" }}>
+                    No Messages
+                  </h3>
+                  <p style={{ textAlign: "center" }}>Start a Conversation</p>
+                </div>
+              )) || (
+                /* MESSAGES */
+
+                <Messages data={apiData} sent={sent} />
+              )}
+              {/* BOTTOM */}
+              <div ref={bottomRef}></div>
             </div>
-          )) || (
-            /* MESSAGES */
+          </div>
+          <div className={styles.inputField}>
+            {/* INput Emoji Here */}
+            <div>
+              <img
+                src={emoji}
+                alt="emoji"
+                style={{ height: "40px", cursor: "pointer" }}
+                onClick={() => setShowPicker(prev => !prev)}
+              />
+              {showPicker && (
+                <Picker className={styles.emoji} onEmojiClick={onEmojiClick} />
+              )}
+            </div>
+            {/* Message field */}
+            <input
+              type={"text"}
+              style={{ fontSize: "20px", display: "none" }}
+              required
+              title="message"
+              placeholder="Type Your message here"
+              value={message}
+              onChange={handleMessage}
+              onKeyDown={handleEnter}
+            />
+            <TextInput value={message} onChange={handleMessage} />
 
-            <Messages data={apiData} sent={sent} />
-          )}
-          {/* BOTTOM */}
-          <div ref={bottomRef}></div>
-        </div>
-      </div>
-      <div className={styles.inputField}>
-        {/* INput Emoji Here */}
-        <div>
-          <img
-            src={emoji}
-            alt="emoji"
-            style={{ height: "40px", cursor: "pointer" }}
-            onClick={() => setShowPicker(prev => !prev)}
-          />
-          {showPicker && (
-            <Picker className={styles.emoji} onEmojiClick={onEmojiClick} />
-          )}
-        </div>
-        {/* Message field */}
-        <input
-          type={"text"}
-          style={{ fontSize: "20px", display: "none" }}
-          required
-          title="message"
-          placeholder="Type Your message here"
-          value={message}
-          onChange={handleMessage}
-          onKeyDown={handleEnter}
-        />
-        <TextInput value={message} onChange={handleMessage} />
-
-        {/* submitIcon */}
-        <BiSend
-          style={{
-            backgroundColor: `${
-              (canSend && "rebeccapurple") || "rgb(51 51 51 / 29%)"
-            }`
-          }}
-          className={styles.sendButton}
-          onClick={handleSend}
-          pointerEvents={`${(canSend && "auto") || "none"}`}
-        />
-      </div>
+            {/* submitIcon */}
+            <BiSend
+              style={{
+                backgroundColor: `${
+                  (canSend && "rebeccapurple") || "rgb(51 51 51 / 29%)"
+                }`
+              }}
+              className={styles.sendButton}
+              onClick={handleSend}
+              pointerEvents={`${(canSend && "auto") || "none"}`}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };
