@@ -103,7 +103,7 @@
 }
 
 .spinner{
-  animation : spinner 3.4s linear infinite;
+  animation : spinner 3.4s linear infinite !important;
 }
 
 @media screen and (max-width: 750px) {
@@ -247,17 +247,22 @@
 @keyframes spinner {
   0% {
     color: rebeccapurple;
+    transform: rotate(0);
   }
   25% {
     color: red;
+    transform: rotate(90deg);
   }
   50% {
     color: rgb(247, 0, 255);
+    transform: rotate(180deg);
   }
   75% {
     color: red;
+    transform: rotate(360deg);
   }
   100% {
     color: rebeccapurple;
+    transform: rotate(0deg);
   }
 }
