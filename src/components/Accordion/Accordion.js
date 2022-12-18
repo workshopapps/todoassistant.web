@@ -121,7 +121,12 @@ const Accordion = ({
                   marginLeft={"30px"}
                   className={styles.info}
                 >
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="200px"
+                  >
                     {" "}
                     <Avatar
                       src={task.user.avatar}
@@ -144,7 +149,12 @@ const Accordion = ({
                       {task.user.name}{" "}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <img
                       src={activeState === task ? stopwatchlight : stopwatch}
                       alt="stopwatch"
@@ -163,7 +173,12 @@ const Accordion = ({
                       {remeiningTime(task.end_time)}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <img
                       style={{ objectFit: "contain" }}
                       src={activeState === task ? commentlight : comment}
@@ -182,7 +197,12 @@ const Accordion = ({
                       {"6 Comments"}{" "}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <span
                       style={{
                         fontFamily: `Lato 'sans-serif'`,
@@ -297,7 +317,12 @@ const Accordion = ({
                   marginLeft={"30px"}
                   className={styles.info}
                 >
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="200px"
+                  >
                     {" "}
                     <Avatar
                       src={task.user.avatar}
@@ -320,7 +345,12 @@ const Accordion = ({
                       {task.user.name}{" "}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <img
                       src={activeState === task ? stopwatchlight : stopwatch}
                       alt="stopwatch"
@@ -339,7 +369,12 @@ const Accordion = ({
                       {remeiningTime(task.end_time)}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <img
                       style={{ objectFit: "contain" }}
                       src={activeState === task ? commentlight : comment}
@@ -358,7 +393,12 @@ const Accordion = ({
                       {"6 Comments"}{" "}
                     </span>
                   </Box>
-                  <Box display="flex" alignItems={"center"} gap="5px">
+                  <Box
+                    display="flex"
+                    alignItems={"center"}
+                    gap="5px"
+                    width="130px"
+                  >
                     <span
                       style={{
                         fontFamily: `Lato 'sans-serif'`,
