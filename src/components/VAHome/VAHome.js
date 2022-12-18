@@ -3,32 +3,11 @@ import { Box, Typography } from "@mui/material";
 import styles from "./VAHome.module.scss";
 import Accordian from "../Accordion/Accordion";
 import axios from "axios";
-// import moment from "moment";
-// import VATaskdetails from "../VAtaskdetails/VAtaskdetails"
 
-// import { SelectDropdown } from "../SelectDropdown/SelectDropdown";
-// import tasks from "../Accordion/_mock";
-// import { AiOutlineDown } from "react-icons/ai";
-// import assign from "../../assets/autobrightnessassignicon.svg";
-// import clock from "../../assets/clockclockiicon.svg";
-// import closeIcon from "../../assets/close-circleclose.svg";
-// import comment from "../../assets/Frame24comment.svg";
 import smile from "../../assets/Subtractsmile.svg";
 import SkeletonLoader from "./Skeleton/SkeletonLoader";
 
 const VAHome = () => {
-  // const time = moment(data[0]?.end_time).format("111");
-  // const [num, setNum] = useState(data?.length);
-  // const [title, setTitle] = useState("ALL");
-  // const [singleDate, setSingleData] = useState({
-  //   title: data[0]?.title,
-  //   date: time,
-  //   description: data[0]?.description,
-  //   status: data[0]?.status,
-  //   client: data[0]?.user.name,
-  //   number: data[0]?.user.phone,
-  //   comment: 6
-  // });
   const [data, setData] = useState([]);
   const [activeClass, setActiveClass] = useState(2);
   const [isLoading, setIsLoadiing] = useState(true);
@@ -126,7 +105,7 @@ const VAHome = () => {
               textAlign: "center",
               cursor: "pointer",
               height: "50px",
-              maxWidth: "160px",
+              maxWidth: "151px",
               width: "100%"
             }}
             color={activeClass === 2 && " #714DD9"}
@@ -143,6 +122,8 @@ const VAHome = () => {
               cursor: "pointer",
               textAlign: "center",
               height: "50px",
+              maxWidth: "151px",
+              width: "100%",
               color: `${activeClass === 1 && " #714DD9"}`
             }}
             className={(activeClass === 1 && styles.active) || ""}
@@ -215,111 +196,6 @@ const VAHome = () => {
 
         {/* VATaskdetails */}
 
-        {/* SIDEBAR */}
-        {/* <Box
-          style={{
-            display: `${(data?.length === 0 && "none ") || "block"}`
-          }}
-          width={"42%"}
-          height="100%"
-          marginTop={"50px"}
-          position="absolute"
-          className={`${styles.sidebar__fixed} ${
-            (hidden && styles.hidden) || ""
-          } ${(dissapear && styles.dissapear) || ""}`}
-        >
-          {/* CLOSE ICON */}
-        {/* <img
-            src={closeIcon}
-            alt="close"
-            className={`${styles.closeIcon} ${(hidden && styles.hidden) || ""}`}
-            onClick={handleSideBar}
-          />
-          <Box
-            padding={"20px"}
-            paddingBottom={"10px"}
-            borderBottom="1px solid #E9F3F5"
-          >
-            <p
-              className={styles.title__hi}
-              style={{
-                color: "black",
-                fontSize: "18px",
-                fontWeight: 700,
-                paddingTop: "25px"
-              }}
-            >
-              {singleDate.title}
-            </p>
-          </Box>
-          <Box width={"100%"} padding="56px 24px">
-            <Box display={"flex"} gap="10px">
-              <img src={assign} alt="assign" />
-              <p>Assigned to me</p>
-            </Box>
-            <Box
-              width={"100%"}
-              border="1px solid #D3D0D9"
-              padding={"20px"}
-              borderRadius="10px"
-              marginTop={"15px"}
-            >
-              <h6 style={{ fontSize: "12px", fontWeight: "700" }}>STATUS</h6>
-              <Box display={"flex"} gap="5px" marginBottom={"15px"}>
-                <img src={clock} alt="assign" />
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: `${
-                      (singleDate.status === "Done" && "#53c41a") ||
-                      (singleDate.status === "Pending" &&
-                        "rgba(113, 77, 217)") ||
-                      (singleDate.status === "Overdue" && "rgba(255, 77, 79)")
-                    }`
-                  }}
-                >
-                  {singleDate.status}
-                </p>
-              </Box>
-              <h6 style={{ fontSize: "12px", fontWeight: "700" }}>DUE TIME</h6>
-              <p>{singleDate.date}</p>
-              <h6
-                style={{
-                  marginTop: "15px",
-                  fontSize: "12px",
-                  fontWeight: "700"
-                }}
-              >
-                CLIENT
-              </h6>
-              <Box
-                display={"flex"}
-                marginTop="10px"
-                justifyContent={"space-between"}
-              >
-                <Box display={"flex"} flexDirection="column">
-                  <h6 style={{ color: "#714DD9", fontSize: "12px" }}>
-                    {singleDate.client}{" "}
-                  </h6>
-                  <p style={{ fontSize: "12px" }}> +{singleDate.number} </p>
-                </Box>
-                <Box display={"flex"} alignItems="center" gap="5px">
-                  <img src={comment} alt="comment" />
-                  <h3 style={{ fontSize: "15px" }}>{singleDate.comment} </h3>
-                </Box>
-              </Box>
-            </Box>
-            <p
-              style={{
-                marginTop: "10px",
-                fontSize: "12px",
-                fontWeight: "700"
-              }}
-            >
-              Descrption
-            </p>
-            <p style={{ fontSize: "12px" }}>{singleDate.description} </p>
-          </Box> */}
         {/* </Box>  */}
         <Box
           className={`${styles.comment} ${hidden && styles.hidden} ${
